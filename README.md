@@ -6,7 +6,6 @@
 
 Comandos importantes
 
-
 # Comandos do Git
 
 ============
@@ -77,7 +76,6 @@ Um Resumo dos Comandos Git, lista de Comandos importantes do Git
 | `git log --summary` | Visualizar mudanças(detalhadas) |
 | `git log --oneline` | Visualizar mudanças (resumidamente) |
 | `git diff [source branch] [target branch]` | Preview mudanças |
-
 
 ## Html
 
@@ -215,6 +213,59 @@ Code	Output
 
 when the + operator is used with a String value, it is called the concatenation operator.
 
+
+The toPrecision() Method
+
+`toPrecision()` returns a string, with a number written with a specified length:
+
+
+```javascript
+var x = 9.656;
+x.toPrecision();        // returns 9.656
+x.toPrecision(2);       // returns 9.7
+x.toPrecision(4);       // returns 9.656
+x.toPrecision(6);       // returns 9.65600
+```
+
+
+The toFixed() Method
+
+`toFixed()` returns a string, with the number written with a specified number of decimals:
+
+```javascript
+var x = 9.656;
+x.toFixed(0);           // returns 10
+x.toFixed(2);           // returns 9.66
+x.toFixed(4);           // returns 9.6560
+x.toFixed(6);           // returns 9.656000
+```
+
+
+The toString() Method
+
+The `toString()` method returns a number as a string.
+
+All number methods can be used on any type of numbers (literals, variables, or expressions):
+
+```javascript
+var x = 123;
+x.toString();            // returns 123 from variable x
+(123).toString();        // returns 123 from literal 123
+(100 + 23).toString();   // returns 123 from expression 100 + 23
+```
+
+
+
+The toExponential() Method
+
+`toExponential()` returns a string, with a number rounded and written using exponential notation.
+
+A parameter defines the number of characters behind the decimal point:
+
+
+x.toExponential(2);     // returns 9.66e+0
+x.toExponential(4);     // returns 9.6560e+0
+x.toExponential(6);     // returns 9.656000e+0
 ### Criando arrays
 
 const arr = [1,2,3];
@@ -260,7 +311,6 @@ arr.fill(valor[, ínicio = 0[, fim = this.length]])
 Array(3).fill(4);                // [4, 4, 4]   preenche um vetor de tres posições com 4 
 [].fill.call({ length: 3 }, 4);  // {0: 4, 1: 4, 2: 4, length: 3}
 ```
-
 ### Alterando vetores (arrays)
 
 ```Javascript
@@ -270,7 +320,6 @@ var removedFromMyArray=array.shift(); // remove primeiro pos e retorna o element
 const tamanho  = myArray.unshift(["Paul",35]); /// adiciona na primeira posicao ao ser aplicado, retorna o tamanho do array  
 const alimentos = frutas.concat(salgados) ; // faz um merge concatenando em alimentos o array salgados e frutas 
 ```
-
 ### Iterando vetores (arrays)
 
 ```Javascript
@@ -281,7 +330,6 @@ frutas.forEach((fruta,index,arr) => console.log(index,fruta,arr));
 
 [id/name]: http://link-url/
 ```
-
 ```Javascript
 function multiplyAll(arr) {
   var product = 1;
@@ -297,7 +345,6 @@ function multiplyAll(arr) {
 
 multiplyAll([[1,2],[3,4],[5,6,7]]);
 ```
-
 ### Métodos de Arrays
 
 slice
@@ -311,7 +358,6 @@ Arr.slice(2); // [3,4,5]
 Arr.slice(-1); // [5]
 Arr.slice(-3); // [3,4,5]
 ```
-
 splice
 
 Não é imutavel, Altera o array adicionando novos elementos enquanto remove elementos antigos
@@ -324,7 +370,6 @@ Arr.splice(0,0,'first'); // [] /// inicio, quanto itens remove o que adicionar a
 console.log(arr); /// ["fisrt",1,2]; 
 
 ```
-
 map
 
 Retorna um novo array de mesmo tamanho iterando cada item de um array
@@ -334,7 +379,6 @@ const arr = [1,2,3,4,5];
 arr.map (value => value *2); // retorna um novo array [2,4,6,8,10]
 
 ```
-
 flat
 
 Retorna um novo array com todos os elementos de um sub-array concatenados de forma recursiva de acordo com a profundidade especificada (depth)
@@ -345,7 +389,6 @@ arr.flat(); // retorna um novo array com profundidade 1 [1,2,3,4]
 arr.flat(2); // retorna um novo array com profundidade 2 , neste caso não terá diferenca mas se houvessem outros arrays dentro de arr só iria até a segunda camanda de arr 
 
 ```
-
 flatMap
 
 Retorna um novo array assim como faz a função map e executa um flat de profundidade 1
@@ -355,7 +398,6 @@ const arr = [1,2,3,4];
 arr.flatMap (value => [value *2]); // retorna um novo array [2,4,6,8]
 arr.flatMap (value => [[value *2]]); // retorna um novo array [[2],[4],[6],[8]]
 ```
-
 keys
 
 retorna um array iterator que contem as chaves para cada elemento do array
@@ -368,7 +410,6 @@ arrIterator.next(); {value:1,done:false};
 arrIterator.next(); {value:2,done:false};
 arrIterator.next(); {value:3,done:true};
 ```
-
 values
 
 retorna um array iterator que contém os valores para cada elemento do array
@@ -381,7 +422,6 @@ arrIterator.next(); {value:2,done:false};
 arrIterator.next(); {value:3,done:false};
 arrIterator.next(); {value:4,done:true};
 ```
-
 entries
 
 retorna um par chave valor para cada elemento do array
@@ -394,7 +434,6 @@ arrIterator.next(); {value:[1,2],done:false};
 arrIterator.next(); {value:[2,3],done:false};
 arrIterator.next(); {value:[3,4],done:true};
 ```
-
 ### Buscar elementos
 
 find
@@ -406,7 +445,6 @@ const arr = [1,2,3,4];
 const firstGreatherThanTwo = arr.find (value => value > 2) ; /// 3 
 
 ```
-
 findIndex
 
 Retorna o indice do primeiro item de um array que satisfaz uma condição
@@ -415,7 +453,6 @@ Retorna o indice do primeiro item de um array que satisfaz uma condição
 const arr = [1,2,3,4];  
 const firstGreatherThanTwo = arr.findIndex (value => value > 2) ; /// 2
 ```
-
 filter
 
 Retorna um array com todos os elementos que satisfazem uma condição
@@ -425,7 +462,6 @@ const arr = [1,2,3,4];
 const allValuesGreatherThanTwo = arr.filter (value => value > 2) ; /// [3,4]
 
 ```
-
 indexOf
 
 Retorna o primeiro índice em que um elemento pode ser encontrado em um array
@@ -435,7 +471,6 @@ const arr = [1,3,3,4,3];
 const firstIndexOfItem = arr.indexOf(3); /// 1
 
 ```
-
 lastIndexOf
 
 Retorna o ultimo índice em que um elemento pode ser encontrado em um array
@@ -445,7 +480,6 @@ Retorna o ultimo índice em que um elemento pode ser encontrado em um array
 const arr = [1,3,3,4,3];  
 const firstIndexOfItem = arr.indexOf(3); /// 4
 ```
-
 includes
 
 Retorna um booleano verificando se determinado elemento existe no array
@@ -456,7 +490,6 @@ const hasItemOne = arr.includes(1); /// true
 const hasItemTwo = arr.includes(2); /// false 
 
 ```
-
 some
 
 Retorna um booleano verificando se pelo menos um item de um array satisfaz a condição
@@ -465,7 +498,6 @@ Retorna um booleano verificando se pelo menos um item de um array satisfaz a con
 const arr = [1,3,3,4,3];  
 const hasSomeEvenNumber = arr.some (value => value % 2 ===0 ) ; /// true
 ```
-
 every
 
 Retorna um booleano verificando se todos os itens de um array satisfazem uma condição
@@ -474,7 +506,6 @@ Retorna um booleano verificando se todos os itens de um array satisfazem uma con
 const arr = [1,3,3,4,3];  
 const allEvenNumbers = arr.every (value => value % 2 ===0 ) ; /// false
 ```
-
 sort
 
 ordenacao de acordo com condição
@@ -483,7 +514,6 @@ ordenacao de acordo com condição
 students.sort((current,next) => current.grade - next.grade) /// ordena do menor pro maior 
 students.sort((current,next) => next.grade - current.grade) /// ordena do maior pro menor 
 ```
-
 reverse
 
 inverte o array
@@ -492,7 +522,6 @@ inverte o array
 const arr = [1,2,3,4,5];  
 arr.reverse(); /// [5 , 4 , 3 , 2 , 1]
 ```
-
 join
 
 transformando um array em outro tipo de dados
@@ -502,7 +531,6 @@ join junta todos os elementos de um array separados por um delimitar e retorna u
 const arr = [1,2,3,4,5];  
 arr.join('-'); /// "1-2-3-4-5"
 ```
-
 reduce
 
 Retorna um novo tipo de dado iterando cada posicao de um array
@@ -511,7 +539,6 @@ Retorna um novo tipo de dado iterando cada posicao de um array
 const arr = [1,2,3,4,5];  
 arr.reduce ((total,value)=> total+= value, 0); /// para cada item executa afuncao o primeiro arg eh o retorno comeca com um inteiro com valor 0 
 ```
-
 ### Escopo
 
 Variables which are used without the var keyword are automatically created in the global scope. (mesmo dentro de funções)
@@ -551,7 +578,6 @@ switchOfStuff(1);
 
 
 ```
-
 Retornando undefined
 
 ```Javascript
@@ -560,7 +586,6 @@ return ;
 }
 
 ```
-
 ### objects
 
 ```Javascript
@@ -578,7 +603,6 @@ var anotherObject = {
 };
 
 ```
-
 ### delete
 
 propriedade make do objeto anotherObject
@@ -613,7 +637,6 @@ myObj.hasOwnProperty("top");    // true
 myObj.hasOwnProperty("middle"); // false
 
 ```
-
 JavaScript Object Notation or JSON is a related data interchange format used to store data.
 
 ```Javascript
@@ -633,7 +656,6 @@ var myStorage = {
 var gloveBoxContents = myStorage.car.inside["glove box"]; // acessando glove box 
 
 ```
-
 ### Função recursiva
 
 primeiro a função recursiva vai até a ultima opção e depois outras funções são ativadas exemplo :
@@ -650,7 +672,6 @@ function countup(n) {
 }
 console.log(countup(5)); // [ 1, 2, 3, 4, 5 ]
 ```
-
 At first, this seems counterintuitive since the value of n decreases, but the values in the final array are increasing. This happens because the push happens last, after the recursive call has returned. At the point where n is pushed into the array, countup(n - 1) has already been evaluated and returned [1, 2, ..., n - 1].
 
 ```Javascript
@@ -663,7 +684,6 @@ function rangeOfNumbers(startNum, endNum) {
 };
 
 ```
-
 ### Expressões regulares
 
 https://regexr.com/
@@ -695,7 +715,6 @@ abc…	Letters
 (abc|def)	Matches abc or def
 
 ```
-
 Regular Expressions: Using the Test MethodPassed
 Verificando se existe a string myregex dentro da string mystring
 Atenção ! é case sensitive
@@ -706,7 +725,6 @@ let testRegex = /Code/;
 testRegex.test(testStr);
 // Returns true
 ```
-
 Regular Expressions: Match a Literal String with Different Possibilities
 Procurando mais de uma palavra com o operador |
 
@@ -716,7 +734,6 @@ let petRegex = /dog|cat|bird/; // Change this line
 let result = petRegex.test(petString);
 
 ```
-
 Regular Expressions: Ignore Case While Matching
 Ignorando case sensitive
 
@@ -726,7 +743,6 @@ let fccRegex = /freecodecamp/i; // Change this line
 let result = fccRegex.test(myString);
 
 ```
-
 Regular Expressions: Extract Matches
 usando o match para verificar uma string por uma expressão regular (regex)
 
@@ -739,7 +755,6 @@ ourStr.match(ourRegex);
 // Returns ["expressions"]
 
 ```
-
 Regular Expressions: Find More Than the First Match
 Encontrando mais de um caso , retornando um vetor com as ocorrencias encontradas
 ignorando case sensitive
@@ -749,7 +764,6 @@ let repeatRegex = /Repeat/g;
 testStr.match(repeatRegex);
 // Returns ["Repeat", "Repeat", "Repeat"]
 ```
-
 Regular Expressions: Match Anything with Wildcard Period
 Utilizando coringas
 
@@ -760,7 +774,6 @@ let huRegex = /hu./;
 huRegex.test(humStr); // Returns true
 huRegex.test(hugStr); // Returns true
 ```
-
 Regular Expressions: Match Single Character with Multiple Possibilities
 Restringindo as possibilidades de match
 
@@ -775,7 +788,6 @@ bagStr.match(bgRegex); // Returns ["bag"]
 bugStr.match(bgRegex); // Returns ["bug"]
 bogStr.match(bgRegex); // Returns null
 ```
-
 Regular Expressions: Match Letters of the Alphabet
 Range de characteres
 
@@ -788,7 +800,6 @@ catStr.match(bgRegex); // Returns ["cat"]
 batStr.match(bgRegex); // Returns ["bat"]
 matStr.match(bgRegex); // Returns null
 ```
-
 Regular Expressions: Match Numbers and Letters of the Alphabet
 (tambem serve para numeros)
 
@@ -798,7 +809,6 @@ let myRegex = /[a-z0-9]/ig;
 // matches all letters and numbers in jennyStr
 jennyStr.match(myRegex);
 ```
-
 Regular Expressions: Match Single Characters Not Specified
 Negando caracteres (^dentro de parenteses)
 For example, /[^aeiou]/gi matches all characters that are not a vowel.
@@ -811,7 +821,6 @@ let myRegex = /[^0-9aeiou]/gi; // Change this line
 let result = quoteSample.match(myRegex); // Change this line
 console.log(result);
 ```
-
 Regular Expressions: Match Characters that Occur One or More Times
 Retorna quantas vezes um caractere é repetido mais de uma vez
 
@@ -821,7 +830,6 @@ let myRegex = /s+/gi; // Change this line
 let result = difficultSpelling.match(myRegex);/// s é repetido duas vezes 
 
 ```
-
 Regular Expressions: Match Characters that Occur Zero or More Times
 Match que verifica regex que com caracteres que acontecem 0 ou mais de uma vez
 
@@ -832,7 +840,6 @@ let chewieRegex = /Aa*/; // Change this line
 // Only change code above this line
 let result = chewieQuote.match(chewieRegex);
 ```
-
 Regular Expressions: Find Characters with Lazy Matching
 Lazy and Greedy matches :
 Regular expressions are by default greedy
@@ -858,7 +865,6 @@ let myRegex = /<h.*?>/; // retorna um vetor com <h.> dentro dele
 let result = text.match(myRegex);
 
 ```
-
 sem os colchetes, o operador ^ procura pela ocorrencia de um padrão no começo de uma string
 
 ```Javascript
@@ -866,7 +872,6 @@ let rickyAndCal = "Cal and Ricky both like racing.";
 let calRegex = /^Cal/; // Change this line
 let result = calRegex.test(rickyAndCal);
 ```
-
 o operador $ procura pela ocorrencia no final de uma string
 
 ```Javascript
@@ -875,7 +880,6 @@ let lastRegex = /caboose$/; // Change this line
 let result = lastRegex.test(caboose);
 
 ```
-
 Regular Expressions: Match All Letters and Numbers
 /\w/ é um atalho para uma regex que busca todas as letras e numeros (e tambem o underscore _ )  sem considerar o case sensitive
 
@@ -890,7 +894,6 @@ longHand.test(varNames); // Returns true
 shortHand.test(varNames); // Returns true
 
 ```
-
 Verificando as condições . Se uma entrada é verdadeira , o teste deve retornar verdadeira. Se nao encontra a opção retorna falsa .
 
 1) Usernames can only use alpha-numeric characters.
@@ -910,7 +913,6 @@ let userCheck = /^[a-z]([0-9][0-9]+|[a-z]+\d*)$/i;
 let result = userCheck.test(username);
 console.log(result);
 ```
-
 Regular Expressions: Match Whitespace
 Busca por espaço, enter, tab,  form feed, e nova linha   \s
 [ \r\t\f\n\v]
@@ -921,7 +923,6 @@ let spaceRegex = /\s/g;
 whiteSpace.match(spaceRegex);
 // Returns [" ", " "]
 ```
-
 Busca por nao whitespace
 
 ```Javascript
@@ -929,7 +930,6 @@ let whiteSpace = "Whitespace. Whitespace everywhere!"
 let nonSpaceRegex = /\S/g;
 whiteSpace.match(nonSpaceRegex).length; // Returns 32
 ```
-
 Regular Expressions: Specify Upper and Lower Number of Matches
 Buscar por um determinado numero de matches
 
@@ -940,7 +940,6 @@ let multipleA = /a{3,5}h/; /// busca por a aparecendo entre 3 a 5 vezes na strin
 multipleA.test(A4); // Returns true
 multipleA.test(A2); // Returns false
 ```
-
 egular Expressions: Specify Only the Lower Number of Matches
 
 ```Javascript
@@ -952,7 +951,6 @@ multipleA.test(A4); // Returns true
 multipleA.test(A2); // Returns false
 multipleA.test(A100); // Returns true
 ```
-
 Regular Expressions: Check for All or None
 ? Retorna true para 0 ou uma ocorrencia do caractere anterior
 
@@ -963,7 +961,6 @@ let rainbowRegex= /colou?r/;
 rainbowRegex.test(american); // Returns true
 rainbowRegex.test(british); // Returns true
 ```
-
 Regular Expressions: Positive and Negative Lookahead
 positive lookahead will look to make sure the element in the search pattern is there, but won't actually match it.  A positive lookahead is used as (?=...) where the ... is the required part that is not matched.
 
@@ -981,7 +978,6 @@ let qRegex = /q(?!u)/; /// busca q nao seguido de u sem retornar u
 quit.match(quRegex); // Returns ["q"]
 noquit.match(qRegex); // Returns ["q"]
 ```
-
 Uso com Test
 outro exemplo de lookahead
 Retorna quando ocorre entre 3 a 6 caracteres  \w{3,6}
@@ -993,7 +989,6 @@ let password = "abc123";
 let checkPass = /(?=\w{3,6})(?=\D*\d)/;
 checkPass.test(password); // Returns true
 ```
-
 Comeca com nao digito, tem cinco de comprimento e tem dois digitos seguidos
 
 ```Javascript
@@ -1002,7 +997,6 @@ let pwRegex = /^(?=\D)(\w{2,})(?=\d{2,})/ // Change this line
 let result = pwRegex.test(sampleWord);
 
 ```
-
 Regular Expressions: Check For Mixed Grouping of Characters
 
 ```Javascript
@@ -1011,7 +1005,6 @@ let testRegex = /P(engu|umpk)in/;
 testRegex.test(testStr);
 // Returns true
 ```
-
 Ignorando palavra no meio
 
 ```Javascript
@@ -1020,7 +1013,6 @@ let myRegex = /(?=.*Franklin|Eleanor)(?=.*Roosevelt).*/; // Change this line
 let result = myRegex.test(myString); // Change this line
 // After passing the challenge experiment with myString and see how the grouping works
 ```
-
 Regular Expressions: Reuse Patterns Using Capture Groups
 You can search for repeat substrings using capture groups. Parentheses, ( and ), are used to find repeat substrings. You put the regex of the pattern that will repeat in between the parentheses.
 
@@ -1033,7 +1025,6 @@ let repeatRegex = /(\w+)\s\1/;
 repeatRegex.test(repeatStr); // Returns true
 repeatStr.match(repeatRegex); // Returns ["regex regex", "regex"]
 ```
-
 Aqui ele procura o caractere inicio com um digito ou mais ,procura um espaço , repete o primeiro grupo (mais de um caractere), repete o espaço e procura o caractere de fim . Ele só respondera a essa regex entao 100 100 100 100 nao funciona pois ele nao encontra o caractere de fim e inicio com tres repeticoes entre eles
 
 ```Javascript
@@ -1042,7 +1033,6 @@ let reRegex = /^(\d+)\s\1\2\1$/; // Change this line
 let result = reRegex.test(repeatNum);
 
 ```
-
 Regular Expressions: Use Capture Groups to Search and Replace
 
 ```Javascript
@@ -1051,7 +1041,6 @@ let silverRegex = /silver/;
 wrongText.replace(silverRegex, "blue");
 // Returns "The sky is blue."
 ```
-
 You can also access capture groups in the replacement string with dollar signs ($).
 
 ```Javascript
@@ -1062,7 +1051,6 @@ let result = str.replace(fixRegex, replaceText);
 console.log (result);
 
 ```
-
 Regular Expressions: Remove Whitespace from Start and End
 Seleciona e remove um texto do inicio e final de uma string
 
@@ -1073,7 +1061,6 @@ let result = hello.replace(wsRegex, ""); // Change this line
 console.log (result);
 
 ```
-
 ### Scripts Interessantes
 
 Retorna o indice das posições de um vetor que satisfazem uma condição
@@ -1084,20 +1071,17 @@ console.log(data);
 // With ES6 arrow syntax
 console.log(data.map((_, i) => i).filter(e => data[e] === 3));
 ```
-
 Retorna o numero de elementos em pos que estão entre inicio e fim
 
 ```Javascript
     const numEntreInicioEFim = (pos.map((valor, indice) => valor)
     .filter(e => e>=inicio && e <=fim )).length;
 ```
-
 Retorna valores únicos de um array ordenado
 
 ```Javascript
        let valUnicos = [...new Set(vet.sort((current,next) => current - next))]; 
 ```
-
 Gerar numero entre dois intervalos excluindo o max
 
 ```Javascript
@@ -1109,7 +1093,6 @@ function randomRange(myMin, myMax) {
   // Only change code above this line
 }
 ```
-
 ```Javascript
 Em outras bases The parseInt() function parses a string and returns an integer. It takes a second argument for the radix, which specifies the base of the number in the string. The radix can be an integer between 2 and 36.
 
@@ -1119,7 +1102,6 @@ function convertToInteger(str,radix) {
 }
 convertToInteger("10011",2); /// converte a string para um inteiro na base binaria
 ```
-
 Definition and Usage
 The sort() method sorts the items of an array.
 The sort order can be either alphabetic or numeric, and either ascending (up) or descending (down).
@@ -1154,7 +1136,6 @@ const bar = [5, 18, 32, new Set, { user: 'Eleanor Roosevelt' }];
 bar.sort(); // returns [ 18, 32, 5, { user: 'Eleanor Roosevelt' }, Set {} ]
 
 ```
-
 It’s also worth noting that unlike many other JavaScript array functions, Array.sort actually changes, or mutates the array it sorts.
 
 ```Javascript
@@ -1162,19 +1143,16 @@ const baz = ['My cat ate my homework', 37, 9, 5, 17];
 baz.sort(); // baz array is modified
 console.log(baz); // shows [ 17, 37, 5, 9, 'My cat ate my homework' ]
 ```
-
 To avoid this, you can create a new instance of the array to be sorted and modify that instead. This is possible using an array method that returns a copy of the array. For example, Array.slice:
 
 ```Javascript
 const sortedBaz = baz.slice().sort(); // a new instance of the baz array is created and sorted
 ```
-
 r if you prefer a newer syntax, you can use the spread operator for the same effect:
 
 ```Javascript
 const sortedBaz = [...baz].sort(); // a new instance of the baz array is created and sorted
 ```
-
 Using Compare Functions to Sort
 
 Let’s say that foo and bar are the two elements being compared by the compare function, and the return value of the compare function is set up as follows:
@@ -1197,13 +1175,11 @@ function compare(a, b) {
 nums.sort(compare);
 // => 4, 12, 48, 79
 ```
-
 This is now a good candidate for an arrow function:
 
 ```Javascript
 nums.sort((a, b) => a - b);
 ```
-
 Ordenando Vetor utilizando função de comparação
 
 ```Javascript
@@ -1238,7 +1214,6 @@ function compareValues(key, order = 'asc') {
   };
 }
 ```
-
 To reverse the sorting order, you can invert the return value of the compare function:
 
 ```Javascript
@@ -1249,7 +1224,6 @@ unction compare(a, b) {
   return comparison * -1;
 }
 ```
-
 ```Javascript
 
 
@@ -1274,7 +1248,6 @@ var x; // Now x is undefined
 x = 5;// Now x is a Number 
 x = "John"; // Now x is a String
 ```
-
 Typescript -> É um superset da linguagem, adiciona tipos e funcionalidades que o javascript nao tem por padrão (ex: enum)
 
 Flow -> Semelhante ao typescript em relação a checagem de tipos , mas não é um superset da linguagem.
@@ -1286,10 +1259,6 @@ Closure -> Escopo léxico -> capacidade da funcao de lembrar o ambiente em que f
 obs: console.log( `1- 0 é : " ${exemplo}<span> </span>`); -> mistura variável e texto na impressão
 
 [https://github.com/luizrosalba/Introducao_ao_ES6/blob/master/closure.js](https://github.com/luizrosalba/Introducao_ao_ES6/blob/master/closure.js)
-
-
-
-
 
 Javascript algorithms and data Structues certification
 
@@ -1332,7 +1301,6 @@ const user = { name : 'A'; }; user.name = 'B' ; /// consigo alterar
 
 user = { name : 'B'; }; /// nao dá certo
 ```
-
 Tipos e variáveis
 Obs : Retorna typeof retorna o tipo da variável
 
@@ -1381,7 +1349,6 @@ delete user.name ; /// deleta a key name
 
 
 ```
-
 function = também é um objeto , mas que pode ser chamado array = um objeto que tem relação com os itens dele , relacionando cada item com o tipo atribuido
 
 // symbol cria um tipo unico
@@ -1410,7 +1377,6 @@ ex2) const symbol1 = Symbol('name'); const symbol2 = Symbol('name');
 const user = { [symbol1]: 'ABC', [symbol2]: 'DEF', } /// vc nao consegue sobrescrever essa propriedade mesmo elas tendo o mesmo atributo (name), ele vai criar dois symbols com name
 
 ```
-
 ### Aula2.1 Tipos e variáveis
 
 Obs : Retorna typeof retorna o tipo da variável
@@ -1461,7 +1427,6 @@ return user[prop];
 user.lastName = 'Cabrini'; ///cria uma nova propriedade
 
 ```
-
 ### funções de object:
 
 ```Javascript
@@ -1492,7 +1457,6 @@ function = também é um objeto , mas que pode ser chamado
 array = um objeto que tem relação com os itens dele , relacionando cada item com o tipo atribuido
 
 ```
-
 ### symbol cria um tipo unico
 
 Permite atributos privados dentro de objetos e classes, simulando um objeto do tipo enum.  Não é enumerable (isso é vc nao consegue enumerar ela como uma chave dentro de um for)
@@ -1530,7 +1494,6 @@ const user = {
 /// vc nao consegue sobrescrever essa propriedade mesmo elas tendo o mesmo atributo (name), ele vai criar dois symbols com name
 
 ```
-
 ### Aula 2.2 Functions_Operators
 
 #### ES 6 Arrow function
@@ -2010,7 +1973,7 @@ arr2 = [...arr1];  // Change this line
 
 console.log(arr2);
 
-###  Destructuring Assignment
+### Destructuring Assignment
 
 Extrai informações de um objeto de maneira visualmente limpa
 Destructuring assignment is special syntax introduced in ES6, for neatly assigning values taken directly from an object.
@@ -2478,7 +2441,6 @@ console.log(content.toString())
 
 console.log('end')
 ```
-
 ```Javascript
   
 const fs = require('fs')
@@ -2500,7 +2462,6 @@ for (const file of sentences) {
 console.log('end')
 
 ```
-
 Callback : função que será executada apos outra função. Leitura assincrona . Perceber que ele executou begin (síncrono) , iniciou a leitura do texto (assíncrono) que é demorada , nao parou a execução , executou o end (síncrono) e somente quando terminou a leitura que imprimiu o texto
 
 ```Javascript
@@ -2522,7 +2483,6 @@ fs.readFile(path.resolve(basePath, 'arquivo.txt'), { encoding: 'utf-8' }, (err, 
 
 console.log('End')
 ```
-
 Utilizando uma função como callback
 
 ```Javascript
@@ -2545,7 +2505,6 @@ function cb (err, data) {
   console.log(data)
 }
 ```
-
 Lendo 4 arquivos de maneira assíncrona, cada execução trará um resultado diferente pois não podemos prever qual levará menos tempo para ler. Cada Arquivo terá um callback
 
 ```Javascript
@@ -2572,7 +2531,6 @@ function cb (err, data) {
   console.log(data)
 }
 ```
-
 Callback hell
 
 ```Javascript
@@ -2603,7 +2561,6 @@ function cb (err, data) {
   console.log(data)
 }
 ```
-
 callback hell um pouco mais ordenado
 
 ```Javascript
@@ -2631,7 +2588,6 @@ function cb (err, data) {
   console.log(data)
 }
 ```
-
 CAllback recursivo
 
 ```Javascript
@@ -2657,7 +2613,6 @@ function cb (err, data, index, max) {
   return start(index + 1, max)
 }
 ```
-
 Utilizando promises ao inves de callbacks . todo catch e then nao é uma promise propriamente dita mas retorna uma promise
 
 ```Javascript
@@ -2675,7 +2630,6 @@ promise.then(
   (rej) => console.error(rej)
 )
 ```
-
 then = resolvido , catch = erro
 
 ```Javascript
@@ -2684,7 +2638,6 @@ promise.then((res)=> {),(rej)=>{})
 promise.then((res)=> {)) 
 promise.catch((rej)=>{}) 
 ```
-
 A maioria das libs externas nao funciona com promisify
 
 ```Javascript
@@ -2703,7 +2656,6 @@ readFileAsync(path.resolve(basePath, 'invictus.txt'), { encoding: 'utf-8' })
   .catch((err) => console.error(err))
 console.log('End')
 ```
-
 Encadeamento de promises
 podemos encadear thens e catches
 
@@ -2727,7 +2679,6 @@ coinFlip
   .then((success) => console.log('Yay 3'), (fail) => console.log('Error in third case'))
   .then(() => console.log('End3'))
 ```
-
 Cada catch só vale pra um then; quando ocorre um erro no then ele percorre todos os outros até encontrar o primeiro catch
 
 ```Javascript
@@ -2742,7 +2693,6 @@ coinFlip
   .then((success) => console.log('Yay 3'), (fail) => console.log('Error in third case'))
   .then(() => console.log('End3'))
 ```
-
 then = garçom (pode ter dois ) e catch seria outro pedido. A execução não para
 
 ```Javascript
@@ -2756,7 +2706,6 @@ coinFlip.then((data) => console.log(data))
 
 new Promise((resolve) => setTimeout(() => resolve(), 2000)).then(() => console.log('Yay'))
 ```
-
 Multiple catches
 
 ```Javascript
@@ -2797,7 +2746,6 @@ coinFlip.then((data) => console.log('Yay 1'))
 
 coinFlip.catch(() => console.log('First catch'))
 ```
-
 ```Javascript
 const coinFlip = new Promise((resolve, reject) => setTimeout(() => Math.random() > 0.5 ? resolve(true) : reject(false), 2000))
 let p = Promise.resolve('Yay').then(coinFlip) /// coinflip nao eh funcao eh uma promise 
@@ -2806,7 +2754,6 @@ let p = Promise.resolve('Yay').then(coinFlip) /// coinflip nao eh funcao eh uma 
 // P will resolve immediately to YAY, but will not be settled until the second promise resolves with the coinflip
 p.then(console.log).catch(() => console.log('error')) /// resolve a primeira depois espera 2 s e resolve a segunda 
 ```
-
 Finally Será sempre executando dando erro ou nao
 
 ```Javascript
@@ -2823,7 +2770,6 @@ readFileAsync(path.resolve(basePath, 'invictus.txt'), { encoding: 'utf-8' })
   .catch((err) => console.error(err))
   .finally(() => console.log('End'))
 ```
-
 Promise hell , encadeamento de promises
 
 ```Javascript
@@ -2851,7 +2797,6 @@ readFileAsync(path.resolve(basePath, 's1.txt'), { encoding: 'utf-8' })
   .then(console.log)
   .finally(() => console.log('End'))
 ```
-
 Melhorando o promise hell
 
 ```Javascript
@@ -2876,7 +2821,6 @@ function start (index, max) {
 
 start(1, 4)
 ```
-
 Promise.all resolve todas as promises
 Se qquer uma falhar vai dar erro em todas e retornara apenas o 1º catch
 
@@ -2898,7 +2842,6 @@ for (let i = 1; i <= 4; i++) promiseArray[i - 1] = read(i) // Arrays start at 0,
 
 Promise.all(promiseArray).then(console.log)
 ```
-
 ### Funções avançadas do ES6
 
 ### 1.1 Arrow function
@@ -2912,7 +2855,6 @@ pode-se omitir o return se o lado direito for apenas uma expressão
 var sum = a => a+5;  
 console.log(sum(1));
 ```
-
 parenteses quando há mais de um argumento
 
 ```javascript
@@ -2920,7 +2862,6 @@ var sum = (a,b)=> a+b;
 console.log(sum);
 console.log(sum(1,2));
 ```
-
 caso haja mais de uma expressão   expressão as chaves são obrigatórias
 
 ```javascript
@@ -2930,7 +2871,6 @@ var sum = (a,b)=> {
 }
 console.log(sum(1,2));
 ```
-
 ### Hoisting e Arrow function
 
 Arrow functions nao realizam hoisting , você terá erro se tentar invocar antes de declarar
@@ -2950,7 +2890,6 @@ Criando um objeto via arrow function
  var createObj = () => ({test:123});
 console.log(createObj());
 ```
-
 Obs: Não é possível criar um objeto usando uma função construtora por arrow function
 
 ### 1.2 Default Function Arguments
@@ -2966,7 +2905,6 @@ console.log(multiply(2,3)); //6
 console.log(multiply(2)); ///2 
 console.log(multiply(undefined,2));///4 
 ```
-
 ```javascript
 function multiply (a=1,b=a)
 {
@@ -2974,7 +2912,6 @@ function multiply (a=1,b=a)
 }
 console.log(multiply(2,undefined)); /// b =a resultado 4 
 ```
-
 lazy evaluation
 Sempre que o parametro for esquecido uma função será chamada
 
@@ -2990,7 +2927,6 @@ function multiply (a,b = randNumber())
 }
 console.log(multiply(2,undefined)); /// resultado aleatório só invocará a função randNumber caso não haja parametro2 
 ```
-
 ### 1.3 Enhanced Object Literals
 
 um objeto pode ter métodos
@@ -3001,7 +2937,6 @@ var obj = {
 }; 
 console.log(obj.sum(1,2));
 ```
-
 Também pode ser declarado como
 
 ```javascript
@@ -3011,7 +2946,6 @@ var obj = {
 
 console.log(obj.sum(1,2)); /// 3 
 ```
-
 No ES6 Quando a propriedade do objeto é igual a uma variavel , podemos omitir o prop1 : prop1 dentro do obj
 
 ```javascript
@@ -3021,7 +2955,6 @@ var obj = {
 }; 
 console.log (obj.prop1); /// bla bla 
 ```
-
 Também funciona com métodos
 
 ```javascript
@@ -3033,7 +2966,6 @@ var obj = {
 }; 
 obj.metodo1(); /// bla bla 
 ```
-
 No ES6 podemos também usar variaveis e até concatenar o nome da propriedade de um objeto
 
 ```javascript
@@ -3045,15 +2977,12 @@ var obj = {
 
 console.log(obj);
 ```
-
 ```javascript
 
 ```
-
 ```javascript
 
 ```
-
 ### Aplicando Conceitos Rest, Spread , Operator e Destructuring
 
 ### 2.1 Conheça Rest e Spread Operator
@@ -3072,7 +3001,6 @@ function soma(a,b){
 }
 console.log(soma(1,2,3,4,5)); /// 15 
 ```
-
 Depois do ES6 com o rest operator ... (tres pontos dentro da lista de argumentos)
 (pega todos os argumentos de uma função e transforma em um array)
 
@@ -3082,7 +3010,6 @@ function soma(...args){
 }
 console.log(soma(1,2,3,4,5)); //// 15 
 ```
-
 Obs : arguments tem como prototype um objeto enquanto o operador rest retorna um array
 Obs2 : arguments é inexistente em arrow functions
 
@@ -3094,7 +3021,6 @@ const sum = (...rest) => {
 } ;
 (sum(1,2,3,4,5)); /// 15 
 ```
-
 Apply pega o retorno do método multiply e aplica no metodo soma
 
 ```Javascript
@@ -3108,7 +3034,6 @@ const sum = (...rest) => {
 } ;
 (sum(5,5,5,2,3));
 ```
-
 Para evitar o problema dos contextos novamente , utiliza-se o spread operator ele pega todos os itens de um array e transforma em argumentos para uma segunda função (parecido com o apply)
 
 ```Javascript
@@ -3123,7 +3048,6 @@ const sum = (...rest) => {
 (sum(5,5,5,2,3)); ///750
 
 ```
-
 O spread operator pode ser usado em strings, arrays, e objetos literais e iteraveis
 
 ```Javascript
@@ -3137,7 +3061,6 @@ logArgs(...str); /// D i g
 logArgs(...arr); /// 1 2 3 cada item vira um argumento da funcao log
 
 ```
-
 Concatenando com o spread operator
 
 ```Javascript
@@ -3145,7 +3068,6 @@ const arr = [1,2,3,4];
 const arr2 = [...arr,5,6,7]; 
 console.log(arr2); /// 1 , 2 , 3 , 4, 5 , 6 ,7 
 ```
-
 Pode ser usado em objetos
 
 ```Javascript
@@ -3164,7 +3086,6 @@ console.log(obj2);
 /// obs; a ordem faz diferença  nesse caso obj vem antes de hello por isso a saida eh hello 
 
 ```
-
 Erro , não pode ser feito pois spread só pode ser usado com objetos iteraveis
 
 ```Javascript
@@ -3173,7 +3094,6 @@ const obj = {
 };
 const arr = [...obj];  /// erro 
 ```
-
 Shallow clone (clone raso ): Utilizar um spread operator para clonar um objeto inicial não permite que alterar o objeto clonado altere o objeto  inicial
 
 ```Javascript
@@ -3185,7 +3105,6 @@ obj2.test = 456 ;
 
 console.log(obj); /// 456 alterou o objeto inical 
 ```
-
 ```Javascript
 const obj = {
   test:123
@@ -3195,7 +3114,6 @@ obj2.test = 456 ;
 
 console.log(obj);/// 123  nao alterou o objeto inicial
 ```
-
 ### 2.2 Destructuring em React.js (imutável)
 
 utilizado para destruir arrays com uma notação enxuta
@@ -3216,7 +3134,6 @@ var [apple2,banana2,orange2,[tomato2]] =   [
 
 
 ```
-
 O mesmo pode ser feito com objetos
 
 ```Javascript
@@ -3228,7 +3145,6 @@ var {name} = obj /// destroi o objeto , procura a propriedade name e pega seu va
 console.log(name); 
 
 ```
-
 Destruindo e logo em seguida atribuindo a outra variável
 
 ```Javascript
@@ -3238,7 +3154,6 @@ var obj  = {
 var {name:name2} = obj
 console.log(name2); 
 ```
-
 Também pode ser feito com nestes props
 
 ```Javascript
@@ -3254,7 +3169,6 @@ var {props:{age}} = obj;  /// com destruction
 console.log(age); 
 
 ```
-
 Posso acessar diretamente uma propriedade de um objeto e customizar seu nome
 
 ```Javascript
@@ -3264,7 +3178,6 @@ var [{name:fruitname,type}]=arr;
 console.log(fruitname,type); 
 
 ```
-
 Demonstrando a destrução como argumento com default values de uma função
 
 ```Javascript
@@ -3274,7 +3187,6 @@ function sum([a,b]=[0,0]){
 console.log(sum([5,5]));  ///10 
 console.log(sum([5]));  /// NAn ?  
 ```
-
 ### 3.1 Symbols e Iterators
 
 Symbols são maneiras de gerar um identificador único. Symbol nao pode ser invocado usando new.
@@ -3283,7 +3195,6 @@ Symbols são maneiras de gerar um identificador único. Symbol nao pode ser invo
 const uniqueId = Symbol (); 
 console.log (uniqueId); 
 ```
-
 Mesmo com o mesmo valor , symbols são identificadores unicos e retornam falso
 
 ```Javascript
@@ -3291,7 +3202,6 @@ const uniqueId = Symbol ("Oi");
 const uniqueId2 = Symbol ("Oi"); 
 console.log (uniqueId===uniqueId2); 
 ```
-
 Pode ser utilizado para gerar propriedades privadas. Não é listado se imprimimos (log) o objeto somente quando fazemos Object.getOwnPropertySymbols();
 
 Propriedades do symbols : Iterator , to Primitive
@@ -3301,7 +3211,6 @@ const arr = [1,2,3,4];
 const it = arr[Symbol.iterator]();
 console.log (it.next()); 
 ```
-
 Iterando só os valores
 
 ```Javascript
@@ -3313,7 +3222,6 @@ while (true){
   if (done)   break; 
 }
 ```
-
 Transformando um objeto não iteravel em iteravel, possivelmente igonrando valores , etc ...
 
 ```Javascript
@@ -3344,7 +3252,6 @@ const it = obj[Symbol.iterator]()
 console.log(it.next());
 
 ```
-
 ### 3.2 Generators
 
 Generators são funções com pausa e despausa de valores atraves da interface de iteração criada por um iterator
@@ -3383,7 +3290,6 @@ console.log(it.next());
 console.log(it.next());
 console.log(it.next());
 ```
-
 Pode receber valores de fora da função
 
 ```Javascript
@@ -3400,7 +3306,6 @@ console.log(it.next());
 console.log(it.next());
 console.log(it.next('Outside!'));
 ```
-
 Executa cada step do while apos invocar o next
 
 ```Javascript
@@ -3418,7 +3323,6 @@ console.log(it.next());
 console.log(it.next());
 
 ```
-
 Iterando um generator com pausa , reproduzindo o exemplo anterior de maneira mais simples
 Generator aqui foi utilizado como uma forma de construir iteradores
 
@@ -3439,7 +3343,6 @@ for (let value of obj) { /// for of é para objetos iteraveis
   console.log(value)
 }
 ```
-
 ### 4.1 Callbacks e Promises
 
 ### Callbacks e Promises
@@ -3496,7 +3399,6 @@ function doAll()
 
 doAll();
 ```
-
 ### Promise
 
 Uma Promisse pode ter 3 estados : Pending (em execução ), Fulfilled (terminou de executar)  e Reject (caso ocorra algum erro) . Uma grande vantagem da  promise é que já faz o tratamento do erro conforme abaixo
@@ -3520,7 +3422,6 @@ const doOtherThingPromise = new Promise((resolve,reject)=>{
 doSomethingPromise.then(data=>console.log(data));
 
 ```
-
 Tratamento com throw new Error :
 
 ```Javascript
@@ -3545,7 +3446,6 @@ doSomethingPromise
 .catch(error=>console.log(error));
 
 ```
-
 Executando uma depois a outra promise
 
 ```Javascript
@@ -3573,7 +3473,6 @@ doSomethingPromise
 .catch();
 
 ```
-
 Usando função para garantir o tempo de execução e incluindo um tratamento de erro global para ambos as promisses encadeadas
 
 ```Javascript
@@ -3602,7 +3501,6 @@ doSomethingPromise()
 .catch(error => console.log('Ops',error)); /// tratamento global de erro 
 
 ```
-
 Callback hell resolvido por promise
 
 ```Javascript
@@ -3633,7 +3531,6 @@ doSomethingPromise()
 .catch(error => console.log('Ops',error)); /// tratamento global de erro 
 
 ```
-
 Executando em paralelo ( o then só é executado após o fim da promise)
 
 ```Javascript
@@ -3661,7 +3558,6 @@ Promise.all([doSomethingPromise(),doOtherThingPromise()]).then(data => {
 });
 
 ```
-
 No Promisse all caso haja interrupção de uma , cancela-se o funcionamento das duas funções
 
 ```Javascript
@@ -3692,7 +3588,6 @@ Promise.all([doSomethingPromise(),doOtherThingPromise()]).then(data => {
 });
 
 ```
-
 Retornando a que resolver primeiro
 
 ```Javascript
@@ -3718,7 +3613,6 @@ Promise.race([doSomethingPromise(),doOtherThingPromise()]).then(data => {
   console.log(data);
 });
 ```
-
 ### 4.2 Fetch Async await Eventemmiter
 
 Fetch é uma nova API com o mesmo intuito da antiga xmlhttpRequest , fazer requisições, mas utiliza promises
@@ -3732,7 +3626,6 @@ fetch('/data.json').then(responseStream=>{
   })
 
 ```
-
 Caso haja um erro de rede será pego no catch
 
 ```Javascript
@@ -3746,7 +3639,6 @@ fetch('http:localhost:8081/data.json') /// erro de rede nao existe esta porta
   
 
 ```
-
 Outro exemplo , agora com erro de nome de arquivo inexistente
 
 ```Javascript
@@ -3759,7 +3651,6 @@ fetch('http:localhost:8080/datassss.json') /// erro de fim inesperado de input j
    });
 
 ```
-
 Tratando o erro para nao tentar parsear para json
 
 ```Javascript
@@ -3778,7 +3669,6 @@ fetch('http:localhost:8080/data222.json')
         console.log("Erro de rede",err);
    });
 ```
-
 por default o segundo parametro do fetch eh um get. mas podemos forçar um post
 
 ```Javascript
@@ -3800,7 +3690,6 @@ fetch('http:localhost:8080/data.json',{
         console.log("Erro de rede",err);
    });
 ```
-
 ### Async / Await
 
 A partir do ES7 , forma de criar promises de maneira mais simples e lidar com promises dentro de promises de maneira mais simples
@@ -3816,7 +3705,6 @@ console.log(simpleFunc().then(data=>{
 } ));
 console.log(simpleFunc());
 ```
-
 Tratando erros
 
 ```Javascript
@@ -3834,7 +3722,6 @@ simpleFunc()
 });
 
 ```
-
 Await : Espera que outras promises sejam resolvidas. O await aguardou a resolução da promise e retorno o dado
 
 ```Javascript
@@ -3859,7 +3746,6 @@ simpleFunc()
 });
 
 ```
-
 Await pode tornar o processamento asíncrono sequencial
 
 ```Javascript
@@ -3887,7 +3773,6 @@ simpleFunc()
   console.log(err);
 });
 ```
-
 Processando de maneira paralela
 
 ```Javascript
@@ -3914,7 +3799,6 @@ simpleFunc()
 });
 
 ```
-
 ### como funciona async/await
 
 Promise -> programação asíncrona
@@ -3958,7 +3842,6 @@ emitter.on('User logged',data => {
 
 emitter.emit('User logged' , {user : 'Celso' });
 ```
-
 Extendendo uma classe
 
 ```Javascript
@@ -3978,7 +3861,6 @@ users.on('User logged',data => {
 
 users.userLogged({user : "Luiz "}); 
 ```
-
 Trava o segundo login , users.once só permite 1 login
 
 ```Javascript
@@ -3999,7 +3881,6 @@ users.once('User logged',data => {
 users.userLogged({user : "Luiz "}); 
 users.userLogged({user : "joao "}); 
 ```
-
 Lidando com programação asincrona
 
 ```Javascript
@@ -4022,17 +3903,14 @@ users.on('User logged',data => {
 users.userLogged({user : "Luiz "}); 
 users.userLogged({user : "joao "}); 
 ```
-
 Event target trabalha com a api do browser eventListner
 
 ```Javascript
 
 ```
-
 ```Javascript
 
 ```
-
 ### 5 Tratamento e exceções
 
 ### 5.1 como Identificar erros
@@ -4054,7 +3932,6 @@ try{
 }
 console.log('keep going');  /// seria impresso 
 ```
-
 Utilizando a classe Error para gerar um erro e fornecer uma resposta customizada
 
 ```Javascript
@@ -4069,7 +3946,6 @@ try{
 }
 
 ```
-
 Extendendo a classe error
 
 ```Javascript
@@ -4107,7 +3983,6 @@ try{
 
 
 ```
-
 ### 5.2 Debugging parte 1
 
 Podemos utilziar a aba do chrome Networl dentro do modo desenvolvedor (cntrl + shift +i) PAra entender quais requisições estão sendo feitas, os arquivos que estão sendo utilizados ,etc.
@@ -4211,7 +4086,6 @@ alterar o package.json para executar o mocha
   }
 }
 ```
-
 criar o diretorio test ( usado pelo mocha)
 criar o arquivo math.spec.js dentro do diretorio (esse é o padrao TDD)
 
@@ -4228,7 +4102,6 @@ describe ('Math class',function (){
 });
 
 ```
-
 Criei o diretorio src com o arquivo math.js dentro
 
 ```Javascript
@@ -4238,7 +4111,6 @@ class Math {
 
 module.exports =Math; 
 ```
-
 rodei o npm run test
 erro -> undefined ==10 o teste executado deveria retornar 10 e  retorna undefined.
 
@@ -4251,7 +4123,6 @@ class Math {
 
 module.exports =  Math;  /// o mocha nao retorna mais o erro 
 ```
-
 Limpando a classe (TDD) também chamada de refatorar
 
 ```Javascript
@@ -4261,7 +4132,6 @@ class Math {
 
 module.exports =  Math; 
 ```
-
 Tornando math assíncrona
 
 ```Javascript
@@ -4274,7 +4144,6 @@ class Math {
 }
 module.exports =  Math; 
 ```
-
 e alterando mathspec para chamada assíncrona , percebemos que o código continua passando  , pois é assíncrono (no meu , diferente do vídeo,  talvez por ser uma versão mais atual, já mostra erros de validação)
 
 ```Javascript
@@ -4295,7 +4164,6 @@ describe ('Math class',function (){
 
 
 ```
-
 Precisamos então de uma maneira de validar valores assíncronos usando mocha
 Acrescente done no argumento da funcao dentro do it . atenção ! moca recomenda nao usar arrow fucntion
 
@@ -4319,7 +4187,6 @@ describe ('Math class',function (){
 });
 
 ```
-
 Escrevendo testes para funcoes que ainda nao existem
 
 ```Javascript
@@ -4342,7 +4209,6 @@ describe ('Math class',function (){
 });
 
 ```
-
 it.only executa somente este teste
 
 ```Javascript
@@ -4351,7 +4217,6 @@ it.only ('Multiply two numbers',function(){
        assert.equal(math.multiply(5,5),25);
    });
 ```
-
 it.skip pula o teste
 
 ```Javascript
@@ -4360,7 +4225,6 @@ it.skip pula o teste
        assert.equal(math.multiply(5,5),25);
    });
 ```
-
 mocha hooks (before each)
 executa codigo e evita repetições
 outros hooks : before , after e afterEach
@@ -4399,7 +4263,6 @@ describe ('Math class',function (){
    });
 });
 ```
-
 ### 5.3 Chai
 
 O moca nao possui uma ferramenta de assert. Ele usa uma ferramenta built in do node.
@@ -4441,7 +4304,6 @@ describe ('Math class',function (){
 
 
 ```
-
 Utilizando para validar objetos
 
 ```Javascript
@@ -4454,7 +4316,6 @@ Utilizando para validar objetos
        expect(obj).to.have.property('name'); /// mais legível 
    });
 ```
-
 Comparando objetos , cuidado !
 
 ```Javascript
@@ -4471,7 +4332,6 @@ Comparando objetos , cuidado !
        ///expect(obj).to.deep.equal(obj2); /// seriam iguals to deep faz uma comparação dos valores dos objetos 
    });
 ```
-
 ### 5.4 Sinon
 
 útil para testar métodos de objetos. Adicionei o método printSum na classe math como testar ?
@@ -4495,7 +4355,6 @@ class Math {
 
 module.exports =  Math; 
 ```
-
 Adicionar uma função espiã que diz se o método foi invocado (spy) na propriedade load do objeto res
 
 ```Javascript
@@ -4509,7 +4368,6 @@ it.only ('Calls req with sum and index values ',function(){
     expect(res.load.calledOnce).to.be.true;
 
 ```
-
 Verificando se o primeiro argumento é index
 
 ```Javascript
@@ -4523,7 +4381,6 @@ Verificando se o primeiro argumento é index
     expect(res.load.args[0][0]).to.be.equal('index');
  });
 ```
-
 Verificando se o segundo argumento é soma
 
 ```Javascript
@@ -4537,7 +4394,6 @@ Verificando se o segundo argumento é soma
     expect(res.load.args[0][1]).to.be.equal(10);
  });
 ```
-
 Confirma que o método nao foi chamado (stub)
 
 ```Javascript
@@ -4556,7 +4412,6 @@ Confirma que o método nao foi chamado (stub)
  });
 
 ```
-
 Passou pela checagem
 
 ```Javascript
@@ -4574,11 +4429,9 @@ Passou pela checagem
  });
 
 ```
-
 ```Javascript
 
 ```
-
 ## CSS
 
 https://github.com/luizrosalba/homecomstyledcomponents
@@ -4800,7 +4653,6 @@ const App = () => {
 };
 export default App;
 ```
-
 ### Manipulando Eventos
 
 - similar a mnanipular elementos do dom
@@ -4847,7 +4699,6 @@ const App = () => {
 };
 export default App;
 ```
-
 Mudando o contexto para dentro do app para acessar sem usar o this
 
 ```
@@ -4887,7 +4738,6 @@ const App = () => {
 };
 export default App;
 ```
-
 Adicionando um botao para deletar cada cliente na lista da aula anterior :
 
 ```
@@ -4953,7 +4803,6 @@ const handleClick = (e) =>{
 };
 export default App;
 ```
-
 Passando o id como argumento para o manipilador de eventos
 
 ```
@@ -5020,7 +4869,6 @@ const handleClick = (e,id) =>{
 };
 export default App;
 ```
-
 ### Pensando do jeito React
 
 - thinking react
@@ -5146,7 +4994,6 @@ create table client
 nome varchar (100) not null , 
 telefone varchar(15))
 ```
-
 - clicando no play a tabela será criada e dando um refresh na database aula você vera a table client
 - Comando ddl (criacao etc;) nao necessitam de commit cuidado , pois nao tem volta. dar um drop na tabela nao tem volta
 - Inserimos
@@ -5155,7 +5002,6 @@ telefone varchar(15))
 insert into client (codigo,nome,telefone)
 values(1,'Lorem Ipsum', '(88)- 8888 9999')
 ```
-
 - e para que seja acplicada aplicamos commit
 - ao realizar um select * from client vemos o usuario adicionado
 - ele se tornou o usuario postgre no ubuntu para mostrar que podemos fazer o mesmo pela linha de comando
@@ -5260,7 +5106,6 @@ ex :
 </soap:Body>
 </soap:Envelope> 
 ```
-
 ### Entendendo o que é WSDL e XSD
 
 WSDL
@@ -5336,7 +5181,6 @@ ex:
  ]
 }
 ```
-
 ### Integração com REST e métodos HTTP na prática
 
 Código de Estado (Status Code)
@@ -5566,7 +5410,6 @@ Exemplo de desenvolvimento de API em Node.js usando TDD
 ```
 npm install
 ```
-
 ### Criar container para o banco MongoDB com Docker
 
 Execute o arquivo para gerar o container:
@@ -5574,7 +5417,6 @@ Execute o arquivo para gerar o container:
 ```
 ./runDocker.sh
 ```
-
 *Obs.: O Docker precisa estar instalado. Instruções de como instalar o Docker em Windows, Mac e Linux, veja [este post](https://blog.umbler.com/br/containers-102-primeiros-passos-para-realizar-a-instalacao?a=7e8480pk).*
 
 ### Executando os testes
@@ -5584,13 +5426,11 @@ Para executar os testes unitários, use o comando:
 ```
 mpm run test:unit
 ```
-
 Para executar os testes de integração, use o comando:
 
 ```
 pm run test:integration
 ```
-
 ### Referências
 
 [Documentação do Express](https://expressjs.com)
@@ -5618,7 +5458,6 @@ Exemplo de API em Node.js usando JWT
 ```
     npm install
 ```
-
 ### Gerando certificados
 
 O algorítmo de encriptação do token usa o conteúdo de arquivos de certificados que contém as chaves pública e privada. Para gerar estes arquivos, execute o arquivo:
@@ -5626,7 +5465,6 @@ O algorítmo de encriptação do token usa o conteúdo de arquivos de certificad
 ```
 $ ./generateKeys.sh
 ```
-
 A senha solicitada pelo comando pode ficar em branco. Os arquivos **_private.key_** e **_public.key_** serão gerados na pasta **_src_**.
 
 ### Iniciar o servidor
@@ -5636,7 +5474,6 @@ Para iniciar o servidor Express, use o comando:
 ```
    npm start
 ```
-
 ### Referências
 
 [Documentação do Express](https://expressjs.com)
@@ -5716,7 +5553,6 @@ insatlei o yarn
   }
 }
 ```
-
 - dentro da pasta2 git init
   Initialized empty Git repository in /root/.vscode-server/teste2/.git/
   criei um arquivo .gitignore com a seguinte linha : node_modules
@@ -5747,7 +5583,6 @@ app.listen(process.env.PORT, () => {
   
 });
 ```
-
 e rodei no terminal para iniciallizar o servidor :
 
 - yarn start
@@ -5782,7 +5617,6 @@ export default {
      }
  }
 ```
-
 -yarn start
 
 -criamos uma pasta lib dentro de app com o arquivo Mail.js
@@ -5793,7 +5627,6 @@ import mailConfig from '../config/mail';
 
 export default nodemailer.createTransport(mailConfig)
 ```
-
 - Usamos o mailtrap.io para simular uma caixa de email
 - https://mailtrap.io/inboxes
 - criamos a pasta config/mail.js
@@ -5808,7 +5641,6 @@ export default{
       }
 }
 ```
-
 ```Usei minhas credenciais no .env para enviar o emal
 PORT = 8080
 
@@ -5818,7 +5650,6 @@ MAIL_USER= ---
 MAIL_PASS= ----
 
 ```
-
 <s>Não consegui enviar o email pois o meu container nao tem um servidor http , não consigo fazer o post que gera o usuario , a senha aleatória e manda o email. preciso instalar um servidor http para tanto. </s>
 
 - não precisei de nada disso. o nodemon já inicia o servidor n porta 8080 com o nodejs com as configurações realizadas no arquivo server.js Consegui fazer o post usando o postman desta forma :
@@ -5856,7 +5687,6 @@ export default {
     }
 }
 ```
-
 - E removemos o await do Mail.js
 - criamos um arquivo redis.js dentro da pasta config
 
@@ -5867,7 +5697,6 @@ export default {
 
 }
 ```
-
 e no arquivo .env adicionar
 REDIS_HOST = 127.0.0.1
 REDIS_PORT = 6379
@@ -5881,7 +5710,6 @@ REDIS_PORT = 6379
 ```
 export {default as RegistrationMail} from './RegistrationMail';
 ```
-
 Adicionamos um arquivo Queue.js dentro de lib
 
 ```Javascript
@@ -5914,7 +5742,6 @@ export default{
     }
 }
 ```
-
 Adicionamos o bull
 criamos um queue.js dentro de src para ouvir se há ou nao um processo na fila
 
@@ -5924,14 +5751,12 @@ import 'dotenv/config';
 import Queue from './app/lib/Queue';
 Queue.process();
 ```
-
 - Adicionamos o bull-board apk add bull-board para visualizar o servidor em
   http://localhost:8080/admin/queues
 
 ```embaixo do start no package.json
 "queue": "nodemon src/queue.js"
 ```
-
 - Sentry : https://sentry.io/
 - programa muito interessante que fica rodando dentro do servidor buscando exceções
   e nosso server.js ficou assim
@@ -5957,7 +5782,6 @@ app.listen(process.env.PORT, () => {
     console.log(`Server running on the ${process.env.PORT}`)
 });
 ```
-
 ## Node Hapi
 
 https://github.com/luizrosalba/node-hapijs
@@ -6021,7 +5845,6 @@ module.exports = async function (context, req) {
     }
 }
 ```
-
 - no terminal : func host start
 - funciona !
 - tiramos o metodo post da function.json
@@ -6046,7 +5869,6 @@ module.exports = async function (context, req) {
   ]
 }
 ```
-
 - funciona : http://localhost:7071/api/products
 - https://github.com/IgorHalfeld/digital-innovation-one-demo
 - copiamos o github para mongoclient.js em shared
@@ -6066,7 +5888,6 @@ module.exports = async context => {
   context.res = { status: 200, body };
 };
 ```
-
 - http://localhost:7071/api/products retorna os produtos cadastrados no banco que o prof. criou em mongodb+srv://god:dog@cluster0-dfsvs.mongodb.net/dgo?retryWrites=true&w=majority
 - trazendo só p id
 - func new
@@ -6093,7 +5914,6 @@ module.exports = async context => {
   ]
 }
 ```
-
 - no index
 
 ```
@@ -6119,7 +5939,6 @@ module.exports = async function (context, req) {
   context.res = { status: 200, body };
 };
 ```
-
 - retorna o produto
 - http://localhost:7071/api/products/5ddb00d8d90791a2afee4055
 - Rota para criar produtos
@@ -6156,7 +5975,6 @@ module.exports = async function (context, req) {
   }
 };
 ```
-
 - no function.json
 
 ```
@@ -6178,7 +5996,6 @@ module.exports = async function (context, req) {
   ]
 }
 ```
-
 - no postman
 - criar o body raw
 
@@ -6188,7 +6005,6 @@ module.exports = async function (context, req) {
     "price": 3 
 }
 ```
-
 -POST  http://localhost:7071/api/products/
 
 - 201 created
@@ -6201,7 +6017,6 @@ module.exports = async function (context, req) {
     "price": 3
   }
 ```
-
 - func new
 - 8
 - UpdateProduct
@@ -6242,7 +6057,6 @@ module.exports = async function (context, req) {
   }
 };
 ```
-
 na function
 
 ```
@@ -6264,7 +6078,6 @@ na function
   ]
 }
 ```
-
 - put http://localhost:7071/api/products/5f45667fc4d15216d86e6efe
   com o body raw para atualizar o preco para 4 reais
 
@@ -6274,7 +6087,6 @@ na function
     "price": 4 
 }
 ```
-
 - funciona !
   Criando o delete
 - func new
@@ -6315,7 +6127,6 @@ module.exports = async function (context, req) {
   }
 };
 ```
-
 No Functions
 
 ```
@@ -6337,7 +6148,6 @@ No Functions
   ]
 }
 ```
-
 - DELETE http://localhost:7071/api/products/5f45667fc4d15216d86e6efe
 - produto deletado com sucesso
 - deploy no azure
@@ -6366,7 +6176,6 @@ No Functions
 
 
 ```
-
 ## Clean Code
 
 https://github.com/luizrosalba/clean-code-javascript
