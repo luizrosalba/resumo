@@ -2,7 +2,112 @@
 
 ---
 
-## Html5
+## Html
+
+### Tags HTML
+
+- criado em 1991
+- tags com abertura e fechamento
+- estrutura básica
+
+```
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title> Luiz Fernando Rosalba </title> 
+</head>
+
+    <body> 
+        Luiz Fernando Rosalba
+    </body>
+
+</html>
+```
+
+Semantica após 2014 (nova versão , evita os divs)
+
+```
+<section>
+
+Representa uma seção genérica de conteúdo quando não houver um elemento mais específico para isso.
+
+<header>
+
+É o cabeçalho da página ou de uma seção da página e normalmente contém logotipos, menus, campos de busca.
+
+<article>
+
+Representa um conteúdo independente e de maior relevância dentro de uma página, como um post de blog, uma notícia em uma barra lateral ou um bloco de comentários. Um article pode conter outros elementos, como header, cabeçalhos, parágrafos e imagens.
+
+<aside>
+
+É uma seção que engloba conteúdos relacionados ao conteúdo principal, como artigos relacionados, biografia do autor e publicidade. Normalmente são representadas como barras laterais.
+
+<footer>
+
+Esse elemento representa o rodapé do conteúdo ou de parte dele, pois ele é aceito dentro de vários elementos, como article e section e até do body. Exemplos de conteúdo de um <footer> são informações de autor e links relacionados.
+
+<h1>-<h6>
+
+Eles não foram criados na versão 5 do HTML e nem são específicos para semântica, mas servem para esse propósito. São utilizados para marcar a importância dos títulos, sendo <h1> o mais importante e <h6> o menos. Uma dica: use apenas um <h1> por página, pois ele representa o objetivo da sua página.
+```
+
+```
+<a> Link </a>
+<a href = "linkedin.com/"> Link </a>
+<a href = "mailtto:luizrosalba@gmail.com"> email </a>
+```
+
+### Seletores no CSS
+
+- seletores são elementos html a,p,h1,h3
+- dentro de chaves uma propriedade e um valor
+
+```
+a,p,h1,h3{
+    color: blue; 
+    font-size:14px;
+}
+```
+
+- qualquer elemento terá a mesma aparencia
+- varias regras para elementos do mesmo tipo
+- Ids e classes podem representar qquer tipos de elementros
+- classe é precedida por um ponto
+- id precedido por um #
+
+```
+.header{
+    padding:10px
+}
+```
+
+```
+#header{
+    padding:15px
+}
+```
+
+- um id só pode ser usado uma vez na pagina
+- cada elemento html é representado por uma caixa (box model)
+- podem alterar sua aparencia
+  ![](https://github.com/luizrosalba/hmtl5css/blob/master/img/box_model.PNG?raw=true)
+- margens = espaçamento entre elementos
+- bordas circulam padding e conteudo
+- padding = espaçamento entre a borda e o conteudo
+- text, imagem , video , etc
+- padding: 10px (topo fundo  ) 5px (dir esq);
+- padding: topo 15 px direita 10 inferior px 5  esqueda px 0 ;
+- ou podemos especificar apenas uma usando padding- opçao
+- backgroud tem várias opções - image, position ...
+- usar o site mdn para ver as opções
+- https://developer.mozilla.org/pt-BR/docs/Web/Tutoriais
+- border : largura , cor e estilo (solida pontilhada , tracejada ... )
+- border radius - arredonda os cantos de um elemento
+- dica : se eh quadrado border-radius de 50% deixa ele circular
+
+## HTML5
 
 ## Javascript
 
@@ -1001,6 +1106,147 @@ function randomRange(myMin, myMax) {
 
 ```
 
+Definition and Usage
+The sort() method sorts the items of an array.
+
+The sort order can be either alphabetic or numeric, and either ascending (up) or descending (down).
+
+By default, the sort() method sorts the values as strings in alphabetical and ascending order.
+
+This works well for strings ("Apple" comes before "Banana"). However, if numbers are sorted as strings, "25" is bigger than "100", because "2" is bigger than "1".
+
+Because of this, the sort() method will produce an incorrect result when sorting numbers.
+
+You can fix this by providing a "compare function" (See "Parameter Values" below).
+
+Note: This method changes the original array.
+
+Syntax
+array.sort(compareFunction)
+Parameter Values
+Parameter	Description
+compareFunction	Optional. A function that defines an alternative sort order. The function should return a negative, zero, or positive value, depending on the arguments, like:
+function(a, b){return a-b}
+When the sort() method compares two values, it sends the values to the compare function, and sorts the values according to the returned (negative, zero, positive) value.
+
+Example:
+
+When comparing 40 and 100, the sort() method calls the compare function(40,100).
+
+The function calculates 40-100, and returns -60 (a negative value).
+
+The sort function will sort 40 as a value lower than 100.
+By default, the JavaScript Array.sort function converts each element in the array that needs to be sorted into a string, and compares them in Unicode code point order.
+You may be wondering why 32 comes before 5. Not logical, huh? Well, actually it is. This happens because each element in the array is first converted to a string, and "32" comes before "5" in Unicode order.
+
+```Javascript
+const foo = [9, 1, 4, 'zebroid', 'afterdeck'];
+foo.sort(); // returns [ 1, 4, 9, 'afterdeck', 'zebroid' ]
+
+const bar = [5, 18, 32, new Set, { user: 'Eleanor Roosevelt' }];
+bar.sort(); // returns [ 18, 32, 5, { user: 'Eleanor Roosevelt' }, Set {} ]
+
+```
+
+It’s also worth noting that unlike many other JavaScript array functions, Array.sort actually changes, or mutates the array it sorts.
+
+```Javascript
+const baz = ['My cat ate my homework', 37, 9, 5, 17];
+baz.sort(); // baz array is modified
+console.log(baz); // shows [ 17, 37, 5, 9, 'My cat ate my homework' ]
+```
+
+To avoid this, you can create a new instance of the array to be sorted and modify that instead. This is possible using an array method that returns a copy of the array. For example, Array.slice:
+
+```Javascript
+const sortedBaz = baz.slice().sort(); // a new instance of the baz array is created and sorted
+```
+
+r if you prefer a newer syntax, you can use the spread operator for the same effect:
+
+```Javascript
+const sortedBaz = [...baz].sort(); // a new instance of the baz array is created and sorted
+```
+
+### Using Compare Functions to Sort
+
+Let’s say that foo and bar are the two elements being compared by the compare function, and the return value of the compare function is set up as follows:
+
+less than 0 — foo comes before bar
+greater than 0  — bar comes before foo
+equal to 0  — foo and bar are left unchanged with respect to each other.
+Let’s look at a simple example with an array of numbers:
+
+```Javascript
+const nums = [79, 48, 12, 4];
+
+function compare(a, b) {
+  if (a > b) return 1;
+  if (b > a) return -1;
+
+  return 0;
+}
+
+nums.sort(compare);
+// => 4, 12, 48, 79
+```
+
+This is now a good candidate for an arrow function:
+
+```Javascript
+nums.sort((a, b) => a - b);
+```
+
+Ordenando Vetor utilizando função de comparação
+
+```Javascript
+const singers = [
+  { name: 'Steven Tyler', band: 'Aerosmith', born: 1948 },
+  { name: 'Karen Carpenter', band: 'The Carpenters', born: 1950 },
+  { name: 'Kurt Cobain', band: 'Nirvana', born: 1967 },
+  { name: 'Stevie Nicks', band: 'Fleetwood Mac', born: 1948 },
+];
+
+function compareValues(key, order = 'asc') {
+  return function innerSort(a, b) {
+    if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+      // property doesn't exist on either object
+      return 0;
+    }
+
+    const varA = (typeof a[key] === 'string')
+      ? a[key].toUpperCase() : a[key];
+    const varB = (typeof b[key] === 'string')
+      ? b[key].toUpperCase() : b[key];
+
+    let comparison = 0;
+    if (varA > varB) {
+      comparison = 1;
+    } else if (varA < varB) {
+      comparison = -1;
+    }
+    return (
+      (order === 'desc') ? (comparison * -1) : comparison
+    );
+  };
+}
+```
+
+To reverse the sorting order, you can invert the return value of the compare function:
+
+```Javascript
+function compare(a, b) {
+  ...
+
+  //invert return value by multiplying by -1
+  return comparison * -1;
+}
+```
+
+```Javascript
+
+```
+
 ```Javascript
 
 ```
@@ -1011,6 +1257,10 @@ function randomRange(myMin, myMax) {
 
 ```Javascript
 
+```
+
+```Javascript
+br
 ```
 
 ```Javascript
@@ -2183,26 +2433,3938 @@ console.log(error); // do something with the error.
 
 ## ES6 Avancado
 
+### Promisses
+
+Promises have replaced callback functions as the preferred programming style for handling asynchronous calls. A promise is a holder for a result (or an error) that will become available in the future (when the async call returns). Promises have been available in JavaScript through third-party libraries (for example, [jQuery](https://api.jquery.com/promise/) and [q](https://github.com/kriskowal/q)). ECMAScript 6 adds built-in support for promises to JavaScript.
+
+In this unit, you create a simple application called ratefinder that returns a list of available mortgage rates.
+
+### Curso entendendo promises de uma vez por todas
+
+Lucas Santos -> https://medium.com/trainingcenter/entendendo-promises-de-uma-vez-por-todas-32442ec725c2
+###Parte 2
+Promises : Podemos fazer varias requisições em javascript para diversas páginas e isto pode nao ser respondido na hora
+poderíamos paralelizar essas promises realizando um código assíncrono :
+
+Código Assíncrono
+Requests HTTP
+Leitura de arquivos
+Acesso a serviços externos
+I/O
+
+Em um código assíncrono , o tempo total de execução é o tempo de execução da promisse mais lenta
+pois todas estão executando em paralelo
+
+Funcionamento de uma promisse no node.js
+![](https://github.com/luizrosalba/EntendendoPromisesdeumavezportodas/blob/master/Capturar.PNG)
+
+Loop infinito fica rodando recebendo as requisições e armazenando. Caso você precise ler um arquivo imenso , nao precisa parar a execução para lê-lo.
+
+Leitura Assíncrona : Le o poema inteiro e pega o buffer e imprime na tela
+
+```Javascript
+const fs = require('fs')
+const path = require('path')
+const basePath = './assets/'
+
+console.log('Begin')
+
+// This is an example of a sync file read, it pauses the program and reads the file
+const content = fs.readFileSync(path.resolve(basePath, 'arquivo.txt'))
+
+console.log(content.toString())
+
+console.log('end')
+```
+
+```Javascript
+  
+const fs = require('fs')
+const path = require('path')
+const basePath = './assets/'
+
+console.log('Begin\n')
+
+// Take all files in the directory
+const files = fs.readdirSync(path.resolve(basePath))
+// Filter the ones we want
+const sentences = files.filter((file) => /s[1-4].txt/gi.test(file))
+//Read all files in order, synchronously
+for (const file of sentences) {
+  const sentence = fs.readFileSync(path.resolve(basePath, file)).toString()
+  console.log(sentence, '\n')
+}
+
+console.log('end')
+
+```
+
+Callback : função que será executada apos outra função. Leitura assincrona . Perceber que ele executou begin (síncrono) , iniciou a leitura do texto (assíncrono) que é demorada , nao parou a execução , executou o end (síncrono) e somente quando terminou a leitura que imprimiu o texto
+
+```Javascript
+  
+  
+const fs = require('fs')
+const path = require('path')
+const basePath = './assets/'
+
+console.log('Begin')
+
+// This is an async fileRead process, it won't stop the program
+// Notice the function in the end, that is a callback
+fs.readFile(path.resolve(basePath, 'arquivo.txt'), { encoding: 'utf-8' }, (err, data) => {
+  // This is the way we handle errors in callbacks
+  if (err) throw err
+  console.log(data)
+})
+
+console.log('End')
+```
+
+Utilizando uma função como callback
+
+```Javascript
+  
+const fs = require('fs')
+const path = require('path')
+const basePath = './assets/'
+
+console.log('Begin')
+
+// This is an async fileRead process, it won't stop the program
+// Notice the function in the end, that is a callback
+fs.readFile(path.resolve(basePath, 'arquivo.txt'), { encoding: 'utf-8' }, cb)
+
+console.log('End')
+
+function cb (err, data) {
+  // This is the way we handle errors in callbacks
+  if (err) throw err
+  console.log(data)
+}
+```
+
+Lendo 4 arquivos de maneira assíncrona, cada execução trará um resultado diferente pois não podemos prever qual levará menos tempo para ler. Cada Arquivo terá um callback
+
+```Javascript
+const fs = require('fs')
+const path = require('path')
+const basePath = './assets/'
+
+console.log('Begin')
+
+// Take all files in the directory
+const files = fs.readdirSync(path.resolve(basePath))
+// Filter the ones we want
+const sentences = files.filter((file) => /s[1-4].txt/gi.test(file))
+
+//Read all files in order, synchronously
+for (const file of sentences) {
+  fs.readFile(path.resolve(basePath, file), { encoding: 'utf-8' }, cb)
+}
+
+console.log('End')
+
+function cb (err, data) {
+  if (err) throw err
+  console.log(data)
+}
+```
+
+Callback hell
+
+```Javascript
+const fs = require('fs')
+const path = require('path')
+const basePath = './assets/'
+
+console.log('Begin')
+
+// Take all files in the directory
+fs.readFile(path.resolve(basePath, 's1.txt'), { encoding: 'utf-8' }, (err, data) => {
+  cb(err, data)
+  fs.readFile(path.resolve(basePath, 's2.txt'), { encoding: 'utf-8' }, (err, data) => {
+    cb(err, data)
+    fs.readFile(path.resolve(basePath, 's3.txt'), { encoding: 'utf-8' }, (err, data) => {
+      cb(err, data)
+      fs.readFile(path.resolve(basePath, 's4.txt'), { encoding: 'utf-8' }, (err, data) => {
+        cb(err, data)
+      })
+    })
+  })
+})
+
+console.log('End')
+
+function cb (err, data) {
+  if (err) throw err
+  console.log(data)
+}
+```
+
+callback hell um pouco mais ordenado
+
+```Javascript
+const fs = require('fs')
+const path = require('path')
+const basePath = './assets/'
+
+console.log('Begin')
+
+// Take all files in the directory
+fs.readdir(path.resolve(basePath), (err, files) => {
+  if (err) throw err
+  files
+    .filter((file) => /s[1-4].txt/gi.test(file)) // Filter the files
+    .forEach((sentenceFile) => { // For each sentence, reads and prints (async)
+      fs.readFile(path.resolve(basePath, sentenceFile), { encoding: 'utf-8' }, cb) // Will print unordered
+    })
+})
+
+console.log('End')
+
+// this callback is called everytime readFile executes
+function cb (err, data) {
+  if (err) throw err
+  console.log(data)
+}
+```
+
+CAllback recursivo
+
+```Javascript
+const fs = require('fs')
+const path = require('path')
+const basePath = './assets/'
+
+console.log('Begin')
+
+// Take all files in the directory
+start(1, 4)
+
+console.log('End')
+
+function start (index, max) {
+  if (index > max) return
+  fs.readFile(path.resolve(basePath, `s${index}.txt`), { encoding: 'utf-8' }, (err, data) => cb(err, data, index, max))
+}
+
+function cb (err, data, index, max) {
+  if (err) throw err
+  console.log(data)
+  return start(index + 1, max)
+}
+```
+
+Utilizando promises ao inves de callbacks . todo catch e then nao é uma promise propriamente dita mas retorna uma promise
+
+```Javascript
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => resolve('End'), 5000)
+})
+
+console.log('Begin')
+promise.then((text) => console.log(text)) 
+// Or
+promise.then(console.log)
+// Or
+promise.then(
+  (res) => setTimeout(() => res('End'), 5000),
+  (rej) => console.error(rej)
+)
+```
+
+then = resolvido , catch = erro
+
+```Javascript
+promise.then((res)=> {),(rej)=>{}) 
+é o mesmo que 
+promise.then((res)=> {)) 
+promise.catch((rej)=>{}) 
+```
+
+A maioria das libs externas nao funciona com promisify
+
+```Javascript
+  
+const fs = require('fs')
+const path = require('path')
+const { promisify } = require('util')
+const basePath = './assets/'
+
+const readFileAsync = promisify(fs.readFile)
+
+// Will render Begin and End first
+console.log('Begin')
+readFileAsync(path.resolve(basePath, 'invictus.txt'), { encoding: 'utf-8' })
+  .then((data) => console.log(data))
+  .catch((err) => console.error(err))
+console.log('End')
+```
+
+Encadeamento de promises
+podemos encadear thens e catches
+
+```Javascript
+const coinFlip = new Promise((resolve, reject) => Math.random() > 0.5 ? resolve(true) : reject(false))
+/// 50% de chance de dar erro 
+console.log('Begin')
+
+// First case, if we have an error the last 'then' won't execute
+coinFlip.then((data) => console.log('Yay 1'))
+  .then(() => console.log('End1'))
+  .catch((err) => console.error('Error in first case, then will not execute'))
+
+// Second case, in an exception the last then will execute
+coinFlip.then((data) => console.log('Yay 2'))
+coinFlip.catch((err) => console.error('Next then will execute'))
+coinFlip.then(() => console.log('End2'))
+
+// Same thing
+coinFlip
+  .then((success) => console.log('Yay 3'), (fail) => console.log('Error in third case'))
+  .then(() => console.log('End3'))
+```
+
+Cada catch só vale pra um then; quando ocorre um erro no then ele percorre todos os outros até encontrar o primeiro catch
+
+```Javascript
+
+// Second case, in an exception the last then will execute
+coinFlip.then((data) => console.log('Yay 2'))
+coinFlip.catch((err) => console.error('Next then will execute'))
+coinFlip.then(() => console.log('End2'))
+
+// Same thing
+coinFlip
+  .then((success) => console.log('Yay 3'), (fail) => console.log('Error in third case'))
+  .then(() => console.log('End3'))
+```
+
+then = garçom (pode ter dois ) e catch seria outro pedido. A execução não para
+
+```Javascript
+const coinFlip = new Promise((resolve, reject) => Math.random() > 0.5 ? resolve(true) : reject(false))
+
+console.log('Begin')
+
+coinFlip.then((data) => console.log(data))
+  .catch((err) => { throw err })
+  .then(() => console.log('End1'))
+
+new Promise((resolve) => setTimeout(() => resolve(), 2000)).then(() => console.log('Yay'))
+```
+
+Multiple catches
+
+```Javascript
+const coinFlip = new Promise((resolve, reject) => Math.random() > 0.5 ? resolve(true) : reject(false))
+
+console.log('Begin')
+
+// First catch will capture error from first then, last catch will capture errors from next then
+coinFlip.then((data) => console.log('Yay 1'))
+  .catch(() => console.log('First catch'))
+  .then(() => console.log('Result'))
+  .catch((err) => console.error('Error in last then'))
+  .then(() => console.log('End1'))
+
+
+// // Both catches will be executed
+coinFlip.then((data) => console.log('Yay 1'))
+  .then(() => console.log('Result'))
+  .then(() => console.log('End1'))
+
+coinFlip.catch(() => console.log('First catch'))
+  .catch((err) => console.error('Error in first case, next then will not execute'))
+
+
+// Both catches will be executed
+coinFlip.then((data) => console.log('Yay 1'))
+  .catch((err) => console.error('Catch after then'))
+  .then(() => console.log('Result'))
+  .then(() => console.log('End1'))
+
+coinFlip.catch(() => console.log('First catch'))
+
+// Catch from coinFlip will execute only when the first then fails, second catch will always be executed
+coinFlip.then((data) => console.log('Yay 1'))
+  .then(() => { throw new Error() })
+  .catch((err) => console.error('Error in last then'))
+  .then(() => console.log('End1'))
+
+coinFlip.catch(() => console.log('First catch'))
+```
+
+```Javascript
+const coinFlip = new Promise((resolve, reject) => setTimeout(() => Math.random() > 0.5 ? resolve(true) : reject(false), 2000))
+let p = Promise.resolve('Yay').then(coinFlip) /// coinflip nao eh funcao eh uma promise 
+/// Promise.resolve retorna uma promise 
+
+// P will resolve immediately to YAY, but will not be settled until the second promise resolves with the coinflip
+p.then(console.log).catch(() => console.log('error')) /// resolve a primeira depois espera 2 s e resolve a segunda 
+```
+
+Finally Será sempre executando dando erro ou nao
+
+```Javascript
+const fs = require('fs')
+const path = require('path')
+const { promisify } = require('util')
+const basePath = './assets/'
+
+const readFileAsync = promisify(fs.readFile)
+
+console.log('Begin')
+readFileAsync(path.resolve(basePath, 'invictus.txt'), { encoding: 'utf-8' })
+  .then((data) => console.log(data))
+  .catch((err) => console.error(err))
+  .finally(() => console.log('End'))
+```
+
+Promise hell , encadeamento de promises
+
+```Javascript
+const fs = require('fs')
+const path = require('path')
+const { promisify } = require('util')
+const basePath = './assets/'
+
+const readFileAsync = promisify(fs.readFile)
+
+console.log('Begin')
+readFileAsync(path.resolve(basePath, 's1.txt'), { encoding: 'utf-8' })
+  .then((sentence) => {
+    console.log(sentence, '\n')
+    return readFileAsync(path.resolve(basePath, 's2.txt'), { encoding: 'utf-8' })
+  })
+  .then((sentence) => {
+    console.log(sentence, '\n')
+    return readFileAsync(path.resolve(basePath, 's3.txt'), { encoding: 'utf-8' })
+  })
+  .then((sentence) => {
+    console.log(sentence, '\n')
+    return readFileAsync(path.resolve(basePath, 's4.txt'), { encoding: 'utf-8' })
+  })
+  .then(console.log)
+  .finally(() => console.log('End'))
+```
+
+Melhorando o promise hell
+
+```Javascript
+const fs = require('fs')
+const path = require('path')
+const { promisify } = require('util')
+const basePath = './assets/'
+
+const readFileAsync = promisify(fs.readFile)
+
+function read (index) {
+  return readFileAsync(path.resolve(basePath, `s${index}.txt`), { encoding: 'utf-8' })
+}
+
+function start (index, max) {
+  if (index > max) return
+  read(index).then((data) => {
+    console.log(data, '\n')
+    start(index + 1, max)
+  })
+}
+
+start(1, 4)
+```
+
+Promise.all resolve todas as promises
+Se qquer uma falhar vai dar erro em todas e retornara apenas o 1º catch
+
+```Javascript
+const fs = require('fs')
+const path = require('path')
+const { promisify } = require('util')
+const basePath = './assets/'
+
+const readFileAsync = promisify(fs.readFile)
+
+function read (index) {
+  return readFileAsync(path.resolve(basePath, `s${index}.txt`), { encoding: 'utf-8' })
+}
+
+console.log('Begin')
+const promiseArray = []
+for (let i = 1; i <= 4; i++) promiseArray[i - 1] = read(i) // Arrays start at 0, so if we are populating index 1, the 0 will be undefined
+
+Promise.all(promiseArray).then(console.log)
+```
+
+### Funções avançadas do ES6
+
+### 1.1 Arrow function
+
+O arrow function traz funções anonimas e veio para solucionar o problema do contexto no qual ele é realizado. Antes do ES6, haviam algumas situações onde o contexto (this) poderia ser ambíguo (criar confusão sobre a qual objeto o this está se referindo) . Arrow functions tem o contexto igual ao código que o envolve , o this se referencia as chaves do arrow function .
+
+Se houver apenas um argumento e uma expressao (que não seja destruction ou rest operator (...) )
+pode-se omitir o return se o lado direito for apenas uma expressão
+
+```javascript
+var sum = a => a+5;  
+console.log(sum(1));
+```
+
+parenteses quando há mais de um argumento
+
+```javascript
+var sum = (a,b)=> a+b; 
+console.log(sum);
+console.log(sum(1,2));
+```
+
+caso haja mais de uma expressão   expressão as chaves são obrigatórias
+
+```javascript
+var sum = (a,b)=> {
+  if (a>b) return a+b; 
+  else  return a-b;  
+}
+console.log(sum(1,2));
+```
+
+### Hoisting e Arrow function
+
+Arrow functions nao realizam hoisting , você terá erro se tentar invocar antes de declarar
+
+### Criando objetos
+
+Criando um objeto via função construtora
+
+```javascript
+function Car(){
+  this.foo ='bar'; 
+}
+console.log(new Car());
+
+Criando um objeto via arrow function 
+```javascript
+ var createObj = () => ({test:123});
+console.log(createObj());
+```
+
+Obs: Não é possível criar um objeto usando uma função construtora por arrow function
+
+### 1.2 Default Function Arguments
+
+Evita problemas com valores não inicializados
+
+```javascript
+function multiply (a=b,b=1)
+{
+  return a*b; 
+}
+console.log(multiply(2,3)); //6
+console.log(multiply(2)); ///2 
+console.log(multiply(undefined,2));///4 
+```
+
+```javascript
+function multiply (a=1,b=a)
+{
+  return a*b; 
+}
+console.log(multiply(2,undefined)); /// b =a resultado 4 
+```
+
+lazy evaluation
+Sempre que o parametro for esquecido uma função será chamada
+
+```javascript
+function randNumber()
+{
+  return Math.random() *10; 
+}
+
+function multiply (a,b = randNumber())
+{
+  return a*b; 
+}
+console.log(multiply(2,undefined)); /// resultado aleatório só invocará a função randNumber caso não haja parametro2 
+```
+
+### 1.3 Enhanced Object Literals
+
+um objeto pode ter métodos
+
+```javascript
+var obj = {
+  sum:  function (a,b) { return a+ b; } /// poderia ser sum:  function batata(a,b) { return a+ b; } 
+}; 
+console.log(obj.sum(1,2));
+```
+
+Também pode ser declarado como
+
+```javascript
+var obj = {
+  sum(a,b) { return a+ b; }
+}; 
+
+console.log(obj.sum(1,2)); /// 3 
+```
+
+No ES6 Quando a propriedade do objeto é igual a uma variavel , podemos omitir o prop1 : prop1 dentro do obj
+
+```javascript
+var prop1 = 'bla bla'; 
+var obj = {
+  prop1
+}; 
+console.log (obj.prop1); /// bla bla 
+```
+
+Também funciona com métodos
+
+```javascript
+function metodo1(){
+  console.log('bla bla'); 
+}
+var obj = {
+  metodo1
+}; 
+obj.metodo1(); /// bla bla 
+```
+
+No ES6 podemos também usar variaveis e até concatenar o nome da propriedade de um objeto
+
+```javascript
+var propName ='test'; 
+
+var obj = {
+  [propName + 'concat']: 'prop value' 
+}; 
+
+console.log(obj);
+```
+
+```javascript
+
+```
+
+```javascript
+
+```
+
+### Aplicando Conceitos Rest, Spread , Operator e Destructuring
+
+### 2.1 Conheça Rest e Spread Operator
+
+Arguments -> variavel reservada dentro de uma função para armazenar os argumentos da função
+Antes do ES6 :
+
+```Javascript
+function soma(a,b){
+  var value=0; 
+  for (var i=0; i<arguments.length ; i++ )
+  {
+    value+= arguments[i];
+  }
+  return value; 
+}
+console.log(soma(1,2,3,4,5)); /// 15 
+```
+
+Depois do ES6 com o rest operator ... (tres pontos dentro da lista de argumentos)
+(pega todos os argumentos de uma função e transforma em um array)
+
+```Javascript
+function soma(...args){
+  return args.reduce((acc,value)=> acc+value,0); 
+}
+console.log(soma(1,2,3,4,5)); //// 15 
+```
+
+Obs : arguments tem como prototype um objeto enquanto o operador rest retorna um array
+Obs2 : arguments é inexistente em arrow functions
+
+Mesmo exemplo com arrow function
+
+```Javascript
+const sum = (...rest) => {
+ console.log( rest.reduce((acc,value)=> acc+value,0));
+} ;
+(sum(1,2,3,4,5)); /// 15 
+```
+
+Apply pega o retorno do método multiply e aplica no metodo soma
+
+```Javascript
+
+const multiply  = (...args) => {
+ console.log( args.reduce((acc,value)=> acc*value,1));
+} ;
+
+const sum = (...rest) => {
+ multiply.apply(undefined,rest);
+} ;
+(sum(5,5,5,2,3));
+```
+
+Para evitar o problema dos contextos novamente , utiliza-se o spread operator ele pega todos os itens de um array e transforma em argumentos para uma segunda função (parecido com o apply)
+
+```Javascript
+
+const multiply  = (...args) => {
+ console.log( args.reduce((acc,value)=> acc*value,1));
+} ;
+
+const sum = (...rest) => {
+ multiply(...rest);
+} ;
+(sum(5,5,5,2,3)); ///750
+
+```
+
+O spread operator pode ser usado em strings, arrays, e objetos literais e iteraveis
+
+```Javascript
+
+const str = 'Digital Input'; 
+const arr = [1,2,3,4]; 
+function logArgs(a,b,c,) {
+  console.log(a,b,c);
+}
+logArgs(...str); /// D i g 
+logArgs(...arr); /// 1 2 3 cada item vira um argumento da funcao log
+
+```
+
+Concatenando com o spread operator
+
+```Javascript
+const arr = [1,2,3,4]; 
+const arr2 = [...arr,5,6,7]; 
+console.log(arr2); /// 1 , 2 , 3 , 4, 5 , 6 ,7 
+```
+
+Pode ser usado em objetos
+
+```Javascript
+
+const obj = {
+  test:123
+};
+
+const obj2 = { 
+ ...obj,
+  test:'hello' ,
+   
+}
+console.log(obj2); 
+/// {  test:"hello"  } 
+/// obs; a ordem faz diferença  nesse caso obj vem antes de hello por isso a saida eh hello 
+
+```
+
+Erro , não pode ser feito pois spread só pode ser usado com objetos iteraveis
+
+```Javascript
+const obj = {
+  test:123
+};
+const arr = [...obj];  /// erro 
+```
+
+Shallow clone (clone raso ): Utilizar um spread operator para clonar um objeto inicial não permite que alterar o objeto clonado altere o objeto  inicial
+
+```Javascript
+const obj = {
+  test:123
+};
+const obj2 = obj;
+obj2.test = 456 ; 
+
+console.log(obj); /// 456 alterou o objeto inical 
+```
+
+```Javascript
+const obj = {
+  test:123
+};
+const obj2 = {...obj};
+obj2.test = 456 ; 
+
+console.log(obj);/// 123  nao alterou o objeto inicial
+```
+
+### 2.2 Destructuring em React.js (imutável)
+
+utilizado para destruir arrays com uma notação enxuta
+
+```Javascript
+var arr = ['apple','banana','orange',['Tomato']];
+
+var apple=arr[0];
+var banana=arr[1];
+var orange=arr[2];
+var tomato=arr[3][0];
+/// com destruction 
+var [apple2,banana2,orange2,[tomato2]] =   [
+  'apple',
+  'banana',
+  'orange',
+  ['tomato']]; /// notacao é mais enxuta 
+
+
+```
+
+O mesmo pode ser feito com objetos
+
+```Javascript
+var obj  = {
+  name:'Celso'
+}
+ /// sem destruction name = obj.name;  
+var {name} = obj /// destroi o objeto , procura a propriedade name e pega seu valor 
+console.log(name); 
+
+```
+
+Destruindo e logo em seguida atribuindo a outra variável
+
+```Javascript
+var obj  = {
+  name:'Celso'
+}
+var {name:name2} = obj
+console.log(name2); 
+```
+
+Também pode ser feito com nestes props
+
+```Javascript
+var obj  = {
+  name:'Celso',
+  props:{
+    age:26
+  }
+}
+
+//var age = obj.prop.age;  antigo 
+var {props:{age}} = obj;  /// com destruction 
+console.log(age); 
+
+```
+
+Posso acessar diretamente uma propriedade de um objeto e customizar seu nome
+
+```Javascript
+var arr = [ {name: 'apple' , type : 'fruit'}] ; 
+
+var [{name:fruitname,type}]=arr; 
+console.log(fruitname,type); 
+
+```
+
+Demonstrando a destrução como argumento com default values de uma função
+
+```Javascript
+function sum([a,b]=[0,0]){
+  return a + b; 
+} 
+console.log(sum([5,5]));  ///10 
+console.log(sum([5]));  /// NAn ?  
+```
+
+### 3.1 Symbols e Iterators
+
+Symbols são maneiras de gerar um identificador único. Symbol nao pode ser invocado usando new.
+
+```Javascript
+const uniqueId = Symbol (); 
+console.log (uniqueId); 
+```
+
+Mesmo com o mesmo valor , symbols são identificadores unicos e retornam falso
+
+```Javascript
+const uniqueId = Symbol ("Oi"); 
+const uniqueId2 = Symbol ("Oi"); 
+console.log (uniqueId===uniqueId2); 
+```
+
+Pode ser utilizado para gerar propriedades privadas. Não é listado se imprimimos (log) o objeto somente quando fazemos Object.getOwnPropertySymbols();
+
+Propriedades do symbols : Iterator , to Primitive
+
+```Javascript
+const arr = [1,2,3,4]; 
+const it = arr[Symbol.iterator]();
+console.log (it.next()); 
+```
+
+Iterando só os valores
+
+```Javascript
+const arr = [1,2,3,4]; 
+const it = arr[Symbol.iterator]();
+while (true){
+  let {value,done} = it.next(); 
+  console.log (value); 
+  if (done)   break; 
+}
+```
+
+Transformando um objeto não iteravel em iteravel, possivelmente igonrando valores , etc ...
+
+```Javascript
+//// well known symbols 
+
+
+const arr = [1,2,3,4]; 
+const str = 'Digital Inovation One'; 
+
+const obj = {
+  values:[1,2,3,4],
+  [Symbol.iterator](){
+    let i = 0; 
+      return {
+        next:() => {
+          i++;
+          return {
+            value: this.values[i-1],
+            done: i>this.values.length
+          };
+        }
+      };
+  }
+};
+
+const it = obj[Symbol.iterator]()
+
+console.log(it.next());
+
+```
+
+### 3.2 Generators
+
+Generators são funções com pausa e despausa de valores atraves da interface de iteração criada por um iterator
+
+```Javascript
+//// well known symbols 
+const arr = [1,2,3,4]; 
+const str = 'Digital Inovation One'; 
+
+const obj = {
+  values:[1,2,3,4],
+  [Symbol.iterator](){
+    let i = 0; 
+      return {
+        next:() => {
+          i++;
+          return {
+            value: this.values[i-1],
+            done: i>this.values.length
+          };
+        }
+      };
+  }
+};
+
+//// generator 
+function* hello (){
+  console.log('Hello');
+  yield 1; /// pausa a execação da função e executa em partes 
+  console.log('From');
+  yield 2; /// pausa a execação da função e executa em partes 
+  console.log('Function!');
+}
+const it = hello();
+console.log(it.next()); 
+console.log(it.next());
+console.log(it.next());
+```
+
+Pode receber valores de fora da função
+
+```Javascript
+//// generator 
+function* hello (){
+  console.log('Hello');
+  yield 1; /// pausa a execação da função e executa em partes 
+  console.log('From');
+  const value = yield 2; /// pausa a execação da função e executa em partes 
+  console.log(value);
+}
+const it = hello();
+console.log(it.next()); 
+console.log(it.next());
+console.log(it.next('Outside!'));
+```
+
+Executa cada step do while apos invocar o next
+
+```Javascript
+//// generator 
+function* naturalNumbers(){
+  let number = 0 ; 
+  while(true){
+    yield number; 
+    number++;
+  }
+}
+const it = naturalNumbers();
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+
+```
+
+Iterando um generator com pausa , reproduzindo o exemplo anterior de maneira mais simples
+Generator aqui foi utilizado como uma forma de construir iteradores
+
+```Javascript
+const arr = [1,2,3,4]; 
+const str = 'Digital Inovation One'; 
+
+const obj = {
+  values:[1,2,3,4],
+  *[Symbol.iterator](){
+    for (var i = 0 ; i < this.values.length;i++){
+      yield this.values[i];
+    }
+  }
+};
+
+for (let value of obj) { /// for of é para objetos iteraveis 
+  console.log(value)
+}
+```
+
+### 4.1 Callbacks e Promises
+
+### Callbacks e Promises
+
+Callback hell Fica dificil saber quem está tratando os dados de quem
+
+```Javascript
+function doSomething(callback){
+  setTimeout(function(){
+    callback('First data'); 
+  },1000);
+}
+
+function doOtherThing (callback){
+  setTimeout(function(){
+    callback ('Second data'); 
+  },1000);
+}
+
+function doAll()
+{
+    try
+    {
+        doSomething(function(data)
+        {
+              var processedData = data.split(''); 
+              try
+              {
+                doOtherThing(function(data2)
+                {
+                  var processedData2 = data2.split('');
+                  try{
+                     setTimeout(function()
+                      {
+                        console.log(processedData,processedData2);
+                      },1000);
+                  }catch(err)
+                  { ///handle error 
+
+                  }
+                });
+             }
+             catch(err)
+            {
+              ///handle error 
+            }
+
+      });
+  } catch (err)
+  {
+      /// handle error 
+  }
+}
+
+doAll();
+```
+
+### Promise
+
+Uma Promisse pode ter 3 estados : Pending (em execução ), Fulfilled (terminou de executar)  e Reject (caso ocorra algum erro) . Uma grande vantagem da  promise é que já faz o tratamento do erro conforme abaixo
+////1000 = 1ms
+
+```Javascript
+////Promisses 
+const doSomethingPromise = new Promise((resolve,reject)=>{
+ setTimeout(function(){
+   // did something 
+  resolve('First data'); 
+  },1000); 
+});
+
+const doOtherThingPromise = new Promise((resolve,reject)=>{
+  setTimeout(function(){
+      // did something 
+    resolve ('Second data'); 
+  },1000);
+});
+doSomethingPromise.then(data=>console.log(data));
+
+```
+
+Tratamento com throw new Error :
+
+```Javascript
+////Promisses 
+const doSomethingPromise = new Promise((resolve,reject)=>{
+  throw new Error ('something went wrong');
+  setTimeout(function(){
+   // did something 
+  resolve('First data'); 
+  },1000); 
+});
+
+const doOtherThingPromise = new Promise((resolve,reject)=>{
+  setTimeout(function(){
+      // did something 
+    resolve ('Second data'); 
+  },1000);
+});
+
+doSomethingPromise
+.then(data=>console.log(data))
+.catch(error=>console.log(error));
+
+```
+
+Executando uma depois a outra promise
+
+```Javascript
+////Promisses 
+const doSomethingPromise = new Promise((resolve,reject)=>{
+  setTimeout(function(){
+   // did something 
+  resolve('First data'); 
+  },1000); 
+});
+
+const doOtherThingPromise = new Promise((resolve,reject)=>{
+  setTimeout(function(){
+      // did something 
+    resolve ('Second data'); 
+  },1000);
+});
+
+doSomethingPromise
+.then(data=>{
+  console.log(data);  
+  return doOtherThingPromise;
+})
+.then(data2=>console.log(data2))
+.catch();
+
+```
+
+Usando função para garantir o tempo de execução e incluindo um tratamento de erro global para ambos as promisses encadeadas
+
+```Javascript
+////Promisses 
+////Promisses 
+const doSomethingPromise = ()=> new Promise((resolve,reject)=>{
+  setTimeout(function(){
+   // did something 
+  resolve('First data'); 
+  },1000); 
+});
+
+const doOtherThingPromise = () => new Promise((resolve,reject)=>{
+  setTimeout(function(){
+      // did something 
+    resolve ('Second data'); 
+  },1000);
+});
+
+doSomethingPromise()
+.then(data=>{
+  console.log(data);  
+  return doOtherThingPromise();
+})
+.then(data2=>console.log(data2))
+.catch(error => console.log('Ops',error)); /// tratamento global de erro 
+
+```
+
+Callback hell resolvido por promise
+
+```Javascript
+////Promisses 
+const doSomethingPromise = ()=> 
+new Promise((resolve,reject)=>{
+   
+  setTimeout(function(){
+   // did something 
+  resolve('First data'); 
+  },1000); 
+});
+
+const doOtherThingPromise = () => 
+  new Promise((resolve,reject)=>{
+     setTimeout(function(){
+      // did something 
+      resolve ('Second data'); 
+  },1000);
+});
+
+doSomethingPromise()
+.then(data=>{
+  console.log(data.split(''));  
+  return doOtherThingPromise();
+})
+.then(data2=>console.log(data2.split('')))
+.catch(error => console.log('Ops',error)); /// tratamento global de erro 
+
+```
+
+Executando em paralelo ( o then só é executado após o fim da promise)
+
+```Javascript
+////Promisses 
+const doSomethingPromise = ()=> 
+new Promise((resolve,reject)=>{
+   
+  setTimeout(function(){
+   // did something 
+  resolve('First data'); 
+  },1000); 
+});
+
+const doOtherThingPromise = () => 
+  new Promise((resolve,reject)=>{
+     setTimeout(function(){
+      // did something 
+      resolve ('Second data'); 
+  },1000);
+});
+
+Promise.all([doSomethingPromise(),doOtherThingPromise()]).then(data => {
+  console.log(data[0].split(''));
+  console.log(data[1].split(''));
+});
+
+```
+
+No Promisse all caso haja interrupção de uma , cancela-se o funcionamento das duas funções
+
+```Javascript
+////Promisses 
+const doSomethingPromise = ()=> 
+new Promise((resolve,reject)=>{
+   
+  setTimeout(function(){
+   // did something 
+  resolve('First data'); 
+  },1000); 
+});
+
+const doOtherThingPromise = () => 
+  new Promise((resolve,reject)=>{
+    throw new Error("ops");
+     setTimeout(function(){
+      // did something 
+      resolve ('Second data'); 
+  },1000);
+});
+
+Promise.all([doSomethingPromise(),doOtherThingPromise()]).then(data => {
+  console.log(data[0].split(''));
+  console.log(data[1].split(''));
+}).catch(err=>{
+  console.log(err);
+});
+
+```
+
+Retornando a que resolver primeiro
+
+```Javascript
+////Promisses 
+const doSomethingPromise = ()=> 
+new Promise((resolve,reject)=>{
+   
+  setTimeout(function(){
+   // did something 
+  resolve('First data'); 
+  },1500); 
+});
+
+const doOtherThingPromise = () => 
+  new Promise((resolve,reject)=>{
+     setTimeout(function(){
+      // did something 
+      resolve ('Second data'); 
+  },1000);
+});
+
+Promise.race([doSomethingPromise(),doOtherThingPromise()]).then(data => {
+  console.log(data);
+});
+```
+
+### 4.2 Fetch Async await Eventemmiter
+
+Fetch é uma nova API com o mesmo intuito da antiga xmlhttpRequest , fazer requisições, mas utiliza promises
+Fetch retorna uma promise . O exemplo mostra uma requisição
+
+```Javascript
+fetch('/data.json').then(responseStream=>{
+   responseStream.json().then(data=>{
+       console.log(data);
+   });
+  })
+
+```
+
+Caso haja um erro de rede será pego no catch
+
+```Javascript
+fetch('http:localhost:8081/data.json') /// erro de rede nao existe esta porta 
+.then(responseStream=> responseStream.json())
+.then(data=>{
+       console.log(data);
+   }).catch(err=> {
+        console.log("Erro de rede",err);
+   });
+  
+
+```
+
+Outro exemplo , agora com erro de nome de arquivo inexistente
+
+```Javascript
+fetch('http:localhost:8080/datassss.json') /// erro de fim inesperado de input json
+.then(responseStream=> responseStream.json())
+.then(data=>{
+       console.log(data);
+   }).catch(err=> {
+        console.log("Erro de rede",err);
+   });
+
+```
+
+Tratando o erro para nao tentar parsear para json
+
+```Javascript
+fetch('http:localhost:8080/data222.json') 
+.then(responseStream => {
+    console.log(responseStream)
+    if(responseStream.status===200){
+        return responseStream.json();
+    }else {
+        throw new Error('Request error');
+    }
+})
+.then(data=>{
+       console.log(data);
+   }).catch(err=> {
+        console.log("Erro de rede",err);
+   });
+```
+
+por default o segundo parametro do fetch eh um get. mas podemos forçar um post
+
+```Javascript
+fetch('http:localhost:8080/data.json',{
+    method:'post',
+    body:JSON.stringfy
+}) /// erro de fim inesperado de input json
+.then(responseStream => {
+    console.log(responseStream)
+    if(responseStream.status===200){
+        return responseStream.json();
+    }else {
+        throw new Error('Request error');
+    }
+})
+.then(data=>{
+       console.log(data);
+   }).catch(err=> {
+        console.log("Erro de rede",err);
+   });
+```
+
+### Async / Await
+
+A partir do ES7 , forma de criar promises de maneira mais simples e lidar com promises dentro de promises de maneira mais simples
+O programa abaixo retorna uma promise já resolvida
+
+```Javascript
+const simpleFunc = async ()=> {
+  return 12345;
+};
+
+console.log(simpleFunc().then(data=>{
+  console.log(data); 
+} ));
+console.log(simpleFunc());
+```
+
+Tratando erros
+
+```Javascript
+const simpleFunc = async ()=> {
+  throw new Error ('oh no'); 
+  return 12345;
+};
+
+simpleFunc()
+  .then(data=>{
+  console.log(data); 
+} )
+.catch(err=>{
+  console.log(err);
+});
+
+```
+
+Await : Espera que outras promises sejam resolvidas. O await aguardou a resolução da promise e retorno o dado
+
+```Javascript
+const asyncTimer = () => new Promise((resolve,reject)=> {
+  setTimeout(()=> {
+    resolve(12345);
+  },1000);
+});
+
+
+const simpleFunc = async ()=> {
+  const data = await asyncTimer();
+  return data;
+};
+
+simpleFunc()
+  .then(data=>{
+  console.log(data); 
+} )
+.catch(err=>{
+  console.log(err);
+});
+
+```
+
+Await pode tornar o processamento asíncrono sequencial
+
+```Javascript
+const asyncTimer = () => new Promise((resolve,reject)=> {
+  setTimeout(()=> {
+    resolve(12345);
+  },1000);
+});
+
+
+const simpleFunc = async ()=> {
+  const data = await asyncTimer();
+  console.log(data);
+  const dataJSON = await fetch ('/data.json').then(resStream=> 
+    resStream.json()
+    );
+  return dataJSON;
+};
+
+simpleFunc()
+  .then(data=>{
+  console.log(data); 
+} )
+.catch(err=>{
+  console.log(err);
+});
+```
+
+Processando de maneira paralela
+
+```Javascript
+const asyncTimer = () => new Promise((resolve,reject)=> {
+  setTimeout(()=> {
+    resolve(12345);
+  },1000);
+});
+
+
+const simpleFunc = async ()=> {
+  const data = await Promise.all([
+      asyncTimer(),
+      fetch ('/data.json').then(resStream=> resStream.json())])
+  return data;
+};
+
+simpleFunc()
+  .then(data=>{
+  console.log(data); 
+} )
+.catch(err=>{
+  console.log(err);
+});
+
+```
+
+### como funciona async/await
+
+Promise -> programação asíncrona
+colocar async em uma function faz com que ela se torne uma promise
+
+resolve termina a execução de uma promise . sem resolve ela nunca termina
+
+promise dá uma sintax melhor para callback
+
+const text = await promise ; /// espera a promise terminar para prosseguir
+
+console.log (await promise) ; /// aguarda para logar
+
+funções nao asincronas (map, reduce, ... ) nao podem usar await pois nao sao asinc
+
+para que um erro seja capturado dentro de uma promisse, é necessário colocar await antes da chamada do then senao o tratamento do erro nunca será chamado
+
+await -> transforma o codigo em sincrono
+
+async function () {
+const result = await coinFlip
+.then(resultado => `O resultado é : ${result}`)
+.then(resultado => `Alguem disse que  é : ${text}`)
+}
+/// bom para Api o retorno de uma query vai para outra query que vai para outra query  ....
+
+### Aplicando e praticando os conceitos - event emiter
+
+Programação asíncrona dentro do node . Event emiter é exclusivo do node .
+para utiliza-lo promeiro temos que importar a classe event emiter do módulo events.
+Ao emitir o evento , o emiter o consumiu
+
+```Javascript
+const EventEmitter = require('events');
+
+const emitter = new EventEmitter ();
+
+emitter.on('User logged',data => {
+    console.log(data); 
+});
+
+emitter.emit('User logged' , {user : 'Celso' });
+```
+
+Extendendo uma classe
+
+```Javascript
+const EventEmitter = require('events');
+
+class Users extends EventEmitter{
+    userLogged(data){
+        this.emit('User loged',data);
+    }
+}
+
+const users = new Users ();
+
+users.on('User logged',data => {
+    console.log(data); 
+});
+
+users.userLogged({user : "Luiz "}); 
+```
+
+Trava o segundo login , users.once só permite 1 login
+
+```Javascript
+const EventEmitter = require('events');
+
+class Users extends EventEmitter{
+    userLogged(data){
+        this.emit('User loged',data);
+    }
+}
+
+const users = new Users ();
+
+users.once('User logged',data => {
+    console.log("Ola" + data); 
+});
+
+users.userLogged({user : "Luiz "}); 
+users.userLogged({user : "joao "}); 
+```
+
+Lidando com programação asincrona
+
+```Javascript
+const EventEmitter = require('events');
+
+class Users extends EventEmitter{
+    userLogged(data){
+        setTimeout(()=>{
+        this.emit('User loged',data);
+    },2000);
+    } 
+}
+
+const users = new Users ();
+
+users.on('User logged',data => {
+    console.log("Ola" + data); 
+});
+
+users.userLogged({user : "Luiz "}); 
+users.userLogged({user : "joao "}); 
+```
+
+Event target trabalha com a api do browser eventListner
+
+```Javascript
+
+```
+
+```Javascript
+
+```
+
+### 5 Tratamento e exceções
+
+### 5.1 como Identificar erros
+
+Variaveis const nao sofrem hoisting. O JS interrompe a execução caso ocorra um erro.  ```Javascript
+console.log(name);
+const name = 'Luiz';
+console.log('keep going');
+
+```
+Podemos usar o try  catch 
+```Javascript
+try{
+    console.log(name); 
+    const name = 'Luiz';
+  
+}catch(err){
+    console.log('Error' , err); 
+}
+console.log('keep going');  /// seria impresso 
+```
+
+Utilizando a classe Error para gerar um erro e fornecer uma resposta customizada
+
+```Javascript
+try{
+    const name = 'Luiz';
+    const myError = new Error ('custom error'); 
+    throw myError;
+}catch(err){
+    console.log('Error' , err); 
+}finally{
+    console.log('keep going'); 
+}
+
+```
+
+Extendendo a classe error
+
+```Javascript
+class CustomError extends Error { 
+    constructor({message,data}){
+        super(message);
+        this.data = data; 
+    }
+}
+
+try{
+    const name = 'Luiz';
+    const myError = new CustomError ({
+        message: 'custom message error',
+        data: {
+            type:'Server error' 
+        }
+    }); 
+
+    throw myError;
+
+}catch(err){
+    if(err.data.type ==='Server error')
+    {
+
+    }
+    else {
+    
+    }
+    console.log('Error' , err); 
+    console.log(err.data);
+}finally{
+    console.log('keep going'); 
+}
+
+
+```
+
+### 5.2 Debugging parte 1
+
+Podemos utilziar a aba do chrome Networl dentro do modo desenvolvedor (cntrl + shift +i) PAra entender quais requisições estão sendo feitas, os arquivos que estão sendo utilizados ,etc.
+
+### 5.2 Debugging parte 2
+
+como identificar erros dentro do próprio código ?
+Pretty print -> remove a mimificação , característica de sites em produção para que consigamos debugar o código .
+Ao encontrar um erro colocar um breakpoint e dar reload. A Execução será interrompida exatamente na linha do erro.
+Pressionando esc um console é aberto e tudo que for digitado será executado exatamente onde está o breakpoint
+Outra opção é colocar no código a palavra debbuger; Isto irá interromper o código como se fosse um breakpoint
+
+### 5.2 Debugging com console log
+
+console.warn  amarelo
+console.error  vermelho
+console.trace  informações de onde o código foi executado
+console.group agrupa as mensagens de console
+console.endgroup final agrupa as mensagens de console
+
+tempo de execução de um trecho
+console.time('log time');
+setTimeout(() => {
+console.timeEnd('log time');
+},2000);
+
+console.table ( formata arrays e objetos)
+
+console.assert (1===1 , 'Ops' ) ; se for falso mostra ops
+console.log('%c style log) , 'color:blue'; 'font-size:40x')
+
+Na aba sources , podemos debugar o style e ver como as mudanças ficam em tempo real , m udando o tamanho de botoes , cores , etc
+
+### Conceitos aplicados a qualidade de código e automação de testes em JS
+
+### 5.1 Testes TDD e BDD
+
+#### Testes automatizados :
+
+unitários (menor parte do programa, componentes ,métodos, classes, funções , etc),
+integrados (testam a integração entre os componentes , como elas se comunicam etc. )
+e funcionais (ou end-to-end , blackbox) (testa a integração do seu sistema com outros sistemas)
+
+piramide de testes : unitários (base) -> integrados -> funcionais (topo)
+
+#### Testes automatizados  ou manuais :
+
+usabilidade , aceitação do usuário, protótipos, funcionais ex: alpha beta , carga , segurança , etc....
+
+#### Test Driven Developoment (TDDD) Desenvolvimento orientado a testes
+
+Cria os testes antes de escrever o código é um dos pulares do extreme programming e consiste em testar e refatorar em pequenos cilcos onde vc escreve o teste antes do código , faz o mesma passar e refatota o código
+Escrita do teste -> escrita do código -> refatoração
+
+Vantagens :
+Feedback rápido
+maior segurança
+codigo mais limpo
+produtividade
+
+#### Behavior Driven Development (BDD) Desenvolvimento orientado a comportamento
+
+Técnica de desenvolviemnto ágil que visa integrar regras de negócio a linguagens de programação
+Descreve o comportamento dos componentes de maneira que reflita o negócio em si.
+Escreve o teste antes do codigo com o comportamento esperado do codigo
+
+Pilares
+testes
+documentação
+exemplo
+
+vantagens
+compartilhamento de conhecimento
+documentação dinâmica
+visão do todo desenvolvedor e negocio falam a mesma linguagem
+
+### 5.2 Mocha, Chai e Sinon
+
+Mocha : Ferramenta para executar testes ( test-runner) . Descritivo segue os padroes do BDD. Pode ser utilizando em node ou no browser .
+No terminal do Vs :
+
+npm init -y
+npm i --save-dev mocha
+
+alterar o package.json para executar o mocha
+
+```Javascript
+{
+  "name": "wwwroot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^8.1.0"
+  }
+}
+```
+
+criar o diretorio test ( usado pelo mocha)
+criar o arquivo math.spec.js dentro do diretorio (esse é o padrao TDD)
+
+```Javascript
+const assert = require('assert');
+const Math = require ('../src/math.js');
+
+describe ('Math class',function (){ 
+   it('Sum two Numbers',function () /// it descreve o comportamento esperado 
+   {
+        const math = new Math();
+        assert.equal(math.sum(5,5),10); /// valida se dois valores sao iguais 
+   });  
+});
+
+```
+
+Criei o diretorio src com o arquivo math.js dentro
+
+```Javascript
+class Math {
+   sum = function sum(){ };
+}
+
+module.exports =Math; 
+```
+
+rodei o npm run test
+erro -> undefined ==10 o teste executado deveria retornar 10 e  retorna undefined.
+
+Acertando a classe math para fazer a conta corretamente
+
+```Javascript
+class Math {
+   sum = function sum(a,b){return a+b };
+}
+
+module.exports =  Math;  /// o mocha nao retorna mais o erro 
+```
+
+Limpando a classe (TDD) também chamada de refatorar
+
+```Javascript
+class Math {
+   sum(a,b){return a+b };
+}
+
+module.exports =  Math; 
+```
+
+Tornando math assíncrona
+
+```Javascript
+class Math {
+   sum(a,b,callback){
+      setTimeout(() => {
+         callback(a+b);
+      },0);
+   };
+}
+module.exports =  Math; 
+```
+
+e alterando mathspec para chamada assíncrona , percebemos que o código continua passando  , pois é assíncrono (no meu , diferente do vídeo,  talvez por ser uma versão mais atual, já mostra erros de validação)
+
+```Javascript
+const assert = require('assert');
+const Math = require ('../src/math.js');
+
+describe ('Math class',function (){ 
+   it('Sum two Numbers',function () /// it descreve o comportamento esperado 
+   {
+        const math = new Math();
+        math.sum(5,5,(value)=>
+        {
+            assert.equal(value,10); /// valida se dois valores sao iguais 
+        })
+      
+   });  
+});
+
+
+```
+
+Precisamos então de uma maneira de validar valores assíncronos usando mocha
+Acrescente done no argumento da funcao dentro do it . atenção ! moca recomenda nao usar arrow fucntion
+
+```Javascript
+const assert = require('assert');
+const Math = require ('../src/math.js');
+
+describe ('Math class',function (){ 
+   it('Sum two Numbers',function (done) /// it com done aguarda o done ser invocado 
+   {
+        const math = new Math();
+        this.timeout(3000); /// por isso nao usamos arrow function para 
+                            /// poder usar o this deste contexto , se usassemos arrow 
+                            ///function o this se referenciaria ao describe 
+        math.sum(5,5,(value)=>
+        {
+            assert.equal(value,10); /// valida se dois valores sao iguais 
+            done();
+        })
+   });  
+});
+
+```
+
+Escrevendo testes para funcoes que ainda nao existem
+
+```Javascript
+const assert = require('assert');
+const Math = require ('../src/math.js');
+
+describe ('Math class',function (){ 
+   it('Sum two Numbers',function (done) /// it com done aguarda o done ser invocado 
+   {
+        const math = new Math();
+        this.timeout(3000); /// por isso nao usamos arrow function para 
+                            /// poder usar o this deste contexto 
+        math.sum(5,5,(value)=>
+        {
+            assert.equal(value,10); /// valida se dois valores sao iguais 
+            done();
+        })
+   });  
+   it ('Multiply two numbers '); /// teste pendente 
+});
+
+```
+
+it.only executa somente este teste
+
+```Javascript
+it.only ('Multiply two numbers',function(){
+       const math = new Math();
+       assert.equal(math.multiply(5,5),25);
+   });
+```
+
+it.skip pula o teste
+
+```Javascript
+  it.skip ('Multiply two numbers',function(){
+       const math = new Math();
+       assert.equal(math.multiply(5,5),25);
+   });
+```
+
+mocha hooks (before each)
+executa codigo e evita repetições
+outros hooks : before , after e afterEach
+
+```Javascript
+
+const assert = require('assert');
+const Math = require ('../src/math.js');
+
+let value =0; 
+
+describe ('Math class',function (){ 
+    ///hook 
+    beforeEach(function (){
+        value = 0; 
+    });
+
+
+   it('Sum two Numbers',function (done) /// it com done aguarda o done ser invocado 
+   {
+        const math = new Math();
+        this.timeout(3000); /// por isso nao usamos arrow function para 
+                            /// poder usar o this deste contexto 
+    
+        value =5; 
+
+        math.sum(value,5,(value)=>
+        {
+            assert.equal(value,10); /// valida se dois valores sao iguais 
+            done();
+        });
+   });  
+   it ('Multiply two numbers',function(){
+       const math = new Math();
+       assert.equal(math.multiply(value,5),0);
+   });
+});
+```
+
+### 5.3 Chai
+
+O moca nao possui uma ferramenta de assert. Ele usa uma ferramenta built in do node.
+O assert nao eh tao legíveis (os its, describes)  na hora de comparar objetos. Para melhroar isso usamos o chai https://www.chaijs.com/api/
+npm i --save-dev chai
+que é uma ferramenta de asserts tornando os testes mais descritivos
+
+```Javascript
+const assert = require('assert');
+const Math = require ('../src/math.js');
+const expect = require ('chai').expect;
+
+let value =0; 
+
+describe ('Math class',function (){ 
+    ///hook 
+    beforeEach(function (){
+        value = 0; 
+    });
+
+
+   it('Sum two Numbers',function (done) /// it com done aguarda o done ser invocado 
+   {
+        const math = new Math();
+        this.timeout(3000);     
+        value =5; 
+
+        math.sum(value,5,(value)=>
+        {
+            expect(value).to.equal(10); /// mais legível 
+            done();
+        });
+   });  
+   it ('Multiply two numbers',function(){
+       const math = new Math();
+       expect(math.multiply(value,5)).to.equal(0); /// mais legível 
+   });
+});
+
+
+```
+
+Utilizando para validar objetos
+
+```Javascript
+ it ('Multiply two numbers',function(){
+       const math = new Math();
+       const obj = {
+           name : 'Luiz'
+       };
+
+       expect(obj).to.have.property('name'); /// mais legível 
+   });
+```
+
+Comparando objetos , cuidado !
+
+```Javascript
+  it.only ('Multiply two numbers',function(){
+       const math = new Math();
+       const obj = {
+           name : 'Luiz'
+       };
+       const obj2 = {
+        name : 'Luiz'
+    };
+    /// const obj2=obj; /// tornaria a comparação verdadeira 
+       expect(obj).to.equal(obj2); /// problemas pois a referencia eh diferente  
+       ///expect(obj).to.deep.equal(obj2); /// seriam iguals to deep faz uma comparação dos valores dos objetos 
+   });
+```
+
+### 5.4 Sinon
+
+útil para testar métodos de objetos. Adicionei o método printSum na classe math como testar ?
+
+```Javascript
+class Math {
+   sum(a,b,callback){
+      setTimeout(() => {
+         callback(a+b);
+      },0);
+   };
+
+   multiply(a,b){
+      return(a*b);  
+   };
+   printSum(req,res,a,b){
+      res.load('index',a+b);
+   };
+
+}
+
+module.exports =  Math; 
+```
+
+Adicionar uma função espiã que diz se o método foi invocado (spy) na propriedade load do objeto res
+
+```Javascript
+it.only ('Calls req with sum and index values ',function(){
+    const req= {};
+    const res = {
+        load:sinon.spy()
+    };
+    const math = new Math();
+    math.printSum(req,res,5,5);
+    expect(res.load.calledOnce).to.be.true;
+
+```
+
+Verificando se o primeiro argumento é index
+
+```Javascript
+   it.only ('Calls req with sum and index values ',function(){
+    const req= {};
+    const res = {
+        load:sinon.spy()
+    };
+    const math = new Math();
+    math.printSum(req,res,5,5);
+    expect(res.load.args[0][0]).to.be.equal('index');
+ });
+```
+
+Verificando se o segundo argumento é soma
+
+```Javascript
+   it.only ('Calls req with sum and index values ',function(){
+    const req= {};
+    const res = {
+        load:sinon.spy()
+    };
+    const math = new Math();
+    math.printSum(req,res,5,5);
+    expect(res.load.args[0][1]).to.be.equal(10);
+ });
+```
+
+Confirma que o método nao foi chamado (stub)
+
+```Javascript
+
+   it.only ('Calls req with sum and index values ',function(){
+    const req= {};
+    const res = {
+        load : function load(){
+            console.log('called');
+        }
+    };
+    sinon.stub(res,'load');
+    const math = new Math();
+    math.printSum(req,res,5,5);
+    expect(res.load.args[0][0]).to.be.equal('index');
+ });
+
+```
+
+Passou pela checagem
+
+```Javascript
+ it.only ('Calls req with sum and index values ',function(){
+    const req= {};
+    const res = {
+        load : function load(){
+            console.log('called');
+        }
+    };
+    sinon.stub(res,'load').returns('xadsa');
+    const math = new Math();
+    math.printSum(req,res,5,5);
+    expect(res.load.args[0][0]).to.be.equal('index');
+ });
+
+```
+
+```Javascript
+
+```
+
 ## CSS
 
 ## ReactJs
+
+### Introdução ao ReactJS
+
+https://github.com/luizrosalba/IntroReactJs
+
+### Conheça a tecnologia ReactJS
+
+- Não é um framework
+- É uma biblioteca JS para criar interfaces de usuário
+- Criado em 2011 por jordan walke no facebook
+- Baseado em xhp um framework para criação html no php
+- Utilizado no mural de noticias de ferramentas
+- problemas de renderização , escalabilidade , etc
+- 2012 Instragram
+- 2013 Tornou-se Open source
+- 2015 React Native (mobile)
+- 2015 UWP Universal windows plataform (desktop)
+- Netflix
+- é uma linguagem declarativa (não quer saber se uma condição é satisfeita par ser exibida a interface)
+- pode ser usada em celulares , pwa , frontend , backend (nextjs)
+
+### Aprenda a configurar o ReactJS
+
+- Renderização
+- React DOM toda renderização é feita em nós raíz
+- a renderização é a menor parte para construir uma interface no react
+- o browse tem o DOM
+- a renderização de um componente React no DOM é feita Utilizando o ReactDOM.render.
+- o react nao trabalha em cima do dom diretamente, utiliza o Dom virtual que controla tudo que está no DOM
+- Sempre que há uma mudança no html o react faz uma diferença e somente no pedaço onde há atualização é feita uma nova renderização
+
+### Components
+
+- Deixa tudo modular ?
+- componentes e props
+- tornar componentizavel é bom
+- react trabalha bem com reaproveitamento de código
+- pode trabalhar como função ou classe
+- Js não tem classe , tem protótipo
+- Quando JS é transpilado as classes são transformadas em protótipos
+- components - src - index
+- npm i
+- npm run start
+-
+
+### Renderizando elementos
+
+- Estado e ciclo de vida
+- Inicialização
+- Montagem
+- Atualização
+- Desmontagem
+  ![](img/Capturar.PNG)
+- nenhum componente pai ou filho devem saber se outro componente possui estado ou nao
+- o estado é apoenas local ao componente e c aso seja necessário enviar algum atributo para outro então é feito via props
+
+### Ecossistema
+
+Bibliotecas complementares
+
+- React Router gerenciamento de estados
+- Redux
+- Material UI criação de interfaces
+- Ant-Design
+- Storybook criação de componentes
+- Gastby
+- Jest    teste
+- React i18n Next  internacionalizacao
+
+### Configuração
+
+- React Create App (starta projetos com configuração básica, servidor , Jest ...
+- Utiliza o react Scripts
+- Task Runners e Bundlers Sizers
+- npm init
+- npm install --save react@16.8.6 react-dom@16.8.6 @react-scripts3.0.1
+- pasta public -> pasta inicial do projeto
+- - React requer um arquivo css
+- react eh uma single page application (SPA) , baixa todo o prohjeto e renderiza uma  vez todas as rotas , toda vez que o user muda de rota , ele renderiza essa rota ( performace )
+
+### JSX
+
+- Não é HTML nem String
+- É uma linguagem de marcação que permite criar estruturas do HTML com o poder do javascript
+- React usa componentes
+- Não é obrigatória a utilização do JSX mas facilita
+- Browser nao intepreta JSX , para isso é necessario um transpilador para a aplicação entender o código (exemplo BABEL)
+- para executar um JS dentro de um JSX deve estar entre chaves
+
+### O que é webpack
+
+### Integrando webpack ao desenvolvimento com ReactJS
+
+- Webpack - Eslint
+- -e um module bundler ( empacotador de modulos para aplicações js )
+- gerar bundler será utilizano no HTML em ES5
+- https://webpack.js.org/
+- React script (aquele do facebook) utiliza webpack por trás
+- Suporte : Fontes , CSS , Imagens , HTML , JS (JSON) , Plugins
+- Entry - utilizando grafo , o webpack precisa de um ponto de entrada para buscar todos os modulos e dependencias
+- Output
+- DEtermina os bundlers que o webpack emite
+- loaders - permite que o WP gerencie arquivos nao JS
+- Plugins - Podem ser utilizados para otimizacao de pacotes, minificacao , injecao de scripts
+- mode utilizados para abordagens de configurações. É possivle configurar modulos como production , development ou none
+- production trás otimizacoes internas
+  -criacao do webpack.config.js
+- development é utilizado com tres plugins , UglifyJsPligin , ModuleConcatenationPlugin e NoEmitOn ErrosPlugin
+- npm i --save-dev -D webpack webpack-cli
+- npm i --save-dev -D webpack webpack-cli "build":"webpack --mode production"
+- Se fazemos no package.json  criamos o bundler.js em modo produção
+- "scripts": {
+- "build": "webpack --mode production",
+- se mudamos o ponto de entrada no webpack.config.js  para entry: './index.js', /// ponto de entrada
+- conseguimos executar node.\dist\bundler.js
+- npm i @babel/core babel-loader @babel/preset-env @babel/preset-react --save-dev
+- com o preset env posso transpilar para es5 , es 6 ... para manter a compatibilidade com browsers mais antigos
+- para o babel poder transpilar o react para es5 usamos o preset-react
+- babelrc ->  como usamos o presetenv e o preset do react para o babel funcionar precisamos do arquivo babel rc
+- adicionar os presets lá
+- npm i react react-dom
+- babelrc le os plugins e os presets
+- criamos o app (index.js e app.jsx)
+- npm run dev
+- npm i webpack-dev-server
+- "start:dev": "webpack-dev-server", já gera o servidor pra vc
+- hotreloader a cada alteração ele atualiza a pagina automaticamente
+- npm run start:dev
+- http://localhost:8080/
+- se vc adiciona um arquivo depois de gerar o bundle ele nao será importado para o projeto
+-
+
+### Instalação e Configuração do ESLint
+
+- npm install --save-dev eslint babel-eslint eslint-plugin-react eslint-watch
+- npm run eslint
+- npm i react react-dom react-scripts
+- sourcemap - gera um mapeamento de todos os arquivos de uma forma fácil de  debugar
+- no webpack adicionar devtool: 'source-map',
+- npm run start:dev
+
+### Aula 3 - Conceitos aplicados aos tipos de dados e condições da biblioteca
+
+- Renderização condicional : Em React você pode criar componentes distintos ,que encapsulam o comportamento que você precisa. Você pode renderizar apenas alguns dos elementos , dependendo do estado da sua aplicação
+- lesson3 - conditional
+- npm i
+- npm start
+- dentro do app para pular linha < br />
+- {hasCustomer &&  (Apresenta_botao) }
+- {hasCustomer ?  (Apresenta_botao):(Cadastra_cliente) }
+- o ideal é separar apresenta_botao e cadastra_cliente em renders , que serão executados observando o resutlado de hasCustomer
+
+### Listas e Chaves
+
+- npm i
+- cada elemento deve ter sua key - neste caso usamos o id de customer para fazer a key . colocar o indice poderia dar problema se estivermos trabalhando com dois vetores . chaves devem ser unicas apenas entre elementos irmaos
+
+```
+import React from "react";
+
+const listCustomer = [
+  {
+    id: 1,
+    name: 'Bruno Carneiro',
+    skills: ['React', 'Node', 'CSS', 'Webpack']
+  },
+  {
+    id: 2,
+    name: 'Aline Carneiro',
+    skills: ['HTML', 'React Native', 'Go', 'JS']
+  },
+  {
+    id: 3,
+    name: 'Fulano de Tal',
+    skills: ['Assembly']
+  },
+  {
+    id: 4,
+    name: 'José Ciclano',
+    skills: ['Reason']
+  }
+]
+
+const App = () => {
+
+  const renderCustomers = (customer, index) => {
+    return (
+      <div key={`customer-${customer.id}`}>
+        <li>{customer.name}</li>
+        {customer.skills.map(renderSkills)}
+      </div>
+    )
+  }
+
+  const renderSkills = (skill, index) => {
+    return (
+      <div style={{ paddingLeft: '30px' }} key={`skill-${index}`}>
+        <li>{skill}</li>
+      </div>
+    )
+  }
+
+  return (
+    <div>
+      <p>Digital Innovation One</p>
+      <p>Bem vindo a nossa aula =D.</p>
+      <div>
+        <ul>
+          {listCustomer.map(renderCustomers)}
+        </ul>
+      </div>
+    </div>
+  );
+};
+export default App;
+```
+
+### Manipulando Eventos
+
+- similar a mnanipular elementos do dom
+- diferenças sintaxes:
+- eventos em react são nomeadas usando camelCase ao invés de letras minúsculas
+- com o jsx você passa uma função como manipulador de enventos ao invés de um texto
+
+### Eventos
+
+- npm i
+- npm start
+- passando eventos . "e" acessa o prototype do browser daquele elemento
+-
+
+```
+import React from "react";
+
+const showEvent = (e) => {
+  console.log('evento clicado');
+  console.log(e);
+}
+
+const Button = <button onClick={showEvent}> Mostrar Evento </button> 
+
+const App = () => {
+  const handleChange = (e) =>  {
+    const {value} = e.target; 
+    console.log(value);
+  }
+
+  return (
+    <div>
+      <p>Digital Innovation One</p>
+      <p>Bem vindo a nossa aula =D.</p>
+      <input onChange={handleChange} /> 
+
+      <div>
+        <ul>
+          {Button}
+        </ul>
+      </div>
+    </div>
+  );
+};
+export default App;
+```
+
+Mudando o contexto para dentro do app para acessar sem usar o this
+
+```
+import React from "react";
+
+
+const App = () => {
+
+  const name = 'Luiz Rosalba '
+
+  const handleChange = (e) =>  {
+    const {value} = e.target; 
+    console.log(value);
+  }
+
+  const showEvent = (e) => {
+    console.log('evento clicado');
+    console.log(e);
+    alert(name );
+  }
+
+  const Button = <button onClick={showEvent}> Mostrar Evento </button> 
+
+  return (
+    <div>
+      <p>Digital Innovation One</p>
+      <p>Bem vindo a nossa aula =D.</p>
+      <input onChange={handleChange} /> 
+
+      <div>
+        <ul>
+          {Button}
+        </ul>
+      </div>
+    </div>
+  );
+};
+export default App;
+```
+
+Adicionando um botao para deletar cada cliente na lista da aula anterior :
+
+```
+import React from "react";
+
+const listCustomer = [
+  {
+    id: 1,
+    name: 'Bruno Carneiro',
+    skills: ['React', 'Node', 'CSS', 'Webpack']
+  },
+  {
+    id: 2,
+    name: 'Aline Carneiro',
+    skills: ['HTML', 'React Native', 'Go', 'JS']
+  },
+  {
+    id: 3,
+    name: 'Fulano de Tal',
+    skills: ['Assembly']
+  },
+  {
+    id: 4,
+    name: 'José Ciclano',
+    skills: ['Reason']
+  }
+]
+
+const App = () => {
+
+const handleClick = (e) =>{
+  console.log('deletar cliente');
+}
+
+  const renderCustomers = (customer, index) => {
+    return (
+      <div key={`customer-${customer.id}`}>
+        <li>{customer.name} <button onClick={handleClick}>Deletar Cliente </button>  </li>
+        {customer.skills.map(renderSkills)}
+      </div>
+    )
+  }
+
+  const renderSkills = (skill, index) => {
+    return (
+      <div style={{ paddingLeft: '30px' }} key={`skill-${index}`}>
+        <li>{skill}</li>
+      </div>
+    )
+  }
+
+  return (
+    <div>
+      <p>Digital Innovation One</p>
+      <p>Bem vindo a nossa aula =D.</p>
+      <div>
+        <ul>
+          {listCustomer.map(renderCustomers)}
+        </ul>
+      </div>
+    </div>
+  );
+};
+export default App;
+```
+
+Passando o id como argumento para o manipilador de eventos
+
+```
+import React from "react";
+
+const listCustomer = [
+  {
+    id: 1,
+    name: 'Bruno Carneiro',
+    skills: ['React', 'Node', 'CSS', 'Webpack']
+  },
+  {
+    id: 2,
+    name: 'Aline Carneiro',
+    skills: ['HTML', 'React Native', 'Go', 'JS']
+  },
+  {
+    id: 3,
+    name: 'Fulano de Tal',
+    skills: ['Assembly']
+  },
+  {
+    id: 4,
+    name: 'José Ciclano',
+    skills: ['Reason']
+  }
+]
+
+const App = () => {
+
+const handleClick = (e,id) =>{
+  console.log('deletar cliente');
+  alert(`ID do cliente : ${id}`)
+}
+
+  const renderCustomers = (customer, index) => {
+    return (
+      <div key={`customer-${customer.id}`}>
+        <li>{customer.name} <button onClick={(e)=>handleClick(e,customer.id)}>Deletar Cliente </button>  </li>
+        {customer.skills.map(renderSkills)}
+      </div>
+    )
+  }
+
+  const renderSkills = (skill, index) => {
+    return (
+      <div style={{ paddingLeft: '30px' }} key={`skill-${index}`}>
+        <li>{skill}</li>
+      </div>
+    )
+  }
+
+  return (
+    <div>
+      <p>Digital Innovation One</p>
+      <p>Bem vindo a nossa aula =D.</p>
+      <div>
+        <ul>
+          {listCustomer.map(renderCustomers)}
+        </ul>
+      </div>
+    </div>
+  );
+};
+export default App;
+```
+
+### Pensando do jeito React
+
+- thinking react
+- npm i
+- deixar os componentes da forma mais livre possivel
+- Começar com um mock  (simulam o comportamento de objetos reais de forma controlada. São normalmente criados para testar o comportamento de outros objetos. Em outras palavras, os objetos mock são objetos “falsos” que simulam o comportamento de uma classe ou objeto “real” para que possamos focar o teste na unidade a ser testada.)
+- Separar a Ui em páginas (escopos) diferentes por exemplo , colocar listcustomer em um arquivo e importa-lo
+- separar a UI em uma hierarquia de componentes
+- Criar uma versão estátia  em react
+- Identificar a representação minima mas completa da UI
+- Identificar onde o state deve ficar
+- adicionar o fluxo de dados inverso
+- react é funcional e modular, deve estar todo separadinho em arquivos
+- rotas do projeto são os containers (Views )
 
 ## SCRUM
 
 ## DDD e Padrões de Arquitetura
 
-## Docker
+### Conceitos introdutórios e o que é um banco de dados
+
+SGDB - Sistemas gerenciadores de banco de dados
+
+- DDL Linguagem de definição -> Definição da estrutura dos dados
+- DML Linguagem de Manipulação -> Recuperação e alteração da informação
+- DQL Dicionario de Dados  - > banco de dados dentro do banco de dados que guarda a estrutura
+
+### Modelos de Banco de dados
+
+- Modelo Flat - tabelas com os dados diretamente
+- Modelo Hierárquico  - divisão da informação em árvore hierárquica  (já nao é mais utilizado) (ex: registro do windows) (redundância de informações)
+- Modelo Relacional - mais utilizado atualmente conjunto de tabelas flat que se relacionam obedecendo algumas regras
+- existem vários outros modelos : redes (grapho) , Orientado a objetos . objeto relacional (OO + relacional) , Big data
+
+### Bando de dados Relacionais (SGDBR ou em ingles RDBMS)
+
+- Tabelas : Entidades que agrupam as informações
+- Linhas : Registros ou tuplas
+- colunas : Classificação ou definição do que significa cada informação
+- chaves:  Primaria (unicidade do registro ) ou   foreing key (estrangeira) herança da chave primaria de uma outra tabela que cria o relacionamento entre duas tabelas
+
+### Modelagem
+
+- 1 Modelo Conceitual - MER
+- 2 Modelo lógico - Implementação
+  DER (diagrama de entidade relacionamento) Um desenho que mostra como o modelo se comporta, mostrando como as entidades se relacionam.
+- Dados que não dependem de nenhum outro para existir são chamados de entidades forte ex: usuarios , produtos
+- Dados que dependem de nenhum outro para existir são chamados de entidades fracas  ex: tabela venda depende de produtos e usuarios
+- Exemplo de um relacionamento M x N  ( entidade associativa)
+- no modelo der existe uma notação que vem ao lado da entidade M(1..N) significa que precisa de no minimo 1 e pode ter varios
+- no modelo der existe uma notação que vem ao lado da entidade N(0..N) significa que pode nao ter nenhuma ou N vendas
+- no modelo der existe uma notação que vem ao lado da entidade 1(1..1) 1 venda precisa ter 1 e no maximo 1 cliente
+- Relacionamentos 1X N , M x N
+  ![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/Capturar3.PNG?raw=true)
+
+![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/333.PNG?raw=true)
+
+- Transação atomica - 1 venda sem nenhum item
+- Normalização 1 a 5
+- 1,2,3 mais comuns
+- Modelo relacional pode ser criado sem normalizaçao mas pode gerar problemas de controle
+- 1ª forma normal -> Existencia de valores unicos na mesma coluna ex : 2 telefones na mesma coluna
+- Se houver dois telefones ou duas informações , essa informação precisa ser quebrada em uma nova coluna ou nova entidade (tabela com relação de chave estrangeira)
+- 2ª forma normal  resolve o problema da digitação errada ou duplicidade de linhas . Onde havia vendedor com escrita errada , cria-se apenas dois registros ex vendedor ou consultor
+- 3 ª forma normal - os valores devem ser dependendes da chave primaria e não podem ser dependentes de valores que nao são chave (total depende de valor e quantidade o que pode gerar problemas na hroa de armazenar informações pois o usuario pode alterar uma coluna e o totla nao será atualizado)
+- Obs: Só podemos estar na segunda forma se aplicamos a primeira e assim por diante
+
+### SGDBR - SQL
+
+- DDL - Data definition languange
+- Create
+- DML Linguagem de Manipulação
+- Insert, Delete, Update
+- DQL Dicionario de Dados
+- Select ... from ... where ... groupby ... having ... orderby
+
+Exemplo : Select quantidade ,valor , descricao from Item_venda Join Produto On Codigo = Cod.Produto Where Valor > 5
+![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/4444.PNG?raw=true)
+
+- Funções de conjunto - Sun , min , max, avg dentre outras que podem ser utiizadas para aplicar uma operação a collunas de um BD
+- Exemplo de query de funções de conjunto :
+
+![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/55555.PNG?raw=true)
+
+- Indexadores Um index é uma pequena tabela extraida da tabela original apenas com as colunas que desejamos ordenar . Ela é física (armazenada no servidor )e memória (estará ocupando memória) . Podemos criar quantos indices forem necessarios para uma tabela . Indices afetam os recursos no dml . Ao incluir uma nova linha o sistema precisará fazer a mesma coisa no index
+
+### Transactions
+
+- Consumo e tratamento de informações em um nivel de isolamento. O sistema gerenciador de banco de dados deve permitir a concorrencia de recursos para muitos usuarios (transactions , ou aquilo que se pode fazer dentro de uma sessão).  Cada operação realiza dentre de um BD é tratada como uma transação independente, tem começo , meio e fim .
+- O padrão de isolamento é o reading commited. Pode-se ler aquilo que já foi aplciado no banco
+- Em uma transação diversos usuarios podem sobrepor informações
+- Ex :
+- Inicio (Insert, Delete, Update)
+- resolução (commit ou rollback )
+- Fim ( novos dados ou dados originais)
+- Conceito ACID
+- Atomicidade Todas as operações são executadas com sucesso, commit ou rollback , mesmo com a conexão interrompida
+- Consistencia Unicidade de chaves, restrições de integridade lógica , etc (não posso infringir regras do modelo)
+- Isolamento   Varias transações podem acessar simultaneamento o mesmo registro ou parte do registro. REspeita-se a ordem de chegada
+- Durabilidadae  Depois do commit , mesmo com erros, queda de energia, etc as alterações devem ser aplicadas
+
+### SGDBR na prática
+
+-SGDBs-R (relacionais) :
+
+- Todos tem versões com features reduzidas para aprendizagem ou pequenos negócios
+- ORACLE , Microsoft Sql Server , IBM DB2 ,
+- PostGreSql (gratuito) , Mysql , Sqlite (embarcados , não é bom para sistemas distribuidos, mas pode rodar até mesmo no celular )
+- Instalamos o postgree sql
+- no chrome http://127.0.0.1:16751/browser/
+- Server
+- Nome
+  _ connections localhost port 5432
+- postgree - local onde serão salvos os metadados ( dicionario de dados) nada deve ser alterado ali
+- criamos uma nova database chamada aula
+- schema : mapeia o quesito logico da operação
+- fomos em aula , botao direito , query tool
+- executamos no query editor :
+
+```Javascript
+create table client
+(codigo numeric(10) not null primary key ,
+nome varchar (100) not null , 
+telefone varchar(15))
+```
+
+- clicando no play a tabela será criada e dando um refresh na database aula você vera a table client
+- Comando ddl (criacao etc;) nao necessitam de commit cuidado , pois nao tem volta. dar um drop na tabela nao tem volta
+- Inserimos
+
+```Javascript
+insert into client (codigo,nome,telefone)
+values(1,'Lorem Ipsum', '(88)- 8888 9999')
+```
+
+- e para que seja acplicada aplicamos commit
+- ao realizar um select * from client vemos o usuario adicionado
+- ele se tornou o usuario postgre no ubuntu para mostrar que podemos fazer o mesmo pela linha de comando
+- sudo su postgre
+- executou psql
+- create table client (codigo numeric(10) not null primary key , nome varchar (100) not null ,  telefone varchar(15));
+- insert into client (codigo,nome,telefone) values(1,'Lorem Ipsum', '(88)- 8888 9999');
+
+### A arquitetura de aplicações móveis e internet das coisas
+
+### Internet das coisas
+
+- arpanet
+- Protocolo MQTT (message queue telemassage transport)  é um protocolo de mensagens assíncronas (machine to machine - M2M) mais utilizado para IOT (linguagem que o smartphone rodando android) para se comunicar com a cloud
+- free rtos -> sistema operacional real time
+- Modelo publish / subscribe -> modelo de comunicação do MQTT
+- Publicador/ Publisher:  Quem envia dados para um tópico, emissor.
+- Subscrito/ Subscriber:  Pessoa que está inscrita no tópico e recebe os dados, receptor.
+- Broker: Intermédio de comunicação entre Publicador e Subscrito, responsável por receber, enfileirar e enviar as mensagens.
+- Payload: Conteúdo da mensagem enviada.
+- Cliente/Client: Elemento capaz de interagir com o Broker, seja para enviar, receber ou os dois.
+- Mensagem: Pacote de dados trocados entre Clientes e Broker.
+- Tópico: Endereço para o qual os dados serão encaminhados.
+- Unsubscribe: Deixar de assinar um tópico.
+
+![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/Capturar2.PNG?raw=true)
+
+- pub mqtt://my-tracker.com/identificador_usuario/gps/position{'lat:-23.53,'Ion':-43.81}
+- topico(ex: /gps/position) : endereço onde se entrega a informação , definido pelo usuario
+- mqtt     :// my-tracker.com  /identificador_usuario   /gps      /position            {'lat:-23.53,'Ion':-43.81}
+- protocolo    broker           identificador           sensor    tipo de informaçao
+- mqtt://my-tracker.com/+/gps/position{'lat:-23.53,'Ion':-43.81}
+- + é um caractere corigna que faz com que o broker entregue a posição geográfica de todos os usuarios
+- pub mqtt://my-tracker.com/identificador_usuario/gps/+
+- pega todas as informações do gps
+- mqtt://my-tracker.com/+/#
+- é um caractere corigna que recebe todas as informações de todos os sensores de todos os usuarios
+- QOS -> niveis de qualidade de serviço
+- QoS 0 (at most once)- A mensagem deve ser recebida no máximo uma vez, podendo ser recebida uma vez ou nenhuma, não há confirmação de recebimento.
+- QoS 1 (at least once)- A mensagem deve ser recebida pelo menos uma vez, podendo uma mesma mensagem ser recebida uma ou mais vezes, há confirmação de entrega de uma mensagem.
+- QoS 2 (exactly once)- A mensagem deve ser recebida uma única vez, confirmação de recebimento de uma única mensagem.
+- prova de conceito
+  app android -> mosquito -> node.js-> banco de dados mysql
+  Mosquito -> Broker executável em linux que consegue publicar dados de um android
+- minimo produto viavel
+  GPS embarcado -> HiveMq-> akkaScala JVM ->banco de dados nosql
+- Solução
+  GPS embarcado -> aws iot core -> aws kinesis firehose -> aws s3
+- IOT na prática
+  GPS embarcado -> aws iot core -> aws data stream -> aws lambda -> aws elasticCacheRedis-> Aws EC2 -> FeathersJSBackend -> Dashboard
+
+### Web Service
+
+- Soluções para que aplicações se comuniquem independentemente de linguagem, software e hardwares utilizados
+- Inicialmente foram criados para troca de mensagens usando xlm(extensible markup language) sobre o protocolo http sendo identificado por uri (uniform resource identifier)
+- Podemos dizer que serviços web são api's que se comunicam por meio de redes sobre o protocolo http
+- Uma aplicação x acessa um web service que faz troca de  mensagens com a aplicação y usando , xml , json, yaml ...
+
+SOAP
+REST
+XML
+JSON
+
+linguagens de marcação -> usadas para comunicação entre aplicações
+
+### Estrutura Soap
+
+SOAP = simple object access protocol
+
+- Baseado em xml para acessar serviços web por http
+- É uma definição de como serviços web se comunicam
+- Desenvolvido para facilitar integrações entre aplicações em diferentes linguagens
+- Independe de plataforma e software
+- Meio de transporte genérico pode ser usado por outros protocolos além do http
+
+XML = Extensible Markup Languange
+
+- criada na décade de 90 pela W3C
+- Facilita a separação de conteúdo
+- Não tem limitação de criação de tags
+
+Estrutura SOAP
+
+- O soap message possui uma estrutura unica que deve ser sempre seguida
+- soap envelope (container) -> soap header -> soap body
+- Envelope é usado para encapsular toda a mensagem soap
+- header elemento que possui informações de atributos e metadados da requisição
+- body contem os detalhes da mensagem
+
+ex :
+
+```Javascript
+<soap:Envelope xmlns:soap="endereço/soap-envelope"> 
+<soap:Header> 
+</soap:Header> 
+<soap:Body>
+<m:MetodoEndereco xmlns:m="endereco/endereco"> 
+<m:Cidade> nomecidade </m:Cidade>
+<m:CEP> numcep </m:CEP>
+<m:Numero> num </m:Numero>
+<m:Endereco>
+</soap:Body>
+</soap:Envelope> 
+```
+
+### Entendendo o que é WSDL e XSD
+
+WSDL
+
+- Web Service Description Language
+- Descreve Web Services funciona como um contrado do serviço
+- A descrição é feita em um documento XML, onde é descrito o serviço , especificiações de acesso , portas, métodos ,etc;
+
+XSD
+
+- XML Schema Definition
+- É um schema no formato XMl usado para definir a estrutura de dados que será validada no xml
+- Funciona como uma documentação de como deve ser montado o SOAP Message (XML) que será enviado através do Web Service
+- http://www.soapclient.com/xml/soapresponder.wsdl
+  Programa para abrir e identificar com mais facilidade métodos dentro de um soap
+  ele também consegue retornar a requisição dos dados em SOAP
+- https://www.soapui.org/.
+
+documentation => Descrição do que o serviço faz
+
+Python zeep -> cliente soap para python
+
+### Aprenda o que são REST, API e JSON
+
+Rest
+
+- Representational State Transfer
+- É um estilo de arquitetura de software que define a implementação de um serviço web
+- Podem trabalhar com os formatos XML , JSON ou outros
+- utiliza http para definir a operação que está sendo efetuada
+  ![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/Capturar.PNG?raw=true)
+
+API :
+
+- Application Programmin Interface
+- São conjuntos de rotinas documentadas e disponibilizadas por uma aplicação para que outras aplicações possam consumir suas funcionalidades
+- Popular com o aumento dos serviçoes web
+- Facebook , Twitter , Telegram , Wzap , Github ...
+- Apis podem ser rest , json , etc...
+
+Métodos HTTP :
+
+- GET  solicita a representação de um recurso ( ex pegar um tweet)
+- POST solicita a criação de um recurso (ex criar um tweet)
+- DELETE solicita a exclusão de um recurso
+- PUT  solicita a atualização de um recurso (ex atualiza o texto do twwt)
+
+Para um serviço web ser considerado rest, deve seguir esta arquitetura . get representa, post cria, delete exclui e put atualiza.
+
+JSON
+
+- JSON Javascript Object Notation  ( apesar de poder ser usada em qquer linguagem)
+- Formatação leve utilizada para troca de mensagens entre sistemas
+- Usa-se de uma estrutura de chave e valor e também de listas ordenadas
+- Um dos formatos mais populares
+
+ex:
+
+```Javascript
+{
+ "nome": "Os vingadores". 
+ "ano": "2019", 
+ "personagens":[
+ {
+  "nome": "Thanos" 
+ },
+ {
+  "nome": "thor" 
+ },
+ {
+  "nome": "Hulk" 
+ }
+ ]
+}
+```
+
+### Integração com REST e métodos HTTP na prática
+
+Código de Estado (Status Code)
+
+Usado pelo servidor para avisar o cliente sobre o estado da operação solicitada
+
+- 1xx - informativo (ex: recebido , aceito , mas ainda nao terminou)
+- 2xx sucesso  (solicitação aceita , processada com sucesso)
+- 3xx redirecionamento (ação necessária para o cliente ex mudança de site)
+- 4xx erro do cliente
+- 5xx erro do servidor
+
+Lista de Códigos de estado
+
+- https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status
+
+Programa para simular trocas de msg http
+
+- https://www.postman.com/downloads/
+- É possivel usar o python e o javascript para utilizar comandos HTTP.
+
+## Introdução a arquitetura de sistemas
+
+### Monolito
+
+figura de monolito
+Pros:
+
+- Baixa complexidade
+- Monitoramento simplificado
+  Contra :
+- Stack Unico
+- Compartilhamento de recursos
+- Acoplamento
+- Mais complexa a escalabilidade
+
+![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/monolito.PNG?raw=true)
+
+Servidor (BD -> varias instancias <- http proxy)  <- web app e mobile app
+
+### microserviços 1
+
+Um serviço para cada aplicação Cluster . Os serviços se comunicam e se completam. O proxy de dentro do cluster decide qual serviço
+responsável por uma determinada demanda .
+
+Pros:
+
+- stack dinâmica
+- Simples escalabilidade
+  Contra :
+- Monitoramento complexo
+- provisionamento complexo  (docker)
+- Acoplamento
+
+![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/microservico.PNG?raw=true)
+
+### microserviços  2
+
+Não há mais canal de comunicação direta (message broker). se 2 para de funcionar nao quebra o serviço 1 . Não há comunicação direta entre serviços . Com o MB quando o serviço retorna , ele peg todas as mensagens do mB e se atualiza. SE o MB quebrar a arquitetura inteira quebra.
+Pros:
+
+- stack dinâmica
+- Simples escalabilidade
+- Desacoplamento
+  Contra :
+- Monitoramento mais complexo que o microserviço 1 (MB entre cada serviço)
+- provisionamento complexo  (docker)
+  ![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/micro2.PNG)
+
+### microserviços  3
+
+Se comunica através de um gerenciador de pipelines . Os serviços estão desacoplados. O serviço 1 faz sua parte e quebra se for necessario o serviço 2 estiver offline. O pipeline deve saber voltar no serviço 1 (rollback)  e reverter o que foi feito .
+Pros:
+
+- stack dinâmica
+- Simples escalabilidade
+- Desacoplamento
+- Menor Complexidade
+  Contra :
+- Plataforma inteira depende do gerenciador de pipeline
+- provisionamento complexo  (docker)
+
+![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/micro3.PNG?raw=true)
+
+### Gerenciamento de erros e volume de acesso
+
+Onde é mais complexo :
+-Processos assíncronos ( Microserviço #2)
+
+- Pipeline
+
+Solução
+
+- Dead letter queue (fila separada do MB)
+- Filas de re-tentativas
+
+## UX e UI
+
+- Briefing , Imersão e Unpack
+- Briefing -> Entender o que é o projeto : Objetivo , entender o porquê do trabalho
+- Imersão -> Contexto , público , stakeholders, histórico , estratégia, demandas , reclamações ,etc
+- Unpack -> Em um sprint Design , o primeiro dia é conhecido como "unpack" nessa etapa podemos ouvir várias informações diferentes.
+
+### wireframes , grids e hierarquia
+
+- Estrutura  como os objetos devem ser posicionados no layout (papel e caneta)
+- Conteudo  como serão colocados os conteúdos para ajudar na usabilidade e interatividade do usuario
+- Hierarquia informativa como o conteúdo será organizado e apresentado
+- Funcionalidade  como será a usabilidade em cima da interface/ em relação ao comportamento , como interagir com o usuario ? como ele se comporta ?
+- Grid alinhamento e espaçamento
+- Grid : Podemos masi facilmente detemrinar o fluxo de leitura que queremos que o nosso leitor tenha
+- Lembre-se sempre de dar atenção ao alinhamento e espaçamento tanto de textos quanto de elementos gráficos focando na responsividade
+- Luzes , sombras , consistencia e padrão
+- Luzes e sombras : Recursos qeu garantem movimento , profundidade , sobreposicao e contraste a interface
+- é importante separar elementos , menus , demarcar areas importantes e indicar possíveis ações em seu projeto
+- Consistência e padrão : o projeto deve manter o mesmo tom de redação (ux writer) o mesmo padrão visual (design System) e am esma consistencia em diversos devices (Ux design)
+- se preocupar com o tamanho de tela , o app deve ser capaz de ser reproduzido em diversos tamanhos de tela
+
+### Cores da interface
+
+- Saber usar cores não é uma tarefa facil (UI design)
+- Psicologia das cores
+- cores quentes = consumo
+- cores frias = tranquilidade
+- Paleta primaria (Azul (fria )  laranja (quente) e cinza(neutra) )
+- cor deve seguir a marca que estamos usando
+- cores secundárias
+- verde - sucesso
+- amarelo - aviso
+- erro - laranja
+- notificação laranja -claro
+- cinza - mensagem
+
+### Gradiente ou degrade vem sendo aplicado no redesing de alguns logos ex: instagram
+
+- profundidade e impacto visual
+
+### tipografia
+
+- Qual escolher ?
+- Faz o link entre personalidade e a mensagem que queremos passar
+- Classificação de fontes :  serifadas , sem serifa , cursivas e decorativas
+- Serifadas : Apresentam pequenos traços e prolongamentos. Seriedade e tradicionalidade  (ex: times New Roman)
+- Sem serifa (sans-serif) não tem linhas extras no final das letras , são consideradas modernas e dinâmicas. Leitura melhor, arredondadas.
+- Cursivas (script) abrange as fontes manuscritas ou caligráficas -> elegante pessoal e exclusivo ou divertido e descontraído
+- decorativas ou fantasia (display) Fontes destinadas a chamarem sua atenção. Geralemnte são mais inunsitadas que práticas e devem ser usadas em pequenas doses para efeito e propósitos específicos
+
+### tamanho e peso
+
+- ABNT Times new roman , tamanho 12 , espaçamento 1.5 , bom no papel
+- O tamanho padrão de texto no browser é 16 px. (padrão para design digital)
+- Peso : É a grossura dos caracteres de um tipo (propriedade fonte-weght). Normal , bold , bolder e lighter
+- obs : helvética pode ter pesos entre 100 e 900 onde 100 Thin até 900 heavy
+
+### Componentes da Interface do Usuário
+
+- IconografiaComunicar uma mensagem por uma linguagem visual
+- Manter os ícones simples
+- Traduzem de forma simples a informação que devem passar
+- Combine ícones com palavras
+- escolha ícones familiares
+- utilize espaçamento
+  consistência elementos ecomuns para usar em seus ícones paleta de cores . nao mais de tres cores par manter o design clear nao tenha medo de repetir elementos em todos os seus ícones
+- imagem nao é decoração (UX)
+- Contexto relevante - Usuarios reagem a imagens melhor que a textos
+  -relevância
+
+### Guias de estilo  ( manual da marca )
+
+- criado pelo designer que criaram a identidade visual e a correta aplicação da marca
+- Preserva a uniformidade e coerenciada comunicação da marca
+
+### Conceitos em projetos
+
+- Padrão visual para diferentes telas
+- Responsividade O brasil é um dos paises que mais cresce em smartphones
+- Mobile first - pensar primeiro no mobile e depois em outras telas
+- Responsividade - Abrange atingir todas as telas com o app celular , tablet monitor
+- O futuro do e-commerce é celulares (app commerce )
+- Navegar com uma mão
+- Google resize window resize
+- Empatir e inclusão Acessibilidade
+- Conhecer e pesquisar o usuário é fundamental
+- Entender acessibilidade uxdesign.blog.br oque fazer e o que nao fazer sobre acessibilidade
+
+### Prototipagem
+
+- Utilidade atualizar modelo de negócios e criar novos produtos ou serviços
+- Fidelidade do protótipo (baixa ou alta fidelidade) baixa é interessante para não criar expectativas
+  ![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/dasdasd.PNG?raw=true)
+
+### Portfolio , Clientes e apresentação
+
+- Fundamental !
+- Demonstra profissionalismo - problema e solução
 
 ## BootStrap
 
-## node JS
+### Construindo páginas para internet com Bootstrap
+
+https://github.com/luizrosalba/Bootstrap
+
+Aprenda sobre o framework Bootstrap
+
+- Bootstrap : Framework para dev de sites responsivos (todos os devices)
+- framework mais conhecido
+- divide a tela em até 12 partes
+- dentro da pasta css arquivos css identados arquivos min sem identação (mimificado)
+- container com borda
+- container-fluid  pagina toda
+- text-center
+
+## Node JS
+
+https://github.com/luizrosalba/ArquiteturainternanoNodeefilas.md/blob/master/README.md
 
 ## TDD e BDD
 
+https://github.com/luizrosalba/node-tdd/edit/master/README.md
+
+### node-tdd
+
+Exemplo de desenvolvimento de API em Node.js usando TDD
+
+### Instalar dependências
+
+```
+npm install
+```
+
+### Criar container para o banco MongoDB com Docker
+
+Execute o arquivo para gerar o container:
+
+```
+./runDocker.sh
+```
+
+*Obs.: O Docker precisa estar instalado. Instruções de como instalar o Docker em Windows, Mac e Linux, veja [este post](https://blog.umbler.com/br/containers-102-primeiros-passos-para-realizar-a-instalacao?a=7e8480pk).*
+
+### Executando os testes
+
+Para executar os testes unitários, use o comando:
+
+```
+mpm run test:unit
+```
+
+Para executar os testes de integração, use o comando:
+
+```
+pm run test:integration
+```
+
+### Referências
+
+[Documentação do Express](https://expressjs.com)
+
+[Documentação do Sinon.js](https://sinonjs.org) - módulo para uso de *stubs*, *mock* e *spy*
+
+[Documentação do Mocha](https://mochajs.org) - módulo de execução de suites de teste
+
+[Documentação do Chai](https://www.chaijs.com) - módulo para fazer asserções
+
+[Documentação do SuperTest](https://github.com/visionmedia/supertest) - módulo que emula e abstrai requisições HTTP
+
+### Observações
+
+Este código faz parte do curso **_Desenvolvimento Back-end com Node.js_** na [Digital Inovation One](https://digitalinnovation.one).
+
 ## Node JWT
 
-## REdis
+https://github.com/luizrosalba/node-jwt/edit/master/README.md
+
+Exemplo de API em Node.js usando JWT
+
+### Instalar dependências
+
+```
+    npm install
+```
+
+### Gerando certificados
+
+O algorítmo de encriptação do token usa o conteúdo de arquivos de certificados que contém as chaves pública e privada. Para gerar estes arquivos, execute o arquivo:
+
+```
+$ ./generateKeys.sh
+```
+
+A senha solicitada pelo comando pode ficar em branco. Os arquivos **_private.key_** e **_public.key_** serão gerados na pasta **_src_**.
+
+### Iniciar o servidor
+
+Para iniciar o servidor Express, use o comando:
+
+```
+   npm start
+```
+
+### Referências
+
+[Documentação do Express](https://expressjs.com)
+
+[Documentação do JsonWebToken](https://github.com/auth0/node-jsonwebtoken)
+
+### Observações
+
+Este código faz parte do curso **_Desenvolvimento Back-end com Node.js_** na [Digital Inovation One](https://digitalinnovation.one).
+
+## Redis
+
+### Tarefas em Background usando node e redis
+
+- Instalei o docker https://hub.docker.com/
+- Docker é uma plataforma de código aberto, desenvolvido na linguagem Go e criada pelo próprio Google.
+  Por ser de alto desempenho, o software garante maior facilidade na criação e administração de ambientes isolados,
+  garantindo a rápida disponibilização de programas para o usuário final.
+- O Docker tem como objetivo criar, testar e implementar aplicações em um ambiente separado da máquina original,
+  chamado de container. Dessa forma, o desenvolvedor consegue empacotar o software de maneira padronizada.
+  Isso ocorre porque a plataforma disponibiliza funções básicas para sua execução,
+  como: código, bibliotecas, runtime e ferramentas do sistema.
+
+Um arquivo Docker pode ser formado por diversas camadas diferentes, onde se dividem em dois grupos:
+
+- Imagens: elas são formadas por diferentes camadas. Com a sua utilização, o usuário pode facilmente compartilhar
+  um aplicativo ou um conjunto de serviços em diversos ambientes. Quando há alguma alteração na imagem,
+  ou uso de um comando como executar ou copiar, é criada uma camada.
+
+-Containers: são formadas na reutilização das camadas. Um container é o local onde estão as modificações da
+aplicação que está em execução. É por meio dele que o usuário pode modificar uma imagem.
+
+- Permite Reversão
+- permite Implantação rápida
+- criei uma conta
+- realizei o tutorial de instalação od docker desktop para windows gerando assim um container docker -tutorial rodando na porta 80
+- não consegui startar o container do tutorial (ocorreu algum erro de portas ... )
+- Para o Labs vou precisar do redis , para criar este container executei :
+  docker run --name redis -p 6379:6379 -d -t redis:alpine
+- Pelo amor do deus divino , quando for criar o container, crie com acesso a porta 80. para mudar isso depois é um inferno !!
+- eu criei um arquivo explicando como adicionar o acesso a essa porta neste mesmo repositorio do github
+- Ele usou a imagem padrão do  Linux 687e7ed93cd5 4.19.76-linuxkit #1 SMP Tue May 26 11:42:35 UTC 2020 x86_64 Linux
+- agora pelo docker desktop eu tenho acesso a esta máquina virtual :D
+  posso acompanhar os containers criados pelo comando :
+- docker ps
+
+insatlei o yarn
+
+- apk add yarn
+- yarn --version
+- usar o Visual Studio Code com o container :
+- adicionar a extensao do docker
+- adicionar a extensão do remote container
+- criar a paste :
+- no VS F1
+- remote containers : attach to running container
+- está pronto para usar !
+- criei uma pasta em ~/.vscoder-server/teste2
+  Instalei o yarn express nodemailer dotenv
+- yarn add express nodemailer dotenv
+  Instalei o gitignore no container para subir o codigo para o git
+- busquei o pacote gitignore , já me deu a opção de instalar no container e instalei com um clique
+- abri a pasta teste2
+- adicionei o git no container
+  RUN apk update && apk upgrade && apk add --no-cache bash git openssh
+- fui pra pasta teste2 e adicionei o controle git
+- yarn add git
+- Ele já atualizou as dependencias do projeto no json com o git
+
+```Javascript
+{
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "git": "^0.1.5",
+    "nodemailer": "^6.4.11"
+  }
+}
+```
+
+- dentro da pasta2 git init
+  Initialized empty Git repository in /root/.vscode-server/teste2/.git/
+  criei um arquivo .gitignore com a seguinte linha : node_modules
+- isso faz com que o git ignore os modulos do node na hora de fazer os meus commits
+- Adicionei o nodemon no projeto
+  yarn add nodemon sucrase -D
+  -Criei o arquivo nodemon.json dentre de teste2
+  criei a pasta src e dentro dela coloquei servers.js
+- import 'dotenv/config';
+  dotenv permite usar variaveis de ambiente
+- Criei o arquivo .env na pasta teste 2 e coloquei a o comando : PORT=8080
+  .env é bom para usar com variaveis imutaveis como credeciasi de acesso , servidor etc...
+- editei e meu server.js ficou assim :
+
+```Javascript
+import 'dotenv/config';
+import express from 'express'; 
+
+import UserController from './app/controllers/UserControllers'
+const app = express();
+
+app.use(express.json());
+
+app.post('/users',UserController.store);
+
+app.listen(process.env.PORT, () => {
+    console.log(`Server running on the ${process.env.PORT}`)
+  
+});
+```
+
+e rodei no terminal para iniciallizar o servidor :
+
+- yarn start
+- Obs : VAriaveis de ambiente são carregadas qquando o servidor sobre , qquer alteração nelas o servidor deve reiniciar
+- dentro da pasta src eu criei a pasta app > controllers > UserController.js
+- yard add password-generator
+  agora a senha vai ser gerada automaticamente (server.js) . Editando o arquivo UserControllers.js
+
+```Javascript
+import passwordGenerator from 'password-generator';
+import Mail from '../lib/Mail'
+
+export default {
+     async store(req,res){
+        const { name , email   } = req.body ; 
+        const user = {
+            name, 
+            email, 
+            password : passwordGenerator(15,false)
+        };
+    
+    
+         await  Mail.sendMail({
+             from:'DIO <contato@batata.com.br>',
+             to: `${name}<${email}>`,
+             subject : "Cadastro de usuário",
+             html: `Olá, ${name}, bem vindo a DIO.`
+         })
+
+
+        return res.json(user);
+     }
+ }
+```
+
+-yarn start
+
+-criamos uma pasta lib dentro de app com o arquivo Mail.js
+
+```Javascript
+import nodemailer from 'nodemailer';
+import mailConfig from '../config/mail';
+
+export default nodemailer.createTransport(mailConfig)
+```
+
+- Usamos o mailtrap.io para simular uma caixa de email
+- https://mailtrap.io/inboxes
+- criamos a pasta config/mail.js
+
+```Javascript
+export default{
+    host: process.env.MAIL_HOST, 
+    port: process.env.MAIL_PORT, 
+    auth: {
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASS
+      }
+}
+```
+
+```Usei minhas credenciais no .env para enviar o emal
+PORT = 8080
+
+MAIL_HOST = smtp.mailtrap.io
+MAIL_PORT = 2525
+MAIL_USER= ---
+MAIL_PASS= ----
+
+```
+
+<s>Não consegui enviar o email pois o meu container nao tem um servidor http , não consigo fazer o post que gera o usuario , a senha aleatória e manda o email. preciso instalar um servidor http para tanto. </s>
+
+- não precisei de nada disso. o nodemon já inicia o servidor n porta 8080 com o nodejs com as configurações realizadas no arquivo server.js Consegui fazer o post usando o postman desta forma :
+
+![](https://github.com/luizrosalba/Tarefasem-background-utilizando-Nodejs-e-Redis/blob/master/Capturar.PNG?raw=true)
+
+- O professor então fala que uma fila em background poderia ajudar em situações onde muitos usuarios estivessem se cadastrando e nao recebendo o email por causa do await estar demorando muito
+- Solução : criar uma fila de processamento em background
+- criar o processo que cria a fila
+- criamos o registrationmail.js dentro da pasta jobs
+- Eu coloquei o pc em modo suspender e deu problema ao reiniciar. Quando reiniciou o docker nao queria abrir os containers por causa do ISS do WIndows. Desativei e funcionou
+- Bull Ferramenta encontrada no github para gerenciamento de filas
+- tinha uma kue mas parou de ser utilizada (sempre ficar de olho na ultima data do commit)
+- criamos o arquivo RegistrationMAil dentro de uma pasta jobs
+
+```Javascript
+import Mail from '../lib/Mail'
+
+export default {
+    key : 'RegistrationMail',
+    options: {
+        delay:5000,
+        priority:3
+    },
+
+    async handle({data}){ ///desestruturacao evita data.data
+        const {user} = data; 
+
+        await  Mail.sendMail({
+            from:'DIO <contato@batata.com.br>',
+            to: `${user.name}<${user.email}>`,
+            subject : "Cadastro de usuário",
+            html: `Olá, ${user.name}, bem vindo a DIO.`
+        })
+    }
+}
+```
+
+- E removemos o await do Mail.js
+- criamos um arquivo redis.js dentro da pasta config
+
+```Javascript
+export default { 
+    host: process.env.REDIS_HOST, 
+    port: process.env.REDIS_PORT, 
+
+}
+```
+
+e no arquivo .env adicionar
+REDIS_HOST = 127.0.0.1
+REDIS_PORT = 6379
+
+- Dentro da pasta lib criamos o Queue.js
+- adicionamos o bull
+- yarn add bull
+- percebi que coloquei o config dentro da pasta app  , deveria estar fora , depois corrijo isso
+- criamos um index.js dentro de jobs com a linha
+
+```
+export {default as RegistrationMail} from './RegistrationMail';
+```
+
+Adicionamos um arquivo Queue.js dentro de lib
+
+```Javascript
+import Queue from 'bull'; 
+import redisConfig from '../config/redis';
+
+import * as jobs from '../jobs';
+
+const queues = Object.values(jobs).map(job=> ({
+    bull: new Queue (job.key,redisConfig),
+    name: job.key,
+    handle:job.handle,
+    options: job.options,
+}))
+
+export default{
+    queues, 
+    add(name,data){
+        const queue = this.queues.find(queue=>queue.name===name); /// validação so adicioan se a fila existe 
+        return queue.bull.add(data,queue.options); /// adiciona o job na fila 
+    },
+    process(){
+        return this.queues.forEach(queue => {
+            queue.bull.process(queue.handle);
+            queue.bull.on('failed',(job,err) => {
+                console.log('Job failed' , queue.key,job.data);
+                console.log(err);
+            });
+        })
+    }
+}
+```
+
+Adicionamos o bull
+criamos um queue.js dentro de src para ouvir se há ou nao um processo na fila
+
+```Javascript
+///criamos outro arquivo para processar em threads diferentes a fila 
+import 'dotenv/config';
+import Queue from './app/lib/Queue';
+Queue.process();
+```
+
+- Adicionamos o bull-board apk add bull-board para visualizar o servidor em
+  http://localhost:8080/admin/queues
+
+```embaixo do start no package.json
+"queue": "nodemon src/queue.js"
+```
+
+- Sentry : https://sentry.io/
+- programa muito interessante que fica rodando dentro do servidor buscando exceções
+  e nosso server.js ficou assim
+
+```Javascript
+import 'dotenv/config';
+import express from 'express'; 
+import BullBoard from 'bull-board';
+
+import UserController from './app/controllers/UserControllers'
+import Queue from './app/lib/Queue'
+
+const app = express();
+BullBoard.setQueues(Queue.queues.map(queue=>queue.bull));/// para cada fila , adiconar no bull 
+
+
+app.use(express.json());
+app.use('/admin/queues',BullBoard.UI);///adicionando o bull em uma rota
+
+app.post('/users',UserController.store);
+
+app.listen(process.env.PORT, () => {
+    console.log(`Server running on the ${process.env.PORT}`)
+});
+```
 
 ## Node Hapi
 
+https://github.com/luizrosalba/node-hapijs
+
 ## Node Mongoose
+
+https://github.com/luizrosalba/node-ongoose/edit/master/README.md
+
+## Construindo sexy APIs usando arquitetura serverless
+
+Construindo sexy APIs usando arquitetura serverless,
+
+### Serverless
+
+Exemplo : Um server rodando em node.js onde você se preocupa prioritariamente
+com a rota a ser construída
+
+Vantagens :
+
+- Roda uma função
+- Paga-se o quante se usa
+- Escalabilidade
+- Facilidade no bootspraping
+- Facilidade de por outros triggers
+
+### Azures Functions x  AWs
+
+- AWS mais recursos (Aws lambda , Googleecloud Functions , OpenWhisk... )
+- Azure mais facil de se trabalhar serverless
+- Serverless é muito usado para disparar triggers quando algo acontece
+- Também para criar APIs
+- listNotes ();
+- createNote();
+- updateNote();
+- deleteNote ();
+- azure functions core tools :
+- https://docs.microsoft.com/pt-br/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#v2
+- Extensão do vccode : Azure Functions
+
+### Criando uma API
+
+- CRUD de produtos
+- cria uma pasta c:\Users\escr\azure_func
+- func init
+- opção 2 node
+- opção 1 javascript
+- criou o dir e o json
+- func new (cria uma nova funcao)
+- template (triggers) - 8 HTTP trigger
+- function name : GetProducts
+- code .
+- sim
+- toda config pronta
+- alteramos o index.js para :
+
+```
+module.exports = async function (context, req) {
+    context.res =  { 
+        status:200, 
+        body: 'Hello World'
+    }
+}
+```
+
+- no terminal : func host start
+- funciona !
+- tiramos o metodo post da function.json
+- definindo o nome da rota
+
+```
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get"],
+      "route": "products"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+```
+
+- funciona : http://localhost:7071/api/products
+- https://github.com/IgorHalfeld/digital-innovation-one-demo
+- copiamos o github para mongoclient.js em shared
+- npm i mongodb
+- em index.js
+
+```
+const createMongoClient = require('../shared/mongoClient');
+
+module.exports = async context => {
+  const { client: MongoClient, closeConnectionFn } = await createMongoClient();
+  const Products = MongoClient.collection('products');
+  const res = await Products.find({});
+  const body = await res.toArray();
+  
+  closeConnectionFn();
+  context.res = { status: 200, body };
+};
+```
+
+- http://localhost:7071/api/products retorna os produtos cadastrados no banco que o prof. criou em mongodb+srv://god:dog@cluster0-dfsvs.mongodb.net/dgo?retryWrites=true&w=majority
+- trazendo só p id
+- func new
+- 8 HTTP TRIGGER
+- GetProductByID
+- no functions
+
+```
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get"],
+      "route": "products/{id}"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+```
+
+- no index
+
+```
+const { ObjectID } = require('mongodb');
+const createMongoClient = require('../shared/mongoClient');
+
+module.exports = async function (context, req) {
+  const { id } = req.params;
+
+  if (!id) {
+    context.res = {
+      status: 400,
+      body: 'Provide a product id on params',
+    };
+    return;
+  }
+
+  const { client: MongoClient, closeConnectionFn } = await createMongoClient();
+  const Products = MongoClient.collection('products');
+  const body = await Products.findOne({ _id: ObjectID(id) });
+
+  closeConnectionFn();
+  context.res = { status: 200, body };
+};
+```
+
+- retorna o produto
+- http://localhost:7071/api/products/5ddb00d8d90791a2afee4055
+- Rota para criar produtos
+- func new
+- 8
+- CreateProduct
+- index.js
+
+```
+const createMongoClient = require('../shared/mongoClient');
+
+module.exports = async function (context, req) {
+  const product = req.body || {};
+
+  if (product) {
+    context.res = {
+      status: 400,
+      body: 'Product is required',
+    };
+  }
+
+  const { client: MongoClient, closeConnectionFn } = await createMongoClient();
+  const Products = MongoClient.collection('products');
+
+  try {
+    const products = await Products.insert(product);
+    closeConnectionFn();
+    context.res = { status: 201, body: products.ops[0] };
+  } catch (error) {
+    context.res = {
+      status: 500,
+      body: 'Error on insert product',
+    }; 
+  }
+};
+```
+
+- no function.json
+
+```
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["post"],
+      "route": "products"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+```
+
+- no postman
+- criar o body raw
+
+```
+{
+    "nome" : "curso" , 
+    "price": 3 
+}
+```
+
+-POST  http://localhost:7071/api/products/
+
+- 201 created
+- ao dar get percebemos o produto criado
+
+```
+  {
+    "_id": "5f45667fc4d15216d86e6efe",
+    "nome": "curso",
+    "price": 3
+  }
+```
+
+- func new
+- 8
+- UpdateProduct
+-
+- no index
+
+```
+const { ObjectID } = require('mongodb');
+const createMongoClient = require('../shared/mongoClient');
+
+module.exports = async function (context, req) {
+  const { id } = req.params;
+  const product = req.body || {};
+
+  if (!id || !product) {
+    context.res = {
+      status: 400,
+      body: 'Provide a product and product id on params',
+    };
+    return;
+  }
+
+  const { client: MongoClient, closeConnectionFn } = await createMongoClient();
+  const Products = MongoClient.collection('products');
+
+  try {
+    const products = await Products.findOneAndUpdate(
+      { _id: ObjectID(id) },
+      { $set: product },
+    );
+    closeConnectionFn();
+    context.res = { status: 200, body: products };
+  } catch (error) {
+    context.res = {
+      status: 500,
+      body: 'Error on insert product',
+    }; 
+  }
+};
+```
+
+na function
+
+```
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["put"],
+      "route": "products/{id}"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+```
+
+- put http://localhost:7071/api/products/5f45667fc4d15216d86e6efe
+  com o body raw para atualizar o preco para 4 reais
+
+```
+{
+    "nome" : "curso" , 
+    "price": 4 
+}
+```
+
+- funciona !
+  Criando o delete
+- func new
+- 8
+- Delete Product
+  no index
+
+```
+const { ObjectID } = require('mongodb');
+const createMongoClient = require('../shared/mongoClient');
+
+module.exports = async function (context, req) {
+  const { id } = req.params;
+
+  if (!id) {
+    context.res = {
+      status: 400,
+      body: 'Provide a product id on params',
+    };
+    return;
+  }
+
+  const { client: MongoClient, closeConnectionFn } = await createMongoClient();
+  const Products = MongoClient.collection('products');
+
+  try {
+    await Products.findOneAndDelete({ _id: ObjectID(id) });
+    closeConnectionFn();
+    context.res = {
+      status: 200,
+      body: 'Product deleted successfully!',
+    };
+  } catch (error) {
+    context.res = {
+      status: 500,
+      body: 'Error on delete product ' + id,
+    };
+  }
+};
+```
+
+No Functions
+
+```
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["delete"],
+      "route": "products/{id}"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+```
+
+- DELETE http://localhost:7071/api/products/5f45667fc4d15216d86e6efe
+- produto deletado com sucesso
+- deploy no azure
+- em todas as functions "authLevel": "anonymous", pois só uma function consegue acessar uma function
+- clica com o botao direito sobre o painel do VS onde ficam os arquivos
+- deploy to function app
+- pay as you go  ( funcao ligada quando recebe )
+- visual studio enterprise ( funcao sempre ligada )
+- qeure reescreveR ?
+- coloque o nome da nova funcao
+- digital-innovation-one-api
+- cria os resources
+- no painel function apps
+- na funcao que vc criou , no submenu cors
+- allowed Origins * ( libera o acesso pra todos os dominios )
+- sua api :
+  https://digital-innovation-one-api.azurewebsites.net/api/products
+- commit
+- publish  azurefunc
+- https://github.com/luizrosalba/azure_func
+
+```
+
+
+
+
+
+```
+
+
+
+## Clean Code
+
+https://github.com/luizrosalba/clean-code-javascript
