@@ -118,7 +118,7 @@ multiplyAll([[1,2],[3,4],[5,6,7]]);
 
 ### Métodos de Arrays
 
-### slice :
+### slice
 
 Imutável Fatia o array
 
@@ -130,7 +130,7 @@ Arr.slice(-1); // [5]
 Arr.slice(-3); // [3,4,5]
 ```
 
-### splice :
+### splice
 
 Não é imutavel, Altera o array adicionando novos elementos enquanto remove elementos antigos
 
@@ -187,7 +187,7 @@ arrIterator.next(); {value:2,done:false};
 arrIterator.next(); {value:3,done:true};
 ```
 
-### values :
+### values
 
 retorna um array iterator que contém os valores para cada elemento do array
 
@@ -200,7 +200,7 @@ arrIterator.next(); {value:3,done:false};
 arrIterator.next(); {value:4,done:true};
 ```
 
-### entries :
+### entries
 
 retorna um par chave valor para cada elemento do array
 
@@ -332,7 +332,7 @@ arr.reduce ((total,value)=> total+= value, 0); /// para cada item executa afunca
 
 ### Escopo
 
-Variables which are used without the var keyword are automatically created in the global scope.(mesmo dentro de funções)
+Variables which are used without the var keyword are automatically created in the global scope. (mesmo dentro de funções)
 var dentro de função cria uma variavel com escopo local
 It is possible to have both local and global variables with the same name. When you do this, the local variable takes precedence over the global variable.
 
@@ -341,7 +341,7 @@ It is possible to have both local and global variables with the same name. When 
 se uma função nao retorna nada , seu retorno é undefined.
 === compara valor e tipo
 
-// switch case faz === nas comparações
+switch case faz === nas comparações
 
 ```Javascript
 function switchOfStuff(val) {
@@ -508,19 +508,7 @@ function updateRecords(id, prop, value) {
 console.log (collection);
 ```
 
-### gerar numero entre dois intervalos excluindo o max
-
-```Javascript
-function randomRange(myMin, myMax) {
-  // Only change code below this line
-  
-  return Math.floor(Math.random() * (myMax - myMin + 1)) + myMin;
-  
-  // Only change code above this line
-}
-```
-
-### parseInt ,
+```### parseInt ,
 
 Em outras bases The parseInt() function parses a string and returns an integer. It takes a second argument for the radix, which specifies the base of the number in the string. The radix can be an integer between 2 and 36.
 
@@ -560,13 +548,1086 @@ function rangeOfNumbers(startNum, endNum) {
     arr.unshift(startNum);
     return arr;
 };
+
+```
+
+### Expressões regulares
+
+https://regexr.com/
+
+```Javascript
+abc…	Letters
+123…	Digits
+\d	Any Digit
+\D	Any Non-digit character
+.	Any Character
+\.	Period
+[abc]	Only a, b, or c
+[^abc]	Not a, b, nor c
+[a-z]	Characters a to z
+[0-9]	Numbers 0 to 9
+\w	Any Alphanumeric character
+\W	Any Non-alphanumeric character
+{m}	m Repetitions
+{m,n}	m to n Repetitions
+*	Zero or more repetitions
++	One or more repetitions
+?	Optional character
+\s	Any Whitespace
+\S	Any Non-whitespace character
+^…$	Starts and ends
+(…)	Capture Group
+(a(bc))	Capture Sub-group
+(.*)	Capture all
+(abc|def)	Matches abc or def
+
+```
+
+Regular Expressions: Using the Test MethodPassed
+Verificando se existe a string myregex dentro da string mystring
+Atenção ! é case sensitive
+
+```Javascript
+let testStr = "freeCodeCamp";
+let testRegex = /Code/;
+testRegex.test(testStr);
+// Returns true
+```
+
+Regular Expressions: Match a Literal String with Different Possibilities
+Procurando mais de uma palavra com o operador |
+
+```Javascript
+let petString = "James has a pet cat.";
+let petRegex = /dog|cat|bird/; // Change this line
+let result = petRegex.test(petString);
+
+```
+
+Regular Expressions: Ignore Case While Matching
+Ignorando case sensitive
+
+```Javascript
+let myString = "freeCodeCamp";
+let fccRegex = /freecodecamp/i; // Change this line
+let result = fccRegex.test(myString);
+
+```
+
+Regular Expressions: Extract Matches
+usando o match para verificar uma string por uma expressão regular (regex)
+
+```Javascript
+"Hello, World!".match(/Hello/);
+// Returns ["Hello"]
+let ourStr = "Regular expressions";
+let ourRegex = /expressions/;
+ourStr.match(ourRegex);
+// Returns ["expressions"]
+
+```
+
+Regular Expressions: Find More Than the First Match
+Encontrando mais de um caso , retornando um vetor com as ocorrencias encontradas
+ignorando case sensitive
+
+```Javascript
+let repeatRegex = /Repeat/g;
+testStr.match(repeatRegex);
+// Returns ["Repeat", "Repeat", "Repeat"]
+```
+
+Regular Expressions: Match Anything with Wildcard Period
+Utilizando coringas
+
+```Javascript
+let humStr = "I'll hum a song";
+let hugStr = "Bear hug";
+let huRegex = /hu./;
+huRegex.test(humStr); // Returns true
+huRegex.test(hugStr); // Returns true
+```
+
+Regular Expressions: Match Single Character with Multiple Possibilities
+Restringindo as possibilidades de match
+
+```Javascript
+let bigStr = "big";
+let bagStr = "bag";
+let bugStr = "bug";
+let bogStr = "bog";
+let bgRegex = /b[aiu]g/;
+bigStr.match(bgRegex); // Returns ["big"]
+bagStr.match(bgRegex); // Returns ["bag"]
+bugStr.match(bgRegex); // Returns ["bug"]
+bogStr.match(bgRegex); // Returns null
+```
+
+Regular Expressions: Match Letters of the Alphabet
+Range de characteres
+
+```Javascript
+let catStr = "cat";
+let batStr = "bat";
+let matStr = "mat";
+let bgRegex = /[a-e]at/;
+catStr.match(bgRegex); // Returns ["cat"]
+batStr.match(bgRegex); // Returns ["bat"]
+matStr.match(bgRegex); // Returns null
+```
+
+Regular Expressions: Match Numbers and Letters of the Alphabet
+(tambem serve para numeros)
+
+```Javascript
+let jennyStr = "Jenny8675309";
+let myRegex = /[a-z0-9]/ig;
+// matches all letters and numbers in jennyStr
+jennyStr.match(myRegex);
+```
+
+Regular Expressions: Match Single Characters Not Specified
+Negando caracteres (^dentro de parenteses)
+For example, /[^aeiou]/gi matches all characters that are not a vowel.
+Note that characters like ., !, [, @, / and white space are matched -
+the negated vowel character set only excludes the vowel characters.
+
+```Javascript
+let quoteSample = "3 blind mice.";
+let myRegex = /[^0-9aeiou]/gi; // Change this line
+let result = quoteSample.match(myRegex); // Change this line
+console.log(result);
+```
+
+Regular Expressions: Match Characters that Occur One or More Times
+Retorna quantas vezes um caractere é repetido mais de uma vez
+
+```Javascript
+let difficultSpelling = "Mississippi";
+let myRegex = /s+/gi; // Change this line
+let result = difficultSpelling.match(myRegex);/// s é repetido duas vezes 
+
+```
+
+Regular Expressions: Match Characters that Occur Zero or More Times
+Match que verifica regex que com caracteres que acontecem 0 ou mais de uma vez
+
+```Javascript
+// Only change code below this line
+let chewieQuote="Aaaaaaaaaaaaaaaarrrgh!"
+let chewieRegex = /Aa*/; // Change this line
+// Only change code above this line
+let result = chewieQuote.match(chewieRegex);
+```
+
+Regular Expressions: Find Characters with Lazy Matching
+Lazy and Greedy matches :
+Regular expressions are by default greedy
+Lazy (?)-> encontra a menor match de um regex
+Greedy (default) -> encontra a maior match de um regex
+
+regex: /t[a-z]*i/
+string "titanic".
+
+This regex is basically a pattern that starts with t, ends with i, and has some letters in between.
+"titanic" matched greedy /t[a-z]*i/ return ["titani"] It finds the largest sub-string possible to fit the pattern.
+"titanic" matched lazy  /t[a-z]*?i/ returns ["ti"].It finds the smallest sub-string possible to fit the pattern.
+
+Note
+Parsing HTML with regular expressions should be avoided, but pattern matching an HTML string with regular expressions is completely fine.
+
+![](https://github.com/luizrosalba/js_free_code_camp/blob/master/Capturar.PNG?raw=true)
+
+```Javascript
+
+let text = "<h1>Winter is coming</h1>";
+let myRegex = /<h.*?>/; // retorna um vetor com <h.> dentro dele  
+let result = text.match(myRegex);
+
+```
+
+sem os colchetes, o operador ^ procura pela ocorrencia de um padrão no começo de uma string
+
+```Javascript
+let rickyAndCal = "Cal and Ricky both like racing.";
+let calRegex = /^Cal/; // Change this line
+let result = calRegex.test(rickyAndCal);
+```
+
+o operador $ procura pela ocorrencia no final de uma string
+
+```Javascript
+let caboose = "The last car on a train is the caboose";
+let lastRegex = /caboose$/; // Change this line
+let result = lastRegex.test(caboose);
+
+```
+
+Regular Expressions: Match All Letters and Numbers
+/\w/ é um atalho para uma regex que busca todas as letras e numeros (e tambem o underscore _ )  sem considerar o case sensitive
+
+```Javascript
+let longHand = /[A-Za-z0-9_]+/;
+let shortHand = /\w+/;
+let numbers = "42";
+let varNames = "important_var";
+longHand.test(numbers); // Returns true
+shortHand.test(numbers); // Returns true
+longHand.test(varNames); // Returns true
+shortHand.test(varNames); // Returns true
+
+```
+
+Verificando as condições . Se uma entrada é verdadeira , o teste deve retornar verdadeira. Se nao encontra a opção retorna falsa .
+
+1) Usernames can only use alpha-numeric characters.
+2) The only numbers in the username have to be at the end. There can be zero or more of them at the end. Username cannot start with the number.
+3) Username letters can be lowercase and uppercase.
+4) Usernames have to be at least two characters long. A two-character username can only use alphabet letters as characters.
+
+```Javascript
+let username = "l00";
+// ^[a-z] começa com uma letra 
+//[0-9][0-9]+ - ou termina com dois ou mais numeros 
+// | aplica mais uma condição 
+// [a-z]+ -ou has one or more letters next
+// \d* - termina com zero ou mais numeros no final 
+///$ - final da entrada 
+let userCheck = /^[a-z]([0-9][0-9]+|[a-z]+\d*)$/i;
+let result = userCheck.test(username);
+console.log(result);
+```
+
+Regular Expressions: Match Whitespace
+Busca por espaço, enter, tab,  form feed, e nova linha   \s
+[ \r\t\f\n\v]
+
+```Javascript
+let whiteSpace = "Whitespace. Whitespace everywhere!"
+let spaceRegex = /\s/g;
+whiteSpace.match(spaceRegex);
+// Returns [" ", " "]
+```
+
+Busca por nao whitespace
+
+```Javascript
+let whiteSpace = "Whitespace. Whitespace everywhere!"
+let nonSpaceRegex = /\S/g;
+whiteSpace.match(nonSpaceRegex).length; // Returns 32
+```
+
+Regular Expressions: Specify Upper and Lower Number of Matches
+Buscar por um determinado numero de matches
+
+```Javascript
+let A4 = "aaaah";
+let A2 = "aah";
+let multipleA = /a{3,5}h/; /// busca por a aparecendo entre 3 a 5 vezes na string
+multipleA.test(A4); // Returns true
+multipleA.test(A2); // Returns false
+```
+
+egular Expressions: Specify Only the Lower Number of Matches
+
+```Javascript
+let A4 = "haaaah";
+let A2 = "haah";
+let A100 = "h" + "a".repeat(100) + "h";
+let multipleA = /ha{3,}h/;
+multipleA.test(A4); // Returns true
+multipleA.test(A2); // Returns false
+multipleA.test(A100); // Returns true
+```
+
+Regular Expressions: Check for All or None
+? Retorna true para 0 ou uma ocorrencia do caractere anterior
+
+```Javascript
+let american = "color";
+let british = "colour";
+let rainbowRegex= /colou?r/;
+rainbowRegex.test(american); // Returns true
+rainbowRegex.test(british); // Returns true
+```
+
+Regular Expressions: Positive and Negative Lookahead
+positive lookahead will look to make sure the element in the search pattern is there, but won't actually match it.  A positive lookahead is used as (?=...) where the ... is the required part that is not matched.
+
+a negative lookahead will look to make sure the element in the search pattern is not there.  A negative lookahead is used as (?!...) where the ... is the pattern that you do not want to be there. The rest of the pattern is returned if the negative lookahead part is not present.
+
+Uso com match :
+Positive lookahead retorna o prefixo quando ocorre o valor buscado (?=)
+Negative lookahead retorna o prefixo quando não ocorre o valor buscado (?=)
+
+```Javascript
+let quit = "qu";
+let noquit = "qt";
+let quRegex= /q(?=u)/; /// busca q seguido de u sem retornar o u 
+let qRegex = /q(?!u)/; /// busca q nao seguido de u sem retornar u 
+quit.match(quRegex); // Returns ["q"]
+noquit.match(qRegex); // Returns ["q"]
+```
+
+Uso com Test
+outro exemplo de lookahead
+Retorna quando ocorre entre 3 a 6 caracteres  \w{3,6}
+com pelo menos um digito  \d
+incluindo letras e caracteres especiais \D*
+
+```Javascript
+let password = "abc123";
+let checkPass = /(?=\w{3,6})(?=\D*\d)/;
+checkPass.test(password); // Returns true
+```
+
+Comeca com nao digito, tem cinco de comprimento e tem dois digitos seguidos
+
+```Javascript
+let sampleWord = "bana12";
+let pwRegex = /^(?=\D)(\w{2,})(?=\d{2,})/ // Change this line
+let result = pwRegex.test(sampleWord);
+
+```
+
+Regular Expressions: Check For Mixed Grouping of Characters
+
+```Javascript
+let testStr = "Pumpkin";
+let testRegex = /P(engu|umpk)in/;
+testRegex.test(testStr);
+// Returns true
+```
+
+Ignorando palavra no meio
+
+```Javascript
+let myString = "Franklin D. Roosevelt";
+let myRegex = /(?=.*Franklin|Eleanor)(?=.*Roosevelt).*/; // Change this line
+let result = myRegex.test(myString); // Change this line
+// After passing the challenge experiment with myString and see how the grouping works
+```
+
+Regular Expressions: Reuse Patterns Using Capture Groups
+You can search for repeat substrings using capture groups. Parentheses, ( and ), are used to find repeat substrings. You put the regex of the pattern that will repeat in between the parentheses.
+
+To specify where that repeat string will appear, you use a backslash (\) and then a number. This number starts at 1 and increases with each additional capture group you use. An example would be \1 to match the first group.
+Using the .match() method on a string will return an array with the string it matches, along with its capture group.
+
+```Javascript
+let repeatStr = "regex regex";
+let repeatRegex = /(\w+)\s\1/;
+repeatRegex.test(repeatStr); // Returns true
+repeatStr.match(repeatRegex); // Returns ["regex regex", "regex"]
+```
+
+Aqui ele procura o caractere inicio com um digito ou mais ,procura um espaço , repete o primeiro grupo (mais de um caractere), repete o espaço e procura o caractere de fim . Ele só respondera a essa regex entao 100 100 100 100 nao funciona pois ele nao encontra o caractere de fim e inicio com tres repeticoes entre eles
+
+```Javascript
+let repeatNum = "42 42 42";
+let reRegex = /^(\d+)\s\1\2\1$/; // Change this line
+let result = reRegex.test(repeatNum);
+
+```
+
+Regular Expressions: Use Capture Groups to Search and Replace
+
+```Javascript
+let wrongText = "The sky is silver.";
+let silverRegex = /silver/;
+wrongText.replace(silverRegex, "blue");
+// Returns "The sky is blue."
+```
+
+You can also access capture groups in the replacement string with dollar signs ($).
+
+```Javascript
+let str = "one two three";
+let fixRegex = /(\w+)\s(\w+)\s(\w+)/; // Change this line
+let replaceText = "$3 $2 $1"; // Change this line
+let result = str.replace(fixRegex, replaceText);
+console.log (result);
+
+```
+
+Regular Expressions: Remove Whitespace from Start and End
+Seleciona e remove um texto do inicio e final de uma string
+
+```Javascript
+let hello = "   Hello, World!  ";
+let wsRegex = /^\s+|\s+$/; // Change this line
+let result = hello.replace(wsRegex, ""); // Change this line
+console.log (result);
+
+```
+
+### Scripts Interessantes
+
+Retorna o indice das posições de um vetor que satisfazem uma condição
+
+```Javascript
+var data = [1,2,3];
+console.log(data);
+// With ES6 arrow syntax
+console.log(data.map((_, i) => i).filter(e => data[e] === 3));
+```
+
+Retorna o numero de elementos em pos que estão entre inicio e fim
+
+```Javascript
+    const numEntreInicioEFim = (pos.map((valor, indice) => valor)
+    .filter(e => e>=inicio && e <=fim )).length;
+```
+
+Retorna valores únicos de um array ordenado
+
+```Javascript
+       let valUnicos = [...new Set(vet.sort((current,next) => current - next))]; 
+```
+
+Gerar numero entre dois intervalos excluindo o max
+
+```Javascript
+function randomRange(myMin, myMax) {
+  // Only change code below this line
+  
+  return Math.floor(Math.random() * (myMax - myMin + 1)) + myMin;
+  
+  // Only change code above this line
+}
+```
+
+```Javascript
+
+```
+
+```Javascript
+
+```
+
+```Javascript
+
+```
+
+```Javascript
+
+```
+
+```Javascript
+
+```
+
+```Javascript
+
+```
+
+```Javascript
+
+```
+
+```
+
+
 ```
 
 ## ES6
 
+### História e Conceitos :
+
+ECMAScript 6 - >ES6, ECMAScript 6 ou ES2015, é simplesmente a mais nova versão do JavaScript.
+
+TC39 -> Na verdade, o nome mais usado atualmente é ES2015. A ideia do comitê responsável (conhecido como TC39) pelas atualizações da linguagem é justamente fazer um release anual. Então nesse ano teremos o ES2016 (ou ES7). E assim sucessivamente. ES6 é o mais conhecido pela comunidade. Stage 0: strawman, Stage 1: proposal, Stage 2: draft, Stage 3: candidate e Stage 4: finished
+
+O TC39 focou em alguns objetivos no desenvolvimento do ES6: Ser uma linguagem melhor para construir aplicações complexas Resolver problemas antigos do JavaScript Facilidade no desenvolvimento de libraries
+
+babel -> a grande maioria dos browsers ainda não dão suporte ao ES6, então o que podemos fazer para contornar essa limitação? Podemos usar um transpiler como o Babel. O Babel transforma o seu código de ES6 para ES5 (versão que a maioria dos browsers dá suporte hoje).
+
+javascript é interpretada -> código é executado de cima pra baixo sem compilar para linguagem de máquina
+
+Tipagem é fraca ( não há verificação em todas as operações , ex: você pode somar inteiros com strings ) e dinâmica ( a partir da atribuição o tipo saberá o tipo da variável - inferência de tipo) , você pode atribuir a mesma variável a diferentes tipos
+
+```javascript
+var x; // Now x is undefined 
+x = 5;// Now x is a Number 
+x = "John"; // Now x is a String
+```
+
+Typescript -> É um superset da linguagem, adiciona tipos e funcionalidades que o javascript nao tem por padrão (ex: enum)
+
+Flow -> Semelhante ao typescript em relação a checagem de tipos , mas não é um superset da linguagem.
+
+Funções de primeira classe : função pode ser atribuita a estrutura de dados e pode ser passada por argumentos ou retornadas por outras funções [https://github.com/luizrosalba/Introducao_ao_ES6/blob/master/1-funcoes.js](https://github.com/luizrosalba/Introducao_ao_ES6/blob/master/1-funcoes.js)
+
+Closure -> Escopo léxico -> capacidade da funcao de lembrar o ambiente em que foi criada.
+
+obs: console.log( `1- 0 é : " ${exemplo}<span> </span>`); -> mistura variável e texto na impressão
+
+[https://github.com/luizrosalba/Introducao_ao_ES6/blob/master/closure.js](https://github.com/luizrosalba/Introducao_ao_ES6/blob/master/closure.js)
+
 ### Javascript algorithms and data Structues certification
 
 Cursando o Javascript algorithms and data Structues certification
+
+### Aula 1.2 Currying, Hoisting, Imutabilidade, Tipos e Variáveis
+
+curring -> Técnica de transformar uma função com n parâmetros em apenas uma função que recebe um parâmetro e para cada parâmetro vamos retornando uma nova função
+
+https://github.com/luizrosalba/Introducao_ao_ES6/blob/master/curring.js
+
+hoisting -> Foi um dos motivos para ter o escopo de bloco com let e const, ficou mais amigável , para nao permitir a utilização de uma variavel antes de ser definida.
+
+hosting de variáveis -> eleva a criação da variavel e não sua atribuição hosting de funções -> eleva a função até a assinatura
+
+https://github.com/luizrosalba/Introducao_ao_ES6/blob/master/hostingdevariaveis.js
+
+https://github.com/luizrosalba/Introducao_ao_ES6/blob/master/hostingdefuncao.js
+
+Nos exemplos anteriores vemos que a função funciona ok mas a variável dá undefined pois hosting declara a funcao mesmo antes de sua utilizacao e nao atribui valor a variável , apenas a cria
+
+Imutabilidade -> Em linguagens funcionais o tipo de dado da variável nunca muda. O ES6 permite adicionar parametros a objetos. Evita alterações indesejadas nos atributos
+
+https://github.com/luizrosalba/Introducao_ao_ES6/blob/master/imutabilidade.js
+
+https://github.com/luizrosalba/Introducao_ao_ES6/blob/master/imutabilidade2.js
+
+O exemplo acima a lista de alunos nao sofre mudancas
+
+Tipos e Variáveis -> var , let , const
+
+var-> pioneiro no js , escopo global let e const -> escopo de bloco
+
+obs : Se você atribui um tipo a uma variável primitiva const , ele nao permite que você altere este valor. Agora se vc criar um objeto const ai ele permite que você altere as propriedades desse objeto.
+
+ex: const name = 'A'; name = 'B'; /// nao consigo alterar
+
+const user = { name : 'A'; }; user.name = 'B' ; /// consigo alterar
+
+user = { name : 'B'; }; /// nao dá certo
+
+Tipos e variáveis
+Obs : Retorna typeof retorna o tipo da variável
+
+####string = texto
+
+lenght,replace(procura e muda) ,slice (fatia da string), substr
+tipo : https://www.w3schools.com/js/js_strings.asp métodos : https://www.w3schools.com/js/js_string_methods.asp Conversão : parseFloat (com casas decimais) parseInt (sem casas decimais)
+
+number = numero (int, float,NAN etc... )
+tipo : https://www.w3schools.com/js/js_numbers.asp métodos : https://www.w3schools.com/js/js_number_methods.asp
+
+boolean = true ou false ,
+null = nulo -> null sempre é object.(typeof null retorna object)
+undefined= existe mas nao foi inicializada. Undefined é um tipo e não um object. (typeof undefined retorna undefined)
+object =
+ex: let user = { name:'Guilherme', endereco:'ABC' };
+
+user.name = 'outro nome' ;/// funciona user['name'] = 'outro nome'; // funciona
+
+const prop ='name'; user[prop] = 'outro nome' ; ///acessa o objeto com valor dinâmico name
+
+function getProp(prop){ /// tb funciona return user[prop]; }
+
+user.lastName = 'Cabrini'; ///cria uma nova propriedade
+
+funções de object:
+let user = { name:'Guilherme', endereco:'ABC' };
+
+Object.keys(user); -> retorna as chaves name e endereço
+
+Object.values(user); -> retorna aos valores armazenados nas chaves name e endereço
+
+Object.entries(user); -> retorna um array de arrays, os arrays filhos tem a chave e o valor;
+
+Object.assign(user,{fullName: 'Luiz Sousa' }); -> pega o objeto e concatena fullname ao objeto /// nao eh muito recomendado, nao altera o array principal, para mergear arrays é mais recomendado
+
+novoObjUsrComAge=Object.assign({},user,{age :26}); /// novo array mergeando user com age , nao muda user
+
+Object.freeze(user); /// nao permite qualquer alterações (criar, alterar , etc )no user
+
+Object.seal(user); /// nao permite crie ou deletar keys, mas pode trocar o valor de uma key
+
+delete user.name ; /// deleta a key name
+
+function = também é um objeto , mas que pode ser chamado array = um objeto que tem relação com os itens dele , relacionando cada item com o tipo atribuido
+
+// symbol cria um tipo unico
+
+Permite atributos privados dentro de objetos e classes, simulando um objeto do tipo enum. Não é enumerable (isso é vc nao consegue enumerar ela como uma chave dentro de um for)
+
+ex da propriedade enumerable :
+
+for (const key in user ){ if (user.hasOwnProperty(key)){ console.log(${key}) /// so mostra as chaves que nao sao symbols }
+
+}
+
+/// pode ser contornado pela função get.OwnPropertySymbols() /// ai o for consegue listar
+
+ou também pode ser usado o método Reflect.ownKeys(user); /// o metodo reflect consegue forçar a listagem de symblos
+
+ex1) const symbol1 = Symbol(); const symbol2 = Symbol();
+
+symbol1 === symbol2 ; / / retorna falso , cada um tem um tipo unico
+
+ex2) const symbol1 = Symbol('name'); const symbol2 = Symbol('name');
+
+const user = { [symbol1]: 'ABC', [symbol2]: 'DEF', } /// vc nao consegue sobrescrever essa propriedade mesmo elas tendo o mesmo atributo (name), ele vai criar dois symbols com name
+
+### Aula2.1 Tipos e variáveis
+
+Obs : Retorna typeof retorna o tipo da variável
+
+### string = texto
+
+### lenght,replace(procura e muda) ,slice (fatia da string), substr
+
+tipo :
+https://www.w3schools.com/js/js_strings.asp
+métodos :
+https://www.w3schools.com/js/js_string_methods.asp
+Conversão :
+parseFloat (com casas decimais)
+parseInt  (sem casas decimais)
+
+### number = numero (int, float,NAN etc... )
+
+tipo :
+https://www.w3schools.com/js/js_numbers.asp
+métodos :
+https://www.w3schools.com/js/js_number_methods.asp
+
+### boolean = true ou false ##### null = nulo  -> null sempre é object.(typeof null retorna object)
+
+### undefined= existe mas nao foi inicializada. Undefined é um tipo e não um object. (typeof undefined retorna undefined)
+
+### object =
+
+ex:
+let user = {
+name:'Guilherme',
+endereco:'ABC'
+};
+
+user.name = 'outro nome' ;/// funciona
+user['name'] = 'outro nome'; // funciona
+
+const prop ='name';
+user[prop] = 'outro nome' ; ///acessa o objeto com valor dinâmico name
+
+function getProp(prop){ /// tb funciona
+return user[prop];
+}
+
+user.lastName = 'Cabrini'; ///cria uma nova propriedade
+
+### funções de object:
+
+let user = {
+name:'Guilherme',
+endereco:'ABC'
+};
+
+Object.keys(user); -> retorna as chaves name e endereço
+
+Object.values(user); -> retorna aos valores armazenados nas chaves name e endereço
+
+Object.entries(user); -> retorna um array de arrays, os arrays filhos tem a chave e o valor;
+
+Object.assign(user,{fullName: 'Luiz Sousa' }); -> pega o objeto e concatena fullname ao objeto  /// nao eh muito recomendado, nao altera o array principal, para mergear arrays é mais recomendado
+
+novoObjUsrComAge=Object.assign({},user,{age :26}); /// novo array mergeando user com age , nao muda user
+
+Object.freeze(user); /// nao permite qualquer alterações (criar, alterar , etc )no user
+
+Object.seal(user); /// nao permite crie ou deletar keys, mas pode trocar o valor de uma key
+
+delete user.name ; /// deleta a key name
+
+function = também é um objeto , mas que pode ser chamado
+array = um objeto que tem relação com os itens dele , relacionando cada item com o tipo atribuido
+
+### symbol cria um tipo unico
+
+Permite atributos privados dentro de objetos e classes, simulando um objeto do tipo enum.  Não é enumerable (isso é vc nao consegue enumerar ela como uma chave dentro de um for)
+
+ex da propriedade enumerable :
+
+for (const key in user ){
+if (user.hasOwnProperty(key)){
+console.log(${key}) /// so mostra as chaves que nao sao symbols
+}
+
+}
+
+/// pode ser contornado pela função get.OwnPropertySymbols() /// ai o for consegue listar
+
+ou também pode ser usado o método
+Reflect.ownKeys(user); /// o metodo reflect consegue forçar a listagem de symblos
+
+ex1)
+const symbol1 = Symbol();
+const symbol2 = Symbol();
+
+symbol1 === symbol2 ; / / retorna falso , cada um tem um tipo unico
+
+ex2)
+const symbol1 = Symbol('name');
+const symbol2 = Symbol('name');
+
+const user = {
+[symbol1]: 'ABC',
+[symbol2]: 'DEF',
+}
+/// vc nao consegue sobrescrever essa propriedade mesmo elas tendo o mesmo atributo (name), ele vai criar dois symbols com name
+
+### Aula 2.2 Functions_Operators
+
+#### ES 6 Arrow function
+
+// ES5
+var x = function(x, y) {
+return x * y;
+}
+
+// ES6
+const x = (x, y) => x * y;   /// se colocar mais de uma expressão tem que colocar o return
+
+const x = (x, y) => { return x * y };  /// boa pratica colocar return sempre
+
+#### Funções também são objetos e podem receber propriedades !
+
+const Fn = () => 'Code here' ;
+
+Fn.prop = 'Posso criar propriedades';
+console.log (Fn.prop);
+
+const fn1 =>  fnparam => allowed => { /// uma funcao que recebe um parametro e e se permitido executa outra funcao
+if (allowed) {
+fnParam();
+}
+
+}
+
+/// A funcao abaixo pode ser reescrita como
+
+function controlFnExec (fnParam)
+{
+return function(allowed) {
+if (alloed) {
+fnParam();
+}
+}
+}
+
+/// a funcao abaixo é a reescrita da funcao acima usando arrow function
+
+function controlFnExec (fnParam)
+{
+return function(allowed) {
+if (allowed) {
+fnParam();
+}
+}
+}
+
+const controlFnExec => fnParam => allowed => {  /// mais enxuto , mais limpo
+if (allowed) {
+fnParam();
+}
+}
+
+#### Principal diferença entre funcao arrow e function normal
+
+this referencia o contexto em que foi criada
+em funcoes que são arrow function o this aponta sempre para o contexto no qual ele foi criado (ex fora da funcao )
+em funcoes que não são arrow function o this aponta sempre para o contexto no qual o this é executado (ex. dentro da função)
+
+#### Array
+
+Também é um objeto . Importante ! Filter map e reduce (sempre criam um novo objeto a partir do objeto original)
+Filter -> filtra  ( ex: só valores acima de 10)
+Map -> cria um novo array realizando uma funcao em cada elemento (ex mult todo mundo por 2 )
+Reduce -> aplica uma funcao a todos os elementos da esquerda para direita (ex: soma todos os valores)
+
+Definicao
+https://www.w3schools.com/js/js_arrays.asp
+métodos
+https://www.w3schools.com/js/js_array_methods.asp
+Sort
+https://www.w3schools.com/js/js_array_sort.asp
+iteração
+https://www.w3schools.com/js/js_array_iteration.asp
+
+#### Operadores:
+
+JS possui operadores unários, binario  e ternário
+
+a = ++2 unário /// a jah recebe valor incrementado
+b = 2++ unário /// b recebe o valor atual 2
+
+a+b binário
+a%b binário resto
+&& and
+|| or
+!true retorna false
+!false retorna true
+!"Gato" retorna false /// string preenchida com valor é true
+" " true
+1
+"" false
+0
+
+!!
+
+ternário
+condicao ? valor1:valor2
+true ? 'foo' : 'bar' /// retorna 'foo'
+false ? 'foo' : 'bar' /// retorna 'bar'
+
++true  soma 1
++false soma zero ( funciona como se fosse um parse int)
++"3" retorna 3
+
+2**3 exponenciacao
+
+== igualdade (true)
+=== igualdade e do mesmo tipo (true)
+!== operandos iguals mas nao sao do mesmo tipo (true)
+
+#### Operador Spread:
+
+Introduzido no ES6
+
+Itera cada item e passa um parametro
+
+var parter = ['ombro','joelho'] ;
+var musica = ['cabeca',...partes,'e,'pes'] ;
+
+concatena dois arrays criando um novo array , no lugar de partes insere ombro joelho
+
+function fn (x,y,z) {}
+var args = [0,1,2];
+fn(...args) ;  /// x = 0 , y = 1 , z = 2
+
+#### Operador delete e typeof são unários
+
+#### Operador in
+
+var musica = new Array ["A", "B", "C"] ;
+
+0  in musica /// true
+"A" in musica; /// retorna false vc deve especificar o num do indice e nao o valor
+"A" in musica[0]; /// retorna true
+"lenght" in musica /// true pois length é uma propriedade de todo string
+
+#### Operador binario instanceof
+
+Verifica se um objeto é uma instancia
+
+var dia = new Date (2018,12,17);
+if (dia instance of Date) // true
+
+#### for in e for of
+
+for in -> Passa por todos os valores dos objetos
+
+for of ->  retorna o indice de cada objeto
+
+#### continue
+
+if (element %2 ===0 )
+continue
+
+pula a execução para os pares
+
+### Aula 3.1 Orientação à objeto
+
+#### Herança
+
+Baseada em protótipos
+prototype : variável que armazena definições do projeto.
+Sempre que criamos uma variável em javascrypt ele cria uma variavel __proto__ que aponta para o tipo da variável que criamos (construtor)
+
+Toda função construtora tem um prototype
+
+myText.__proto__.split é o mesmo que my myText.split ou ainda String.prototype.split
+
+myText.__proto__.split === String.prototype.split /// true
+
+myText.constructor === String ///true
+
+__proto __ -> prototype -> constructor
+
+new Foo(); /// um novo objeto é criado a partir da função construtora Foo herdando Foo.prototype
+
+se a função construtora tem um retorno será respeitado. Senão será retornado o objeto criado em 1
+
+function Pessoa(name){
+this.name = name;
+return {
+name:'teste'
+};
+}
+
+const p = new Pessoa ('Guilherme' )
+console.log (p);  /// retrona teste
+
+function Pessoa(name){
+this.name = name;
+}
+const p = new Pessoa ('Guilherme' )
+console.log (p);  /// retorna Guilherme
+
+obs  : função call passa um contexto para esta função ser executada
+
+ex 2: O problema dessa abordagem é que toda vez que realizarmos new Cachorro() latir e movimentar serão criadas
+'use scrict';
+function Animal (qtdePatas){
+this.qtdePatas = qtdePatas;
+this.movimentar = function() {
+}
+}
+
+function Cachorro (morde){
+Animal.call(this,4); /// a funcao animal vai ser executada quando Cachorro for instanciada
+this.morde = morde;
+this.latir = function() {
+console.log ('Au !');
+}
+}
+//
+const pug = new Cachorro (false);
+//const pitbull  = new Cachorro (true);
+
+console.log(pug);
+
+ex 3  : Nesta abordagem usamos o prototype que define o objeto cachorro tera qt deparas e movimentar por padrao
+nao serão criadas as funcoes movimentar e latir , se new cachorro já foi dado e um novo objeto for criado , o cachorro terá esta nova propriedade
+
+'use scrict';
+
+function Animal (){}
+Animal.prototype.qtdePatas =0;
+Animal.prototype.movimentar = function(){};
+
+function Cachorro (morde){
+this.qtdePatas = 4;
+this.morde = morde;
+}
+
+Cachorro.prototype = Object.create(Animal);
+Cachorro.prototype.latir = function(){
+console.log ('Au!');
+}
+
+//
+const pug = new Cachorro (false);
+//const pitbull  = new Cachorro (true);
+console.log(pug);
+
+Cuidado! com prototype vc pode trocar a implementação até mesmo de um tipo nativo , vc pode mudar
+a programação do String.split por exemplo
+ex: String.prototype.split = function (){ console.log ('Deu ruim')} ;
+
+#### Classes
+
+Criado no Es6 como uma simplificação de protótipos , uma supersintaxe de funções , por baixo
+dos panos é criado um prototype
+
+class Animal {
+constructor(qtdePatas) {
+this.qtdePatas =4 ;
+}
+}
+
+class Cachorro extends Animal {
+constructor(morde) {
+super(4);
+this.morde = morde;
+}
+}
+const pug = new Cachorro (false);
+console.log(pug);
+
+#### Modificadores de Acesso
+
+Js nao tem
+Atualmente v 12 do node , mas ainda nao tem suporte nos browsers , controla o que é privado e publico nos browsers
+usa funções get e set para recuperar os atributos
+sintaxe:
+hashtag_nomevar -> torna a variável privada
+
+#### Encapsulamento
+
+Oculta detalhes do funcionamento interno
+
+pode-se usar metodos set e get (v12 do node) para setar e obter o valor de um atributo
+
+#### Static
+
+permite que acesse métodos e atributos sem instanciar uma classe
+
+ex1: com funcoes , implementação de static do JS
+
+'use strict';
+
+function Person() {}
+
+Person.walk = function () {
+console.log('walking');
+}
+console.log(Person.walk());
+
+ex2: com classes com ES6 temos a palavra chave static pode ser chamada sem instanciar
+
+'use strict';
+function Person() {}
+static walk()  {
+console.log('walking');
+}
+
+console.log(Person.walk());
+
+### Orientação a objetos e desing patterns
+
+DP são soluções gerais para problemas recorrentes em desenvolvimento de um software
+Não se trata de um framework ou um código , mas uma definiçao de alto nivel de como um problema pode ser solucionado
+
+Pattern Languange -> 1978 Christopher Alexander Sara , Murray  253 tipos de problemas / desafios de projetos
+
+formato de um patterns :
+
+Nome, Exemplo, contexto , problema, solução.
+
+1987 kent e ward 5 padroes de projetos ->
+
+1994 Gof Erich, Richard , Ralph John  DP Elements of Reusable OO Software -> Tipos Criação , estruturais e comportamentais
+
+Padroes de criação : abstraem e / ou adiam o processo de criação dos objetos , tornamm o sistema independete de como seus objetos são criados , compostos e representados
+mais famosos :
+Abstract Factory
+Builder
+Factory Method
+Prototype
+Singleton
+
+Padroes esttruturais :
+
+Se preocupam com a forma como classes e objetos sao compostos para formar estruturas maiores : Adapter, Bridge, Composite, Decorator , Facade , Business Delegate , Flyweight, Proxy
+
+Padroes Comportamentais :
+Algoritmos e atribuições de responsabilidades entre os objetos, não descrevem apenas padroes classe se objetos , mas tb de comunicação entre os objetos : Chain of Responsibility , Command, Interpreter , Iterator, Mediator , Observer , State, Strategy , Template Method e visitor
+
+Patterns mais usados em Js : Factory , Singleton , Decorator , Observer e Module
+
+Factory > Funções que retornam um objeto sem a necessidade de chamalas com new são consideradas factory
+
+Singleton > cria um unica instancia de uma funcao construtora e retorna-la toda vez que for necessário utilizala (ex: JQuery) , mesmo que você crie uma nova instancia , ela sempre retornará o mesmo valro
+
+Decorator > Uma funcão que recebe outra função como parametro e altera seu comportamento sem modifica-la explicitamente
+
+Observer >  A instancia (subscriber) mantem uma coleção de objetos (observers) e notifica todos eles quando ocorrem mudanças de estado (no VUE a propriedade notify ,toda vez que há uma mudança de estado quem estiver escutando será notificado ) manter uma lista no observer , criar uma função subscribe , outra unsubscribe e notify
+
+Mdoule > Permite organizar o corido sem a necessidade de expor variáveis globais No ES6 (export default)
 
 ### ES6 let e var
 
@@ -649,7 +1710,7 @@ return new Date();
 Quando a função nao tem corpo pode-se omitir o return
 const myFunc = () => "value";
 
-### Argumentos em uma arrow function :
+#### Argumentos em uma arrow function :
 
 // doubles input value and returns it
 const doubler = (item) => item * 2;
@@ -660,7 +1721,7 @@ const doubler = item => item * 2;
 // multiplies the first input value by the second and returns it
 const multiplier = (item, multi) => item * multi;
 
-### parametro default em arrow functions
+#### parametro default em arrow functions
 
 const greeting = (name = "Anonymous") => "Hello " + name;
 console.log(greeting("John")); // Hello John

@@ -1,3 +1,8 @@
 js_free_code_camp BasicJavaScript.md
-js_free_code_camp BasicJavaScript.md
-js_free_code_camp BasicJavaScript.md
+js_free_code_camp Es6.md
+expressoesRegulares.md
+scritps 
+
+
+
+Introducao_ao_ES6/
