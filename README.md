@@ -262,12 +262,300 @@ The toExponential() Method
 
 A parameter defines the number of characters behind the decimal point:
 
-
+```Javascript
 x.toExponential(2);     // returns 9.66e+0
 x.toExponential(4);     // returns 9.6560e+0
 x.toExponential(6);     // returns 9.656000e+0
+```
+### JS Error 
+The Error object provides error information when an error occurs.
+
+Example
+In this example we have written "alert" as "adddlert" to deliberately produce an error.
+
+Return the error name and a description of the error:
+```Javascript
+try {
+  adddlert("Welcome");
+}
+catch(err) {
+  document.getElementById("demo").innerHTML =
+  err.name + "<br>" + err.message;
+}
+```
+
+
+
+### Date Object
+The Date object is used to work with dates and times.
+
+Date objects are created with new Date().
+
+There are four ways of instantiating a date:
+
+```Javascript
+var d = new Date();
+var d = new Date(milliseconds);
+var d = new Date(dateString);
+var d = new Date(year, month, day, hours, minutes, seconds, milliseconds);
+```
+
+Date Object Methods
+Method	Description
+getDate()	Returns the day of the month (from 1-31)
+getDay()	Returns the day of the week (from 0-6)
+getFullYear()	Returns the year
+getHours()	Returns the hour (from 0-23)
+getMilliseconds()	Returns the milliseconds (from 0-999)
+getMinutes()	Returns the minutes (from 0-59)
+getMonth()	Returns the month (from 0-11)
+getSeconds()	Returns the seconds (from 0-59)
+getTime()	Returns the number of milliseconds since midnight Jan 1 1970, and a specified date
+getTimezoneOffset()	Returns the time difference between UTC time and local time, in minutes
+getUTCDate()	Returns the day of the month, according to universal time (from 1-31)
+getUTCDay()	Returns the day of the week, according to universal time (from 0-6)
+getUTCFullYear()	Returns the year, according to universal time
+getUTCHours()	Returns the hour, according to universal time (from 0-23)
+getUTCMilliseconds()	Returns the milliseconds, according to universal time (from 0-999)
+getUTCMinutes()	Returns the minutes, according to universal time (from 0-59)
+getUTCMonth()	Returns the month, according to universal time (from 0-11)
+getUTCSeconds()	Returns the seconds, according to universal time (from 0-59)
+getYear()	Deprecated. Use the getFullYear() method instead
+now()	Returns the number of milliseconds since midnight Jan 1, 1970
+parse()	Parses a date string and returns the number of milliseconds since January 1, 1970
+setDate()	Sets the day of the month of a date object
+setFullYear()	Sets the year of a date object
+setHours()	Sets the hour of a date object
+setMilliseconds()	Sets the milliseconds of a date object
+setMinutes()	Set the minutes of a date object
+setMonth()	Sets the month of a date object
+setSeconds()	Sets the seconds of a date object
+setTime()	Sets a date to a specified number of milliseconds after/before January 1, 1970
+setUTCDate()	Sets the day of the month of a date object, according to universal time
+setUTCFullYear()	Sets the year of a date object, according to universal time
+setUTCHours()	Sets the hour of a date object, according to universal time
+setUTCMilliseconds()	Sets the milliseconds of a date object, according to universal time
+setUTCMinutes()	Set the minutes of a date object, according to universal time
+setUTCMonth()	Sets the month of a date object, according to universal time
+setUTCSeconds()	Set the seconds of a date object, according to universal time
+setYear()	Deprecated. Use the setFullYear() method instead
+toDateString()	Converts the date portion of a Date object into a readable string
+toGMTString()	Deprecated. Use the toUTCString() method instead
+toISOString()	Returns the date as a string, using the ISO standard
+toJSON()	Returns the date as a string, formatted as a JSON date
+toLocaleDateString()	Returns the date portion of a Date object as a string, using locale conventions
+toLocaleTimeString()	Returns the time portion of a Date object as a string, using locale conventions
+toLocaleString()	Converts a Date object to a string, using locale conventions
+toString()	Converts a Date object to a string
+toTimeString()	Converts the time portion of a Date object to a string
+toUTCString()	Converts a Date object to a string, according to universal time
+UTC()	Returns the number of milliseconds in a date since midnight of January 1, 1970, according to UTC time
+valueOf()	Returns the primitive value of a Date object
+
+
+### JavaScript Global Properties
+Property	Description
+Infinity	A numeric value that represents positive/negative infinity
+NaN	"Not-a-Number" value
+undefined	Indicates that a variable has not been assigned a value
+JavaScript Global Functions
+Function	Description
+decodeURI()	Decodes a URI
+decodeURIComponent()	Decodes a URI component
+encodeURI()	Encodes a URI
+encodeURIComponent()	Encodes a URI component
+escape()	Deprecated in version 1.5. Use encodeURI() or encodeURIComponent() instead
+eval()	Evaluates a string and executes it as if it was script code
+isFinite()	Determines whether a value is a finite, legal number
+isNaN()	Determines whether a value is an illegal number
+Number()	Converts an object's value to a number
+parseFloat()	Parses a string and returns a floating point number
+parseInt()	Parses a string and returns an integer
+String()	Converts an object's value to a string
+unescape()	Deprecated in version 1.5. Use decodeURI() or decodeURIComponent() instead
+
+### JSON (JavaScript Object Notation)
+JSON is a format for storing and transporting data.
+
+JSON is text, and text can be transported anywhere, and read by any programming language.
+
+JavaScript Objects can be converted into JSON, and JSON can be converted back into JavaScript Objects.
+
+This way we can work with the data as JavaScript objects, with no complicated parsing or translations.
+
+Example
+Sending JSON:
+```Javascript
+// a JavaScript object...:
+var myObj = { "name":"John", "age":31, "city":"New York" };
+
+// ...converted into JSON:
+var myJSON = JSON.stringify(myObj);
+
+// send JSON:
+window.location = "demo_json.php?x=" + myJSON;
+```
+
+JSON Methods
+Method	Description
+parse()	Parses a JSON string and returns a JavaScript object
+stringify()	Convert a JavaScript object to a JSON string
+
+Valid Data Types
+In JSON, values must be one of the following data types:
+
+a string
+a number
+an object (containing valid JSON values)
+an array
+a boolean
+null
+JSON values cannot be one of the following data types:
+
+a function
+a date
+undefined
+
+More Examples
+Example
+Receiving JSON:
+```Javascript
+// myJSON is text received in JSON format.
+// Convert JSON into a JavaScript object:
+var myObj = JSON.parse(myJSON);
+document.getElementById("demo").innerHTML = myObj.name;
+```
+
+### Math Object
+The Math object allows you to perform mathematical tasks.
+
+Math is not a constructor. All properties/methods of Math can be called by using Math as an object, without creating it:
+
+var x = Math.PI;            // Returns PI
+var y = Math.sqrt(16);      // Returns the square root of 16
+
+Math Object Properties
+Property	Description
+E	Returns Euler's number (approx. 2.718)
+LN2	Returns the natural logarithm of 2 (approx. 0.693)
+LN10	Returns the natural logarithm of 10 (approx. 2.302)
+LOG2E	Returns the base-2 logarithm of E (approx. 1.442)
+LOG10E	Returns the base-10 logarithm of E (approx. 0.434)
+PI	Returns PI (approx. 3.14)
+SQRT1_2	Returns the square root of 1/2 (approx. 0.707)
+SQRT2	Returns the square root of 2 (approx. 1.414)
+
+
+Math Object Methods
+Method	Description
+abs(x)	Returns the absolute value of x
+acos(x)	Returns the arccosine of x, in radians
+acosh(x)	Returns the hyperbolic arccosine of x
+asin(x)	Returns the arcsine of x, in radians
+asinh(x)	Returns the hyperbolic arcsine of x
+atan(x)	Returns the arctangent of x as a numeric value between -PI/2 and PI/2 radians
+atan2(y, x)	Returns the arctangent of the quotient of its arguments
+atanh(x)	Returns the hyperbolic arctangent of x
+cbrt(x)	Returns the cubic root of x
+ceil(x)	Returns x, rounded upwards to the nearest integer
+cos(x)	Returns the cosine of x (x is in radians)
+cosh(x)	Returns the hyperbolic cosine of x
+exp(x)	Returns the value of Ex
+floor(x)	Returns x, rounded downwards to the nearest integer
+log(x)	Returns the natural logarithm (base E) of x
+max(x, y, z, ..., n)	Returns the number with the highest value
+min(x, y, z, ..., n)	Returns the number with the lowest value
+pow(x, y)	Returns the value of x to the power of y
+random()	Returns a random number between 0 and 1
+round(x)	Rounds x to the nearest integer
+sin(x)	Returns the sine of x (x is in radians)
+sinh(x)	Returns the hyperbolic sine of x
+sqrt(x)	Returns the square root of x
+tan(x)	Returns the tangent of an angle
+tanh(x)	Returns the hyperbolic tangent of a number
+trunc(x)	Returns the integer part of a number (x)
+
+
+
+### JavaScript Arithmetic Operators
+Arithmetic operators are used to perform arithmetic between variables and/or values.
+
+Given that y = 5, the table below explains the arithmetic operators:
+
+Operator	Description	Example	Result in y	Result in x	Try it
++	Addition	x = y + 2	y = 5	x = 7	
+-	Subtraction	x = y - 2	y = 5	x = 3	
+*	Multiplication	x = y * 2	y = 5	x = 10	
+/	Division	x = y / 2	y = 5	x = 2.5	
+%	Modulus (division remainder)	x = y % 2	y = 5	x = 1	
+++	Increment	x = ++y	y = 6	x = 6	
+x = y++	y = 6	x = 5	
+--	Decrement	x = --y	y = 4	x = 4	
+x = y--	y = 4	x = 5
+
+
+###  JavaScript Statements
+
+JavaScript Statement Identifiers
+JavaScript statements often start with a statement identifier to identify the JavaScript action to be performed.
+
+Statement identifiers are reserved words and cannot be used as variable names (or any other things).
+
+The following table lists all JavaScript statements:
+
+Statement	Description
+break	Exits a switch or a loop
+const	Declares a variable with a constant value
+class	Declares a class
+continue	Breaks one iteration (in the loop) if a specified condition occurs, and continues with the next iteration in the loop
+debugger	Stops the execution of JavaScript, and calls (if available) the debugging function
+do ... while	Executes a block of statements and repeats the block while a condition is true
+for	Loops through a block of code a number of times
+for ... in	Loops through the properties of an object
+for ... of	Loops through the values of an iterable object
+function	Declares a function
+if ... else ... else if	Marks a block of statements to be executed depending on a condition
+let	Declares a variable inside brackets {} scope
+return	Stops the execution of a function and returns a value from that function
+switch	Marks a block of statements to be executed depending on different cases
+throw	Throws (generates) an error
+try ... catch ... finally	Marks the block of statements to be executed when an error occurs in a try block, and implements error handling
+var	Declares a variable
+while	Marks a block of statements to be executed while a condition is true
+
+
+
+### String Methods
+Method	Description
+charAt()	Returns the character at the specified index (position)
+charCodeAt()	Returns the Unicode of the character at the specified index
+concat()	Joins two or more strings, and returns a new joined strings
+endsWith()	Checks whether a string ends with specified string/characters
+fromCharCode()	Converts Unicode values to characters
+includes()	Checks whether a string contains the specified string/characters
+indexOf()	Returns the position of the first found occurrence of a specified value in a string
+lastIndexOf()	Returns the position of the last found occurrence of a specified value in a string
+localeCompare()	Compares two strings in the current locale
+match()	Searches a string for a match against a regular expression, and returns the matches
+repeat()	Returns a new string with a specified number of copies of an existing string
+replace()	Searches a string for a specified value, or a regular expression, and returns a new string where the specified values are replaced
+search()	Searches a string for a specified value, or regular expression, and returns the position of the match
+slice()	Extracts a part of a string and returns a new string
+split()	Splits a string into an array of substrings
+startsWith()	Checks whether a string begins with specified characters
+substr()	Extracts the characters from a string, beginning at a specified start position, and through the specified number of character
+substring()	Extracts the characters from a string, between two specified indices
+toLocaleLowerCase()	Converts a string to lowercase letters, according to the host's locale
+toLocaleUpperCase()	Converts a string to uppercase letters, according to the host's locale
+toLowerCase()	Converts a string to lowercase letters
+toString()	Returns the value of a String object
+toUpperCase()	Converts a string to uppercase letters
+trim()	Removes whitespace from both ends of a string
+valueOf()	Returns the primitive value of a String object
+
 ### Criando arrays
 
+```Javascript
 const arr = [1,2,3];
 ou
 
@@ -286,6 +574,7 @@ const numerosEPessoas = Array(3,1)  ;  /// cria um array com 3 e 1
 Array.from(origem) /// cria uma nova instancia de array a partir de um parâmetro array-like ou iterable object
 
 const divArray = Array.from (divs)  /// cria um array a partir do objeto div (que no exemplo do curso era um NodeList). A partir daí pode-se utilizar funções de array como pop , shift , etc
+```
 
 ### Nested arrays
 
@@ -1745,23 +2034,42 @@ ex: String.prototype.split = function (){ console.log ('Deu ruim')} ;
 
 #### Classes
 
-Criado no Es6 como uma simplificação de protótipos , uma supersintaxe de funções , por baixo
-dos panos é criado um prototype
-
+Criado no Es6 como uma simplificação de protótipos , uma supersintaxe de funções , por baixo dos panos é criado um prototype
+```Javascript 
 class Animal {
 constructor(qtdePatas) {
-this.qtdePatas =4 ;
-}
+  this.qtdePatas =4 ;
+  }
 }
 
 class Cachorro extends Animal {
 constructor(morde) {
-super(4);
-this.morde = morde;
-}
-}
+  super(4);
+  this.morde = morde;
+  }
+ }
 const pug = new Cachorro (false);
 console.log(pug);
+```
+### JavaScript Classes
+A class is a type of function, but instead of using the keyword function to initiate it, we use the keyword class, and the properties are assigned inside a constructor() method:
+
+Example
+Create a Car class, and then create an object called "mycar" based on the Car class:
+
+class Car {  // Create a class
+  constructor(brand) {  // Class constructor
+    this.carname = brand;  // Class body/properties
+  }
+}
+mycar = new Car("Ford");  // Create an object of Car class
+
+Class Keywords
+Keyword	Description
+extends	Extends a class (inherit)
+static	Defines a static method for a class
+super	Refers to the parent class
+
 
 #### Modificadores de Acesso
 
