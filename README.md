@@ -490,6 +490,7 @@ Arithmetic operators are used to perform arithmetic between variables and/or val
 Given that y = 5, the table below explains the arithmetic operators:
 
 Operator	Description	Example	Result in y	Result in x	Try it
+```
 +	Addition	x = y + 2	y = 5	x = 7	
 -	Subtraction	x = y - 2	y = 5	x = 3	
 *	Multiplication	x = y * 2	y = 5	x = 10	
@@ -500,7 +501,7 @@ x = y++	y = 6	x = 5
 --	Decrement	x = --y	y = 4	x = 4	
 x = y--	y = 4	x = 5
 
-
+```
 ###  JavaScript Statements
 
 JavaScript Statement Identifiers
@@ -509,7 +510,7 @@ JavaScript statements often start with a statement identifier to identify the Ja
 Statement identifiers are reserved words and cannot be used as variable names (or any other things).
 
 The following table lists all JavaScript statements:
-
+```
 Statement	Description
 break	Exits a switch or a loop
 const	Declares a variable with a constant value
@@ -529,10 +530,11 @@ throw	Throws (generates) an error
 try ... catch ... finally	Marks the block of statements to be executed when an error occurs in a try block, and implements error handling
 var	Declares a variable
 while	Marks a block of statements to be executed while a condition is true
-
+```
 
 
 ### String Methods
+```
 Method	Description
 charAt()	Returns the character at the specified index (position)
 charCodeAt()	Returns the Unicode of the character at the specified index
@@ -559,13 +561,13 @@ toString()	Returns the value of a String object
 toUpperCase()	Converts a string to uppercase letters
 trim()	Removes whitespace from both ends of a string
 valueOf()	Returns the primitive value of a String object
-
+```
 ### Criando arrays
 
 /*
 Operações com arrays 
 */
-
+```
 var myArray1 = [["Bulls", 23], ["White Sox", 45]];
 
 var myArray2 = [50,60,70];
@@ -576,21 +578,25 @@ var arr = [
   [7,8,9],
   [[10,11,12], 13, 14]
 ];   /// array multidimensional 
-
+```
 // indexação : 
+```
 console.log("indexação "); 
 console.log(arr[3]); // equals [[10,11,12], 13, 14]
 console.log(arr[3][0]); // equals [10,11,12]
 console.log(arr[3][0][1]); // equals 11
-
+```
 /// concatenação 
+```
 console.log("Concatenação "); 
 const juntos = myArray2.concat(myArray2) ; // faz um merge 
 console.log(juntos); 
 
 
 const array1 = [1,2,3,4,5];  
+```
 /// slice 
+```
 console.log("Slice - Imutável retira uma Fatia , não muda o vetor"); 
 console.log(array1.slice(0,2)); //a partir da pos 0 pega 2 elementos 
                                 //e cria um novo vetor [1,2] 
@@ -610,10 +616,11 @@ var addedFromOurArray = ourArray.unshift("batata");/// adiciona na frente
 console.log(myArray1[0][0] + myArray1[1][0]); 
 console.log(myArray2); 
 console.log(ourArray); 
+```
 
 //splice :  Não é imutavel, Altera o array adicionando
 // novos elementos enquanto remove elementos antigos 
-
+```
 console.log("Splice - Mutável Altera o array adicionando novos elementos enquanto remove elementos antigos  ");
 const arr2 = [1,2,3,4,5];  
 arr2.splice(2); // remove a partir da posicao 2  
@@ -622,19 +629,24 @@ arr2.splice(0,1,'first'); // [] /// inicio, quanto
 //itens remove o que adicionar 
 //a partir da primeira posicao 
 console.log(arr2); /// ["first",1,2]; 
-
+```
 // Iterando vetores (arrays)
+```
 console.log("Iterando vetores (arrays)");
 const arr4 = [1,2,3,4,5];  
 arr4.forEach((value,index) => {console.log(`${index}:${value}`)});
 
 arr4.forEach((value,index,arr4) => console.log(index,value));
+```
 
+```
 console.log("map - Imutavel  Retorna um novo array de mesmo tamanho iterando cada item de um array ");
 
 const arr5 = [1,2,3,4,5];  
 console.log(arr5);
 console.log(arr5.map (value => value *2)); // retorna um novo array [2,4,6,8,10]
+```
+```
 
 
 console.log("flat - Imutavel  Retorna um novo array com todos os elementos de um sub-array concatenados de forma recursiva de acordo com a profundidade especificada (depth) " );
@@ -648,6 +660,9 @@ console.log(arra2.flat(1));// [1, 2, 3, 4, [5, 6]]
 console.log(arra2.flat(2));// [1, 2, 3, 4, 5, 6]
 console.log(arra2.flat(3));// [1, 2, 3, 4, 5, 6]
 console.log(arra2.flat(Infinity)); // [1, 2, 3, 4, 5, 6, 7, 8]
+```
+
+```
 
 console.log(" flatMap   Retorna um novo array assim como faz a função map e executa um flat de profundidade 1");  
 const arr11 = [1,2,3,4];  
@@ -661,8 +676,9 @@ console.log("arr21 "+ arr21.map(x=>x.split(" ")));
 // [["it's","Sunny","in"],[""],["California"]]  vetor multidimensional 
  console.log("arr21 " + arr21.flatMap(x => x.split(" ")));
 // ["it's","Sunny","in", "", "California"]  vetor de uma dimensao flateado
+```
 
-
+```
 console.log();
 
 console.log();
@@ -696,7 +712,7 @@ console.log(arrIterator3.next());// {value:3,done:false};
 console.log(arrIterator3.next());//{value:4,done:false};
 console.log(arrIterator3.next());//{value:undefined,done:true};
 
-
+```
 
 console.log("## Buscar elementos ");
 
