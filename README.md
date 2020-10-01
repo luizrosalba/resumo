@@ -5665,11 +5665,12 @@ values(1,'Lorem Ipsum', '(88)- 8888 9999')
 - Inicialmente foram criados para troca de mensagens usando xlm(extensible markup language) sobre o protocolo http sendo identificado por uri (uniform resource identifier)
 - Podemos dizer que serviços web são api's que se comunicam por meio de redes sobre o protocolo http
 - Uma aplicação x acessa um web service que faz troca de  mensagens com a aplicação y usando , xml , json, yaml ...
-
+```
 SOAP
 REST
 XML
 JSON
+```
 
 linguagens de marcação -> usadas para comunicação entre aplicações
 
