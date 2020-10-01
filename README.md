@@ -301,6 +301,7 @@ var d = new Date(year, month, day, hours, minutes, seconds, milliseconds);
 ```
 
 Date Object Methods
+```
 Method	Description
 getDate()	Returns the day of the month (from 1-31)
 getDay()	Returns the day of the week (from 0-6)
@@ -351,9 +352,11 @@ toTimeString()	Converts the time portion of a Date object to a string
 toUTCString()	Converts a Date object to a string, according to universal time
 UTC()	Returns the number of milliseconds in a date since midnight of January 1, 1970, according to UTC time
 valueOf()	Returns the primitive value of a Date object
+```
 
 
 ### JavaScript Global Properties
+```
 Property	Description
 Infinity	A numeric value that represents positive/negative infinity
 NaN	"Not-a-Number" value
@@ -373,6 +376,8 @@ parseFloat()	Parses a string and returns a floating point number
 parseInt()	Parses a string and returns an integer
 String()	Converts an object's value to a string
 unescape()	Deprecated in version 1.5. Use decodeURI() or decodeURIComponent() instead
+```
+
 
 ### JSON (JavaScript Object Notation)
 JSON is a format for storing and transporting data.
@@ -435,6 +440,7 @@ var x = Math.PI;            // Returns PI
 var y = Math.sqrt(16);      // Returns the square root of 16
 
 Math Object Properties
+```
 Property	Description
 E	Returns Euler's number (approx. 2.718)
 LN2	Returns the natural logarithm of 2 (approx. 0.693)
@@ -444,9 +450,10 @@ LOG10E	Returns the base-10 logarithm of E (approx. 0.434)
 PI	Returns PI (approx. 3.14)
 SQRT1_2	Returns the square root of 1/2 (approx. 0.707)
 SQRT2	Returns the square root of 2 (approx. 1.414)
-
+```
 
 Math Object Methods
+```
 Method	Description
 abs(x)	Returns the absolute value of x
 acos(x)	Returns the arccosine of x, in radians
@@ -474,7 +481,7 @@ sqrt(x)	Returns the square root of x
 tan(x)	Returns the tangent of an angle
 tanh(x)	Returns the hyperbolic tangent of a number
 trunc(x)	Returns the integer part of a number (x)
-
+```
 
 
 ### JavaScript Arithmetic Operators
@@ -554,6 +561,227 @@ trim()	Removes whitespace from both ends of a string
 valueOf()	Returns the primitive value of a String object
 
 ### Criando arrays
+
+/*
+Operações com arrays 
+*/
+
+var myArray1 = [["Bulls", 23], ["White Sox", 45]];
+
+var myArray2 = [50,60,70];
+
+var arr = [
+  [1,2,3],
+  [4,5,6],
+  [7,8,9],
+  [[10,11,12], 13, 14]
+];   /// array multidimensional 
+
+// indexação : 
+console.log("indexação "); 
+console.log(arr[3]); // equals [[10,11,12], 13, 14]
+console.log(arr[3][0]); // equals [10,11,12]
+console.log(arr[3][0][1]); // equals 11
+
+/// concatenação 
+console.log("Concatenação "); 
+const juntos = myArray2.concat(myArray2) ; // faz um merge 
+console.log(juntos); 
+
+
+const array1 = [1,2,3,4,5];  
+/// slice 
+console.log("Slice - Imutável retira uma Fatia , não muda o vetor"); 
+console.log(array1.slice(0,2)); //a partir da pos 0 pega 2 elementos 
+                                //e cria um novo vetor [1,2] 
+console.log(array1.slice(1)); // a partir da pos 1 pega até o fim
+console.log(array1.slice(-1)); // [5] pega ao contrario  até pos -1 
+console.log(array1.slice(-3)); // [3,4,5] pega ao contrario até pos -3 
+console.log(array1); 
+
+var ourArray = ["Stimpson", "J", ["cat"]];
+console.log("adicionando e removendo elementos "); 
+/// adicionando e removendo elementos 
+myArray2.push(2); /// adiciona ultima posicao 
+console.log(myArray2.pop()); /// remove ultima posicao sem args 
+                             /// retorna o valor popad
+var removedFromOurArray = ourArray.shift();/// remove da frente 
+var addedFromOurArray = ourArray.unshift("batata");/// adiciona na frente 
+console.log(myArray1[0][0] + myArray1[1][0]); 
+console.log(myArray2); 
+console.log(ourArray); 
+
+//splice :  Não é imutavel, Altera o array adicionando
+// novos elementos enquanto remove elementos antigos 
+
+console.log("Splice - Mutável Altera o array adicionando novos elementos enquanto remove elementos antigos  ");
+const arr2 = [1,2,3,4,5];  
+arr2.splice(2); // remove a partir da posicao 2  
+console.log(arr2); /// [1,2]
+arr2.splice(0,1,'first'); // [] /// inicio, quanto 
+//itens remove o que adicionar 
+//a partir da primeira posicao 
+console.log(arr2); /// ["first",1,2]; 
+
+// Iterando vetores (arrays)
+console.log("Iterando vetores (arrays)");
+const arr4 = [1,2,3,4,5];  
+arr4.forEach((value,index) => {console.log(`${index}:${value}`)});
+
+arr4.forEach((value,index,arr4) => console.log(index,value));
+
+console.log("map - Imutavel  Retorna um novo array de mesmo tamanho iterando cada item de um array ");
+
+const arr5 = [1,2,3,4,5];  
+console.log(arr5);
+console.log(arr5.map (value => value *2)); // retorna um novo array [2,4,6,8,10]
+
+
+console.log("flat - Imutavel  Retorna um novo array com todos os elementos de um sub-array concatenados de forma recursiva de acordo com a profundidade especificada (depth) " );
+console.log("Um novo array com os elementos sub-array concatenados nele.");
+
+var arra1 = [1, 2, [3, 4]];
+console.log(arra1.flat()); // [1, 2, 3, 4]
+
+var arra2 = [1, 2, [3, 4, [5, 6,[7,8]]]];
+console.log(arra2.flat(1));// [1, 2, 3, 4, [5, 6]]
+console.log(arra2.flat(2));// [1, 2, 3, 4, 5, 6]
+console.log(arra2.flat(3));// [1, 2, 3, 4, 5, 6]
+console.log(arra2.flat(Infinity)); // [1, 2, 3, 4, 5, 6, 7, 8]
+
+console.log(" flatMap   Retorna um novo array assim como faz a função map e executa um flat de profundidade 1");  
+const arr11 = [1,2,3,4];  
+console.log(arr11.flatMap (value => [value *2])); // retorna um novo array [2,4,6,8]
+console.log(arr11.flatMap (value => [[value *2]])); // retorna um novo array [[2],[4],[6],[8]]
+
+
+let arr21 = ["it's Sunny in", "", "California"];
+ 
+console.log("arr21 "+ arr21.map(x=>x.split(" ")));
+// [["it's","Sunny","in"],[""],["California"]]  vetor multidimensional 
+ console.log("arr21 " + arr21.flatMap(x => x.split(" ")));
+// ["it's","Sunny","in", "", "California"]  vetor de uma dimensao flateado
+
+
+console.log();
+
+console.log();
+
+console.log("keys  retorna um array iterator que contem as chaves para cada elemento do array "); 
+const arr33 = [1,2,3,4];  
+const arrIterator = arr33.keys();
+console.log(arrIterator.next()); //{value:0,done:false};
+console.log(arrIterator.next()); //{value:1,done:false};
+console.log(arrIterator.next()); //{value:2,done:false};
+console.log(arrIterator.next()); //{value:3,done:false};
+console.log(arrIterator.next()); //{value:indefined?,done:true};
+
+console.log("values : retorna um array iterator que contém os valores para cada elemento do array"); 
+const arr44 = [1,2,3,4];  
+const arrIterator2 = arr44.values();
+console.log(arrIterator2.next()); //{value:1,done:false};
+console.log(arrIterator2.next()); //{value:2,done:false};
+console.log(arrIterator2.next());// {value:3,done:false};
+console.log(arrIterator2.next());//{value:4,done:false};
+console.log(arrIterator2.next());//{value:undefined,done:true};
+
+
+
+console.log(" retorna um par chave valor para cada elemento do array ");
+const arr55 = [1,2,3,4];  
+const arrIterator3 = arr55.values();
+console.log(arrIterator3.next()); //{value:1,done:false};
+console.log(arrIterator3.next()); //{value:2,done:false};
+console.log(arrIterator3.next());// {value:3,done:false};
+console.log(arrIterator3.next());//{value:4,done:false};
+console.log(arrIterator3.next());//{value:undefined,done:true};
+
+
+
+console.log("## Buscar elementos ");
+
+console.log( "find Retorna o primeiro item de um array que satisfaz uma condição ");
+
+const arri = [1,2,3,4];  
+const firstGreatherThanTwo = arri.find (value => value > 2);
+console.log(firstGreatherThanTwo ) ; /// 3 
+
+console.log( "findIndex Retorna o indice do primeiro item de um array que satisfaz uma condição ");
+
+const arro = [1,2,3,4];  
+const firstIndexGreatherThanTwo = arro.findIndex (value => value > 2) ; /// 2
+console.log(firstIndexGreatherThanTwo ) ; /// 2
+
+console.log("filter Retorna um array com todos os elementos que satisfazem uma condição ");
+
+
+const arrk = [1,2,3,4];  
+const allValuesGreatherThanTwo = arrk.filter (value => value > 2) ; /// [3,4]
+console.log(allValuesGreatherThanTwo ) ; /// 2
+
+
+console.log(" indexOf Retorna o primeiro índice em que um elemento pode ser encontrado em um array ");
+const arrm = [1,3,3,4,3];  
+const firstIndexOfItem = arrm.indexOf(3); /// 1
+console.log(firstIndexOfItem ) ; /// 2
+
+console.log( "lastIndexOf Retorna o ultimo índice em que um elemento pode ser encontrado em um array ");
+const arrn = [1,3,3,4,3];  
+const firstIndexOfItem2 = arrn.lastIndexOf(3); /// 4
+console.log(firstIndexOfItem2 ) ; /// 2
+
+console.log("includes Retorna um booleano verificando se determinado elemento existe no array ");
+const arry = [1,3,3,4,3];  
+const hasItemOne = arry.includes(1); /// true 
+const hasItemTwo = arry.includes(2); /// false 
+console.log(hasItemOne );
+console.log(hasItemTwo );
+
+console.log("some Retorna um booleano verificando se pelo menos um item de um array satisfaz a condição ");
+
+const arra = [1,3,3,4,3];  
+const hasSomeEvenNumber = arra.some (value => value % 2 ===0 ) ; /// true
+console.log(hasSomeEvenNumber );
+
+
+
+console.log( "some Retorna um booleano verificando se todos os itens de um array satisfazem uma condição ");
+
+const arrb = [1,3,3,4,3];  
+const allEvenNumbers4 = arrb.every (value => value % 2 ===0 ) ; /// false
+console.log(allEvenNumbers4 );
+
+console.log( "some Retorna um booleano verificando se todos os itens de um array satisfazem uma condição ");
+
+const arrc = [1,3,3,4,3];  
+const allEvenNumbers = arrc.every (value => value % 2 ===0 ) ; /// false
+console.log(allEvenNumbers );
+
+## sort ordenacao de acordo com condição 
+
+students.sort((current,next) => current.grade - next.grade) /// ordena do menor pro maior 
+students.sort((current,next) => next.grade - current.grade) /// ordena do maior pro menor 
+
+## reverse inverte o array 
+const arr = [1,2,3,4,5];  
+arr.reverse(); /// [5 , 4 , 3 , 2 , 1]
+
+## transformando um array em outro tipo de dados 
+join junta todos os elementos de um array separados por um delimitar e retorna uma string 
+
+const arr = [1,2,3,4,5];  
+
+console.log(arr.join('-')); /// "1-2-3-4-5"
+
+## reduce Retorna um novo tipo de dado iterando cada posicao de um array 
+
+const arr = [1,2,3,4,5];  
+console.log(arr.reduce ((total,value)=> total+= value, 0));
+
+
+
+
+
 
 ```Javascript
 const arr = [1,2,3];
@@ -1340,6 +1568,23 @@ let result = str.replace(fixRegex, replaceText);
 console.log (result);
 
 ```
+
+
+
+change multiple whitespaces for only 1 
+
+```Javascript
+let str = "one     two     three";
+let fixRegex = /  +/g;
+let replaceText = " "; // Change this line
+let result = str.replace(fixRegex, replaceText);
+console.log (result);
+
+```
+
+
+
+
 Regular Expressions: Remove Whitespace from Start and End
 Seleciona e remove um texto do inicio e final de uma string
 
