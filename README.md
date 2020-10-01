@@ -5583,9 +5583,9 @@ ms (Internet Explorer)
 
 ```
 ## Stateful vs StateLess 
-- A nomenclatura foi atualizada : 
-- Class components
-- Function Components 
+- Antigamente Funções não podiam gerenciar estados (stateless). A partir de 2018 isso mudou 
+- A nomenclatura foi atualizada não usamos mais stateful e stateless: 
+- Class components e Function Components 
 - Com hooks estados são manipuláveis em function components (Stateless com Hooks )
 - Dessa forma temos um código compatco com a vantagem de poder manipular estaods 
 ### Stateful 
@@ -5601,8 +5601,43 @@ ms (Internet Explorer)
 - contruidos usando funções em js 
 - ..\aplicacoes_internet_reactjs\src\aula-1\parte-2\TodoListStateless.jsx
 ### Stateless com Hooks 
-A partir de 2018 , podemos fazer um "stateless com estados" usando o hook useState 
+
+A partir de 2018 , podemos fazer um componente funcional "stateless com estados" usando o hook useState 
 - ..\aplicacoes_internet_reactjs\src\aula-1\parte-2\TodoListFunctional.jsx
+
+```Javascript 
+
+import React, { useState } from 'react';
+/// componentes funcionais com estado 
+const TodoListFunctional = () => {
+/// hook para criacao de estados 
+/// nome do estado (items) e uma funcao setter (setItems) para modificar o estado 
+  const [items, setItems] = useState(['Tomate','Alface','Melancia']);
+  const addItem = (item) => {
+    setItems([...items, item]);
+  }
+
+  const removeItem = () => {
+    setItems([...items.slice(1)])
+  }
+
+  return (
+    <div className="bloco-lista">
+      <p>Minha lista</p>
+      <ul className="lista-estilizada">
+        {items.map(item => <li>{item}</li>)}
+      </ul>
+      <button onClick={() => addItem('Batata-Frita2')}>Add Item</button>
+      <button onClick={() => removeItem()}>Remove Item</button>
+    </div>
+  );
+}
+
+export default TodoListFunctional;
+
+
+```
+
 ## Formulários
 Mantem um estado interno 
 - Em html 
@@ -5619,14 +5654,196 @@ Mantem um estado interno
 ## Componente controlado 
 - O recomendado no react é fazer componentes controlados 
 
+```Javascript
+import React from 'react';
+
+class NameForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { value: '' };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value }); //// pega o event.target.value do dom 
+  }
+
+  handleSubmit(event) {
+    alert('O nome enviado foi: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit} style={{display: 'flex', flexDirection: 'column'}}>
+        <label>
+          Nome:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
+
+export default NameForm;
+```
+
+
+```Javascript 
+import React from 'react';
+
+class SorveteForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sabor: 'uva',
+      casquinha: true,
+      guardanapos: 'sim'
+    };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+  }
+
+  handleSubmit(event) {
+    const { sabor, casquinha, guardanapos } = this.state;
+    alert('Seu sabor escolhido foi ' + sabor + ', guardanapos ' + guardanapos + ' e casquinha ' + casquinha);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
+        <label>
+          Escolha o sabor:
+            <select name="sabor" value={this.state.sabor} onChange={this.handleInputChange}>
+            <option value="uva">Uva</option>
+            <option value="limao">Limão</option>
+            <option value="coco">Coco</option>
+            <option value="chocolate">Chocolate</option>
+            <option value="morango">Morango</option>
+          </select>
+        </label>
+        <label>
+          <input type="checkbox" name="casquinha" checked={this.state.casquinha} onChange={this.handleInputChange} />
+          Colocar na casquinha?
+          </label>
+        <label>
+          Guardanapos?
+            <div className="radio">
+            <label>
+              <input type="radio" id="guardanapos" name="guardanapos" value="sim" checked={this.state.guardanapos === 'sim'} onChange={this.handleInputChange} />
+              sim
+              </label>
+          </div>
+          <div className="radio">
+            <label>
+              <input type="radio" id="guardanapos" name="guardanapos" value="nao" checked={this.state.guardanapos === 'nao'} onChange={this.handleInputChange} />
+              não
+              </label>
+          </div>
+        </label>
+        <input type="submit" value="Enviar" />
+      </form>
+    );
+  }
+}
+
+export default SorveteForm;
+```
 ## Componente não controlado 
 - pega o estado do dom 
 - o react observa estes estados através de uma referencia 
 - a tag input é read-only (essa tag a gente nao consegue fazer com componente controlado, só com não controlado)
+
+```Javascript
+import React from 'react';
+
+class FileInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.fileInput = React.createRef(); /// definimos uma referencia para o campo input 
+                                        /// definimos uma referencia para o campo input 
+  }
+  handleSubmit(event) {
+    event.preventDefault();
+    alert(
+      `Arquivo selecionado - ${
+        this.fileInput.current.files[0].name
+      }`
+    );
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit} style={{display: 'flex', flexDirection: 'column'}}>
+        <label>
+          Upload de arquivo:
+          {/// usando ref a gente consegue pegar o estado deste componente read-only input no envio  
+          }
+          <input type="file" ref={this.fileInput} />
+        </label>
+        <br />
+        <button type="submit">Enviar</button>
+      </form>
+    );
+  }
+}
+
+export default FileInput;
+
+```
+Sobre Stateless components, é incorreto afirmar que:
+Podemos setar o estado inicial de um componente stateless com props.
+
+Para estilizar um componente de maneira inline, assinale abaixo a alternativa correta:
+<MeuComponente style={{ marginBottom: '10px' }} />
+
+Sobre a estilização em componentes, é correto afirmar que:
+Os estilos pela tag style são feitos por um JSON onde o CSS é escrito CamelCase.
+
+Sobre Stateful components, é correto afirmar que:
+Supondo um estado chamado shoe, setado inicialmente como ‘tênis’, podemos trocar o seu estado, por ex, usando this.setState({ shoe: 'sapatenis’ }).
+
+Podemos manipular a tag input do tipo file em um form usando:
+Componentes não controlados.
+
+Sobre as diversas formas de criar forms, é correto afirmar:
+No uso de componentes não controlados, pegamos apenas a referência do estado do DOM.
+
+Sobre stateless e stateful components, assinale a alternativa correta:
+Com a chegada de hooks, podemos criar componentes funcionais com estados.
+
+Sobre CSS in JS é correto afirmar que:
+A biblioteca styled components é exemplo de uma biblioteca em que se pode usar CSS in JS.
+
+Um exemplo de biblioteca utilizado para manipulação de forms é:
+Formik.
+
+Qual(is) componente(s) podemos utilizar em componentes controlados em React?
+<textarea> e <select>.
+
+
+
+
 ## bibliotecas 
-- forms no react são verbosos 
+- forms no react são verbosos tem que escrever bastante para funcionar  
 - é possível usar algumas biblios : 
-- formik 
+- formik (recomendada pela documentação do react )
 - Redux-forms 
 # Flux 
 - Arquitetura criada pelo Fb para comunicação entre componentes 
@@ -5657,9 +5874,17 @@ Diversas implementações
 - centralizam a informação 
 - One way data flow 
 - Ideal é usar as stores para dados que vão ser compartilhados entre componentes, não todos os dados 
+## Bibliotecas baseadas em Flux 
+- Servem para comunicação entre componentes
+- Centralizam a informação 
+- Store não é um armazenamento central, o ideal é usar as stores para dados 
+que vao ser compartilhados entre vários componentes 
+
 # O que é Redux 
 - Criado por Abramov e Clark em 2015 
 - Redux é uma  implementação de flux 
+- nao tem dispatcher 
+- a camada de view é chamada de react pois vamos usala para trabalhar com react 
 ![](img/redux.PNG)
 -Redux tem  3 princípios : 
 - Single source of Thuth - uma única store 
@@ -5669,6 +5894,7 @@ Diversas implementações
 - Redux nao tem dispatcher 
 - A camada de view eh chamada de react
 - Reducer 
+
 ## actions 
 - são como as do flux 
 - apensa retornam um objeto de action formatado 
@@ -5682,9 +5908,9 @@ Diversas implementações
 - se conecta ao root reducer que divide os estados em pequenos reducers para descobrir como lidar com eese estado 
 - estados imutáveis 
 ## Views 
-- Em react adiciona na camada de View 3 novos conceitos para conectar a View a Store 
+- Em react adiciona na camada de View 3 novos conceitos para conectar a View a Store (provider, connect() e selector )
 - Provider wrapper da arvore de components, torna mais facil os componentes filhos se conectarem usando o connect 
-- Connect  função no react redux se o componente deseja pegar os updates do estado se envolve na função connect 
+- Connect()  função no react redux se o componente deseja pegar os updates do estado se envolve na função connect (High Order Component (HOC))
 - Selector função que escrevemos que definem quais os estados do redux que queremos passar 
 No root component:
 O Provider recebe como atributo a store criada, usando-a onde ela for necessária para a aplicação.
@@ -5695,6 +5921,148 @@ Instalar o redux dev tools
 - npm install --save-dev redux-devtools
 - usamos o redux dev tools e rodamos a aula 2 para ver que cada vez que o contador eh clicado vemos o estado anterior e o estado atual 
 - criamos a pasta redux que tem o arquivo de actions  (mensagem enviada)
+- vamos criar uma action que se comunica com store. Vamos criar uma store e reducers e conecta-los a nossa view (react)
+
+- criamos um arquivo dentro da pasta redux -> actions -> actions.js com as actions (método mais simples de criar actions)
+
+```Javascript
+export const INCREMENT = 'INCREMENT'
+export const DECREMENT = 'DECREMENT'
+``` 
+- criamos um arquivo dentro da pasta redux -> reducers ->  reductions.js com as reductions 
+
+```Javascript
+import { INCREMENT, DECREMENT } from '../actions/counter';
+
+export const initialState = {
+  count: 0 /// estado inicial da store 
+}
+
+///verifica qual action esta sendo disparada 
+export function counterReducer(state = initialState, action) {
+  switch(action.type) {
+    case INCREMENT:
+      return {
+        count: state.count + 1
+      };
+    case DECREMENT:
+      return {
+        count: state.count - 1
+      };
+    default: 
+      return state; /// apenas retorna o valor nao faz o incremento do estado diretamente 
+  }
+}
+```
+indexjs (camada view = react)
+- cria a store 
+- associa os reducers a ela 
+- 
+
+```Javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux'; /// cria as stores e associa o redux a ela 
+import rootReducer from './redux/reducers/rootReducer' /// centraliza os reducers
+import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+const store = createStore( rootReducer, composeWithDevTools(
+    applyMiddleware(thunk)  /// conectando a store ao monitor 
+));
+
+ReactDOM.render(<Provider store={store}> /// Provider faz um wrapper e passa a store criada acima 
+    <App />
+</Provider>, document.getElementById('root'));
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
+
+```
+
+manipulando a store 
+
+```Javascript
+import React from 'react';
+import { connect } from 'react-redux';
+
+class Counter extends React.Component {
+  state = { count: 0 }
+
+/// cada evento de incremento ou decremento dispara um evento na store ( que pode ser visto no redux dev-tools do chrome )
+
+  increment = () => {
+    /// usa a action (ato de enviar a mensagem) através do dispatch  para fazer o pedido de alteração para a store 
+    this.props.dispatch({ type: 'INCREMENT' }); /// cada um dispara um evento na store , não temos dispatch , ams por questões de engerharia usamos o nome dispatcher
+  }
+
+  decrement = () => {
+    this.props.dispatch({ type: 'DECREMENT' }); /// nao passamos o estado do counter para o componente, disparamos uma mensagem para incrementar e decrementar
+  }
+
+  render() {
+    return (
+      <div>
+        <h2>Counter</h2>
+        <div>
+          <button onClick={this.decrement}>-</button>
+          <span>{this.props.count}</span>
+          <button onClick={this.increment}>+</button>
+        </div>
+      </div>
+    )
+  }
+}
+
+function mapStateToProps(state) { 
+  return {
+    count: state.counter.count /// passamos o estado referenciando o estado da store que estamos associando , 
+                               /// e qual compoenente local está associado 
+  };
+}
+
+export default connect(mapStateToProps)(Counter); /// connect pega o componente e conecta com a store (HOC)
+
+```
+Qual dos elementos de Flux não existe em Redux?
+Dispatchers.
+
+Uma diferença básica de Redux e Flux é:
+Redux só possui uma store.
+
+Sobre Flux, é correto afirmar que:
+O Facebook criou esta arquitetura para sanar um problema no sistema de notificações.
+
+A extensão do redux-devtools:
+Serve para monitorar os estados de uma store Redux.
+
+Sobre Redux, assinale a alternativa correta:
+A action em Redux é como em Flux, com a diferença que ela retorna um objeto de action formatado.
+
+No root component:
+O Provider recebe como atributo a store criada, usando-a onde ela for necessária para a aplicação.
+
+Quais são os três componentes da View em Redux?
+Provider, connect e selector.
+
+Qual das alternativas abaixo não é um princípio básico de Redux?
+Es6 callback para todos os eventos.
+
+Sobre o Dispatcher, é correto afirmar:
+Sabe todos os callbacks para diferentes stores.
+
+Sobre o Flux, assinale a alternativa correta:
+As actions formatam a mensagem a ser enviada para o dispatcher.
+
+
+
+
 
 # Aula 3 
 ## Comunicação avançada entre aplicações 
