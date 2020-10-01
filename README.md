@@ -716,6 +716,7 @@ console.log(arrIterator3.next());//{value:undefined,done:true};
 
 console.log("## Buscar elementos ");
 
+```
 console.log( "find Retorna o primeiro item de um array que satisfaz uma condição ");
 
 const arri = [1,2,3,4];  
@@ -753,12 +754,13 @@ const hasItemTwo = arry.includes(2); /// false
 console.log(hasItemOne );
 console.log(hasItemTwo );
 
+
+
 console.log("some Retorna um booleano verificando se pelo menos um item de um array satisfaz a condição ");
 
 const arra = [1,3,3,4,3];  
 const hasSomeEvenNumber = arra.some (value => value % 2 ===0 ) ; /// true
 console.log(hasSomeEvenNumber );
-
 
 
 console.log( "some Retorna um booleano verificando se todos os itens de um array satisfazem uma condição ");
@@ -772,28 +774,42 @@ console.log( "some Retorna um booleano verificando se todos os itens de um array
 const arrc = [1,3,3,4,3];  
 const allEvenNumbers = arrc.every (value => value % 2 ===0 ) ; /// false
 console.log(allEvenNumbers );
+```
+
+
 
 ## sort ordenacao de acordo com condição 
+```
 
 students.sort((current,next) => current.grade - next.grade) /// ordena do menor pro maior 
 students.sort((current,next) => next.grade - current.grade) /// ordena do maior pro menor 
+```
 
 ## reverse inverte o array 
+```
+
 const arr = [1,2,3,4,5];  
 arr.reverse(); /// [5 , 4 , 3 , 2 , 1]
+```
 
 ## transformando um array em outro tipo de dados 
+```
+
 join junta todos os elementos de um array separados por um delimitar e retorna uma string 
 
 const arr = [1,2,3,4,5];  
 
 console.log(arr.join('-')); /// "1-2-3-4-5"
+```
+
 
 ## reduce Retorna um novo tipo de dado iterando cada posicao de um array 
+```
 
 const arr = [1,2,3,4,5];  
 console.log(arr.reduce ((total,value)=> total+= value, 0));
 
+```
 
 
 
@@ -2317,13 +2333,14 @@ A class is a type of function, but instead of using the keyword function to init
 
 Example
 Create a Car class, and then create an object called "mycar" based on the Car class:
-
+```
 class Car {  // Create a class
   constructor(brand) {  // Class constructor
     this.carname = brand;  // Class body/properties
   }
 }
 mycar = new Car("Ford");  // Create an object of Car class
+```
 
 Class Keywords
 Keyword	Description
@@ -2351,7 +2368,7 @@ pode-se usar metodos set e get (v12 do node) para setar e obter o valor de um at
 permite que acesse métodos e atributos sem instanciar uma classe
 
 ex1: com funcoes , implementação de static do JS
-
+```
 'use strict';
 
 function Person() {}
@@ -2370,6 +2387,7 @@ console.log('walking');
 }
 
 console.log(Person.walk());
+```
 
 ### Orientação a objetos e desing patterns
 
@@ -2385,7 +2403,7 @@ Nome, Exemplo, contexto , problema, solução.
 1987 kent e ward 5 padroes de projetos ->
 
 1994 Gof Erich, Richard , Ralph John  DP Elements of Reusable OO Software -> Tipos Criação , estruturais e comportamentais
-
+```
 Padroes de criação : abstraem e / ou adiam o processo de criação dos objetos , tornamm o sistema independete de como seus objetos são criados , compostos e representados
 mais famosos :
 Abstract Factory
@@ -2393,6 +2411,7 @@ Builder
 Factory Method
 Prototype
 Singleton
+```
 
 Padroes esttruturais :
 
@@ -2402,7 +2421,7 @@ Padroes Comportamentais :
 Algoritmos e atribuições de responsabilidades entre os objetos, não descrevem apenas padroes classe se objetos , mas tb de comunicação entre os objetos : Chain of Responsibility , Command, Interpreter , Iterator, Mediator , Observer , State, Strategy , Template Method e visitor
 
 Patterns mais usados em Js : Factory , Singleton , Decorator , Observer e Module
-
+```
 Factory > Funções que retornam um objeto sem a necessidade de chamalas com new são consideradas factory
 
 Singleton > cria um unica instancia de uma funcao construtora e retorna-la toda vez que for necessário utilizala (ex: JQuery) , mesmo que você crie uma nova instancia , ela sempre retornará o mesmo valro
@@ -2411,12 +2430,12 @@ Decorator > Uma funcão que recebe outra função como parametro e altera seu co
 
 Observer >  A instancia (subscriber) mantem uma coleção de objetos (observers) e notifica todos eles quando ocorrem mudanças de estado (no VUE a propriedade notify ,toda vez que há uma mudança de estado quem estiver escutando será notificado ) manter uma lista no observer , criar uma função subscribe , outra unsubscribe e notify
 
-Mdoule > Permite organizar o corido sem a necessidade de expor variáveis globais No ES6 (export default)
-
+Modoule > Permite organizar o corido sem a necessidade de expor variáveis globais No ES6 (export default)
+```
 ### ES6 let e var
 
 let foi introduzido no Es6 para evitar os problemas da variável pública var a variable with the same name can only be declared once
-
+```
 let camper = 'James';
 let camper = 'David'; // throws an error
 
@@ -2463,6 +2482,8 @@ console.log('Block scope i is: ', i);
 console.log('Function scope i is: ', i);
 return i;
 }
+```
+
 
 ### ES6 const
 
@@ -2471,12 +2492,13 @@ trying to reassign a variable declared with const will throw an error.
 A common practice when naming constants is to use all uppercase letters, with words separated by an underscore.
 
 However, it is important to understand that objects (including arrays and functions) assigned to a variable using const are still mutable. Using the const declaration only prevents reassignment of the variable identifier.Pode mudar cada elemento mas nao pode mudar o vetor inteiro
-
+```
 "use strict";
 const s = [5, 6, 7];
 s = [1, 2, 3]; // throws error, trying to assign a const
 s[2] = 45; // works just as it would with an array declared with var or let
 console.log(s); // returns [5, 6, 45]
+```
 
 ### ES6 Object.freeze
 
@@ -2485,13 +2507,14 @@ To ensure your data doesn't change, JavaScript provides a function Object.freeze
 ### ES6 arrow function
 
 Nova Sintaxe que permite simplificar a declaração de funções. magic recebe o resultado da função ou seja uma data.
-
+```
 const magic = () => {
 "use strict";
 return new Date();
 };
-
+```
 Quando a função nao tem corpo pode-se omitir o return
+
 const myFunc = () => "value";
 
 Argumentos em uma arrow function :
@@ -2506,13 +2529,13 @@ const doubler = item => item * 2;
 const multiplier = (item, multi) => item * multi;
 
 parametro default em arrow functions
-
+```
 const greeting = (name = "Anonymous") => "Hello " + name;
 console.log(greeting("John")); // Hello John
 console.log(greeting()); // Hello Anonymous
-
+```
 Parametro rest em arrow functions
-
+```
 function howMany(...args) {
 return "You have passed " + args.length + " arguments.";
 }
@@ -2522,11 +2545,11 @@ console.log(howMany("string", null, [1, 2, 3], { })); // You have passed 4 argum
 const sum = (...args) => {
 return args.reduce((a, b) => a + b, 0);
 }
-
+```
 ### Operador Spread :
 
 ES6 introduces the spread operator, which allows us to expand arrays and other expressions in places where multiple parameters or elements are expected.
-
+```
 const arr = [6, 89, 3, 45];
 const maximus = Math.max(...arr); // returns 89
 
@@ -2541,12 +2564,13 @@ let arr2;
 arr2 = [...arr1];  // Change this line
 
 console.log(arr2);
+```
 
 ### Destructuring Assignment
 
 Extrai informações de um objeto de maneira visualmente limpa
 Destructuring assignment is special syntax introduced in ES6, for neatly assigning values taken directly from an object.
-
+```
 const { name, age } = user;
 // name = 'John Doe', age = 34
 
@@ -2598,11 +2622,13 @@ tomorrow: { low: 68, high: 80 }
 // Only change code below this line
 const { today: {low:lowToday, high:highToday}} = LOCAL_FORECAST ;
 // Only change code above this line
+```
+
 
 Destructuring Assignment variáveis vindas de um array
 
 One key difference between the spread operator and array destructuring is that the spread operator unpacks all contents of an array into a comma-separated list. Consequently, you cannot pick or choose which elements you want to assign to variables.
-
+```
 const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
 console.log(a, b, c); // 1, 2, 5
 
@@ -2610,19 +2636,20 @@ let a = 8, b = 6;
 // Only change code below this line
 
 [b,a] = [a,b];
+```
 
 Usando Destructuring com parametro rest para redesignar variaveis
 
 In some situations involving array destructuring, we might want to collect the rest of the elements into a separate array.
 
 The result is similar to Array.prototype.slice(), as shown below:
-
+```
 const [a, b, ...arr] = [1, 2, 3, 4, 5, 7];
 console.log(a, b); // 1, 2
 console.log(arr); // [3, 4, 5, 7]
-
+```
 The rest element only works correctly as the last variable in the list.
-
+```
 const source = [1,2,3,4,5,6,7,8,9,10];
 function removeFirstTwo(list) {
 "use strict";
@@ -2633,9 +2660,9 @@ const  [,,...arr]= list; // Change this line
 return arr;
 }
 const arr = removeFirstTwo(source);
-
+```
 Use Destructuring Assignment to Pass an Object as a Function's Parameters
-
+```
 const profileUpdate = (profileData) => {
 const { name, age, nationality, location } = profileData;
 // do something with these variables
@@ -2645,9 +2672,9 @@ ou ainda
 const profileUpdate = ({ name, age, nationality, location }) => {
 /* do something with these fields */
 }
-
+```
 Use destructuring assignment within the argument to the function half to send only max and min inside the function.
-
+```
 const stats = {
 max: 56.78,
 standard_deviation: 4.34,
@@ -2661,7 +2688,7 @@ average: 35.85
 const half = ({max,min}) => (max + min) / 2.0;
 // Only change code above this line
 console.log(half(stats));  /// pega os parametros do max e min do objeto dentro dos parametros na chamada half(param) e aplica a função a ele
-
+```
 ### Create Strings using Template Literals
 
 A new feature of ES6 is the template literal. This is a special type of string that makes creating complex strings easier.
@@ -2669,7 +2696,7 @@ A new feature of ES6 is the template literal. This is a special type of string t
 Template literals allow you to create multi-line strings and to use string interpolation features to create strings.
 
 Consider the code below:
-
+```
 const person = {
 name: "Zodiac Hasbro",
 age: 56
@@ -2681,10 +2708,11 @@ const greeting = `Hello, my name is ${person.name}! I am ${person.age} years old
 console.log(greeting); // prints
 // Hello, my name is Zodiac Hasbro!
 // I am 56 years old.
-
+```
 A lot of things happened there. Firstly, the example uses backticks (`), not quotes (' or "), to wrap the string. Secondly, notice that the string is multi-line, both in the code and the output. This saves inserting \n within strings. The ${variable} syntax used above is a placeholder. Basically, you won't have to use concatenation with the + operator anymore. To add variables to strings, you just drop the variable in a template string and wrap it with ${ and }. Similarly, you can include other expressions in your string literal, for example ${a + b}. This new way of creating strings gives you more flexibility to create robust strings.
 
 ###
+```
 const result = {
 success: ["max-length", "no-amd", "prefer-arrow-functions"],
 failure: ["no-var", "var-on-top", "linebreak"],
@@ -2708,46 +2736,48 @@ return resultDisplayArray;
 const resultDisplayArray = makeList(result.failure);
 
 console.log (resultDisplayArray);
+```
 
 ES6: Write Concise Object Literal Declarations Using Object Property Shorthand
 
 ES6 adds some nice support for easily defining object literals.
 
 Consider the following code:
-
+```
 const getMousePosition = (x, y) => ({
 x: x,
 y: y
 });
+```
 getMousePosition is a simple function that returns an object containing two properties. ES6 provides the syntactic sugar to eliminate the redundancy of having to write x: x. You can simply write x once, and it will be converted tox: x (or something equivalent) under the hood. Here is the same function from above rewritten to use this new syntax:
-
+```
 const getMousePosition = (x, y) => ({ x, y });
-
+```
 ES6: Write Concise Declarative Functions with ES6
 
 When defining functions within objects in ES5, we have to use the keyword function as follows:
-
+```
 const person = {
 name: "Taylor",
 sayHello: function() {
 return `Hello! My name is ${this.name}.`;
 }
 };
-
+```
 With ES6, You can remove the function keyword and colon altogether when defining functions in objects. Here's an example of this syntax:
-
+```
 const person = {
 name: "Taylor",
 sayHello() {
 return `Hello! My name is ${this.name}.`;
 }
 };
-
+```
 ### ES6: Use class Syntax to Define a Constructor Function
 
 ES6 provides a new syntax to create objects, using the class keyword. It should be noted that the class syntax is just syntax, and not a full-fledged class-based implementation of an object-oriented paradigm, unlike in languages such as Java, Python, Ruby, etc.
 In ES5, we usually define a constructor function and use the new keyword to instantiate an object.
-
+```
 var SpaceShuttle = function(targetPlanet){
 this.targetPlanet = targetPlanet;
 }
@@ -2761,7 +2791,7 @@ this.targetPlanet = targetPlanet;
 }
 }
 const zeus = new SpaceShuttle('Jupiter');
-
+```
 It should be noted that the class keyword declares a new function, to which a constructor is added. This constructor is invoked when new is called to create a new object.
 Notes:
 
@@ -2777,7 +2807,7 @@ These are classically called getters and setters.
 Getter functions are meant to simply return (get) the value of an object's private variable to the user without the user directly accessing the private variable.
 
 Setter functions are meant to modify (set) the value of an object's private variable based on the value passed into the setter function. This change could involve calculations, or even overwriting the previous value completely.
-
+```
 class Book {
 constructor(author) {
 this._author = author;
@@ -2791,12 +2821,14 @@ set writer(updatedAuthor) {
 this._author = updatedAuthor;
 }
 }
+
 const lol = new Book('anonymous');
 console.log(lol.writer);  // anonymous
 lol.writer = 'wut';
 console.log(lol.writer);  // wut
+```
 Notice the syntax used to invoke the getter and setter. They do not even look like functions. Getters and setters are important because they hide internal implementation details. Note: It is convention to precede the name of a private variable with an underscore (_). However, the practice itself does not make a variable private.
-
+```
 // Only change code below this line
 class Thermostat {
 constructor(temperature) {
@@ -2819,11 +2851,12 @@ console.log (temp);
 thermos.temperature = 26;
 temp = thermos.temperature; // 26 in Celsius
 console.log (temp);
+```
 
 ### ES6: Create a Module Script
 
 utilizando um script
-
+```
 <html>
   <body>
     <!-- Only change code below this line -->
@@ -2831,10 +2864,10 @@ utilizando um script
     <!-- Only change code above this line -->
   </body>
 </html>
-
+```
 ES6: Use export to Share a Code Block
 Imagine a file called math_functions.js that contains several functions related to mathematical operations. One of them is stored in a variable, add, that takes in two numbers and returns their sum. You want to use this function in several different JavaScript files. In order to share it with these other files, you first need to export it.
-
+```
 export const add = (x, y) => {
 return x + y;
 }
@@ -2845,8 +2878,9 @@ return x + y;
 }
 
 export { add };
+```
 When you export a variable or function, you can import it in another file and use it without having to rewrite the code. You can export multiple things by repeating the first example for each thing you want to export, or by placing them all in the export statement of the second example, like this:
-
+```
 export { add, subtract };
 
 const uppercaseString = (string) => {
@@ -2858,7 +2892,7 @@ return string.toLowerCase();
 }
 
 export { uppercaseString,lowercaseString };
-
+```
 ### ES6: Reuse JavaScript Code Using import
 
 import { add, subtract } from './math_functions.js';
@@ -2870,7 +2904,7 @@ import * as myMathModule from "./math_functions.js";
 ### ES6: Create an Export Fallback with export default
 
 you will use this syntax if only one value is being exported from a file. It is also used to create a fallback value for a file or module.
-
+```
 // named function
 export default function add(x, y) {
 return x + y;
@@ -2880,7 +2914,7 @@ return x + y;
 export default function(x, y) {
 return x + y;
 }
-
+```
 There is another export syntax you need to know, known as export default. Usually you will use this syntax if only one value is being exported from a file. It is also used to create a fallback value for a file or module.
 Since export default is used to declare a fallback value for a module or file, you can only have one value be a default export in each module or file. Additionally, you cannot use export default with var, let, or const
 
@@ -2901,7 +2935,7 @@ const myPromise = new Promise((resolve, reject) => {
 ### ES6: Complete a Promise with resolve and reject
 
 A promise has three states: pending, fulfilled, and rejected. The promise you created in the last challenge is forever stuck in the pending state because you did not add a way to complete the promise. The resolve and reject parameters given to the promise argument are used to do this. resolve is used when you want your promise to succeed, and reject is used when you want it to fail. These are methods that take an argument, as seen below.
-
+```
 const makeServerRequest = new Promise((resolve, reject) => {
 // responseFromServer represents a response from a server
 let responseFromServer;
@@ -2912,11 +2946,12 @@ resolve("We got the data");// Change this line
 reject("Data not received");// Change this line
 }
 });
+```
 
 ### ES6: Handle a Fulfilled Promise with then
 
 Promises are most useful when you have a process that takes an unknown amount of time in your code (i.e. something asynchronous), often a server request. When you make a server request it takes some amount of time, and after it completes you usually want to do something with the response from the server. This can be achieved by using the then method. The then method is executed immediately after your promise is fulfilled with resolve. Here’s an example:
-
+```
 myPromise.then(result => {
 // do something with the result.
 });
@@ -2938,9 +2973,10 @@ console.log(result);
 });
 
 });
+```
 
 ### ES6: Handle a Rejected Promise with catch
-
+```
 myPromise.catch(error => {
 // do something with the error.
 });
@@ -2964,6 +3000,7 @@ console.log(error); // do something with the error.
 });
 
 });
+```
 
 ## ES6 Avancado
 
