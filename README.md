@@ -6062,8 +6062,6 @@ As actions formatam a mensagem a ser enviada para o dispatcher.
 
 
 
-
-
 # Aula 3 
 ## Comunicação avançada entre aplicações 
 
@@ -6092,6 +6090,85 @@ Alguns browsers ainda nao suportam (talvez melhor usar node fetch)
 ![](img/delete_fetchapi.PNG)
 
 
+```Javascript
+import { fetchCientistasPending, fetchCientistasSuccess, fetchCientistasError } from '../../../redux/actions/cientistas';
+
+function fetchCientistas() {
+  return dispatch => {
+    dispatch(fetchCientistasPending());
+    fetch('https://react-intermediario-dio.free.beeceptor.com/cientistas-brasileiras')
+      .then(res => res.json())
+      .then(res => {
+        if (res.error) {
+          throw (res.error);
+        }
+        dispatch(fetchCientistasSuccess(res)); /// sucesso atualiza os dados 
+      })
+      .catch(error => {
+        dispatch(fetchCientistasError(error));
+      })
+  }
+}
+
+export default fetchCientistas;
+```
+
+Trabalhando com class component, procurar fazer o carregamento da listagem de serviços no inicio
+do seu componente no componentDidMount. No componente componentWillMount (vai ser descontinuado no react 17 )pode dar probelmas como lista vazia  
+
+
+```Javascript
+import React, { useEffect, useState } from 'react'
+import styled from 'styled-components';
+
+const Topico1Block = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Item = styled.li`
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px;
+  border: 1px solid #cecece;
+`;
+
+export const Topico1 = () => {
+  const [cientistas, setCientistas] = useState([]);
+
+  // Hook equivalente a componentDidMount()
+  useEffect(() => {
+    fetch('https://react-intermediario-dio.free.beeceptor.com/cientistas-brasileiras')
+      .then(response => response.json()) /// parseando a json 
+      .then(data => {
+        setCientistas(data) /// atualizando o esatdo 
+      })
+      .catch(error => {
+        alert('Ops! Erro a seguir: ' + error);
+      });
+  }, []);
+
+  return (
+    <Topico1Block>
+      <h1>Cientistas Brasileiras</h1> /// renderizando na tela 
+      <ul>
+        {cientistas.map((cientista, index) => (
+          <Item key={index}>
+            <div><b>nome:</b> {cientista.name}</div>
+            <div><b>área:</b> {cientista.area}</div>
+          </Item>
+        ))}
+      </ul>
+    </Topico1Block>
+  )
+}
+
+```
+
+
+
 ## Axios 
 - Lib de HTTP API 
 - Cross-Browser
@@ -6111,7 +6188,7 @@ Alguns browsers ainda nao suportam (talvez melhor usar node fetch)
 
 Imutabilidade : 
 - uma vez criada não pode ser alterada 
-- novas coleçlões podem ser craidas a partir de uma coleção anterior e uma mutação (setter) como um conjunto 
+- novas coleções podem ser craidas a partir de uma coleção anterior e uma mutação (setter) como um conjunto 
 - novas coleções são criadas usando o máximo possível da estrutura original, reduzindo a cópia e aumentando a performance 
 Benefícios : 
 - Performance 
