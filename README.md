@@ -6191,18 +6191,63 @@ Imutabilidade :
 - novas coleções podem ser craidas a partir de uma coleção anterior e uma mutação (setter) como um conjunto 
 - novas coleções são criadas usando o máximo possível da estrutura original, reduzindo a cópia e aumentando a performance 
 Benefícios : 
-- Performance 
+- Para ter Performance em react use seus dados imutáveis (usando shouldComponentUpdate ou React.PureComponent )
 - Programação simples 
 - Debugging simples ( detecção de mudanças)
 - para ter performance em React use dados imutáveis 
 - voce consegue usando o shouldComponentUpdate ou o React.PureComponent 
--  Exemplo : 
+-  Exemplo usando o shouldComponentUpdate: 
 ![](img/shouldcomponent.PNG)
+
+```Javascript
+class CounterButton extends React.Component {
+  constructor (props){
+    super(props);
+    this.state ={count:1};
+  }
+  shouldComponentUpdate(nextProps,nextState){
+    if(this.props.color!== next.Props.color){ /// color vem por props 
+      return true;
+    }
+    if(this.state.count!== nextState.count){ /// count é do proprio componente 
+      return true;
+    }
+    return false;
+  }
+  render (){
+    return (
+    <button color={this.props.color}
+    onClick={()=>this.setState(state =>({count:state.count+1}))}>
+    Count:{this.state.count}
+    </button>
+  );
+  }
+}
+```
 
 - comparação entre virtual dom e o estado do componente dizem se precisa rerenderizar o componente 
 
 - agora usando pure component
 ![](img/pure_component.PNG)
+
+```Javascript
+class CounterButton extends React.PureComponent {
+  constructor (props){
+    super(props);
+    this.state ={count:1};
+  }
+
+  
+  render (){
+    return (
+    <button color={this.props.color}
+    onClick={()=>this.setState(state =>({count:state.count+1}))}>
+    Count:{this.state.count}
+    </button>
+  );
+  }
+}
+```
 
 - estrutura mais simples 
 - não são todos os casos que conseguimos controlar 
@@ -6210,6 +6255,42 @@ Benefícios :
 - o condigo muda words no handleClick do WorkAdder mas mesmo mudando as palavras, elas serão consideradas como iguais 
 
 ![](img/problemas.PNG)
+
+
+```Javascript
+class ListOfWords extends React.PureComponent {
+  render (){
+    return <div>{this.props.word.join(',')} </div>
+  }
+}
+```
+
+
+```Javascript
+class WordAdder extends React.PureComponent {
+  constructor (props){
+    super(props);
+    words: ['marklar'];
+    this.handleClick = this.handeCLick.bind(this);
+  }
+
+  handleCLick(){
+    /// Essa parte é um padrao ruim e causa um bug 
+    const words = this.state.words; 
+    words.push('marklar');
+    this.setState({words:words});
+  }
+  render (){
+    return (
+     <div>
+    <button onClick={()=>this.handeClick} />
+    <ListOfWords words={this.state.words} />
+     </div>
+  );
+  }
+}
+```
+7:30
 
 - como vc muda o valor , você nao consegue trabalhr com ela 
 
