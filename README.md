@@ -13,7 +13,7 @@ Um Resumo dos Comandos Git, lista de Comandos importantes do Git
 
 --
 
-### Inicializando
+## Inicializando
 
 
 | Command | Description |
@@ -21,7 +21,7 @@ Um Resumo dos Comandos Git, lista de Comandos importantes do Git
 | `git init` | Inicializa um Repositório Local |
 | `git clone ssh://git@github.com/[username]/[repository-name].git` | Cria uma copia local de um repositório Remoto |
 
-### Basico
+## Basico
 
 
 | Command | Description |
@@ -77,9 +77,9 @@ Um Resumo dos Comandos Git, lista de Comandos importantes do Git
 | `git log --oneline` | Visualizar mudanças (resumidamente) |
 | `git diff [source branch] [target branch]` | Preview mudanças |
 
-## Html
+# Html
 
-### Tags HTML
+## Tags HTML
 
 - criado em 1991
 - tags com abertura e fechamento
@@ -134,7 +134,7 @@ Eles não foram criados na versão 5 do HTML e nem são específicos para semân
 <a href = "mailtto:luizrosalba@gmail.com"> email </a>
 ```
 
-### Seletores no CSS
+## Seletores no CSS
 
 - seletores são elementos html a,p,h1,h3
 - dentro de chaves uma propriedade e um valor
@@ -166,8 +166,7 @@ a,p,h1,h3{
 
 - um id só pode ser usado uma vez na pagina
 - cada elemento html é representado por uma caixa (box model)
-- podem alterar sua aparencia
-  ![](https://github.com/luizrosalba/hmtl5css/blob/master/img/box_model.PNG?raw=true)
+- podem alterar sua aparencia![](https://github.com/luizrosalba/hmtl5css/blob/master/img/box_model.PNG?raw=true)
 - margens = espaçamento entre elementos
 - bordas circulam padding e conteudo
 - padding = espaçamento entre a borda e o conteudo
@@ -182,15 +181,15 @@ a,p,h1,h3{
 - border radius - arredonda os cantos de um elemento
 - dica : se eh quadrado border-radius de 50% deixa ele circular
 
-## HTML5
+# HTML5
 
-## Javascript
+# Javascript
 
 JavaScript® (às vezes abreviado para JS) é uma linguagem leve, interpretada e baseada em objetos com funções de primeira classe, mais conhecida como a linguagem de script para páginas Web, mas usada também em vários outros ambientes sem browser, tais como node.js, Apache CouchDB e Adobe Acrobat. O JavaScript é uma linguagem baseada em protótipos, multi-paradigma e dinâmica, suportando estilos de orientação a objetos, imperativos e declarativos (como por exemplo a programação funcional). O padrão JavaScript é ECMAScript. Desde 2012, todos os navegadores modernos possuem suporte total ao ECMAScript 5.1. Navegadores mais antigos suportam pelo menos ECMAScript 3. Em 17 de Junho de 2015, a ECMA International publicou a sexta versão do ECMAScript, que é oficialmente chamado de ECMAScript 2015, e foi inicialmente conhecido como ECMAScript 6 ou ES6. Desde então, as especificações do ECMAScript são lançadas anualmente. Essa documentação faz referência à última versão de referência, que atualmente é a ECMAScript 2018.
 
 Não se deve confundir o JavaScript com a linguagem de programação Java. Tanto Java quanto JavaScript são marcas registradas da Oracle nos Estados Unidos da América e em outros países. No entanto, as duas linguagens de programação possuem sintaxe, semânticas e usos muito diferentes.
 
-### Basic JavaScript
+## Basic JavaScript
 
 js_free_code_camp/BasicJavaScript.md
 
@@ -201,7 +200,7 @@ Unlike some other programming languages, single and double quotes work the same 
 
 Code	Output
 
-```'	single quote
+```'	single
 \"	double quote
 \\	backslash
 \n	newline
@@ -213,11 +212,9 @@ Code	Output
 
 when the + operator is used with a String value, it is called the concatenation operator.
 
-
 The toPrecision() Method
 
 `toPrecision()` returns a string, with a number written with a specified length:
-
 
 ```javascript
 var x = 9.656;
@@ -226,7 +223,6 @@ x.toPrecision(2);       // returns 9.7
 x.toPrecision(4);       // returns 9.656
 x.toPrecision(6);       // returns 9.65600
 ```
-
 
 The toFixed() Method
 
@@ -239,7 +235,6 @@ x.toFixed(2);           // returns 9.66
 x.toFixed(4);           // returns 9.6560
 x.toFixed(6);           // returns 9.656000
 ```
-
 
 The toString() Method
 
@@ -254,8 +249,6 @@ x.toString();            // returns 123 from variable x
 (100 + 23).toString();   // returns 123 from expression 100 + 23
 ```
 
-
-
 The toExponential() Method
 
 `toExponential()` returns a string, with a number rounded and written using exponential notation.
@@ -267,13 +260,16 @@ x.toExponential(2);     // returns 9.66e+0
 x.toExponential(4);     // returns 9.6560e+0
 x.toExponential(6);     // returns 9.656000e+0
 ```
-### JS Error 
+
+### JS Error
+
 The Error object provides error information when an error occurs.
 
 Example
 In this example we have written "alert" as "adddlert" to deliberately produce an error.
 
 Return the error name and a description of the error:
+
 ```Javascript
 try {
   adddlert("Welcome");
@@ -284,9 +280,8 @@ catch(err) {
 }
 ```
 
-
-
 ### Date Object
+
 The Date object is used to work with dates and times.
 
 Date objects are created with new Date().
@@ -301,6 +296,7 @@ var d = new Date(year, month, day, hours, minutes, seconds, milliseconds);
 ```
 
 Date Object Methods
+
 ```
 Method	Description
 getDate()	Returns the day of the month (from 1-31)
@@ -354,8 +350,8 @@ UTC()	Returns the number of milliseconds in a date since midnight of January 1, 
 valueOf()	Returns the primitive value of a Date object
 ```
 
-
 ### JavaScript Global Properties
+
 ```
 Property	Description
 Infinity	A numeric value that represents positive/negative infinity
@@ -378,8 +374,8 @@ String()	Converts an object's value to a string
 unescape()	Deprecated in version 1.5. Use decodeURI() or decodeURIComponent() instead
 ```
 
-
 ### JSON (JavaScript Object Notation)
+
 JSON is a format for storing and transporting data.
 
 JSON is text, and text can be transported anywhere, and read by any programming language.
@@ -390,6 +386,7 @@ This way we can work with the data as JavaScript objects, with no complicated pa
 
 Example
 Sending JSON:
+
 ```Javascript
 // a JavaScript object...:
 var myObj = { "name":"John", "age":31, "city":"New York" };
@@ -424,6 +421,7 @@ undefined
 More Examples
 Example
 Receiving JSON:
+
 ```Javascript
 // myJSON is text received in JSON format.
 // Convert JSON into a JavaScript object:
@@ -432,6 +430,7 @@ document.getElementById("demo").innerHTML = myObj.name;
 ```
 
 ### Math Object
+
 The Math object allows you to perform mathematical tasks.
 
 Math is not a constructor. All properties/methods of Math can be called by using Math as an object, without creating it:
@@ -440,6 +439,7 @@ var x = Math.PI;            // Returns PI
 var y = Math.sqrt(16);      // Returns the square root of 16
 
 Math Object Properties
+
 ```
 Property	Description
 E	Returns Euler's number (approx. 2.718)
@@ -453,6 +453,7 @@ SQRT2	Returns the square root of 2 (approx. 1.414)
 ```
 
 Math Object Methods
+
 ```
 Method	Description
 abs(x)	Returns the absolute value of x
@@ -483,26 +484,27 @@ tanh(x)	Returns the hyperbolic tangent of a number
 trunc(x)	Returns the integer part of a number (x)
 ```
 
-
 ### JavaScript Arithmetic Operators
+
 Arithmetic operators are used to perform arithmetic between variables and/or values.
 
 Given that y = 5, the table below explains the arithmetic operators:
 
 Operator	Description	Example	Result in y	Result in x	Try it
-```
-+	Addition	x = y + 2	y = 5	x = 7	
--	Subtraction	x = y - 2	y = 5	x = 3	
-*	Multiplication	x = y * 2	y = 5	x = 10	
-/	Division	x = y / 2	y = 5	x = 2.5	
-%	Modulus (division remainder)	x = y % 2	y = 5	x = 1	
-++	Increment	x = ++y	y = 6	x = 6	
-x = y++	y = 6	x = 5	
---	Decrement	x = --y	y = 4	x = 4	
-x = y--	y = 4	x = 5
 
 ```
-###  JavaScript Statements
++	Addition	x = y + 2	y = 5	x = 7
+-	Subtraction	x = y - 2	y = 5	x = 3
+*	Multiplication	x = y * 2	y = 5	x = 10
+/	Division	x = y / 2	y = 5	x = 2.5
+%	Modulus (division remainder)	x = y % 2	y = 5	x = 1
+++	Increment	x = ++y	y = 6	x = 6
+x = y++	y = 6	x = 5
+--	Decrement	x = --y	y = 4	x = 4
+x = y--	y = 4	x = 5
+```
+
+### JavaScript Statements
 
 JavaScript Statement Identifiers
 JavaScript statements often start with a statement identifier to identify the JavaScript action to be performed.
@@ -510,6 +512,7 @@ JavaScript statements often start with a statement identifier to identify the Ja
 Statement identifiers are reserved words and cannot be used as variable names (or any other things).
 
 The following table lists all JavaScript statements:
+
 ```
 Statement	Description
 break	Exits a switch or a loop
@@ -532,8 +535,8 @@ var	Declares a variable
 while	Marks a block of statements to be executed while a condition is true
 ```
 
-
 ### String Methods
+
 ```
 Method	Description
 charAt()	Returns the character at the specified index (position)
@@ -562,258 +565,16 @@ toUpperCase()	Converts a string to uppercase letters
 trim()	Removes whitespace from both ends of a string
 valueOf()	Returns the primitive value of a String object
 ```
-### Criando arrays
 
-/*
-Operações com arrays 
-*/
-```
-var myArray1 = [["Bulls", 23], ["White Sox", 45]];
+### Escopo de variáveis 
 
-var myArray2 = [50,60,70];
+Variables which are used without the var keyword are automatically created in the global scope. (mesmo dentro de funções)
+var dentro de função cria uma variavel com escopo local
+It is possible to have both local and global variables with the same name. When you do this, the local variable takes precedence over the global variable.
 
-var arr = [
-  [1,2,3],
-  [4,5,6],
-  [7,8,9],
-  [[10,11,12], 13, 14]
-];   /// array multidimensional 
-```
-// indexação : 
-```
-console.log("indexação "); 
-console.log(arr[3]); // equals [[10,11,12], 13, 14]
-console.log(arr[3][0]); // equals [10,11,12]
-console.log(arr[3][0][1]); // equals 11
-```
-/// concatenação 
-```
-console.log("Concatenação "); 
-const juntos = myArray2.concat(myArray2) ; // faz um merge 
-console.log(juntos); 
+### Arrays
 
-
-const array1 = [1,2,3,4,5];  
-```
-/// slice 
-```
-console.log("Slice - Imutável retira uma Fatia , não muda o vetor"); 
-console.log(array1.slice(0,2)); //a partir da pos 0 pega 2 elementos 
-                                //e cria um novo vetor [1,2] 
-console.log(array1.slice(1)); // a partir da pos 1 pega até o fim
-console.log(array1.slice(-1)); // [5] pega ao contrario  até pos -1 
-console.log(array1.slice(-3)); // [3,4,5] pega ao contrario até pos -3 
-console.log(array1); 
-
-var ourArray = ["Stimpson", "J", ["cat"]];
-console.log("adicionando e removendo elementos "); 
-/// adicionando e removendo elementos 
-myArray2.push(2); /// adiciona ultima posicao 
-console.log(myArray2.pop()); /// remove ultima posicao sem args 
-                             /// retorna o valor popad
-var removedFromOurArray = ourArray.shift();/// remove da frente 
-var addedFromOurArray = ourArray.unshift("batata");/// adiciona na frente 
-console.log(myArray1[0][0] + myArray1[1][0]); 
-console.log(myArray2); 
-console.log(ourArray); 
-```
-
-//splice :  Não é imutavel, Altera o array adicionando
-// novos elementos enquanto remove elementos antigos 
-```
-console.log("Splice - Mutável Altera o array adicionando novos elementos enquanto remove elementos antigos  ");
-const arr2 = [1,2,3,4,5];  
-arr2.splice(2); // remove a partir da posicao 2  
-console.log(arr2); /// [1,2]
-arr2.splice(0,1,'first'); // [] /// inicio, quanto 
-//itens remove o que adicionar 
-//a partir da primeira posicao 
-console.log(arr2); /// ["first",1,2]; 
-```
-// Iterando vetores (arrays)
-```
-console.log("Iterando vetores (arrays)");
-const arr4 = [1,2,3,4,5];  
-arr4.forEach((value,index) => {console.log(`${index}:${value}`)});
-
-arr4.forEach((value,index,arr4) => console.log(index,value));
-```
-
-```
-console.log("map - Imutavel  Retorna um novo array de mesmo tamanho iterando cada item de um array ");
-
-const arr5 = [1,2,3,4,5];  
-console.log(arr5);
-console.log(arr5.map (value => value *2)); // retorna um novo array [2,4,6,8,10]
-```
-```
-
-
-console.log("flat - Imutavel  Retorna um novo array com todos os elementos de um sub-array concatenados de forma recursiva de acordo com a profundidade especificada (depth) " );
-console.log("Um novo array com os elementos sub-array concatenados nele.");
-
-var arra1 = [1, 2, [3, 4]];
-console.log(arra1.flat()); // [1, 2, 3, 4]
-
-var arra2 = [1, 2, [3, 4, [5, 6,[7,8]]]];
-console.log(arra2.flat(1));// [1, 2, 3, 4, [5, 6]]
-console.log(arra2.flat(2));// [1, 2, 3, 4, 5, 6]
-console.log(arra2.flat(3));// [1, 2, 3, 4, 5, 6]
-console.log(arra2.flat(Infinity)); // [1, 2, 3, 4, 5, 6, 7, 8]
-```
-
-```
-
-console.log(" flatMap   Retorna um novo array assim como faz a função map e executa um flat de profundidade 1");  
-const arr11 = [1,2,3,4];  
-console.log(arr11.flatMap (value => [value *2])); // retorna um novo array [2,4,6,8]
-console.log(arr11.flatMap (value => [[value *2]])); // retorna um novo array [[2],[4],[6],[8]]
-
-
-let arr21 = ["it's Sunny in", "", "California"];
- 
-console.log("arr21 "+ arr21.map(x=>x.split(" ")));
-// [["it's","Sunny","in"],[""],["California"]]  vetor multidimensional 
- console.log("arr21 " + arr21.flatMap(x => x.split(" ")));
-// ["it's","Sunny","in", "", "California"]  vetor de uma dimensao flateado
-```
-
-```
-console.log();
-
-console.log();
-
-console.log("keys  retorna um array iterator que contem as chaves para cada elemento do array "); 
-const arr33 = [1,2,3,4];  
-const arrIterator = arr33.keys();
-console.log(arrIterator.next()); //{value:0,done:false};
-console.log(arrIterator.next()); //{value:1,done:false};
-console.log(arrIterator.next()); //{value:2,done:false};
-console.log(arrIterator.next()); //{value:3,done:false};
-console.log(arrIterator.next()); //{value:indefined?,done:true};
-
-console.log("values : retorna um array iterator que contém os valores para cada elemento do array"); 
-const arr44 = [1,2,3,4];  
-const arrIterator2 = arr44.values();
-console.log(arrIterator2.next()); //{value:1,done:false};
-console.log(arrIterator2.next()); //{value:2,done:false};
-console.log(arrIterator2.next());// {value:3,done:false};
-console.log(arrIterator2.next());//{value:4,done:false};
-console.log(arrIterator2.next());//{value:undefined,done:true};
-
-
-
-console.log(" retorna um par chave valor para cada elemento do array ");
-const arr55 = [1,2,3,4];  
-const arrIterator3 = arr55.values();
-console.log(arrIterator3.next()); //{value:1,done:false};
-console.log(arrIterator3.next()); //{value:2,done:false};
-console.log(arrIterator3.next());// {value:3,done:false};
-console.log(arrIterator3.next());//{value:4,done:false};
-console.log(arrIterator3.next());//{value:undefined,done:true};
-
-```
-
-console.log("## Buscar elementos ");
-
-```
-console.log( "find Retorna o primeiro item de um array que satisfaz uma condição ");
-
-const arri = [1,2,3,4];  
-const firstGreatherThanTwo = arri.find (value => value > 2);
-console.log(firstGreatherThanTwo ) ; /// 3 
-
-console.log( "findIndex Retorna o indice do primeiro item de um array que satisfaz uma condição ");
-
-const arro = [1,2,3,4];  
-const firstIndexGreatherThanTwo = arro.findIndex (value => value > 2) ; /// 2
-console.log(firstIndexGreatherThanTwo ) ; /// 2
-
-console.log("filter Retorna um array com todos os elementos que satisfazem uma condição ");
-
-
-const arrk = [1,2,3,4];  
-const allValuesGreatherThanTwo = arrk.filter (value => value > 2) ; /// [3,4]
-console.log(allValuesGreatherThanTwo ) ; /// 2
-
-
-console.log(" indexOf Retorna o primeiro índice em que um elemento pode ser encontrado em um array ");
-const arrm = [1,3,3,4,3];  
-const firstIndexOfItem = arrm.indexOf(3); /// 1
-console.log(firstIndexOfItem ) ; /// 2
-
-console.log( "lastIndexOf Retorna o ultimo índice em que um elemento pode ser encontrado em um array ");
-const arrn = [1,3,3,4,3];  
-const firstIndexOfItem2 = arrn.lastIndexOf(3); /// 4
-console.log(firstIndexOfItem2 ) ; /// 2
-
-console.log("includes Retorna um booleano verificando se determinado elemento existe no array ");
-const arry = [1,3,3,4,3];  
-const hasItemOne = arry.includes(1); /// true 
-const hasItemTwo = arry.includes(2); /// false 
-console.log(hasItemOne );
-console.log(hasItemTwo );
-
-
-
-console.log("some Retorna um booleano verificando se pelo menos um item de um array satisfaz a condição ");
-
-const arra = [1,3,3,4,3];  
-const hasSomeEvenNumber = arra.some (value => value % 2 ===0 ) ; /// true
-console.log(hasSomeEvenNumber );
-
-
-console.log( "some Retorna um booleano verificando se todos os itens de um array satisfazem uma condição ");
-
-const arrb = [1,3,3,4,3];  
-const allEvenNumbers4 = arrb.every (value => value % 2 ===0 ) ; /// false
-console.log(allEvenNumbers4 );
-
-console.log( "some Retorna um booleano verificando se todos os itens de um array satisfazem uma condição ");
-
-const arrc = [1,3,3,4,3];  
-const allEvenNumbers = arrc.every (value => value % 2 ===0 ) ; /// false
-console.log(allEvenNumbers );
-```
-
-
-
-## sort ordenacao de acordo com condição 
-```
-
-students.sort((current,next) => current.grade - next.grade) /// ordena do menor pro maior 
-students.sort((current,next) => next.grade - current.grade) /// ordena do maior pro menor 
-```
-
-## reverse inverte o array 
-```
-
-const arr = [1,2,3,4,5];  
-arr.reverse(); /// [5 , 4 , 3 , 2 , 1]
-```
-
-## transformando um array em outro tipo de dados 
-```
-
-join junta todos os elementos de um array separados por um delimitar e retorna uma string 
-
-const arr = [1,2,3,4,5];  
-
-console.log(arr.join('-')); /// "1-2-3-4-5"
-```
-
-
-## reduce Retorna um novo tipo de dado iterando cada posicao de um array 
-```
-
-const arr = [1,2,3,4,5];  
-console.log(arr.reduce ((total,value)=> total+= value, 0));
-
-```
-
-
-
-
+#### Criação e Inicialização 
 
 ```Javascript
 const arr = [1,2,3];
@@ -836,20 +597,8 @@ Array.from(origem) /// cria uma nova instancia de array a partir de um parâmetr
 const divArray = Array.from (divs)  /// cria um array a partir do objeto div (que no exemplo do curso era um NodeList). A partir daí pode-se utilizar funções de array como pop , shift , etc
 ```
 
-### Nested arrays
-
-Site bom com documentação
-
-https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
-
-var myArray = [[],[]];
-
-// Setup
-var myArray = [[1,2,3], [4,5,6], [7,8,9], [[10,11,12], 13, 14]];
-var myData = myArray[2][1];// Retorna 8
-
-### Inicializando
-
+#### Preenchendo 
+##### Fill 
 O método fill é um método mutável, ele irá mudar o objeto em si, e retorná-lo, não somente uma cópia do objeto.
 
 ```Javascript
@@ -860,16 +609,55 @@ arr.fill(valor[, ínicio = 0[, fim = this.length]])
 Array(3).fill(4);                // [4, 4, 4]   preenche um vetor de tres posições com 4 
 [].fill.call({ length: 3 }, 4);  // {0: 4, 1: 4, 2: 4, length: 3}
 ```
-### Alterando vetores (arrays)
+
+/*
+Operações com arrays
+*/
+
+```
+var myArray1 = [["Bulls", 23], ["White Sox", 45]];
+
+var myArray2 = [50,60,70];
+
+var arr = [
+  [1,2,3],
+  [4,5,6],
+  [7,8,9],
+  [[10,11,12], 13, 14]
+];   /// array multidimensional
+```
+
+// indexação :
+
+```
+console.log("indexação "); 
+console.log(arr[3]); // equals [[10,11,12], 13, 14]
+console.log(arr[3][0]); // equals [10,11,12]
+console.log(arr[3][0][1]); // equals 11
+```
+
+/// concatenação
+
+```
+console.log("Concatenação "); 
+const juntos = myArray2.concat(myArray2) ; // faz um merge 
+console.log(juntos); 
+
+
+const array1 = [1,2,3,4,5];
+```
+
+#### Adicionando e removendo elementos arrays
 
 ```Javascript
 var removedFromMyArray=array.push();  /// adiciona ultima pos
 var removedFromMyArray=array.pop();  /// remove ultimo pos
 var removedFromMyArray=array.shift(); // remove primeiro pos e retorna o elemento removido 
 const tamanho  = myArray.unshift(["Paul",35]); /// adiciona na primeira posicao ao ser aplicado, retorna o tamanho do array  
-const alimentos = frutas.concat(salgados) ; // faz um merge concatenando em alimentos o array salgados e frutas 
+const alimentos = frutas.concat(salgados) ; // faz um merge concatenando em alimentos o array salgados e frutas
 ```
-### Iterando vetores (arrays)
+
+#### Iterando vetores (arrays)
 
 ```Javascript
 const arr = [1,2,3,4,5];  
@@ -879,6 +667,7 @@ frutas.forEach((fruta,index,arr) => console.log(index,fruta,arr));
 
 [id/name]: http://link-url/
 ```
+
 ```Javascript
 function multiplyAll(arr) {
   var product = 1;
@@ -894,11 +683,22 @@ function multiplyAll(arr) {
 
 multiplyAll([[1,2],[3,4],[5,6,7]]);
 ```
-### Métodos de Arrays
 
-slice
+#### Métodos de Arrays
 
-Imutável Fatia o array
+##### Join
+
+transformando um array em outro tipo de dados
+join junta todos os elementos de um array separados por um delimitar e retorna uma string
+
+```Javascript
+const arr = [1,2,3,4,5];  
+arr.join('-'); /// "1-2-3-4-5"
+```
+
+##### slice
+
+Imutável não muda o array Fatia o array
 
 ```Javascript
 const arr = [1,2,3,4,5];  
@@ -907,47 +707,115 @@ Arr.slice(2); // [3,4,5]
 Arr.slice(-1); // [5]
 Arr.slice(-3); // [3,4,5]
 ```
-splice
 
-Não é imutavel, Altera o array adicionando novos elementos enquanto remove elementos antigos
+exemplos slice
+
+```
+console.log("Slice - Imutável retira uma Fatia , não muda o vetor"); 
+console.log(array1.slice(0,2)); //a partir da pos 0 pega 2 elementos 
+                                //e cria um novo vetor [1,2] 
+console.log(array1.slice(1)); // a partir da pos 1 pega até o fim
+console.log(array1.slice(-1)); // [5] pega ao contrario  até pos -1 
+console.log(array1.slice(-3)); // [3,4,5] pega ao contrario até pos -3 
+console.log(array1); 
+
+var ourArray = ["Stimpson", "J", ["cat"]];
+console.log("adicionando e removendo elementos "); 
+/// adicionando e removendo elementos 
+myArray2.push(2); /// adiciona ultima posicao 
+console.log(myArray2.pop()); /// remove ultima posicao sem args 
+                             /// retorna o valor popad
+var removedFromOurArray = ourArray.shift();/// remove da frente 
+var addedFromOurArray = ourArray.unshift("batata");/// adiciona na frente 
+console.log(myArray1[0][0] + myArray1[1][0]); 
+console.log(myArray2); 
+console.log(ourArray);
+```
+
+##### splice
+
+Mutável, Altera o array adicionando novos elementos enquanto remove elementos antigos
 
 ```Javascript
 const arr = [1,2,3,4,5];  
 Arr.splice(2); // remove a partir da posicao 2 [3,4,5] 
 console.log(arr); /// [1,2]
 Arr.splice(0,0,'first'); // [] /// inicio, quanto itens remove o que adicionar a partir da primeira posicao 
-console.log(arr); /// ["fisrt",1,2]; 
+console.log(arr); /// ["fisrt",1,2];
+```
+
+//splice :  Não é imutavel, Altera o array adicionando
+
+// novos elementos enquanto remove elementos antigos
 
 ```
-map
+console.log("Splice - Mutável Altera o array adicionando novos elementos enquanto remove elementos antigos  ");
+const arr2 = [1,2,3,4,5];
+arr2.splice(2); // remove a partir da posicao 2
+console.log(arr2); /// [1,2]
+arr2.splice(0,1,'first'); // [] /// inicio, quanto
+//itens remove o que adicionar
+//a partir da primeira posicao
+console.log(arr2); /// ["first",1,2];
+```
 
-Retorna um novo array de mesmo tamanho iterando cada item de um array
+##### map
+
+Imutavel  Retorna um novo array de mesmo tamanho iterando cada item de um array
 
 ```Javascript
 const arr = [1,2,3,4,5];  
 arr.map (value => value *2); // retorna um novo array [2,4,6,8,10]
-
 ```
-flat
 
-Retorna um novo array com todos os elementos de um sub-array concatenados de forma recursiva de acordo com a profundidade especificada (depth)
+
+##### flat
+
+Imutavel  Retorna um novo array com todos os elementos de um sub-array concatenados de forma recursiva de acordo com a profundidade especificada (depth)
 
 ```Javascript
 const arr = [1,2,[3,4]];  
 arr.flat(); // retorna um novo array com profundidade 1 [1,2,3,4]
-arr.flat(2); // retorna um novo array com profundidade 2 , neste caso não terá diferenca mas se houvessem outros arrays dentro de arr só iria até a segunda camanda de arr 
-
+arr.flat(2); // retorna um novo array com profundidade 2 , neste caso não terá diferenca mas se houvessem outros arrays dentro de arr só iria até a segunda camanda de arr
 ```
-flatMap
 
-Retorna um novo array assim como faz a função map e executa um flat de profundidade 1
+##### flatMap
+
+Imutavel Retorna um novo array assim como faz a função map e executa um flat de profundidade 1
 
 ```Javascript
 const arr = [1,2,3,4];  
 arr.flatMap (value => [value *2]); // retorna um novo array [2,4,6,8]
 arr.flatMap (value => [[value *2]]); // retorna um novo array [[2],[4],[6],[8]]
 ```
-keys
+
+```Javascript
+console.log(" flatMap   Retorna um novo array assim como faz a função map e executa um flat de profundidade 1");  
+const arr11 = [1,2,3,4];  
+console.log(arr11.flatMap (value => [value *2])); // retorna um novo array [2,4,6,8]
+console.log(arr11.flatMap (value => [[value *2]])); // retorna um novo array [[2],[4],[6],[8]]
+
+
+let arr21 = ["it's Sunny in", "", "California"];
+ 
+console.log("arr21 "+ arr21.map(x=>x.split(" ")));
+// [["it's","Sunny","in"],[""],["California"]]  vetor multidimensional 
+ console.log("arr21 " + arr21.flatMap(x => x.split(" ")));
+// ["it's","Sunny","in", "", "California"]  vetor de uma dimensao flateado
+```
+
+
+
+##### reduce
+
+Retorna um novo tipo de dado iterando cada posicao de um array
+
+```Javascript
+const arr = [1,2,3,4,5];  
+arr.reduce ((total,value)=> total+= value, 0); /// para cada item executa afuncao o primeiro arg eh o retorno comeca com um inteiro com valor 0
+```
+
+##### keys
 
 retorna um array iterator que contem as chaves para cada elemento do array
 
@@ -959,7 +827,8 @@ arrIterator.next(); {value:1,done:false};
 arrIterator.next(); {value:2,done:false};
 arrIterator.next(); {value:3,done:true};
 ```
-values
+
+##### values
 
 retorna um array iterator que contém os valores para cada elemento do array
 
@@ -971,30 +840,32 @@ arrIterator.next(); {value:2,done:false};
 arrIterator.next(); {value:3,done:false};
 arrIterator.next(); {value:4,done:true};
 ```
-entries
+
+##### entries
 
 retorna um par chave valor para cada elemento do array
 
 ```Javascript
 const arr = [1,2,3,4];  
-const arrIterator = arr.values();
+const arrIterator = arr.entries();
 arrIterator.next(); {value:[0,1],done:false};
 arrIterator.next(); {value:[1,2],done:false};
 arrIterator.next(); {value:[2,3],done:false};
 arrIterator.next(); {value:[3,4],done:true};
 ```
-### Buscar elementos
 
-find
+#### Buscar elementos
+
+##### find
 
 Retorna o primeiro item de um array que satisfaz uma condição
 
 ```Javascript
 const arr = [1,2,3,4];  
-const firstGreatherThanTwo = arr.find (value => value > 2) ; /// 3 
-
+const firstGreatherThanTwo = arr.find (value => value > 2) ; /// 3
 ```
-findIndex
+
+#####findIndex
 
 Retorna o indice do primeiro item de um array que satisfaz uma condição
 
@@ -1002,44 +873,45 @@ Retorna o indice do primeiro item de um array que satisfaz uma condição
 const arr = [1,2,3,4];  
 const firstGreatherThanTwo = arr.findIndex (value => value > 2) ; /// 2
 ```
-filter
+
+##### filter
 
 Retorna um array com todos os elementos que satisfazem uma condição
 
 ```Javascript
 const arr = [1,2,3,4];  
 const allValuesGreatherThanTwo = arr.filter (value => value > 2) ; /// [3,4]
-
 ```
-indexOf
+
+##### indexOf
 
 Retorna o primeiro índice em que um elemento pode ser encontrado em um array
 
 ```Javascript
 const arr = [1,3,3,4,3];  
 const firstIndexOfItem = arr.indexOf(3); /// 1
-
 ```
+
 lastIndexOf
 
 Retorna o ultimo índice em que um elemento pode ser encontrado em um array
 
 ```Javascript
-
 const arr = [1,3,3,4,3];  
 const firstIndexOfItem = arr.indexOf(3); /// 4
 ```
-includes
+
+##### includes
 
 Retorna um booleano verificando se determinado elemento existe no array
 
 ```Javascript
 const arr = [1,3,3,4,3];  
 const hasItemOne = arr.includes(1); /// true 
-const hasItemTwo = arr.includes(2); /// false 
-
+const hasItemTwo = arr.includes(2); /// false
 ```
-some
+
+##### some
 
 Retorna um booleano verificando se pelo menos um item de um array satisfaz a condição
 
@@ -1047,7 +919,8 @@ Retorna um booleano verificando se pelo menos um item de um array satisfaz a con
 const arr = [1,3,3,4,3];  
 const hasSomeEvenNumber = arr.some (value => value % 2 ===0 ) ; /// true
 ```
-every
+
+##### every
 
 Retorna um booleano verificando se todos os itens de um array satisfazem uma condição
 
@@ -1055,15 +928,19 @@ Retorna um booleano verificando se todos os itens de um array satisfazem uma con
 const arr = [1,3,3,4,3];  
 const allEvenNumbers = arr.every (value => value % 2 ===0 ) ; /// false
 ```
-sort
+
+#### Ordenação
+
+##### Sort
 
 ordenacao de acordo com condição
 
 ```Javascript
 students.sort((current,next) => current.grade - next.grade) /// ordena do menor pro maior 
-students.sort((current,next) => next.grade - current.grade) /// ordena do maior pro menor 
+students.sort((current,next) => next.grade - current.grade) /// ordena do maior pro menor
 ```
-reverse
+
+##### reverse
 
 inverte o array
 
@@ -1071,28 +948,21 @@ inverte o array
 const arr = [1,2,3,4,5];  
 arr.reverse(); /// [5 , 4 , 3 , 2 , 1]
 ```
-join
 
-transformando um array em outro tipo de dados
-join junta todos os elementos de um array separados por um delimitar e retorna uma string
 
-```Javascript
-const arr = [1,2,3,4,5];  
-arr.join('-'); /// "1-2-3-4-5"
-```
-reduce
+#### Nested arrays
 
-Retorna um novo tipo de dado iterando cada posicao de um array
+Site bom com documentação
 
-```Javascript
-const arr = [1,2,3,4,5];  
-arr.reduce ((total,value)=> total+= value, 0); /// para cada item executa afuncao o primeiro arg eh o retorno comeca com um inteiro com valor 0 
-```
-### Escopo
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
+```Javascript 
+var myArray = [[],[]];
 
-Variables which are used without the var keyword are automatically created in the global scope. (mesmo dentro de funções)
-var dentro de função cria uma variavel com escopo local
-It is possible to have both local and global variables with the same name. When you do this, the local variable takes precedence over the global variable.
+// Setup
+var myArray = [[1,2,3], [4,5,6], [7,8,9], [[10,11,12], 13, 14]];
+var myData = myArray[2][1];// Retorna 8
+``` 
+
 
 ### Undefined
 
@@ -1124,17 +994,16 @@ function switchOfStuff(val) {
 }
 
 switchOfStuff(1);
-
-
 ```
+
 Retornando undefined
 
 ```Javascript
 function retornaUndefined (){
 return ; 
 }
-
 ```
+
 ### objects
 
 ```Javascript
@@ -1150,8 +1019,8 @@ var anotherObject = {
   5: "five",
   "model": "focus"
 };
-
 ```
+
 ### delete
 
 propriedade make do objeto anotherObject
@@ -1184,8 +1053,8 @@ var myObj = {
 };
 myObj.hasOwnProperty("top");    // true
 myObj.hasOwnProperty("middle"); // false
-
 ```
+
 JavaScript Object Notation or JSON is a related data interchange format used to store data.
 
 ```Javascript
@@ -1202,9 +1071,9 @@ var myStorage = {
   }
 };
 
-var gloveBoxContents = myStorage.car.inside["glove box"]; // acessando glove box 
-
+var gloveBoxContents = myStorage.car.inside["glove box"]; // acessando glove box
 ```
+
 ### Função recursiva
 
 primeiro a função recursiva vai até a ultima opção e depois outras funções são ativadas exemplo :
@@ -1221,6 +1090,7 @@ function countup(n) {
 }
 console.log(countup(5)); // [ 1, 2, 3, 4, 5 ]
 ```
+
 At first, this seems counterintuitive since the value of n decreases, but the values in the final array are increasing. This happens because the push happens last, after the recursive call has returned. At the point where n is pushed into the array, countup(n - 1) has already been evaluated and returned [1, 2, ..., n - 1].
 
 ```Javascript
@@ -1231,8 +1101,8 @@ function rangeOfNumbers(startNum, endNum) {
     arr.unshift(startNum);
     return arr;
 };
-
 ```
+
 ### Expressões regulares
 
 https://regexr.com/
@@ -1262,8 +1132,8 @@ abc…	Letters
 (a(bc))	Capture Sub-group
 (.*)	Capture all
 (abc|def)	Matches abc or def
-
 ```
+
 Regular Expressions: Using the Test MethodPassed
 Verificando se existe a string myregex dentro da string mystring
 Atenção ! é case sensitive
@@ -1274,6 +1144,7 @@ let testRegex = /Code/;
 testRegex.test(testStr);
 // Returns true
 ```
+
 Regular Expressions: Match a Literal String with Different Possibilities
 Procurando mais de uma palavra com o operador |
 
@@ -1281,8 +1152,8 @@ Procurando mais de uma palavra com o operador |
 let petString = "James has a pet cat.";
 let petRegex = /dog|cat|bird/; // Change this line
 let result = petRegex.test(petString);
-
 ```
+
 Regular Expressions: Ignore Case While Matching
 Ignorando case sensitive
 
@@ -1290,8 +1161,8 @@ Ignorando case sensitive
 let myString = "freeCodeCamp";
 let fccRegex = /freecodecamp/i; // Change this line
 let result = fccRegex.test(myString);
-
 ```
+
 Regular Expressions: Extract Matches
 usando o match para verificar uma string por uma expressão regular (regex)
 
@@ -1302,8 +1173,8 @@ let ourStr = "Regular expressions";
 let ourRegex = /expressions/;
 ourStr.match(ourRegex);
 // Returns ["expressions"]
-
 ```
+
 Regular Expressions: Find More Than the First Match
 Encontrando mais de um caso , retornando um vetor com as ocorrencias encontradas
 ignorando case sensitive
@@ -1313,6 +1184,7 @@ let repeatRegex = /Repeat/g;
 testStr.match(repeatRegex);
 // Returns ["Repeat", "Repeat", "Repeat"]
 ```
+
 Regular Expressions: Match Anything with Wildcard Period
 Utilizando coringas
 
@@ -1323,6 +1195,7 @@ let huRegex = /hu./;
 huRegex.test(humStr); // Returns true
 huRegex.test(hugStr); // Returns true
 ```
+
 Regular Expressions: Match Single Character with Multiple Possibilities
 Restringindo as possibilidades de match
 
@@ -1337,6 +1210,7 @@ bagStr.match(bgRegex); // Returns ["bag"]
 bugStr.match(bgRegex); // Returns ["bug"]
 bogStr.match(bgRegex); // Returns null
 ```
+
 Regular Expressions: Match Letters of the Alphabet
 Range de characteres
 
@@ -1349,6 +1223,7 @@ catStr.match(bgRegex); // Returns ["cat"]
 batStr.match(bgRegex); // Returns ["bat"]
 matStr.match(bgRegex); // Returns null
 ```
+
 Regular Expressions: Match Numbers and Letters of the Alphabet
 (tambem serve para numeros)
 
@@ -1358,6 +1233,7 @@ let myRegex = /[a-z0-9]/ig;
 // matches all letters and numbers in jennyStr
 jennyStr.match(myRegex);
 ```
+
 Regular Expressions: Match Single Characters Not Specified
 Negando caracteres (^dentro de parenteses)
 For example, /[^aeiou]/gi matches all characters that are not a vowel.
@@ -1370,15 +1246,16 @@ let myRegex = /[^0-9aeiou]/gi; // Change this line
 let result = quoteSample.match(myRegex); // Change this line
 console.log(result);
 ```
+
 Regular Expressions: Match Characters that Occur One or More Times
 Retorna quantas vezes um caractere é repetido mais de uma vez
 
 ```Javascript
 let difficultSpelling = "Mississippi";
 let myRegex = /s+/gi; // Change this line
-let result = difficultSpelling.match(myRegex);/// s é repetido duas vezes 
-
+let result = difficultSpelling.match(myRegex);/// s é repetido duas vezes
 ```
+
 Regular Expressions: Match Characters that Occur Zero or More Times
 Match que verifica regex que com caracteres que acontecem 0 ou mais de uma vez
 
@@ -1389,6 +1266,7 @@ let chewieRegex = /Aa*/; // Change this line
 // Only change code above this line
 let result = chewieQuote.match(chewieRegex);
 ```
+
 Regular Expressions: Find Characters with Lazy Matching
 Lazy and Greedy matches :
 Regular expressions are by default greedy
@@ -1408,12 +1286,11 @@ Parsing HTML with regular expressions should be avoided, but pattern matching an
 ![](https://github.com/luizrosalba/js_free_code_camp/blob/master/Capturar.PNG?raw=true)
 
 ```Javascript
-
 let text = "<h1>Winter is coming</h1>";
 let myRegex = /<h.*?>/; // retorna um vetor com <h.> dentro dele  
 let result = text.match(myRegex);
-
 ```
+
 sem os colchetes, o operador ^ procura pela ocorrencia de um padrão no começo de uma string
 
 ```Javascript
@@ -1421,14 +1298,15 @@ let rickyAndCal = "Cal and Ricky both like racing.";
 let calRegex = /^Cal/; // Change this line
 let result = calRegex.test(rickyAndCal);
 ```
+
 o operador $ procura pela ocorrencia no final de uma string
 
 ```Javascript
 let caboose = "The last car on a train is the caboose";
 let lastRegex = /caboose$/; // Change this line
 let result = lastRegex.test(caboose);
-
 ```
+
 Regular Expressions: Match All Letters and Numbers
 /\w/ é um atalho para uma regex que busca todas as letras e numeros (e tambem o underscore _ )  sem considerar o case sensitive
 
@@ -1441,8 +1319,8 @@ longHand.test(numbers); // Returns true
 shortHand.test(numbers); // Returns true
 longHand.test(varNames); // Returns true
 shortHand.test(varNames); // Returns true
-
 ```
+
 Verificando as condições . Se uma entrada é verdadeira , o teste deve retornar verdadeira. Se nao encontra a opção retorna falsa .
 
 1) Usernames can only use alpha-numeric characters.
@@ -1462,6 +1340,7 @@ let userCheck = /^[a-z]([0-9][0-9]+|[a-z]+\d*)$/i;
 let result = userCheck.test(username);
 console.log(result);
 ```
+
 Regular Expressions: Match Whitespace
 Busca por espaço, enter, tab,  form feed, e nova linha   \s
 [ \r\t\f\n\v]
@@ -1472,6 +1351,7 @@ let spaceRegex = /\s/g;
 whiteSpace.match(spaceRegex);
 // Returns [" ", " "]
 ```
+
 Busca por nao whitespace
 
 ```Javascript
@@ -1479,6 +1359,7 @@ let whiteSpace = "Whitespace. Whitespace everywhere!"
 let nonSpaceRegex = /\S/g;
 whiteSpace.match(nonSpaceRegex).length; // Returns 32
 ```
+
 Regular Expressions: Specify Upper and Lower Number of Matches
 Buscar por um determinado numero de matches
 
@@ -1489,6 +1370,7 @@ let multipleA = /a{3,5}h/; /// busca por a aparecendo entre 3 a 5 vezes na strin
 multipleA.test(A4); // Returns true
 multipleA.test(A2); // Returns false
 ```
+
 egular Expressions: Specify Only the Lower Number of Matches
 
 ```Javascript
@@ -1500,6 +1382,7 @@ multipleA.test(A4); // Returns true
 multipleA.test(A2); // Returns false
 multipleA.test(A100); // Returns true
 ```
+
 Regular Expressions: Check for All or None
 ? Retorna true para 0 ou uma ocorrencia do caractere anterior
 
@@ -1510,6 +1393,7 @@ let rainbowRegex= /colou?r/;
 rainbowRegex.test(american); // Returns true
 rainbowRegex.test(british); // Returns true
 ```
+
 Regular Expressions: Positive and Negative Lookahead
 positive lookahead will look to make sure the element in the search pattern is there, but won't actually match it.  A positive lookahead is used as (?=...) where the ... is the required part that is not matched.
 
@@ -1527,6 +1411,7 @@ let qRegex = /q(?!u)/; /// busca q nao seguido de u sem retornar u
 quit.match(quRegex); // Returns ["q"]
 noquit.match(qRegex); // Returns ["q"]
 ```
+
 Uso com Test
 outro exemplo de lookahead
 Retorna quando ocorre entre 3 a 6 caracteres  \w{3,6}
@@ -1538,14 +1423,15 @@ let password = "abc123";
 let checkPass = /(?=\w{3,6})(?=\D*\d)/;
 checkPass.test(password); // Returns true
 ```
+
 Comeca com nao digito, tem cinco de comprimento e tem dois digitos seguidos
 
 ```Javascript
 let sampleWord = "bana12";
 let pwRegex = /^(?=\D)(\w{2,})(?=\d{2,})/ // Change this line
 let result = pwRegex.test(sampleWord);
-
 ```
+
 Regular Expressions: Check For Mixed Grouping of Characters
 
 ```Javascript
@@ -1554,6 +1440,7 @@ let testRegex = /P(engu|umpk)in/;
 testRegex.test(testStr);
 // Returns true
 ```
+
 Ignorando palavra no meio
 
 ```Javascript
@@ -1562,6 +1449,7 @@ let myRegex = /(?=.*Franklin|Eleanor)(?=.*Roosevelt).*/; // Change this line
 let result = myRegex.test(myString); // Change this line
 // After passing the challenge experiment with myString and see how the grouping works
 ```
+
 Regular Expressions: Reuse Patterns Using Capture Groups
 You can search for repeat substrings using capture groups. Parentheses, ( and ), are used to find repeat substrings. You put the regex of the pattern that will repeat in between the parentheses.
 
@@ -1574,14 +1462,15 @@ let repeatRegex = /(\w+)\s\1/;
 repeatRegex.test(repeatStr); // Returns true
 repeatStr.match(repeatRegex); // Returns ["regex regex", "regex"]
 ```
+
 Aqui ele procura o caractere inicio com um digito ou mais ,procura um espaço , repete o primeiro grupo (mais de um caractere), repete o espaço e procura o caractere de fim . Ele só respondera a essa regex entao 100 100 100 100 nao funciona pois ele nao encontra o caractere de fim e inicio com tres repeticoes entre eles
 
 ```Javascript
 let repeatNum = "42 42 42";
 let reRegex = /^(\d+)\s\1\2\1$/; // Change this line
 let result = reRegex.test(repeatNum);
-
 ```
+
 Regular Expressions: Use Capture Groups to Search and Replace
 
 ```Javascript
@@ -1590,6 +1479,7 @@ let silverRegex = /silver/;
 wrongText.replace(silverRegex, "blue");
 // Returns "The sky is blue."
 ```
+
 You can also access capture groups in the replacement string with dollar signs ($).
 
 ```Javascript
@@ -1598,12 +1488,9 @@ let fixRegex = /(\w+)\s(\w+)\s(\w+)/; // Change this line
 let replaceText = "$3 $2 $1"; // Change this line
 let result = str.replace(fixRegex, replaceText);
 console.log (result);
-
 ```
 
-
-
-change multiple whitespaces for only 1 
+change multiple whitespaces for only 1
 
 ```Javascript
 let str = "one     two     three";
@@ -1611,11 +1498,7 @@ let fixRegex = /  +/g;
 let replaceText = " "; // Change this line
 let result = str.replace(fixRegex, replaceText);
 console.log (result);
-
 ```
-
-
-
 
 Regular Expressions: Remove Whitespace from Start and End
 Seleciona e remove um texto do inicio e final de uma string
@@ -1625,11 +1508,11 @@ let hello = "   Hello, World!  ";
 let wsRegex = /^\s+|\s+$/; // Change this line
 let result = hello.replace(wsRegex, ""); // Change this line
 console.log (result);
-
 ```
+
 ### Scripts Interessantes
 
-Converte um vetor inteiro de uma vez só para um tipo de dados 
+Converte um vetor inteiro de uma vez só para um tipo de dados
 Vi  = Vi.map((x) =>parseInt(x));
 
 Retorna o indice das posições de um vetor que satisfazem uma condição
@@ -1640,17 +1523,20 @@ console.log(data);
 // With ES6 arrow syntax
 console.log(data.map((_, i) => i).filter(e => data[e] === 3));
 ```
+
 Retorna o numero de elementos em pos que estão entre inicio e fim
 
 ```Javascript
-    const numEntreInicioEFim = (pos.map((valor, indice) => valor)
+const numEntreInicioEFim = (pos.map((valor, indice) => valor)
     .filter(e => e>=inicio && e <=fim )).length;
 ```
+
 Retorna valores únicos de um array ordenado
 
 ```Javascript
-       let valUnicos = [...new Set(vet.sort((current,next) => current - next))]; 
+let valUnicos = [...new Set(vet.sort((current,next) => current - next))];
 ```
+
 Gerar numero entre dois intervalos excluindo o max
 
 ```Javascript
@@ -1662,6 +1548,7 @@ function randomRange(myMin, myMax) {
   // Only change code above this line
 }
 ```
+
 ```Javascript
 Em outras bases The parseInt() function parses a string and returns an integer. It takes a second argument for the radix, which specifies the base of the number in the string. The radix can be an integer between 2 and 36.
 
@@ -1671,6 +1558,7 @@ function convertToInteger(str,radix) {
 }
 convertToInteger("10011",2); /// converte a string para um inteiro na base binaria
 ```
+
 Definition and Usage
 The sort() method sorts the items of an array.
 The sort order can be either alphabetic or numeric, and either ascending (up) or descending (down).
@@ -1703,8 +1591,8 @@ foo.sort(); // returns [ 1, 4, 9, 'afterdeck', 'zebroid' ]
 
 const bar = [5, 18, 32, new Set, { user: 'Eleanor Roosevelt' }];
 bar.sort(); // returns [ 18, 32, 5, { user: 'Eleanor Roosevelt' }, Set {} ]
-
 ```
+
 It’s also worth noting that unlike many other JavaScript array functions, Array.sort actually changes, or mutates the array it sorts.
 
 ```Javascript
@@ -1712,16 +1600,19 @@ const baz = ['My cat ate my homework', 37, 9, 5, 17];
 baz.sort(); // baz array is modified
 console.log(baz); // shows [ 17, 37, 5, 9, 'My cat ate my homework' ]
 ```
+
 To avoid this, you can create a new instance of the array to be sorted and modify that instead. This is possible using an array method that returns a copy of the array. For example, Array.slice:
 
 ```Javascript
 const sortedBaz = baz.slice().sort(); // a new instance of the baz array is created and sorted
 ```
+
 r if you prefer a newer syntax, you can use the spread operator for the same effect:
 
 ```Javascript
 const sortedBaz = [...baz].sort(); // a new instance of the baz array is created and sorted
 ```
+
 Using Compare Functions to Sort
 
 Let’s say that foo and bar are the two elements being compared by the compare function, and the return value of the compare function is set up as follows:
@@ -1744,11 +1635,13 @@ function compare(a, b) {
 nums.sort(compare);
 // => 4, 12, 48, 79
 ```
+
 This is now a good candidate for an arrow function:
 
 ```Javascript
 nums.sort((a, b) => a - b);
 ```
+
 Ordenando Vetor utilizando função de comparação
 
 ```Javascript
@@ -1783,6 +1676,7 @@ function compareValues(key, order = 'asc') {
   };
 }
 ```
+
 To reverse the sorting order, you can invert the return value of the compare function:
 
 ```Javascript
@@ -1793,9 +1687,8 @@ unction compare(a, b) {
   return comparison * -1;
 }
 ```
+
 ```Javascript
-
-
 ## ES6
 
 ### História e Conceitos :
@@ -1817,6 +1710,7 @@ var x; // Now x is undefined
 x = 5;// Now x is a Number 
 x = "John"; // Now x is a String
 ```
+
 Typescript -> É um superset da linguagem, adiciona tipos e funcionalidades que o javascript nao tem por padrão (ex: enum)
 
 Flow -> Semelhante ao typescript em relação a checagem de tipos , mas não é um superset da linguagem.
@@ -1825,7 +1719,7 @@ Funções de primeira classe : função pode ser atribuita a estrutura de dados 
 
 Closure -> Escopo léxico -> capacidade da funcao de lembrar o ambiente em que foi criada.
 
-obs: console.log( `1- 0 é : " ${exemplo}<span> </span>`); -> mistura variável e texto na impressão
+obs: console.log( `1- 0 é : " ${exemplo}<span> </span>`); -> mistura variável e texto na impressão
 
 [https://github.com/luizrosalba/Introducao_ao_ES6/blob/master/closure.js](https://github.com/luizrosalba/Introducao_ao_ES6/blob/master/closure.js)
 
@@ -1870,6 +1764,7 @@ const user = { name : 'A'; }; user.name = 'B' ; /// consigo alterar
 
 user = { name : 'B'; }; /// nao dá certo
 ```
+
 Tipos e variáveis
 Obs : Retorna typeof retorna o tipo da variável
 
@@ -1884,8 +1779,6 @@ null = nulo -> null sempre é object.(typeof null retorna object)
 undefined= existe mas nao foi inicializada. Undefined é um tipo e não um object. (typeof undefined retorna undefined)
 
 ```Javascript
-
-
 object =
 ex: let user = { name:'Guilherme', endereco:'ABC' };
 
@@ -1915,9 +1808,8 @@ Object.freeze(user); /// nao permite qualquer alterações (criar, alterar , etc
 Object.seal(user); /// nao permite crie ou deletar keys, mas pode trocar o valor de uma key
 
 delete user.name ; /// deleta a key name
-
-
 ```
+
 function = também é um objeto , mas que pode ser chamado array = um objeto que tem relação com os itens dele , relacionando cada item com o tipo atribuido
 
 // symbol cria um tipo unico
@@ -1927,8 +1819,6 @@ Permite atributos privados dentro de objetos e classes, simulando um objeto do t
 ex da propriedade enumerable :
 
 ```Javascript
-
-
 for (const key in user ){ if (user.hasOwnProperty(key)){ console.log(${key}) /// so mostra as chaves que nao sao symbols }
 
 }
@@ -1944,8 +1834,8 @@ symbol1 === symbol2 ; / / retorna falso , cada um tem um tipo unico
 ex2) const symbol1 = Symbol('name'); const symbol2 = Symbol('name');
 
 const user = { [symbol1]: 'ABC', [symbol2]: 'DEF', } /// vc nao consegue sobrescrever essa propriedade mesmo elas tendo o mesmo atributo (name), ele vai criar dois symbols com name
-
 ```
+
 ### Aula2.1 Tipos e variáveis
 
 Obs : Retorna typeof retorna o tipo da variável
@@ -1994,13 +1884,11 @@ return user[prop];
 }
 
 user.lastName = 'Cabrini'; ///cria uma nova propriedade
-
 ```
+
 ### funções de object:
 
 ```Javascript
-
-
 let user = {
 name:'Guilherme',
 endereco:'ABC'
@@ -2024,8 +1912,8 @@ delete user.name ; /// deleta a key name
 
 function = também é um objeto , mas que pode ser chamado
 array = um objeto que tem relação com os itens dele , relacionando cada item com o tipo atribuido
-
 ```
+
 ### symbol cria um tipo unico
 
 Permite atributos privados dentro de objetos e classes, simulando um objeto do tipo enum.  Não é enumerable (isso é vc nao consegue enumerar ela como uma chave dentro de um for)
@@ -2033,7 +1921,6 @@ Permite atributos privados dentro de objetos e classes, simulando um objeto do t
 ex da propriedade enumerable :
 
 ```Javascript
-
 for (const key in user ){
 if (user.hasOwnProperty(key)){
 console.log(${key}) /// so mostra as chaves que nao sao symbols
@@ -2061,8 +1948,8 @@ const user = {
 [symbol2]: 'DEF',
 }
 /// vc nao consegue sobrescrever essa propriedade mesmo elas tendo o mesmo atributo (name), ele vai criar dois symbols com name
-
 ```
+
 ### Aula 2.2 Functions_Operators
 
 #### ES 6 Arrow function
@@ -2315,7 +2202,8 @@ ex: String.prototype.split = function (){ console.log ('Deu ruim')} ;
 #### Classes
 
 Criado no Es6 como uma simplificação de protótipos , uma supersintaxe de funções , por baixo dos panos é criado um prototype
-```Javascript 
+
+```Javascript
 class Animal {
 constructor(qtdePatas) {
   this.qtdePatas =4 ;
@@ -2331,11 +2219,14 @@ constructor(morde) {
 const pug = new Cachorro (false);
 console.log(pug);
 ```
+
 ### JavaScript Classes
+
 A class is a type of function, but instead of using the keyword function to initiate it, we use the keyword class, and the properties are assigned inside a constructor() method:
 
 Example
 Create a Car class, and then create an object called "mycar" based on the Car class:
+
 ```
 class Car {  // Create a class
   constructor(brand) {  // Class constructor
@@ -2350,7 +2241,6 @@ Keyword	Description
 extends	Extends a class (inherit)
 static	Defines a static method for a class
 super	Refers to the parent class
-
 
 #### Modificadores de Acesso
 
@@ -2371,6 +2261,7 @@ pode-se usar metodos set e get (v12 do node) para setar e obter o valor de um at
 permite que acesse métodos e atributos sem instanciar uma classe
 
 ex1: com funcoes , implementação de static do JS
+
 ```
 'use strict';
 
@@ -2406,6 +2297,7 @@ Nome, Exemplo, contexto , problema, solução.
 1987 kent e ward 5 padroes de projetos ->
 
 1994 Gof Erich, Richard , Ralph John  DP Elements of Reusable OO Software -> Tipos Criação , estruturais e comportamentais
+
 ```
 Padroes de criação : abstraem e / ou adiam o processo de criação dos objetos , tornamm o sistema independete de como seus objetos são criados , compostos e representados
 mais famosos :
@@ -2424,6 +2316,7 @@ Padroes Comportamentais :
 Algoritmos e atribuições de responsabilidades entre os objetos, não descrevem apenas padroes classe se objetos , mas tb de comunicação entre os objetos : Chain of Responsibility , Command, Interpreter , Iterator, Mediator , Observer , State, Strategy , Template Method e visitor
 
 Patterns mais usados em Js : Factory , Singleton , Decorator , Observer e Module
+
 ```
 Factory > Funções que retornam um objeto sem a necessidade de chamalas com new são consideradas factory
 
@@ -2435,9 +2328,11 @@ Observer >  A instancia (subscriber) mantem uma coleção de objetos (observers)
 
 Modoule > Permite organizar o corido sem a necessidade de expor variáveis globais No ES6 (export default)
 ```
+
 ### ES6 let e var
 
 let foi introduzido no Es6 para evitar os problemas da variável pública var a variable with the same name can only be declared once
+
 ```
 let camper = 'James';
 let camper = 'David'; // throws an error
@@ -2487,7 +2382,6 @@ return i;
 }
 ```
 
-
 ### ES6 const
 
 const has all the awesome features that let has, with the added bonus that variables declared using const are read-only. They are a constant value, which means that once a variable is assigned with const, it cannot be reassigned.
@@ -2495,6 +2389,7 @@ trying to reassign a variable declared with const will throw an error.
 A common practice when naming constants is to use all uppercase letters, with words separated by an underscore.
 
 However, it is important to understand that objects (including arrays and functions) assigned to a variable using const are still mutable. Using the const declaration only prevents reassignment of the variable identifier.Pode mudar cada elemento mas nao pode mudar o vetor inteiro
+
 ```
 "use strict";
 const s = [5, 6, 7];
@@ -2510,12 +2405,14 @@ To ensure your data doesn't change, JavaScript provides a function Object.freeze
 ### ES6 arrow function
 
 Nova Sintaxe que permite simplificar a declaração de funções. magic recebe o resultado da função ou seja uma data.
+
 ```
 const magic = () => {
 "use strict";
 return new Date();
 };
 ```
+
 Quando a função nao tem corpo pode-se omitir o return
 
 const myFunc = () => "value";
@@ -2532,12 +2429,15 @@ const doubler = item => item * 2;
 const multiplier = (item, multi) => item * multi;
 
 parametro default em arrow functions
+
 ```
 const greeting = (name = "Anonymous") => "Hello " + name;
 console.log(greeting("John")); // Hello John
 console.log(greeting()); // Hello Anonymous
 ```
+
 Parametro rest em arrow functions
+
 ```
 function howMany(...args) {
 return "You have passed " + args.length + " arguments.";
@@ -2549,9 +2449,11 @@ const sum = (...args) => {
 return args.reduce((a, b) => a + b, 0);
 }
 ```
+
 ### Operador Spread :
 
 ES6 introduces the spread operator, which allows us to expand arrays and other expressions in places where multiple parameters or elements are expected.
+
 ```
 const arr = [6, 89, 3, 45];
 const maximus = Math.max(...arr); // returns 89
@@ -2573,6 +2475,7 @@ console.log(arr2);
 
 Extrai informações de um objeto de maneira visualmente limpa
 Destructuring assignment is special syntax introduced in ES6, for neatly assigning values taken directly from an object.
+
 ```
 const { name, age } = user;
 // name = 'John Doe', age = 34
@@ -2627,10 +2530,10 @@ const { today: {low:lowToday, high:highToday}} = LOCAL_FORECAST ;
 // Only change code above this line
 ```
 
-
 Destructuring Assignment variáveis vindas de um array
 
 One key difference between the spread operator and array destructuring is that the spread operator unpacks all contents of an array into a comma-separated list. Consequently, you cannot pick or choose which elements you want to assign to variables.
+
 ```
 const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
 console.log(a, b, c); // 1, 2, 5
@@ -2646,12 +2549,15 @@ Usando Destructuring com parametro rest para redesignar variaveis
 In some situations involving array destructuring, we might want to collect the rest of the elements into a separate array.
 
 The result is similar to Array.prototype.slice(), as shown below:
+
 ```
 const [a, b, ...arr] = [1, 2, 3, 4, 5, 7];
 console.log(a, b); // 1, 2
 console.log(arr); // [3, 4, 5, 7]
 ```
+
 The rest element only works correctly as the last variable in the list.
+
 ```
 const source = [1,2,3,4,5,6,7,8,9,10];
 function removeFirstTwo(list) {
@@ -2664,7 +2570,9 @@ return arr;
 }
 const arr = removeFirstTwo(source);
 ```
+
 Use Destructuring Assignment to Pass an Object as a Function's Parameters
+
 ```
 const profileUpdate = (profileData) => {
 const { name, age, nationality, location } = profileData;
@@ -2676,7 +2584,9 @@ const profileUpdate = ({ name, age, nationality, location }) => {
 /* do something with these fields */
 }
 ```
+
 Use destructuring assignment within the argument to the function half to send only max and min inside the function.
+
 ```
 const stats = {
 max: 56.78,
@@ -2692,6 +2602,7 @@ const half = ({max,min}) => (max + min) / 2.0;
 // Only change code above this line
 console.log(half(stats));  /// pega os parametros do max e min do objeto dentro dos parametros na chamada half(param) e aplica a função a ele
 ```
+
 ### Create Strings using Template Literals
 
 A new feature of ES6 is the template literal. This is a special type of string that makes creating complex strings easier.
@@ -2699,6 +2610,7 @@ A new feature of ES6 is the template literal. This is a special type of string t
 Template literals allow you to create multi-line strings and to use string interpolation features to create strings.
 
 Consider the code below:
+
 ```
 const person = {
 name: "Zodiac Hasbro",
@@ -2712,9 +2624,11 @@ console.log(greeting); // prints
 // Hello, my name is Zodiac Hasbro!
 // I am 56 years old.
 ```
+
 A lot of things happened there. Firstly, the example uses backticks (`), not quotes (' or "), to wrap the string. Secondly, notice that the string is multi-line, both in the code and the output. This saves inserting \n within strings. The ${variable} syntax used above is a placeholder. Basically, you won't have to use concatenation with the + operator anymore. To add variables to strings, you just drop the variable in a template string and wrap it with ${ and }. Similarly, you can include other expressions in your string literal, for example ${a + b}. This new way of creating strings gives you more flexibility to create robust strings.
 
 ###
+
 ```
 const result = {
 success: ["max-length", "no-amd", "prefer-arrow-functions"],
@@ -2746,19 +2660,24 @@ ES6: Write Concise Object Literal Declarations Using Object Property Shorthand
 ES6 adds some nice support for easily defining object literals.
 
 Consider the following code:
+
 ```
 const getMousePosition = (x, y) => ({
 x: x,
 y: y
 });
 ```
+
 getMousePosition is a simple function that returns an object containing two properties. ES6 provides the syntactic sugar to eliminate the redundancy of having to write x: x. You can simply write x once, and it will be converted tox: x (or something equivalent) under the hood. Here is the same function from above rewritten to use this new syntax:
+
 ```
 const getMousePosition = (x, y) => ({ x, y });
 ```
+
 ES6: Write Concise Declarative Functions with ES6
 
 When defining functions within objects in ES5, we have to use the keyword function as follows:
+
 ```
 const person = {
 name: "Taylor",
@@ -2767,7 +2686,9 @@ return `Hello! My name is ${this.name}.`;
 }
 };
 ```
+
 With ES6, You can remove the function keyword and colon altogether when defining functions in objects. Here's an example of this syntax:
+
 ```
 const person = {
 name: "Taylor",
@@ -2776,10 +2697,12 @@ return `Hello! My name is ${this.name}.`;
 }
 };
 ```
+
 ### ES6: Use class Syntax to Define a Constructor Function
 
 ES6 provides a new syntax to create objects, using the class keyword. It should be noted that the class syntax is just syntax, and not a full-fledged class-based implementation of an object-oriented paradigm, unlike in languages such as Java, Python, Ruby, etc.
 In ES5, we usually define a constructor function and use the new keyword to instantiate an object.
+
 ```
 var SpaceShuttle = function(targetPlanet){
 this.targetPlanet = targetPlanet;
@@ -2795,6 +2718,7 @@ this.targetPlanet = targetPlanet;
 }
 const zeus = new SpaceShuttle('Jupiter');
 ```
+
 It should be noted that the class keyword declares a new function, to which a constructor is added. This constructor is invoked when new is called to create a new object.
 Notes:
 
@@ -2810,6 +2734,7 @@ These are classically called getters and setters.
 Getter functions are meant to simply return (get) the value of an object's private variable to the user without the user directly accessing the private variable.
 
 Setter functions are meant to modify (set) the value of an object's private variable based on the value passed into the setter function. This change could involve calculations, or even overwriting the previous value completely.
+
 ```
 class Book {
 constructor(author) {
@@ -2830,7 +2755,9 @@ console.log(lol.writer);  // anonymous
 lol.writer = 'wut';
 console.log(lol.writer);  // wut
 ```
+
 Notice the syntax used to invoke the getter and setter. They do not even look like functions. Getters and setters are important because they hide internal implementation details. Note: It is convention to precede the name of a private variable with an underscore (_). However, the practice itself does not make a variable private.
+
 ```
 // Only change code below this line
 class Thermostat {
@@ -2859,6 +2786,7 @@ console.log (temp);
 ### ES6: Create a Module Script
 
 utilizando um script
+
 ```
 <html>
   <body>
@@ -2868,8 +2796,10 @@ utilizando um script
   </body>
 </html>
 ```
+
 ES6: Use export to Share a Code Block
 Imagine a file called math_functions.js that contains several functions related to mathematical operations. One of them is stored in a variable, add, that takes in two numbers and returns their sum. You want to use this function in several different JavaScript files. In order to share it with these other files, you first need to export it.
+
 ```
 export const add = (x, y) => {
 return x + y;
@@ -2882,7 +2812,9 @@ return x + y;
 
 export { add };
 ```
+
 When you export a variable or function, you can import it in another file and use it without having to rewrite the code. You can export multiple things by repeating the first example for each thing you want to export, or by placing them all in the export statement of the second example, like this:
+
 ```
 export { add, subtract };
 
@@ -2896,6 +2828,7 @@ return string.toLowerCase();
 
 export { uppercaseString,lowercaseString };
 ```
+
 ### ES6: Reuse JavaScript Code Using import
 
 import { add, subtract } from './math_functions.js';
@@ -2907,6 +2840,7 @@ import * as myMathModule from "./math_functions.js";
 ### ES6: Create an Export Fallback with export default
 
 you will use this syntax if only one value is being exported from a file. It is also used to create a fallback value for a file or module.
+
 ```
 // named function
 export default function add(x, y) {
@@ -2918,6 +2852,7 @@ export default function(x, y) {
 return x + y;
 }
 ```
+
 There is another export syntax you need to know, known as export default. Usually you will use this syntax if only one value is being exported from a file. It is also used to create a fallback value for a file or module.
 Since export default is used to declare a fallback value for a module or file, you can only have one value be a default export in each module or file. Additionally, you cannot use export default with var, let, or const
 
@@ -2938,6 +2873,7 @@ const myPromise = new Promise((resolve, reject) => {
 ### ES6: Complete a Promise with resolve and reject
 
 A promise has three states: pending, fulfilled, and rejected. The promise you created in the last challenge is forever stuck in the pending state because you did not add a way to complete the promise. The resolve and reject parameters given to the promise argument are used to do this. resolve is used when you want your promise to succeed, and reject is used when you want it to fail. These are methods that take an argument, as seen below.
+
 ```
 const makeServerRequest = new Promise((resolve, reject) => {
 // responseFromServer represents a response from a server
@@ -2954,6 +2890,7 @@ reject("Data not received");// Change this line
 ### ES6: Handle a Fulfilled Promise with then
 
 Promises are most useful when you have a process that takes an unknown amount of time in your code (i.e. something asynchronous), often a server request. When you make a server request it takes some amount of time, and after it completes you usually want to do something with the response from the server. This can be achieved by using the then method. The then method is executed immediately after your promise is fulfilled with resolve. Here’s an example:
+
 ```
 myPromise.then(result => {
 // do something with the result.
@@ -2979,6 +2916,7 @@ console.log(result);
 ```
 
 ### ES6: Handle a Rejected Promise with catch
+
 ```
 myPromise.catch(error => {
 // do something with the error.
@@ -3050,8 +2988,8 @@ console.log(content.toString())
 
 console.log('end')
 ```
+
 ```Javascript
-  
 const fs = require('fs')
 const path = require('path')
 const basePath = './assets/'
@@ -3069,13 +3007,11 @@ for (const file of sentences) {
 }
 
 console.log('end')
-
 ```
+
 Callback : função que será executada apos outra função. Leitura assincrona . Perceber que ele executou begin (síncrono) , iniciou a leitura do texto (assíncrono) que é demorada , nao parou a execução , executou o end (síncrono) e somente quando terminou a leitura que imprimiu o texto
 
 ```Javascript
-  
-  
 const fs = require('fs')
 const path = require('path')
 const basePath = './assets/'
@@ -3092,10 +3028,10 @@ fs.readFile(path.resolve(basePath, 'arquivo.txt'), { encoding: 'utf-8' }, (err, 
 
 console.log('End')
 ```
+
 Utilizando uma função como callback
 
 ```Javascript
-  
 const fs = require('fs')
 const path = require('path')
 const basePath = './assets/'
@@ -3114,6 +3050,7 @@ function cb (err, data) {
   console.log(data)
 }
 ```
+
 Lendo 4 arquivos de maneira assíncrona, cada execução trará um resultado diferente pois não podemos prever qual levará menos tempo para ler. Cada Arquivo terá um callback
 
 ```Javascript
@@ -3140,6 +3077,7 @@ function cb (err, data) {
   console.log(data)
 }
 ```
+
 Callback hell
 
 ```Javascript
@@ -3170,6 +3108,7 @@ function cb (err, data) {
   console.log(data)
 }
 ```
+
 callback hell um pouco mais ordenado
 
 ```Javascript
@@ -3197,6 +3136,7 @@ function cb (err, data) {
   console.log(data)
 }
 ```
+
 CAllback recursivo
 
 ```Javascript
@@ -3222,6 +3162,7 @@ function cb (err, data, index, max) {
   return start(index + 1, max)
 }
 ```
+
 Utilizando promises ao inves de callbacks . todo catch e then nao é uma promise propriamente dita mas retorna uma promise
 
 ```Javascript
@@ -3239,18 +3180,19 @@ promise.then(
   (rej) => console.error(rej)
 )
 ```
+
 then = resolvido , catch = erro
 
 ```Javascript
 promise.then((res)=> {),(rej)=>{}) 
 é o mesmo que 
 promise.then((res)=> {)) 
-promise.catch((rej)=>{}) 
+promise.catch((rej)=>{})
 ```
+
 A maioria das libs externas nao funciona com promisify
 
 ```Javascript
-  
 const fs = require('fs')
 const path = require('path')
 const { promisify } = require('util')
@@ -3265,6 +3207,7 @@ readFileAsync(path.resolve(basePath, 'invictus.txt'), { encoding: 'utf-8' })
   .catch((err) => console.error(err))
 console.log('End')
 ```
+
 Encadeamento de promises
 podemos encadear thens e catches
 
@@ -3288,10 +3231,10 @@ coinFlip
   .then((success) => console.log('Yay 3'), (fail) => console.log('Error in third case'))
   .then(() => console.log('End3'))
 ```
+
 Cada catch só vale pra um then; quando ocorre um erro no then ele percorre todos os outros até encontrar o primeiro catch
 
 ```Javascript
-
 // Second case, in an exception the last then will execute
 coinFlip.then((data) => console.log('Yay 2'))
 coinFlip.catch((err) => console.error('Next then will execute'))
@@ -3302,6 +3245,7 @@ coinFlip
   .then((success) => console.log('Yay 3'), (fail) => console.log('Error in third case'))
   .then(() => console.log('End3'))
 ```
+
 then = garçom (pode ter dois ) e catch seria outro pedido. A execução não para
 
 ```Javascript
@@ -3315,6 +3259,7 @@ coinFlip.then((data) => console.log(data))
 
 new Promise((resolve) => setTimeout(() => resolve(), 2000)).then(() => console.log('Yay'))
 ```
+
 Multiple catches
 
 ```Javascript
@@ -3355,14 +3300,16 @@ coinFlip.then((data) => console.log('Yay 1'))
 
 coinFlip.catch(() => console.log('First catch'))
 ```
+
 ```Javascript
 const coinFlip = new Promise((resolve, reject) => setTimeout(() => Math.random() > 0.5 ? resolve(true) : reject(false), 2000))
 let p = Promise.resolve('Yay').then(coinFlip) /// coinflip nao eh funcao eh uma promise 
 /// Promise.resolve retorna uma promise 
 
 // P will resolve immediately to YAY, but will not be settled until the second promise resolves with the coinflip
-p.then(console.log).catch(() => console.log('error')) /// resolve a primeira depois espera 2 s e resolve a segunda 
+p.then(console.log).catch(() => console.log('error')) /// resolve a primeira depois espera 2 s e resolve a segunda
 ```
+
 Finally Será sempre executando dando erro ou nao
 
 ```Javascript
@@ -3379,6 +3326,7 @@ readFileAsync(path.resolve(basePath, 'invictus.txt'), { encoding: 'utf-8' })
   .catch((err) => console.error(err))
   .finally(() => console.log('End'))
 ```
+
 Promise hell , encadeamento de promises
 
 ```Javascript
@@ -3406,6 +3354,7 @@ readFileAsync(path.resolve(basePath, 's1.txt'), { encoding: 'utf-8' })
   .then(console.log)
   .finally(() => console.log('End'))
 ```
+
 Melhorando o promise hell
 
 ```Javascript
@@ -3430,6 +3379,7 @@ function start (index, max) {
 
 start(1, 4)
 ```
+
 Promise.all resolve todas as promises
 Se qquer uma falhar vai dar erro em todas e retornara apenas o 1º catch
 
@@ -3451,6 +3401,7 @@ for (let i = 1; i <= 4; i++) promiseArray[i - 1] = read(i) // Arrays start at 0,
 
 Promise.all(promiseArray).then(console.log)
 ```
+
 ### Funções avançadas do ES6
 
 ### 1.1 Arrow function
@@ -3464,6 +3415,7 @@ pode-se omitir o return se o lado direito for apenas uma expressão
 var sum = a => a+5;  
 console.log(sum(1));
 ```
+
 parenteses quando há mais de um argumento
 
 ```javascript
@@ -3471,6 +3423,7 @@ var sum = (a,b)=> a+b;
 console.log(sum);
 console.log(sum(1,2));
 ```
+
 caso haja mais de uma expressão   expressão as chaves são obrigatórias
 
 ```javascript
@@ -3480,6 +3433,7 @@ var sum = (a,b)=> {
 }
 console.log(sum(1,2));
 ```
+
 ### Hoisting e Arrow function
 
 Arrow functions nao realizam hoisting , você terá erro se tentar invocar antes de declarar
@@ -3499,6 +3453,7 @@ Criando um objeto via arrow function
  var createObj = () => ({test:123});
 console.log(createObj());
 ```
+
 Obs: Não é possível criar um objeto usando uma função construtora por arrow function
 
 ### 1.2 Default Function Arguments
@@ -3512,15 +3467,17 @@ function multiply (a=b,b=1)
 }
 console.log(multiply(2,3)); //6
 console.log(multiply(2)); ///2 
-console.log(multiply(undefined,2));///4 
+console.log(multiply(undefined,2));///4
 ```
+
 ```javascript
 function multiply (a=1,b=a)
 {
   return a*b; 
 }
-console.log(multiply(2,undefined)); /// b =a resultado 4 
+console.log(multiply(2,undefined)); /// b =a resultado 4
 ```
+
 lazy evaluation
 Sempre que o parametro for esquecido uma função será chamada
 
@@ -3534,8 +3491,9 @@ function multiply (a,b = randNumber())
 {
   return a*b; 
 }
-console.log(multiply(2,undefined)); /// resultado aleatório só invocará a função randNumber caso não haja parametro2 
+console.log(multiply(2,undefined)); /// resultado aleatório só invocará a função randNumber caso não haja parametro2
 ```
+
 ### 1.3 Enhanced Object Literals
 
 um objeto pode ter métodos
@@ -3546,6 +3504,7 @@ var obj = {
 }; 
 console.log(obj.sum(1,2));
 ```
+
 Também pode ser declarado como
 
 ```javascript
@@ -3553,8 +3512,9 @@ var obj = {
   sum(a,b) { return a+ b; }
 }; 
 
-console.log(obj.sum(1,2)); /// 3 
+console.log(obj.sum(1,2)); /// 3
 ```
+
 No ES6 Quando a propriedade do objeto é igual a uma variavel , podemos omitir o prop1 : prop1 dentro do obj
 
 ```javascript
@@ -3562,8 +3522,9 @@ var prop1 = 'bla bla';
 var obj = {
   prop1
 }; 
-console.log (obj.prop1); /// bla bla 
+console.log (obj.prop1); /// bla bla
 ```
+
 Também funciona com métodos
 
 ```javascript
@@ -3573,8 +3534,9 @@ function metodo1(){
 var obj = {
   metodo1
 }; 
-obj.metodo1(); /// bla bla 
+obj.metodo1(); /// bla bla
 ```
+
 No ES6 podemos também usar variaveis e até concatenar o nome da propriedade de um objeto
 
 ```javascript
@@ -3586,12 +3548,15 @@ var obj = {
 
 console.log(obj);
 ```
+
 ```javascript
 
 ```
+
 ```javascript
 
 ```
+
 ### Aplicando Conceitos Rest, Spread , Operator e Destructuring
 
 ### 2.1 Conheça Rest e Spread Operator
@@ -3608,8 +3573,9 @@ function soma(a,b){
   }
   return value; 
 }
-console.log(soma(1,2,3,4,5)); /// 15 
+console.log(soma(1,2,3,4,5)); /// 15
 ```
+
 Depois do ES6 com o rest operator ... (tres pontos dentro da lista de argumentos)
 (pega todos os argumentos de uma função e transforma em um array)
 
@@ -3617,8 +3583,9 @@ Depois do ES6 com o rest operator ... (tres pontos dentro da lista de argumentos
 function soma(...args){
   return args.reduce((acc,value)=> acc+value,0); 
 }
-console.log(soma(1,2,3,4,5)); //// 15 
+console.log(soma(1,2,3,4,5)); //// 15
 ```
+
 Obs : arguments tem como prototype um objeto enquanto o operador rest retorna um array
 Obs2 : arguments é inexistente em arrow functions
 
@@ -3628,12 +3595,12 @@ Mesmo exemplo com arrow function
 const sum = (...rest) => {
  console.log( rest.reduce((acc,value)=> acc+value,0));
 } ;
-(sum(1,2,3,4,5)); /// 15 
+(sum(1,2,3,4,5)); /// 15
 ```
+
 Apply pega o retorno do método multiply e aplica no metodo soma
 
 ```Javascript
-
 const multiply  = (...args) => {
  console.log( args.reduce((acc,value)=> acc*value,1));
 } ;
@@ -3643,10 +3610,10 @@ const sum = (...rest) => {
 } ;
 (sum(5,5,5,2,3));
 ```
+
 Para evitar o problema dos contextos novamente , utiliza-se o spread operator ele pega todos os itens de um array e transforma em argumentos para uma segunda função (parecido com o apply)
 
 ```Javascript
-
 const multiply  = (...args) => {
  console.log( args.reduce((acc,value)=> acc*value,1));
 } ;
@@ -3655,12 +3622,11 @@ const sum = (...rest) => {
  multiply(...rest);
 } ;
 (sum(5,5,5,2,3)); ///750
-
 ```
+
 O spread operator pode ser usado em strings, arrays, e objetos literais e iteraveis
 
 ```Javascript
-
 const str = 'Digital Input'; 
 const arr = [1,2,3,4]; 
 function logArgs(a,b,c,) {
@@ -3668,19 +3634,19 @@ function logArgs(a,b,c,) {
 }
 logArgs(...str); /// D i g 
 logArgs(...arr); /// 1 2 3 cada item vira um argumento da funcao log
-
 ```
+
 Concatenando com o spread operator
 
 ```Javascript
 const arr = [1,2,3,4]; 
 const arr2 = [...arr,5,6,7]; 
-console.log(arr2); /// 1 , 2 , 3 , 4, 5 , 6 ,7 
+console.log(arr2); /// 1 , 2 , 3 , 4, 5 , 6 ,7
 ```
+
 Pode ser usado em objetos
 
 ```Javascript
-
 const obj = {
   test:123
 };
@@ -3692,17 +3658,18 @@ const obj2 = {
 }
 console.log(obj2); 
 /// {  test:"hello"  } 
-/// obs; a ordem faz diferença  nesse caso obj vem antes de hello por isso a saida eh hello 
-
+/// obs; a ordem faz diferença  nesse caso obj vem antes de hello por isso a saida eh hello
 ```
+
 Erro , não pode ser feito pois spread só pode ser usado com objetos iteraveis
 
 ```Javascript
 const obj = {
   test:123
 };
-const arr = [...obj];  /// erro 
+const arr = [...obj];  /// erro
 ```
+
 Shallow clone (clone raso ): Utilizar um spread operator para clonar um objeto inicial não permite que alterar o objeto clonado altere o objeto  inicial
 
 ```Javascript
@@ -3712,8 +3679,9 @@ const obj = {
 const obj2 = obj;
 obj2.test = 456 ; 
 
-console.log(obj); /// 456 alterou o objeto inical 
+console.log(obj); /// 456 alterou o objeto inical
 ```
+
 ```Javascript
 const obj = {
   test:123
@@ -3723,6 +3691,7 @@ obj2.test = 456 ;
 
 console.log(obj);/// 123  nao alterou o objeto inicial
 ```
+
 ### 2.2 Destructuring em React.js (imutável)
 
 utilizado para destruir arrays com uma notação enxuta
@@ -3739,10 +3708,9 @@ var [apple2,banana2,orange2,[tomato2]] =   [
   'apple',
   'banana',
   'orange',
-  ['tomato']]; /// notacao é mais enxuta 
-
-
+  ['tomato']]; /// notacao é mais enxuta
 ```
+
 O mesmo pode ser feito com objetos
 
 ```Javascript
@@ -3751,9 +3719,9 @@ var obj  = {
 }
  /// sem destruction name = obj.name;  
 var {name} = obj /// destroi o objeto , procura a propriedade name e pega seu valor 
-console.log(name); 
-
+console.log(name);
 ```
+
 Destruindo e logo em seguida atribuindo a outra variável
 
 ```Javascript
@@ -3761,8 +3729,9 @@ var obj  = {
   name:'Celso'
 }
 var {name:name2} = obj
-console.log(name2); 
+console.log(name2);
 ```
+
 Também pode ser feito com nestes props
 
 ```Javascript
@@ -3775,18 +3744,18 @@ var obj  = {
 
 //var age = obj.prop.age;  antigo 
 var {props:{age}} = obj;  /// com destruction 
-console.log(age); 
-
+console.log(age);
 ```
+
 Posso acessar diretamente uma propriedade de um objeto e customizar seu nome
 
 ```Javascript
 var arr = [ {name: 'apple' , type : 'fruit'}] ; 
 
 var [{name:fruitname,type}]=arr; 
-console.log(fruitname,type); 
-
+console.log(fruitname,type);
 ```
+
 Demonstrando a destrução como argumento com default values de uma função
 
 ```Javascript
@@ -3794,23 +3763,26 @@ function sum([a,b]=[0,0]){
   return a + b; 
 } 
 console.log(sum([5,5]));  ///10 
-console.log(sum([5]));  /// NAn ?  
+console.log(sum([5]));  /// NAn ?
 ```
+
 ### 3.1 Symbols e Iterators
 
 Symbols são maneiras de gerar um identificador único. Symbol nao pode ser invocado usando new.
 
 ```Javascript
 const uniqueId = Symbol (); 
-console.log (uniqueId); 
+console.log (uniqueId);
 ```
+
 Mesmo com o mesmo valor , symbols são identificadores unicos e retornam falso
 
 ```Javascript
 const uniqueId = Symbol ("Oi"); 
 const uniqueId2 = Symbol ("Oi"); 
-console.log (uniqueId===uniqueId2); 
+console.log (uniqueId===uniqueId2);
 ```
+
 Pode ser utilizado para gerar propriedades privadas. Não é listado se imprimimos (log) o objeto somente quando fazemos Object.getOwnPropertySymbols();
 
 Propriedades do symbols : Iterator , to Primitive
@@ -3818,8 +3790,9 @@ Propriedades do symbols : Iterator , to Primitive
 ```Javascript
 const arr = [1,2,3,4]; 
 const it = arr[Symbol.iterator]();
-console.log (it.next()); 
+console.log (it.next());
 ```
+
 Iterando só os valores
 
 ```Javascript
@@ -3831,6 +3804,7 @@ while (true){
   if (done)   break; 
 }
 ```
+
 Transformando um objeto não iteravel em iteravel, possivelmente igonrando valores , etc ...
 
 ```Javascript
@@ -3859,8 +3833,8 @@ const obj = {
 const it = obj[Symbol.iterator]()
 
 console.log(it.next());
-
 ```
+
 ### 3.2 Generators
 
 Generators são funções com pausa e despausa de valores atraves da interface de iteração criada por um iterator
@@ -3899,6 +3873,7 @@ console.log(it.next());
 console.log(it.next());
 console.log(it.next());
 ```
+
 Pode receber valores de fora da função
 
 ```Javascript
@@ -3915,6 +3890,7 @@ console.log(it.next());
 console.log(it.next());
 console.log(it.next('Outside!'));
 ```
+
 Executa cada step do while apos invocar o next
 
 ```Javascript
@@ -3930,8 +3906,8 @@ const it = naturalNumbers();
 console.log(it.next());
 console.log(it.next());
 console.log(it.next());
-
 ```
+
 Iterando um generator com pausa , reproduzindo o exemplo anterior de maneira mais simples
 Generator aqui foi utilizado como uma forma de construir iteradores
 
@@ -3952,6 +3928,7 @@ for (let value of obj) { /// for of é para objetos iteraveis
   console.log(value)
 }
 ```
+
 ### 4.1 Callbacks e Promises
 
 ### Callbacks e Promises
@@ -4008,6 +3985,7 @@ function doAll()
 
 doAll();
 ```
+
 ### Promise
 
 Uma Promisse pode ter 3 estados : Pending (em execução ), Fulfilled (terminou de executar)  e Reject (caso ocorra algum erro) . Uma grande vantagem da  promise é que já faz o tratamento do erro conforme abaixo
@@ -4029,8 +4007,8 @@ const doOtherThingPromise = new Promise((resolve,reject)=>{
   },1000);
 });
 doSomethingPromise.then(data=>console.log(data));
-
 ```
+
 Tratamento com throw new Error :
 
 ```Javascript
@@ -4053,8 +4031,8 @@ const doOtherThingPromise = new Promise((resolve,reject)=>{
 doSomethingPromise
 .then(data=>console.log(data))
 .catch(error=>console.log(error));
-
 ```
+
 Executando uma depois a outra promise
 
 ```Javascript
@@ -4080,8 +4058,8 @@ doSomethingPromise
 })
 .then(data2=>console.log(data2))
 .catch();
-
 ```
+
 Usando função para garantir o tempo de execução e incluindo um tratamento de erro global para ambos as promisses encadeadas
 
 ```Javascript
@@ -4107,9 +4085,9 @@ doSomethingPromise()
   return doOtherThingPromise();
 })
 .then(data2=>console.log(data2))
-.catch(error => console.log('Ops',error)); /// tratamento global de erro 
-
+.catch(error => console.log('Ops',error)); /// tratamento global de erro
 ```
+
 Callback hell resolvido por promise
 
 ```Javascript
@@ -4137,9 +4115,9 @@ doSomethingPromise()
   return doOtherThingPromise();
 })
 .then(data2=>console.log(data2.split('')))
-.catch(error => console.log('Ops',error)); /// tratamento global de erro 
-
+.catch(error => console.log('Ops',error)); /// tratamento global de erro
 ```
+
 Executando em paralelo ( o then só é executado após o fim da promise)
 
 ```Javascript
@@ -4165,8 +4143,8 @@ Promise.all([doSomethingPromise(),doOtherThingPromise()]).then(data => {
   console.log(data[0].split(''));
   console.log(data[1].split(''));
 });
-
 ```
+
 No Promisse all caso haja interrupção de uma , cancela-se o funcionamento das duas funções
 
 ```Javascript
@@ -4195,8 +4173,8 @@ Promise.all([doSomethingPromise(),doOtherThingPromise()]).then(data => {
 }).catch(err=>{
   console.log(err);
 });
-
 ```
+
 Retornando a que resolver primeiro
 
 ```Javascript
@@ -4222,6 +4200,7 @@ Promise.race([doSomethingPromise(),doOtherThingPromise()]).then(data => {
   console.log(data);
 });
 ```
+
 ### 4.2 Fetch Async await Eventemmiter
 
 Fetch é uma nova API com o mesmo intuito da antiga xmlhttpRequest , fazer requisições, mas utiliza promises
@@ -4233,8 +4212,8 @@ fetch('/data.json').then(responseStream=>{
        console.log(data);
    });
   })
-
 ```
+
 Caso haja um erro de rede será pego no catch
 
 ```Javascript
@@ -4245,9 +4224,8 @@ fetch('http:localhost:8081/data.json') /// erro de rede nao existe esta porta
    }).catch(err=> {
         console.log("Erro de rede",err);
    });
-  
-
 ```
+
 Outro exemplo , agora com erro de nome de arquivo inexistente
 
 ```Javascript
@@ -4258,8 +4236,8 @@ fetch('http:localhost:8080/datassss.json') /// erro de fim inesperado de input j
    }).catch(err=> {
         console.log("Erro de rede",err);
    });
-
 ```
+
 Tratando o erro para nao tentar parsear para json
 
 ```Javascript
@@ -4278,6 +4256,7 @@ fetch('http:localhost:8080/data222.json')
         console.log("Erro de rede",err);
    });
 ```
+
 por default o segundo parametro do fetch eh um get. mas podemos forçar um post
 
 ```Javascript
@@ -4299,6 +4278,7 @@ fetch('http:localhost:8080/data.json',{
         console.log("Erro de rede",err);
    });
 ```
+
 ### Async / Await
 
 A partir do ES7 , forma de criar promises de maneira mais simples e lidar com promises dentro de promises de maneira mais simples
@@ -4314,6 +4294,7 @@ console.log(simpleFunc().then(data=>{
 } ));
 console.log(simpleFunc());
 ```
+
 Tratando erros
 
 ```Javascript
@@ -4329,8 +4310,8 @@ simpleFunc()
 .catch(err=>{
   console.log(err);
 });
-
 ```
+
 Await : Espera que outras promises sejam resolvidas. O await aguardou a resolução da promise e retorno o dado
 
 ```Javascript
@@ -4353,8 +4334,8 @@ simpleFunc()
 .catch(err=>{
   console.log(err);
 });
-
 ```
+
 Await pode tornar o processamento asíncrono sequencial
 
 ```Javascript
@@ -4382,6 +4363,7 @@ simpleFunc()
   console.log(err);
 });
 ```
+
 Processando de maneira paralela
 
 ```Javascript
@@ -4406,8 +4388,8 @@ simpleFunc()
 .catch(err=>{
   console.log(err);
 });
-
 ```
+
 ### como funciona async/await
 
 Promise -> programação asíncrona
@@ -4451,6 +4433,7 @@ emitter.on('User logged',data => {
 
 emitter.emit('User logged' , {user : 'Celso' });
 ```
+
 Extendendo uma classe
 
 ```Javascript
@@ -4468,8 +4451,9 @@ users.on('User logged',data => {
     console.log(data); 
 });
 
-users.userLogged({user : "Luiz "}); 
+users.userLogged({user : "Luiz "});
 ```
+
 Trava o segundo login , users.once só permite 1 login
 
 ```Javascript
@@ -4488,8 +4472,9 @@ users.once('User logged',data => {
 });
 
 users.userLogged({user : "Luiz "}); 
-users.userLogged({user : "joao "}); 
+users.userLogged({user : "joao "});
 ```
+
 Lidando com programação asincrona
 
 ```Javascript
@@ -4510,16 +4495,19 @@ users.on('User logged',data => {
 });
 
 users.userLogged({user : "Luiz "}); 
-users.userLogged({user : "joao "}); 
+users.userLogged({user : "joao "});
 ```
+
 Event target trabalha com a api do browser eventListner
 
 ```Javascript
 
 ```
+
 ```Javascript
 
 ```
+
 ### 5 Tratamento e exceções
 
 ### 5.1 como Identificar erros
@@ -4539,8 +4527,9 @@ try{
 }catch(err){
     console.log('Error' , err); 
 }
-console.log('keep going');  /// seria impresso 
+console.log('keep going');  /// seria impresso
 ```
+
 Utilizando a classe Error para gerar um erro e fornecer uma resposta customizada
 
 ```Javascript
@@ -4553,8 +4542,8 @@ try{
 }finally{
     console.log('keep going'); 
 }
-
 ```
+
 Extendendo a classe error
 
 ```Javascript
@@ -4589,9 +4578,8 @@ try{
 }finally{
     console.log('keep going'); 
 }
-
-
 ```
+
 ### 5.2 Debugging parte 1
 
 Podemos utilziar a aba do chrome Networl dentro do modo desenvolvedor (cntrl + shift +i) PAra entender quais requisições estão sendo feitas, os arquivos que estão sendo utilizados ,etc.
@@ -4695,6 +4683,7 @@ alterar o package.json para executar o mocha
   }
 }
 ```
+
 criar o diretorio test ( usado pelo mocha)
 criar o arquivo math.spec.js dentro do diretorio (esse é o padrao TDD)
 
@@ -4709,8 +4698,8 @@ describe ('Math class',function (){
         assert.equal(math.sum(5,5),10); /// valida se dois valores sao iguais 
    });  
 });
-
 ```
+
 Criei o diretorio src com o arquivo math.js dentro
 
 ```Javascript
@@ -4718,8 +4707,9 @@ class Math {
    sum = function sum(){ };
 }
 
-module.exports =Math; 
+module.exports =Math;
 ```
+
 rodei o npm run test
 erro -> undefined ==10 o teste executado deveria retornar 10 e  retorna undefined.
 
@@ -4730,8 +4720,9 @@ class Math {
    sum = function sum(a,b){return a+b };
 }
 
-module.exports =  Math;  /// o mocha nao retorna mais o erro 
+module.exports =  Math;  /// o mocha nao retorna mais o erro
 ```
+
 Limpando a classe (TDD) também chamada de refatorar
 
 ```Javascript
@@ -4739,8 +4730,9 @@ class Math {
    sum(a,b){return a+b };
 }
 
-module.exports =  Math; 
+module.exports =  Math;
 ```
+
 Tornando math assíncrona
 
 ```Javascript
@@ -4751,8 +4743,9 @@ class Math {
       },0);
    };
 }
-module.exports =  Math; 
+module.exports =  Math;
 ```
+
 e alterando mathspec para chamada assíncrona , percebemos que o código continua passando  , pois é assíncrono (no meu , diferente do vídeo,  talvez por ser uma versão mais atual, já mostra erros de validação)
 
 ```Javascript
@@ -4770,9 +4763,8 @@ describe ('Math class',function (){
   
    });  
 });
-
-
 ```
+
 Precisamos então de uma maneira de validar valores assíncronos usando mocha
 Acrescente done no argumento da funcao dentro do it . atenção ! moca recomenda nao usar arrow fucntion
 
@@ -4794,8 +4786,8 @@ describe ('Math class',function (){
         })
    });  
 });
-
 ```
+
 Escrevendo testes para funcoes que ainda nao existem
 
 ```Javascript
@@ -4816,8 +4808,8 @@ describe ('Math class',function (){
    });  
    it ('Multiply two numbers '); /// teste pendente 
 });
-
 ```
+
 it.only executa somente este teste
 
 ```Javascript
@@ -4826,20 +4818,21 @@ it.only ('Multiply two numbers',function(){
        assert.equal(math.multiply(5,5),25);
    });
 ```
+
 it.skip pula o teste
 
 ```Javascript
-  it.skip ('Multiply two numbers',function(){
+it.skip ('Multiply two numbers',function(){
        const math = new Math();
        assert.equal(math.multiply(5,5),25);
    });
 ```
+
 mocha hooks (before each)
 executa codigo e evita repetições
 outros hooks : before , after e afterEach
 
 ```Javascript
-
 const assert = require('assert');
 const Math = require ('../src/math.js');
 
@@ -4872,6 +4865,7 @@ describe ('Math class',function (){
    });
 });
 ```
+
 ### 5.3 Chai
 
 O moca nao possui uma ferramenta de assert. Ele usa uma ferramenta built in do node.
@@ -4910,13 +4904,12 @@ describe ('Math class',function (){
        expect(math.multiply(value,5)).to.equal(0); /// mais legível 
    });
 });
-
-
 ```
+
 Utilizando para validar objetos
 
 ```Javascript
- it ('Multiply two numbers',function(){
+it ('Multiply two numbers',function(){
        const math = new Math();
        const obj = {
            name : 'Luiz'
@@ -4925,10 +4918,11 @@ Utilizando para validar objetos
        expect(obj).to.have.property('name'); /// mais legível 
    });
 ```
+
 Comparando objetos , cuidado !
 
 ```Javascript
-  it.only ('Multiply two numbers',function(){
+it.only ('Multiply two numbers',function(){
        const math = new Math();
        const obj = {
            name : 'Luiz'
@@ -4941,6 +4935,7 @@ Comparando objetos , cuidado !
        ///expect(obj).to.deep.equal(obj2); /// seriam iguals to deep faz uma comparação dos valores dos objetos 
    });
 ```
+
 ### 5.4 Sinon
 
 útil para testar métodos de objetos. Adicionei o método printSum na classe math como testar ?
@@ -4962,8 +4957,9 @@ class Math {
 
 }
 
-module.exports =  Math; 
+module.exports =  Math;
 ```
+
 Adicionar uma função espiã que diz se o método foi invocado (spy) na propriedade load do objeto res
 
 ```Javascript
@@ -4975,12 +4971,12 @@ it.only ('Calls req with sum and index values ',function(){
     const math = new Math();
     math.printSum(req,res,5,5);
     expect(res.load.calledOnce).to.be.true;
-
 ```
+
 Verificando se o primeiro argumento é index
 
 ```Javascript
-   it.only ('Calls req with sum and index values ',function(){
+it.only ('Calls req with sum and index values ',function(){
     const req= {};
     const res = {
         load:sinon.spy()
@@ -4990,10 +4986,11 @@ Verificando se o primeiro argumento é index
     expect(res.load.args[0][0]).to.be.equal('index');
  });
 ```
+
 Verificando se o segundo argumento é soma
 
 ```Javascript
-   it.only ('Calls req with sum and index values ',function(){
+it.only ('Calls req with sum and index values ',function(){
     const req= {};
     const res = {
         load:sinon.spy()
@@ -5003,11 +5000,11 @@ Verificando se o segundo argumento é soma
     expect(res.load.args[0][1]).to.be.equal(10);
  });
 ```
+
 Confirma que o método nao foi chamado (stub)
 
 ```Javascript
-
-   it.only ('Calls req with sum and index values ',function(){
+it.only ('Calls req with sum and index values ',function(){
     const req= {};
     const res = {
         load : function load(){
@@ -5019,12 +5016,12 @@ Confirma que o método nao foi chamado (stub)
     math.printSum(req,res,5,5);
     expect(res.load.args[0][0]).to.be.equal('index');
  });
-
 ```
+
 Passou pela checagem
 
 ```Javascript
- it.only ('Calls req with sum and index values ',function(){
+it.only ('Calls req with sum and index values ',function(){
     const req= {};
     const res = {
         load : function load(){
@@ -5036,11 +5033,12 @@ Passou pela checagem
     math.printSum(req,res,5,5);
     expect(res.load.args[0][0]).to.be.equal('index');
  });
-
 ```
+
 ```Javascript
 
 ```
+
 ## CSS
 
 https://github.com/luizrosalba/homecomstyledcomponents
@@ -5097,8 +5095,7 @@ https://github.com/luizrosalba/IntroReactJs
 - Inicialização
 - Montagem
 - Atualização
-- Desmontagem
-  ![](img/Capturar.PNG)
+- Desmontagem![](img/Capturar.PNG)
 - nenhum componente pai ou filho devem saber se outro componente possui estado ou nao
 - o estado é apoenas local ao componente e c aso seja necessário enviar algum atributo para outro então é feito via props
 
@@ -5127,6 +5124,15 @@ Bibliotecas complementares
 - react eh uma single page application (SPA) , baixa todo o prohjeto e renderiza uma  vez todas as rotas , toda vez que o user muda de rota , ele renderiza essa rota ( performace )
 
 ### JSX
+
+React components ultimately render HTML which is displayed in the browser.
+As such, the render() method of a component needs to describe how the view
+should be represented as HTML. React builds our apps with a fake representation
+of the Document Object Model (DOM). React calls this the virtual DOM. Without
+getting deep into details for now, React allows us to describe a component’s HTML
+representation in JavaScript.
+JSX was created to make this JavaScript representation of HTML more HTML-like. To
+understand the difference between HTML and JSX
 
 - Não é HTML nem String
 - É uma linguagem de marcação que permite criar estruturas do HTML com o poder do javascript
@@ -5262,6 +5268,7 @@ const App = () => {
 };
 export default App;
 ```
+
 ### Manipulando Eventos
 
 - similar a mnanipular elementos do dom
@@ -5308,6 +5315,7 @@ const App = () => {
 };
 export default App;
 ```
+
 Mudando o contexto para dentro do app para acessar sem usar o this
 
 ```
@@ -5347,6 +5355,7 @@ const App = () => {
 };
 export default App;
 ```
+
 Adicionando um botao para deletar cada cliente na lista da aula anterior :
 
 ```
@@ -5412,6 +5421,7 @@ const handleClick = (e) =>{
 };
 export default App;
 ```
+
 Passando o id como argumento para o manipilador de eventos
 
 ```
@@ -5478,6 +5488,7 @@ const handleClick = (e,id) =>{
 };
 export default App;
 ```
+
 ### Pensando do jeito React
 
 - thinking react
@@ -5493,16 +5504,19 @@ export default App;
 - react é funcional e modular, deve estar todo separadinho em arquivos
 - rotas do projeto são os containers (Views )
 
-### Desenvolvimento de Aplicações para internet com ReactJS 
+### Desenvolvimento de Aplicações para internet com ReactJS
 
+## Css componentes e elementos
 
+Como estilizar ?
 
-## Css componentes e elementos 
-Como estilizar ? 
-### inline 
-Dentro do arquivo jsx 
-- Pros  : Pratico , direta , ajuste  rapido  e testes de estilo 
-- contra - manutenção 
+### inline
+
+Dentro do arquivo jsx
+
+- Pros  : Pratico , direta , ajuste  rapido  e testes de estilo
+- contra - manutenção
+
 ```
 import React from 'react';
 
@@ -5514,13 +5528,17 @@ const listaEstilizada = {
   padding: '25px'
 };
 ```
+
 - Os estilos pela tag style são feitos por um JSON onde o CSS é escrito CamelCase.
-### classes 
-- pros Modularizada define-se classes pelo atributo classname 
-- contra dificil manutencao 
-- pouca flexibilidade 
+
+### classes
+
+- pros Modularizada define-se classes pelo atributo classname
+- contra dificil manutencao
+- pouca flexibilidade
 - conflitos de nomes (solução: Design patterns)
 - arquivo ClassName.css
+
 ```
 .div-style {
   display: flex; 
@@ -5528,18 +5546,23 @@ const listaEstilizada = {
   justify-content: space-around;
   margin-right: 20px;
 }
-``` 
-e depois importa-se no codigo , usamos className e não class para poder importa-lo no react 
+```
+
+e depois importa-se no codigo , usamos className e não class para poder importa-lo no react
+
 ```
 import './ClassName.css'
 function Hello(){
     return <div className="div-style"> Ola mundo </div>
 }
 ```
-###  Css no JS 
+
+### Css no JS
+
 - npm install --save styled-components
 - A biblioteca styled components é exemplo de uma biblioteca em que se pode usar CSS in JS.
-- pros:  manutenção facilidade para remover css estilos dinamicos performance injeção automatica de prefixos vendor 
+- pros:  manutenção facilidade para remover css estilos dinamicos performance injeção automatica de prefixos vendor
+
 ```
 const DivStyle = styled.div`
   color:blue;
@@ -5549,12 +5572,15 @@ function Hello(){
     const url = 'https://exemplo'
     return <DivStyle imageUrl={url}> Olá </DivStyle>
 }
-``` 
--Manutenção 
--Facilidade de remover css 
-- Estilos dinâmicos 
-- Performance 
-- Injeção automática de prefixos vendor 
+```
+
+-Manutenção
+-Facilidade de remover css
+
+- Estilos dinâmicos
+- Performance
+- Injeção automática de prefixos vendor
+
 ```
 Obs: Os fabricantes de browsers, por vezes, adicionam prefixos às propriedades experimentais ou fora dos padrões CSS, de modo que os desenvolvedores podem experimentá-las, enquanto —em teoria— as mudanças no comportamento dos navegadores não quebrarão o código durante o processo de padonização. Os desenvolvedores devem esperar para incluir a propriedade não pré-fixada até que o comportamento do navegador seja padronizado.
 
@@ -5580,33 +5606,40 @@ webkit (Chrome, Safari, versões mais recentes do Opera.)
 moz (Firefox)
 o (Versões antigas do Opera)
 ms (Internet Explorer)
-
 ```
-## Stateful vs StateLess 
-- Antigamente Funções não podiam gerenciar estados (stateless). A partir de 2018 isso mudou 
-- A nomenclatura foi atualizada não usamos mais stateful e stateless: 
-- Class components e Function Components 
+
+## Stateful vs StateLess
+
+- Antigamente Funções não podiam gerenciar estados (stateless). A partir de 2018 isso mudou
+- A nomenclatura foi atualizada não usamos mais stateful e stateless:
+- Class components e Function Components
 - Com hooks estados são manipuláveis em function components (Stateless com Hooks )
-- Dessa forma temos um código compatco com a vantagem de poder manipular estaods 
-### Stateful 
-- Stateful usa estados toda vez que trabalhamos com estados , destruimos uma copia anterior e trabalhamos com uma nova cópia do estado 
+- Dessa forma temos um código compatco com a vantagem de poder manipular estaods
+
+### Stateful
+
+- Stateful usa estados toda vez que trabalhamos com estados , destruimos uma copia anterior e trabalhamos com uma nova cópia do estado
 - Supondo um estado chamado shoe, setado inicialmente como ‘tênis’, podemos trocar o seu estado, por ex, usando this.setState({ shoe: 'sapatenis’ }).
 
 ![](img/state.PNG)
+
 - ..\aplicacoes_internet_reactjs\src\aula-1\parte-2\TodoListStatefull.jsx
-### Stateless 
+
+### Stateless
+
 - stateless não usa estados
 - Podemos setar o estado inicial de um componente stateless com props.
 - Não possui gerenciamento de estados no componente
-- contruidos usando funções em js 
+- contruidos usando funções em js
 - ..\aplicacoes_internet_reactjs\src\aula-1\parte-2\TodoListStateless.jsx
-### Stateless com Hooks 
 
-A partir de 2018 , podemos fazer um componente funcional "stateless com estados" usando o hook useState 
+### Stateless com Hooks
+
+A partir de 2018 , podemos fazer um componente funcional "stateless com estados" usando o hook useState
+
 - ..\aplicacoes_internet_reactjs\src\aula-1\parte-2\TodoListFunctional.jsx
 
-```Javascript 
-
+```Javascript
 import React, { useState } from 'react';
 /// componentes funcionais com estado 
 const TodoListFunctional = () => {
@@ -5634,25 +5667,30 @@ const TodoListFunctional = () => {
 }
 
 export default TodoListFunctional;
-
-
 ```
 
 ## Formulários
-Mantem um estado interno 
-- Em html 
-``` 
+
+Mantem um estado interno
+
+- Em html
+
+```
 <input>,
  <textarea> e 
- <select> 
- ```
- tem um estado interno aceitando atributo value 
-- podemos mudar esse valor usando o atributo onChange 
-- em react podemos controlar o estado ( O DOM tem seu proprio estado e o react tem seu proprio estado ) 
-- state 
-- set state 
-## Componente controlado 
-- O recomendado no react é fazer componentes controlados 
+ <select>
+```
+
+tem um estado interno aceitando atributo value
+
+- podemos mudar esse valor usando o atributo onChange
+- em react podemos controlar o estado ( O DOM tem seu proprio estado e o react tem seu proprio estado )
+- state
+- set state
+
+## Componente controlado
+
+- O recomendado no react é fazer componentes controlados
 
 ```Javascript
 import React from 'react';
@@ -5691,8 +5729,7 @@ class NameForm extends React.Component {
 export default NameForm;
 ```
 
-
-```Javascript 
+```Javascript
 import React from 'react';
 
 class SorveteForm extends React.Component {
@@ -5764,9 +5801,11 @@ class SorveteForm extends React.Component {
 
 export default SorveteForm;
 ```
-## Componente não controlado 
-- pega o estado do dom 
-- o react observa estes estados através de uma referencia 
+
+## Componente não controlado
+
+- pega o estado do dom
+- o react observa estes estados através de uma referencia
 - a tag input é read-only (essa tag a gente nao consegue fazer com componente controlado, só com não controlado)
 
 ```Javascript
@@ -5805,8 +5844,8 @@ class FileInput extends React.Component {
 }
 
 export default FileInput;
-
 ```
+
 Sobre Stateless components, é incorreto afirmar que:
 Podemos setar o estado inicial de um componente stateless com props.
 
@@ -5835,101 +5874,122 @@ Um exemplo de biblioteca utilizado para manipulação de forms é:
 Formik.
 
 Qual(is) componente(s) podemos utilizar em componentes controlados em React?
-<textarea> e <select>.
+textarea e select
+<textarea> </textarea> e <select> </select>.
 
+## bibliotecas
 
-
-
-## bibliotecas 
-- forms no react são verbosos tem que escrever bastante para funcionar  
-- é possível usar algumas biblios : 
+- forms no react são verbosos tem que escrever bastante para funcionar
+- é possível usar algumas biblios :
 - formik (recomendada pela documentação do react )
-- Redux-forms 
-# Flux 
-- Arquitetura criada pelo Fb para comunicação entre componentes 
-- falta de sincronização entre os componentes de notificação no facebook 
-- haviam patterns para trafegar dados em aplicações web mas nada muito promissor 
--  Fb criou o flux e resolveu o problema
-- padrão para trafego de dados unidirecional 
-![](img/flux.PNG)
+- Redux-forms
 
-## Action  
+# Flux
+
+- Arquitetura criada pelo Fb para comunicação entre componentes
+- falta de sincronização entre os componentes de notificação no facebook
+- haviam patterns para trafegar dados em aplicações web mas nada muito promissor
+- Fb criou o flux e resolveu o problema
+- padrão para trafego de dados unidirecional![](img/flux.PNG)
+
+## Action
+
 - Formata a mensagem a ser enviada (telégrafo)
- ## Dispatcher
- - Sabe todos os callbacks para diferentes Stores  (telefonista)
- ## Store
- É um gerente supercontrolador, guarda a informação e todas as alterações tem que ser feitas por ele mesmo mais ninguem 
- ## View 
-Gerente intermediario (middleware) recebe as notificações da store e passa os dados para as visões abaixo dela 
+
+## Dispatcher
+
+- Sabe todos os callbacks para diferentes Stores  (telefonista)
+
+## Store
+
+É um gerente supercontrolador, guarda a informação e todas as alterações tem que ser feitas por ele mesmo mais ninguem
+
+## View
+
+Gerente intermediario (middleware) recebe as notificações da store e passa os dados para as visões abaixo dela
+
 ## Arquitetura Flux
-Diversas implementações 
+
+Diversas implementações
+
 - Redux ( mais popular)
 - Reflux
-- Mobx 
+- Mobx
 - Vuex (Baseado em Redux e Elm)
 - NgRx/store (badeada em REdux e RxJs)
-- FB disponibiliza as libs para que você construa sua própria flux 
-- não existe uma implementação padrão do flux 
-- servem para comunicação entre componentes 
-- centralizam a informação 
-- One way data flow 
-- Ideal é usar as stores para dados que vão ser compartilhados entre componentes, não todos os dados 
-## Bibliotecas baseadas em Flux 
+- FB disponibiliza as libs para que você construa sua própria flux
+- não existe uma implementação padrão do flux
+- servem para comunicação entre componentes
+- centralizam a informação
+- One way data flow
+- Ideal é usar as stores para dados que vão ser compartilhados entre componentes, não todos os dados
+
+## Bibliotecas baseadas em Flux
+
 - Servem para comunicação entre componentes
-- Centralizam a informação 
-- Store não é um armazenamento central, o ideal é usar as stores para dados 
-que vao ser compartilhados entre vários componentes 
+- Centralizam a informação
+- Store não é um armazenamento central, o ideal é usar as stores para dados
+  que vao ser compartilhados entre vários componentes
 
-# O que é Redux 
-- Criado por Abramov e Clark em 2015 
-- Redux é uma  implementação de flux 
-- nao tem dispatcher 
-- a camada de view é chamada de react pois vamos usala para trabalhar com react 
-![](img/redux.PNG)
--Redux tem  3 princípios : 
-- Single source of Thuth - uma única store 
-- State é read-only 
-- mudanças são feitas por funções puras ( estado imutável ) 
+# O que é Redux
 
-- Redux nao tem dispatcher 
+- Criado por Abramov e Clark em 2015
+- Redux é uma  implementação de flux
+- nao tem dispatcher
+- a camada de view é chamada de react pois vamos usala para trabalhar com react![](img/redux.PNG)
+  -Redux tem  3 princípios :
+- Single source of Thuth - uma única store
+- State é read-only
+- mudanças são feitas por funções puras ( estado imutável )
+- Redux nao tem dispatcher
 - A camada de view eh chamada de react
-- Reducer 
+- Reducer
 
-## actions 
-- são como as do flux 
-- apensa retornam um objeto de action formatado 
+## actions
+
+- são como as do flux
+- apensa retornam um objeto de action formatado
 - As actions formatam a mensagem a ser enviada para o dispatcher.
-## Store 
+
+## Store
+
 - unica store
-- cuida de toda árvore de estados 
-- reducers cuidam de descobrir qual estado muda 
-## reducers 
+- cuida de toda árvore de estados
+- reducers cuidam de descobrir qual estado muda
+
+## reducers
+
 - simplifica e divide o tarbalho da store
-- se conecta ao root reducer que divide os estados em pequenos reducers para descobrir como lidar com eese estado 
-- estados imutáveis 
-## Views 
+- se conecta ao root reducer que divide os estados em pequenos reducers para descobrir como lidar com eese estado
+- estados imutáveis
+
+## Views
+
 - Em react adiciona na camada de View 3 novos conceitos para conectar a View a Store (provider, connect() e selector )
-- Provider wrapper da arvore de components, torna mais facil os componentes filhos se conectarem usando o connect 
+- Provider wrapper da arvore de components, torna mais facil os componentes filhos se conectarem usando o connect
 - Connect()  função no react redux se o componente deseja pegar os updates do estado se envolve na função connect (High Order Component (HOC))
-- Selector função que escrevemos que definem quais os estados do redux que queremos passar 
-No root component:
-O Provider recebe como atributo a store criada, usando-a onde ela for necessária para a aplicação.
-## Aula 2.3 
-Instalar o redux dev tools 
+- Selector função que escrevemos que definem quais os estados do redux que queremos passar
+  No root component:
+  O Provider recebe como atributo a store criada, usando-a onde ela for necessária para a aplicação.
+
+## Aula 2.3
+
+Instalar o redux dev tools
+
 - https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=pt-BR
 - npm install react-redux
 - npm install --save-dev redux-devtools
-- usamos o redux dev tools e rodamos a aula 2 para ver que cada vez que o contador eh clicado vemos o estado anterior e o estado atual 
+- usamos o redux dev tools e rodamos a aula 2 para ver que cada vez que o contador eh clicado vemos o estado anterior e o estado atual
 - criamos a pasta redux que tem o arquivo de actions  (mensagem enviada)
 - vamos criar uma action que se comunica com store. Vamos criar uma store e reducers e conecta-los a nossa view (react)
-
 - criamos um arquivo dentro da pasta redux -> actions -> actions.js com as actions (método mais simples de criar actions)
 
 ```Javascript
 export const INCREMENT = 'INCREMENT'
 export const DECREMENT = 'DECREMENT'
-``` 
-- criamos um arquivo dentro da pasta redux -> reducers ->  reductions.js com as reductions 
+```
+
+- criamos um arquivo dentro da pasta redux -> reducers ->  reductions.js com as reductions
 
 ```Javascript
 import { INCREMENT, DECREMENT } from '../actions/counter';
@@ -5954,10 +6014,12 @@ export function counterReducer(state = initialState, action) {
   }
 }
 ```
+
 indexjs (camada view = react)
-- cria a store 
-- associa os reducers a ela 
-- 
+
+- cria a store
+- associa os reducers a ela
+-
 
 ```Javascript
 import React from 'react';
@@ -5983,10 +6045,9 @@ ReactDOM.render(<Provider store={store}> /// Provider faz um wrapper e passa a s
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-
 ```
 
-manipulando a store 
+manipulando a store
 
 ```Javascript
 import React from 'react';
@@ -6028,8 +6089,8 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(Counter); /// connect pega o componente e conecta com a store (HOC)
-
 ```
+
 Qual dos elementos de Flux não existe em Redux?
 Dispatchers.
 
@@ -6060,35 +6121,33 @@ Sabe todos os callbacks para diferentes stores.
 Sobre o Flux, assinale a alternativa correta:
 As actions formatam a mensagem a ser enviada para o dispatcher.
 
+# Aula 3
 
+## Comunicação avançada entre aplicações
 
-# Aula 3 
-## Comunicação avançada entre aplicações 
+## rest http com react
 
-## rest http com react 
+Apis HTTP
+Servem para conectar um ou mais servidores http
 
-Apis HTTP 
-Servem para conectar um ou mais servidores http 
-- get 
-- post 
-- delete 
-- put 
-- fetch api (nativamente) Jquery ajax 
+- get
+- post
+- delete
+- put
+- fetch api (nativamente) Jquery ajax
 - Axios (lib http muito usada com react)
-## Fetch Api 
+
+## Fetch Api
+
 Alguns browsers ainda nao suportam (talvez melhor usar node fetch)
-- nativa do browser 
+
+- nativa do browser
 - Oferece uma alternatuva ai XMLHttpRequest() e jQuery.ajax()
 - suporte a service workers
-- algumas diferenças 
+- algumas diferenças
 - nao envia nem recebe cookies ( precisa definir a opção cedentials)
 - nao rejeita o statudos do erro HTTP (nem 400 nem 500)
-- ele está mostrando como montar os métodos HTTP para nossa api "cientistas" aula 3 . 
-![](img/get_fetchapi.PNG)
-![](img/put_fetchapi.PNG)
-![](img/post_fetchapi.PNG)
-![](img/delete_fetchapi.PNG)
-
+- ele está mostrando como montar os métodos HTTP para nossa api "cientistas" aula 3 .![](img/get_fetchapi.PNG)![](img/put_fetchapi.PNG)![](img/post_fetchapi.PNG)![](img/delete_fetchapi.PNG)
 
 ```Javascript
 import { fetchCientistasPending, fetchCientistasSuccess, fetchCientistasError } from '../../../redux/actions/cientistas';
@@ -6114,8 +6173,7 @@ export default fetchCientistas;
 ```
 
 Trabalhando com class component, procurar fazer o carregamento da listagem de serviços no inicio
-do seu componente no componentDidMount. No componente componentWillMount (vai ser descontinuado no react 17 )pode dar probelmas como lista vazia  
-
+do seu componente no componentDidMount. No componente componentWillMount (vai ser descontinuado no react 17 )pode dar probelmas como lista vazia
 
 ```Javascript
 import React, { useEffect, useState } from 'react'
@@ -6164,40 +6222,33 @@ export const Topico1 = () => {
     </Topico1Block>
   )
 }
-
 ```
 
+## Axios
 
-
-## Axios 
-- Lib de HTTP API 
+- Lib de HTTP API
 - Cross-Browser
-- Pode monitorar o progresso de um request 
-- melhor tratamento de erros 
-- melhor teste 
-- bem restrito ao pwa 
-- npm add axios 
-- métodos HTTP : 
-![](img/get_axios.PNG)
-![](img/put_axios.PNG)
-![](img/post_axios.PNG)
-![](img/delete_axios.PNG)
+- Pode monitorar o progresso de um request
+- melhor tratamento de erros
+- melhor teste
+- bem restrito ao pwa
+- npm add axios
+- métodos HTTP :![](img/get_axios.PNG)![](img/put_axios.PNG)![](img/post_axios.PNG)![](img/delete_axios.PNG)
 
+## Imutabilidade e Redux
 
-## Imutabilidade e Redux 
+Imutabilidade :
 
-Imutabilidade : 
-- uma vez criada não pode ser alterada 
-- novas coleções podem ser craidas a partir de uma coleção anterior e uma mutação (setter) como um conjunto 
-- novas coleções são criadas usando o máximo possível da estrutura original, reduzindo a cópia e aumentando a performance 
-Benefícios : 
+- uma vez criada não pode ser alterada
+- novas coleções podem ser craidas a partir de uma coleção anterior e uma mutação (setter) como um conjunto
+- novas coleções são criadas usando o máximo possível da estrutura original, reduzindo a cópia e aumentando a performance
+  Benefícios :
 - Para ter Performance em react use seus dados imutáveis (usando shouldComponentUpdate ou React.PureComponent )
-- Programação simples 
+- Programação simples
 - Debugging simples ( detecção de mudanças)
-- para ter performance em React use dados imutáveis 
-- voce consegue usando o shouldComponentUpdate ou o React.PureComponent 
--  Exemplo usando o shouldComponentUpdate: 
-![](img/shouldcomponent.PNG)
+- para ter performance em React use dados imutáveis
+- voce consegue usando o shouldComponentUpdate ou o React.PureComponent
+- Exemplo usando o shouldComponentUpdate:![](img/shouldcomponent.PNG)
 
 ```Javascript
 class CounterButton extends React.Component {
@@ -6225,10 +6276,8 @@ class CounterButton extends React.Component {
 }
 ```
 
-- comparação entre virtual dom e o estado do componente dizem se precisa rerenderizar o componente 
-
-- agora usando pure component
-![](img/pure_component.PNG)
+- comparação entre virtual dom e o estado do componente dizem se precisa rerenderizar o componente
+- agora usando pure component![](img/pure_component.PNG)
 
 ```Javascript
 class CounterButton extends React.PureComponent {
@@ -6249,13 +6298,12 @@ class CounterButton extends React.PureComponent {
 }
 ```
 
-- estrutura mais simples 
-- não são todos os casos que conseguimos controlar 
-- o codigo abaixo nao funciona pois o pure componente faz uma coparação rasa entre os valores antigos e novos de this.props.words 
-- o condigo muda words no handleClick do WorkAdder mas mesmo mudando as palavras, elas serão consideradas como iguais 
+- estrutura mais simples
+- não são todos os casos que conseguimos controlar
+- o codigo abaixo nao funciona pois o pure componente faz uma coparação rasa entre os valores antigos e novos de this.props.words
+- o condigo muda words no handleClick do WorkAdder mas mesmo mudando as palavras, elas serão consideradas como iguais
 
 ![](img/problemas.PNG)
-
 
 ```Javascript
 class ListOfWords extends React.PureComponent {
@@ -6264,7 +6312,6 @@ class ListOfWords extends React.PureComponent {
   }
 }
 ```
-
 
 ```Javascript
 class WordAdder extends React.PureComponent {
@@ -6290,58 +6337,54 @@ class WordAdder extends React.PureComponent {
   }
 }
 ```
+
 7:30
 
-- como vc muda o valor , você nao consegue trabalhr com ela 
-
-- soluçaõ : 
-
-- evitar mutar valroes ou estados 
+- como vc muda o valor , você nao consegue trabalhr com ela
+- soluçaõ :
+- evitar mutar valroes ou estados
 
 ![](img/sol1.PNG)
-- Usando uma biblio de imutabilidade 
-imutable.js 
-![](img/sol2.PNG)
 
-outras libs 
-- immer 
-- immutability-helper 
-- seamless-immutable 
+- Usando uma biblio de imutabilidade
+  imutable.js![](img/sol2.PNG)
 
+outras libs
+
+- immer
+- immutability-helper
+- seamless-immutable
 - Imutabilidade é pre-requisito no redux
-- Redux e react-redux usam comparações rasas 
-- manipulação de dados mais seguras 
-- time-travel debugging 
-
+- Redux e react-redux usam comparações rasas
+- manipulação de dados mais seguras
+- time-travel debugging
 - reducers dividem o objeto de estados em dominios por uma chave
-- combinereducers checa mudanças usando comparação rasa 
-- fazem a interação nos reducers 
-- criam um novo objeto de estado a partir dos estados retornados por cada reducer 
-- connect gera componentes que fazem comparação rasa com o estado root 
-- retornam o valor para a função mapStateToProps , verificando quem precisa de rerender 
-- Por que não funciona com objetos mutáveis ? 
-![](img/porque.PNG)
+- combinereducers checa mudanças usando comparação rasa
+- fazem a interação nos reducers
+- criam um novo objeto de estado a partir dos estados retornados por cada reducer
+- connect gera componentes que fazem comparação rasa com o estado root
+- retornam o valor para a função mapStateToProps , verificando quem precisa de rerender
+- Por que não funciona com objetos mutáveis ?![](img/porque.PNG)
 
-## REdux + Rest 
+## REdux + Rest
 
-- Exemplo : Sistema de loggin ou notificações 
-- manter a sincronia independente da tela onde estiver 
-- uma maneira facil seria armazenar os dados do serviço no redux 
-- solução : Middlewares 
-### Redux Middlewares 
-- Camada entre o disparo de uma ação e o momento que ela atinge o reducer 
-- Utilizados para uma variedade de unções entre elas chamadas de apis de serviço 
+- Exemplo : Sistema de loggin ou notificações
+- manter a sincronia independente da tela onde estiver
+- uma maneira facil seria armazenar os dados do serviço no redux
+- solução : Middlewares
+
+### Redux Middlewares
+
+- Camada entre o disparo de uma ação e o momento que ela atinge o reducer
+- Utilizados para uma variedade de unções entre elas chamadas de apis de serviço
 
 ![](img/1.PNG)
 
-
 ![](img/2.PNG)
-
 
 ![](img/3.PNG)
 
-- problema : mas e seu eu quisesse fazer um crash report usando a mesma estrutura ? 
-
+- problema : mas e seu eu quisesse fazer um crash report usando a mesma estrutura ?
 
 ![](img/4.PNG)
 
@@ -6351,121 +6394,113 @@ outras libs
 
 ![](img/7.PNG)
 
-- fazendo um currying 
+- fazendo um currying
 
 ![](img/8.PNG)
 
-
 ![](img/9.PNG)
 
-- só expoe um subconjunto da store api para o middleware >: dispatch e o getstate 
-- fica dificil saber se store.dispatch(action) vai realmente percorrer  a cadeia do middleware de novo 
-- opera em cima de createStore ao invés da store em si 
-
-- usando o applymidware do redux 
-![](img/10.PNG)
-
-- middlewares mais usados : 
-- redux-thunk 
+- só expoe um subconjunto da store api para o middleware >: dispatch e o getstate
+- fica dificil saber se store.dispatch(action) vai realmente percorrer  a cadeia do middleware de novo
+- opera em cima de createStore ao invés da store em si
+- usando o applymidware do redux![](img/10.PNG)
+- middlewares mais usados :
+- redux-thunk
 - redux-saga
+- um thunk é uma função que chama outra função![](img/thunk.PNG)
+- npm add redux-thunk
+- iremos chamar a api de cientistas para dentro do redux
 
-- um thunk é uma função que chama outra função 
-![](img/thunk.PNG)
+## Aula 4 - Conceitos de Qualidade de código e automação de testes em React
 
-- npm add redux-thunk 
+- TDD e BDD com JEST
+- DeBugging
+- Tratamento de erros
 
--  iremos chamar a api de cientistas para dentro do redux 
+## TDD
 
-## Aula 4 - Conceitos de Qualidade de código e automação de testes em React 
+Desenvolviemnto orientado a teste
 
-- TDD e BDD com JEST 
-- DeBugging 
-- Tratamento de erros 
-
-## TDD 
-Desenvolviemnto orientado a teste 
-- escreve um codigo pra testar codigo 
-- QA : Quality Assurance Testador 
-![](img/TDD.PNG)
+- escreve um codigo pra testar codigo
+- QA : Quality Assurance Testador![](img/TDD.PNG)
 - Teste Unitário  (função , componente, serviço ,página ... )
 - Teste End-to-End (E2E) (ponta a ponta)
-- JEST (usa um linguagem Js chamada Jasmine https://jasmine.github.io/) 
+- JEST (usa um linguagem Js chamada Jasmine https://jasmine.github.io/)
 - REact-testing-Library (bom para testar componentes)
-- Shallow 
-- Enzyme 
-- Chai 
-- Mocha 
-- Selenium 
-- Puppeteer 
-
+- Shallow
+- Enzyme
+- Chai
+- Mocha
+- Selenium
+- Puppeteer
 - npm add --dev @testing-library/react
 
-primeiro os testes mais básicos depois os mais completos 
+primeiro os testes mais básicos depois os mais completos
 
-## BDD 
-Behavior-Driven Development 
+## BDD
+
+Behavior-Driven Development
+
 - Une especificação, teste automatizado e premissa de teste (documento de teste)
-- Sintaxe Gherkin 
-- Representa a especificação através de steps para definir cenários 
-- descreve cada funcionalidade por features 
-- 
-Funcionalidade: Loing 
-  Texto com  a descrição da funcionalidade
-Cenário: Como um usuário valido , posso logar no sistema 
-  Dado que estou na tela de Login 
-  Quando digitar credenciais válidas
-  E clicar no botão de login 
-  Então devo acessar a Home do sistema 
-Cenário: Como um usuário invalido , devo visualizar uma mensagem de erro e continuar na página de Login 
-  Dado que estou na tela de Login 
-  Quando digitar credenciais inválidas
-  E clicar no botão de login 
-  Então devo ver uma mensagem de erro
-  E devo estar na tela de login 
+- Sintaxe Gherkin
+- Representa a especificação através de steps para definir cenários
+- descreve cada funcionalidade por features
+-
+
+Funcionalidade: Loing
+Texto com  a descrição da funcionalidade
+Cenário: Como um usuário valido , posso logar no sistema
+Dado que estou na tela de Login
+Quando digitar credenciais válidas
+E clicar no botão de login
+Então devo acessar a Home do sistema
+Cenário: Como um usuário invalido , devo visualizar uma mensagem de erro e continuar na página de Login
+Dado que estou na tela de Login
+Quando digitar credenciais inválidas
+E clicar no botão de login
+Então devo ver uma mensagem de erro
+E devo estar na tela de login
 
 - Jest-cucumber
 - npm add --dev jest-cucumber (existe uma extensão para Vs code para .feature)
-- Chai 
+- Chai
 
-## Debbugin 
+## Debbugin
 
-Depuração , processo de encontrar e reduzir defeitos de um software 
+Depuração , processo de encontrar e reduzir defeitos de um software
 
-- Chome devtools 
-- Redux devtools monitora a store 
-- react devtools 
-
+- Chome devtools
+- Redux devtools monitora a store
+- react devtools
 - LightHouse (dentro do inspect do chrome devtools : gera um report
-de acessibilidade, boas práticas , etc do meu site )
+  de acessibilidade, boas práticas , etc do meu site )
 
-## Tratamento de erros 
+## Tratamento de erros
+
 - Resiliência de Software (quando falha o que é mostrado ? )
-- Segurança 
-- Ex SomaSegura: Verifica se os argumentos existem , se são do tipo number senao retorna -1 
-- em forms eh interessante tratar a entrada para evitar roubo de informações 
-- ex: evitar caracteres especiais 
-- tratar se só numeros em campo número , etc 
-- evitar datas inválidas 
-- usuário ou senha inválidas ( evita o roubo de senha por tentativa e erro evitar somente usuario ou somente senha invávaida) 
+- Segurança
+- Ex SomaSegura: Verifica se os argumentos existem , se são do tipo number senao retorna -1
+- em forms eh interessante tratar a entrada para evitar roubo de informações
+- ex: evitar caracteres especiais
+- tratar se só numeros em campo número , etc
+- evitar datas inválidas
+- usuário ou senha inválidas ( evita o roubo de senha por tentativa e erro evitar somente usuario ou somente senha invávaida)
 -
-- Tratamento de componentes : 
-- Em Js usamos PropTypes 
-- Podemos usar linguagens tipadas como typescript definindo interfaces 
+- Tratamento de componentes :
+- Em Js usamos PropTypes
+- Podemos usar linguagens tipadas como typescript definindo interfaces
 
 import React from 'react';
 import PropTypes from 'prop-types';
 
 export const Basic = ({ name }) => (
-    <p>Meu nome é {name}</p>
+
+<p>Meu nome é {name}</p>
 )
 
 Basic.propTypes = {
-    name: PropTypes
+name: PropTypes
 }
-
-
-
-
 
 ## SCRUM
 
@@ -6504,8 +6539,7 @@ SGDB - Sistemas gerenciadores de banco de dados
 - no modelo der existe uma notação que vem ao lado da entidade M(1..N) significa que precisa de no minimo 1 e pode ter varios
 - no modelo der existe uma notação que vem ao lado da entidade N(0..N) significa que pode nao ter nenhuma ou N vendas
 - no modelo der existe uma notação que vem ao lado da entidade 1(1..1) 1 venda precisa ter 1 e no maximo 1 cliente
-- Relacionamentos 1X N , M x N
-  ![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/Capturar3.PNG?raw=true)
+- Relacionamentos 1X N , M x N![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/Capturar3.PNG?raw=true)
 
 ![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/333.PNG?raw=true)
 
@@ -6577,6 +6611,7 @@ create table client
 nome varchar (100) not null , 
 telefone varchar(15))
 ```
+
 - clicando no play a tabela será criada e dando um refresh na database aula você vera a table client
 - Comando ddl (criacao etc;) nao necessitam de commit cuidado , pois nao tem volta. dar um drop na tabela nao tem volta
 - Inserimos
@@ -6585,6 +6620,7 @@ telefone varchar(15))
 insert into client (codigo,nome,telefone)
 values(1,'Lorem Ipsum', '(88)- 8888 9999')
 ```
+
 - e para que seja acplicada aplicamos commit
 - ao realizar um select * from client vemos o usuario adicionado
 - ele se tornou o usuario postgre no ubuntu para mostrar que podemos fazer o mesmo pela linha de comando
@@ -6642,6 +6678,7 @@ values(1,'Lorem Ipsum', '(88)- 8888 9999')
 - Inicialmente foram criados para troca de mensagens usando xlm(extensible markup language) sobre o protocolo http sendo identificado por uri (uniform resource identifier)
 - Podemos dizer que serviços web são api's que se comunicam por meio de redes sobre o protocolo http
 - Uma aplicação x acessa um web service que faz troca de  mensagens com a aplicação y usando , xml , json, yaml ...
+
 ```
 SOAP
 REST
@@ -6688,8 +6725,9 @@ ex :
 <m:Numero> num </m:Numero>
 <m:Endereco>
 </soap:Body>
-</soap:Envelope> 
+</soap:Envelope>
 ```
+
 ### Entendendo o que é WSDL e XSD
 
 WSDL
@@ -6719,8 +6757,7 @@ Rest
 - Representational State Transfer
 - É um estilo de arquitetura de software que define a implementação de um serviço web
 - Podem trabalhar com os formatos XML , JSON ou outros
-- utiliza http para definir a operação que está sendo efetuada
-  ![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/Capturar.PNG?raw=true)
+- utiliza http para definir a operação que está sendo efetuada![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/Capturar.PNG?raw=true)
 
 API :
 
@@ -6765,6 +6802,7 @@ ex:
  ]
 }
 ```
+
 ### Integração com REST e métodos HTTP na prática
 
 Código de Estado (Status Code)
@@ -6831,8 +6869,7 @@ Pros:
 - Desacoplamento
   Contra :
 - Monitoramento mais complexo que o microserviço 1 (MB entre cada serviço)
-- provisionamento complexo  (docker)
-  ![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/micro2.PNG)
+- provisionamento complexo  (docker)![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/micro2.PNG)
 
 ### microserviços  3
 
@@ -6953,8 +6990,7 @@ Solução
 ### Prototipagem
 
 - Utilidade atualizar modelo de negócios e criar novos produtos ou serviços
-- Fidelidade do protótipo (baixa ou alta fidelidade) baixa é interessante para não criar expectativas
-  ![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/dasdasd.PNG?raw=true)
+- Fidelidade do protótipo (baixa ou alta fidelidade) baixa é interessante para não criar expectativas![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/dasdasd.PNG?raw=true)
 
 ### Portfolio , Clientes e apresentação
 
@@ -6994,6 +7030,7 @@ Exemplo de desenvolvimento de API em Node.js usando TDD
 ```
 npm install
 ```
+
 ### Criar container para o banco MongoDB com Docker
 
 Execute o arquivo para gerar o container:
@@ -7001,6 +7038,7 @@ Execute o arquivo para gerar o container:
 ```
 ./runDocker.sh
 ```
+
 *Obs.: O Docker precisa estar instalado. Instruções de como instalar o Docker em Windows, Mac e Linux, veja [este post](https://blog.umbler.com/br/containers-102-primeiros-passos-para-realizar-a-instalacao?a=7e8480pk).*
 
 ### Executando os testes
@@ -7010,11 +7048,13 @@ Para executar os testes unitários, use o comando:
 ```
 mpm run test:unit
 ```
+
 Para executar os testes de integração, use o comando:
 
 ```
 pm run test:integration
 ```
+
 ### Referências
 
 [Documentação do Express](https://expressjs.com)
@@ -7040,8 +7080,9 @@ Exemplo de API em Node.js usando JWT
 ### Instalar dependências
 
 ```
-    npm install
+npm install
 ```
+
 ### Gerando certificados
 
 O algorítmo de encriptação do token usa o conteúdo de arquivos de certificados que contém as chaves pública e privada. Para gerar estes arquivos, execute o arquivo:
@@ -7049,6 +7090,7 @@ O algorítmo de encriptação do token usa o conteúdo de arquivos de certificad
 ```
 $ ./generateKeys.sh
 ```
+
 A senha solicitada pelo comando pode ficar em branco. Os arquivos **_private.key_** e **_public.key_** serão gerados na pasta **_src_**.
 
 ### Iniciar o servidor
@@ -7056,8 +7098,9 @@ A senha solicitada pelo comando pode ficar em branco. Os arquivos **_private.key
 Para iniciar o servidor Express, use o comando:
 
 ```
-   npm start
+npm start
 ```
+
 ### Referências
 
 [Documentação do Express](https://expressjs.com)
@@ -7137,6 +7180,7 @@ insatlei o yarn
   }
 }
 ```
+
 - dentro da pasta2 git init
   Initialized empty Git repository in /root/.vscode-server/teste2/.git/
   criei um arquivo .gitignore com a seguinte linha : node_modules
@@ -7167,6 +7211,7 @@ app.listen(process.env.PORT, () => {
   
 });
 ```
+
 e rodei no terminal para iniciallizar o servidor :
 
 - yarn start
@@ -7201,6 +7246,7 @@ export default {
      }
  }
 ```
+
 -yarn start
 
 -criamos uma pasta lib dentro de app com o arquivo Mail.js
@@ -7211,6 +7257,7 @@ import mailConfig from '../config/mail';
 
 export default nodemailer.createTransport(mailConfig)
 ```
+
 - Usamos o mailtrap.io para simular uma caixa de email
 - https://mailtrap.io/inboxes
 - criamos a pasta config/mail.js
@@ -7225,15 +7272,16 @@ export default{
       }
 }
 ```
-```Usei minhas credenciais no .env para enviar o emal
+
+```Usei
 PORT = 8080
 
 MAIL_HOST = smtp.mailtrap.io
 MAIL_PORT = 2525
 MAIL_USER= ---
 MAIL_PASS= ----
-
 ```
+
 <s>Não consegui enviar o email pois o meu container nao tem um servidor http , não consigo fazer o post que gera o usuario , a senha aleatória e manda o email. preciso instalar um servidor http para tanto. </s>
 
 - não precisei de nada disso. o nodemon já inicia o servidor n porta 8080 com o nodejs com as configurações realizadas no arquivo server.js Consegui fazer o post usando o postman desta forma :
@@ -7271,6 +7319,7 @@ export default {
     }
 }
 ```
+
 - E removemos o await do Mail.js
 - criamos um arquivo redis.js dentro da pasta config
 
@@ -7281,6 +7330,7 @@ export default {
 
 }
 ```
+
 e no arquivo .env adicionar
 REDIS_HOST = 127.0.0.1
 REDIS_PORT = 6379
@@ -7294,6 +7344,7 @@ REDIS_PORT = 6379
 ```
 export {default as RegistrationMail} from './RegistrationMail';
 ```
+
 Adicionamos um arquivo Queue.js dentro de lib
 
 ```Javascript
@@ -7326,6 +7377,7 @@ export default{
     }
 }
 ```
+
 Adicionamos o bull
 criamos um queue.js dentro de src para ouvir se há ou nao um processo na fila
 
@@ -7335,12 +7387,14 @@ import 'dotenv/config';
 import Queue from './app/lib/Queue';
 Queue.process();
 ```
+
 - Adicionamos o bull-board apk add bull-board para visualizar o servidor em
   http://localhost:8080/admin/queues
 
-```embaixo do start no package.json
+```embaixo
 "queue": "nodemon src/queue.js"
 ```
+
 - Sentry : https://sentry.io/
 - programa muito interessante que fica rodando dentro do servidor buscando exceções
   e nosso server.js ficou assim
@@ -7366,6 +7420,7 @@ app.listen(process.env.PORT, () => {
     console.log(`Server running on the ${process.env.PORT}`)
 });
 ```
+
 ## Node Hapi
 
 https://github.com/luizrosalba/node-hapijs
@@ -7429,6 +7484,7 @@ module.exports = async function (context, req) {
     }
 }
 ```
+
 - no terminal : func host start
 - funciona !
 - tiramos o metodo post da function.json
@@ -7453,6 +7509,7 @@ module.exports = async function (context, req) {
   ]
 }
 ```
+
 - funciona : http://localhost:7071/api/products
 - https://github.com/IgorHalfeld/digital-innovation-one-demo
 - copiamos o github para mongoclient.js em shared
@@ -7472,6 +7529,7 @@ module.exports = async context => {
   context.res = { status: 200, body };
 };
 ```
+
 - http://localhost:7071/api/products retorna os produtos cadastrados no banco que o prof. criou em mongodb+srv://god:dog@cluster0-dfsvs.mongodb.net/dgo?retryWrites=true&w=majority
 - trazendo só p id
 - func new
@@ -7498,6 +7556,7 @@ module.exports = async context => {
   ]
 }
 ```
+
 - no index
 
 ```
@@ -7523,6 +7582,7 @@ module.exports = async function (context, req) {
   context.res = { status: 200, body };
 };
 ```
+
 - retorna o produto
 - http://localhost:7071/api/products/5ddb00d8d90791a2afee4055
 - Rota para criar produtos
@@ -7559,6 +7619,7 @@ module.exports = async function (context, req) {
   }
 };
 ```
+
 - no function.json
 
 ```
@@ -7580,6 +7641,7 @@ module.exports = async function (context, req) {
   ]
 }
 ```
+
 - no postman
 - criar o body raw
 
@@ -7589,18 +7651,20 @@ module.exports = async function (context, req) {
     "price": 3 
 }
 ```
+
 -POST  http://localhost:7071/api/products/
 
 - 201 created
 - ao dar get percebemos o produto criado
 
 ```
-  {
+{
     "_id": "5f45667fc4d15216d86e6efe",
     "nome": "curso",
     "price": 3
   }
 ```
+
 - func new
 - 8
 - UpdateProduct
@@ -7641,6 +7705,7 @@ module.exports = async function (context, req) {
   }
 };
 ```
+
 na function
 
 ```
@@ -7662,6 +7727,7 @@ na function
   ]
 }
 ```
+
 - put http://localhost:7071/api/products/5f45667fc4d15216d86e6efe
   com o body raw para atualizar o preco para 4 reais
 
@@ -7671,6 +7737,7 @@ na function
     "price": 4 
 }
 ```
+
 - funciona !
   Criando o delete
 - func new
@@ -7711,6 +7778,7 @@ module.exports = async function (context, req) {
   }
 };
 ```
+
 No Functions
 
 ```
@@ -7732,6 +7800,7 @@ No Functions
   ]
 }
 ```
+
 - DELETE http://localhost:7071/api/products/5f45667fc4d15216d86e6efe
 - produto deletado com sucesso
 - deploy no azure
@@ -7753,13 +7822,48 @@ No Functions
 - publish  azurefunc
 - https://github.com/luizrosalba/azure_func
 
-```
-
-
-
-
-
-```
 ## Clean Code
 
 https://github.com/luizrosalba/clean-code-javascript
+
+## Livro Fullstack react the complete guide
+
+What’s a component?
+Building a React app is all about components. An individual React component can
+be thought of as a UI component in an app. We can break apart the interface of our
+app into two classes of components:
+
+There are two ways to declare React components:
+
+- (1) As ES6 classes (as above)
+- (2) Function components
+  An example of using an ES6 class:
+
+```Javascript
+class HelloWorld extends React.Component {
+  render() { return <>Hello, world!</>;}
+}
+```
+
+The same component written in a “functional component” style:
+
+```Javascript
+function HelloWorld() {
+return <p>Hello, world!</p>;
+}
+```
+
+```
+return (
+<div className='ui unstackable items'>
+Hello, friend! I am a basic React component.
+</div>
+);
+```
+
+The syntax of the return value doesn’t look like traditional JavaScript. We’re using
+JSX (JavaScript eXtension syntax), a syntax extension for JavaScript written by
+Facebook. Using JSX enables us to write the markup for our component views in a
+familiar, HTML-like syntax. In the end, this JSX code compiles to vanilla JavaScript.
+Although using JSX is not a necessity, we’ll use it in this book as it pairs really well
+with React.

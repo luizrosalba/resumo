@@ -4,7 +4,9 @@
   "description": "**Table of Contents**",
   "main": "index.js",
   "dependencies": {
-    "@kyeotic/react-md-editor": "^1.13.1-beta.0"
+    "@kyeotic/react-md-editor": "^1.13.1-beta.0",
+    "react-editor-md": "^1.0.19",
+    "react-md-editor": "^0.2.2"
   },
   "devDependencies": {},
   "scripts": {
