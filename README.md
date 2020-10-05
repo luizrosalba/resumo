@@ -2981,7 +2981,130 @@ duck inherits its prototype from the Bird constructor function. You can show thi
 Bird.prototype.isPrototypeOf(duck);
 // returns true
 ``` 
+#### Understand the Prototype Chain
 
+All objects in JavaScript (with a few exceptions) have a prototype. Also, an object’s prototype itself is an object.
+
+``` JS 
+function Bird(name) {
+  this.name = name;
+}
+
+typeof Bird.prototype; // yields 'object'
+```
+
+Because a prototype is an object, a prototype can have its own prototype! In this case, the prototype of Bird.prototype is Object.prototype:
+```Js 
+Object.prototype.isPrototypeOf(Bird.prototype); // returns true
+``` 
+How is this useful? You may recall the hasOwnProperty method from a previous challenge:
+```Js 
+let duck = new Bird("Donald");
+duck.hasOwnProperty("name"); // yields true
+``` 
+The hasOwnProperty method is defined in Object.prototype, which can be accessed by Bird.prototype, which can then be accessed by duck. This is an example of the prototype chain. In this prototype chain, Bird is the supertype for duck, while duck is the subtype. Object is a supertype for both Bird and duck. Object is a supertype for all objects in JavaScript. Therefore, any object can use the hasOwnProperty method.
+
+#### Use Inheritance So You Don't Repeat Yourself
+
+There's a principle in programming called Don't Repeat Yourself (DRY). The reason repeated code is a problem is because any change requires fixing code in multiple places. This usually means more work for programmers and more room for errors.
+
+Notice in the example below that the describe method is shared by Bird and Dog:
+```Js 
+Bird.prototype = {
+  constructor: Bird,
+  describe: function() {
+    console.log("My name is " + this.name);
+  }
+};
+
+Dog.prototype = {
+  constructor: Dog,
+  describe: function() {
+    console.log("My name is " + this.name);
+  }
+};
+```
+The describe method is repeated in two places. The code can be edited to follow the DRY principle by creating a supertype (or parent) called Animal:
+```Js 
+function Animal() { };
+
+Animal.prototype = {
+  constructor: Animal, 
+  describe: function() {
+    console.log("My name is " + this.name);
+  }
+};
+```
+Since Animal includes the describe method, you can remove it from Bird and Dog:
+```Js 
+Bird.prototype = {
+  constructor: Bird
+};
+
+Dog.prototype = {
+  constructor: Dog
+};
+```
+#### Inherit Behaviors from a Supertype
+
+In the previous challenge, you created a supertype called Animal that defined behaviors shared by all animals:
+```Js 
+function Animal() { }
+Animal.prototype.eat = function() {
+  console.log("nom nom nom");
+};
+```
+This and the next challenge will cover how to reuse Animal's methods inside Bird and Dog without defining them again. It uses a technique called inheritance. This challenge covers the first step: make an instance of the supertype (or parent). You already know one way to create an instance of Animal using the new operator:
+```Js 
+let animal = new Animal();
+```
+There are some disadvantages when using this syntax for inheritance, which are too complex for the scope of this challenge. Instead, here's an alternative approach without those disadvantages:
+
+```Js 
+let animal = Object.create(Animal.prototype);
+```
+Object.create(obj) creates a new object, and sets obj as the new object's prototype. Recall that the prototype is like the "recipe" for creating an object. By setting the prototype of animal to be Animal's prototype, you are effectively giving the animal instance the same "recipe" as any other instance of Animal.
+```JS 
+animal.eat(); // prints "nom nom nom"
+animal instanceof Animal; // => true
+```
+
+
+#### Set the Child's Prototype to an Instance of the Parent
+
+In the previous challenge you saw the first step for inheriting behavior from the supertype (or parent) Animal: making a new instance of Animal.
+
+This challenge covers the next step: set the prototype of the subtype (or child)—in this case, Bird—to be an instance of Animal. 
+Passaro agora é subtipo de animal 
+```JS 
+Bird.prototype = Object.create(Animal.prototype);
+```
+Remember that the prototype is like the "recipe" for creating an object. In a way, the recipe for Bird now includes all the key "ingredients" from Animal.
+```JS 
+let duck = new Bird("Donald");
+duck.eat(); // prints "nom nom nom"
+```
+duck inherits all of Animal's properties, including the eat method.
+
+#### Reset an Inherited Constructor Property
+
+When an object inherits its prototype from another object, it also inherits the supertype's constructor property.
+
+Here's an example:
+
+```JS
+function Bird() { }
+Bird.prototype = Object.create(Animal.prototype);
+let duck = new Bird();
+duck.constructor // function Animal(){...}
+```
+But duck and all instances of Bird should show that they were constructed by Bird and not Animal. To do so, you can manually set Bird's constructor property to the Bird object:
+```JS
+Bird.prototype.constructor = Bird; //// pode ser até depois da atribuição let duck = new Bird(); irá corrigir corretamente o  construtor 
+duck.constructor // function Bird(){...}
+```
+
+#### Add Methods After Inheritance
 
 #### Herança
 
