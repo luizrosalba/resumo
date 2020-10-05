@@ -1,6 +1,7 @@
 # Resumo dos meus Estudos !
 
----
+Fonte : Modern full stack ,   Aulas DIO , Internet
+--------------------------------------------------
 
 ## Git
 
@@ -85,7 +86,7 @@ Um Resumo dos Comandos Git, lista de Comandos importantes do Git
 - tags com abertura e fechamento
 - estrutura básica
 
-```
+```Javascript 
 <!DOCTYPE html> 
 <html>
     <head>
@@ -102,7 +103,7 @@ Um Resumo dos Comandos Git, lista de Comandos importantes do Git
 
 Semantica após 2014 (nova versão , evita os divs)
 
-```
+```Javascript 
 <section>
 
 Representa uma seção genérica de conteúdo quando não houver um elemento mais específico para isso.
@@ -128,7 +129,7 @@ Esse elemento representa o rodapé do conteúdo ou de parte dele, pois ele é ac
 Eles não foram criados na versão 5 do HTML e nem são específicos para semântica, mas servem para esse propósito. São utilizados para marcar a importância dos títulos, sendo <h1> o mais importante e <h6> o menos. Uma dica: use apenas um <h1> por página, pois ele representa o objetivo da sua página.
 ```
 
-```
+```Javascript 
 <a> Link </a>
 <a href = "linkedin.com/"> Link </a>
 <a href = "mailtto:luizrosalba@gmail.com"> email </a>
@@ -139,7 +140,7 @@ Eles não foram criados na versão 5 do HTML e nem são específicos para semân
 - seletores são elementos html a,p,h1,h3
 - dentro de chaves uma propriedade e um valor
 
-```
+```Javascript 
 a,p,h1,h3{
     color: blue; 
     font-size:14px;
@@ -152,13 +153,13 @@ a,p,h1,h3{
 - classe é precedida por um ponto
 - id precedido por um #
 
-```
+```Javascript 
 .header{
     padding:10px
 }
 ```
 
-```
+```Javascript 
 #header{
     padding:15px
 }
@@ -200,7 +201,8 @@ Unlike some other programming languages, single and double quotes work the same 
 
 Code	Output
 
-```'	single
+```
+'	single
 \"	double quote
 \\	backslash
 \n	newline
@@ -549,7 +551,7 @@ indexOf()	Returns the position of the first found occurrence of a specified valu
 lastIndexOf()	Returns the position of the last found occurrence of a specified value in a string
 localeCompare()	Compares two strings in the current locale
 match()	Searches a string for a match against a regular expression, and returns the matches
-repeat()	Returns a new string with a specified number of copies of an existing string
+repeat()	Returns a new string with a specified number of copies of an  string
 replace()	Searches a string for a specified value, or a regular expression, and returns a new string where the specified values are replaced
 search()	Searches a string for a specified value, or regular expression, and returns the position of the match
 slice()	Extracts a part of a string and returns a new string
@@ -566,7 +568,7 @@ trim()	Removes whitespace from both ends of a string
 valueOf()	Returns the primitive value of a String object
 ```
 
-### Escopo de variáveis 
+### Escopo de variáveis
 
 Variables which are used without the var keyword are automatically created in the global scope. (mesmo dentro de funções)
 var dentro de função cria uma variavel com escopo local
@@ -574,7 +576,7 @@ It is possible to have both local and global variables with the same name. When 
 
 ### Arrays
 
-#### Criação e Inicialização 
+#### Criação e Inicialização
 
 ```Javascript
 const arr = [1,2,3];
@@ -597,8 +599,10 @@ Array.from(origem) /// cria uma nova instancia de array a partir de um parâmetr
 const divArray = Array.from (divs)  /// cria um array a partir do objeto div (que no exemplo do curso era um NodeList). A partir daí pode-se utilizar funções de array como pop , shift , etc
 ```
 
-#### Preenchendo 
-##### Fill 
+#### Preenchendo
+
+##### Fill
+
 O método fill é um método mutável, ele irá mudar o objeto em si, e retorná-lo, não somente uma cópia do objeto.
 
 ```Javascript
@@ -768,7 +772,6 @@ const arr = [1,2,3,4,5];
 arr.map (value => value *2); // retorna um novo array [2,4,6,8,10]
 ```
 
-
 ##### flat
 
 Imutavel  Retorna um novo array com todos os elementos de um sub-array concatenados de forma recursiva de acordo com a profundidade especificada (depth)
@@ -803,8 +806,6 @@ console.log("arr21 "+ arr21.map(x=>x.split(" ")));
  console.log("arr21 " + arr21.flatMap(x => x.split(" ")));
 // ["it's","Sunny","in", "", "California"]  vetor de uma dimensao flateado
 ```
-
-
 
 ##### reduce
 
@@ -949,24 +950,24 @@ const arr = [1,2,3,4,5];
 arr.reverse(); /// [5 , 4 , 3 , 2 , 1]
 ```
 
-
 #### Nested arrays
 
 Site bom com documentação
 
 https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
-```Javascript 
+
+```Javascript
 var myArray = [[],[]];
 
 // Setup
 var myArray = [[1,2,3], [4,5,6], [7,8,9], [[10,11,12], 13, 14]];
 var myData = myArray[2][1];// Retorna 8
-``` 
-
+```
 
 ### Undefined
 
 se uma função nao retorna nada , seu retorno é undefined.
+
 === compara valor e tipo
 
 switch case faz === nas comparações
@@ -996,7 +997,7 @@ function switchOfStuff(val) {
 switchOfStuff(1);
 ```
 
-Retornando undefined
+#### Retornando undefined
 
 ```Javascript
 function retornaUndefined (){
@@ -1004,7 +1005,7 @@ return ;
 }
 ```
 
-### objects
+### Objects
 
 ```Javascript
 var cat = {
@@ -1021,26 +1022,47 @@ var anotherObject = {
 };
 ```
 
-### delete
+Existem duas formas de acessar as propriedades de um objeto.
 
-propriedade make do objeto anotherObject
+- Notação ponto .
+- Notação bracket []
 
-delete anotherObject.make;
+A notação ponto é usada quando você sabe o nome da propriedade de antemão
 
-However, if your object has any non-string properties, JavaScript will automatically typecast them as strings.
+Se a prop não existe e vc quer criar use a notação ponto e inicialize (se nao inicializar nao vai criar )
 
-There are two ways to access the properties of an object: dot notation (.) and bracket notation ([]), similar to an array.
+Para acessar o valor use [][]
 
-Dot notation is what you use when you know the name of the property (nome conhecido) you're trying to access ahead of time.
+Se a propriedade que você está tentando acessar possui um espaço no nome (ou já existe) você precisa da notação bracker []
 
-Se a prop nao existe e vc quer criar use a notação ponto e inicialize (se nao inicializar nao vai criar )
-para acessar o valor use [][]
-
-If the property of the object you are trying to access has a space in its name (ou é uma variavel que já existe) , you will need to use bracket notation.
 Se ela já existe ou é uma variável , use bracket sem aspas
-criar com aspas fará ela criar uma prop com  o nome da variável e nao com o conteúdo da variável .
+Criar com aspas fará ela criar uma prop com  o nome da variável e nao com o conteúdo da variável .
 
-### .hasOwnProperty()
+#### Delete
+
+Deleta uma propriedade de um objeto
+
+```Javascript 
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+  bananas: 13,
+  grapes: 35,
+  strawberries: 27
+};
+
+// Only change code below this line
+delete foods.oranges;
+delete foods.plums;
+delete foods.strawberries ;
+// Only change code above this line
+
+console.log(foods);
+``` 
+
+
+#### .hasOwnProperty()
 
 We can use the .hasOwnProperty(propname) method of objects to determine if that object has the given property name. .hasOwnProperty() returns true or false if the property is found or not.
 
@@ -1054,6 +1076,40 @@ var myObj = {
 myObj.hasOwnProperty("top");    // true
 myObj.hasOwnProperty("middle"); // false
 ```
+
+Outro exempo usando in 
+
+```Javascript 
+let users = {
+  Alan: {
+    age: 27,
+    online: true
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: true
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
+};
+
+function isEveryoneHere(obj) {
+  // Only change code below this line
+  return ( users.hasOwnProperty('Alan') &&   users.hasOwnProperty('Jeff') &&  
+   'Sarah' in users &&   'Ryan' in users ) ;
+  // Only change code above this line
+}
+
+console.log(isEveryoneHere(users));
+
+``` 
+
 
 JavaScript Object Notation or JSON is a related data interchange format used to store data.
 
@@ -1549,7 +1605,7 @@ function randomRange(myMin, myMax) {
 }
 ```
 
-```Javascript
+
 Em outras bases The parseInt() function parses a string and returns an integer. It takes a second argument for the radix, which specifies the base of the number in the string. The radix can be an integer between 2 and 36.
 
 ```Javascript
@@ -1558,6 +1614,9 @@ function convertToInteger(str,radix) {
 }
 convertToInteger("10011",2); /// converte a string para um inteiro na base binaria
 ```
+
+
+
 
 Definition and Usage
 The sort() method sorts the items of an array.
@@ -1688,7 +1747,10 @@ unction compare(a, b) {
 }
 ```
 
-```Javascript
+
+
+
+
 ## ES6
 
 ### História e Conceitos :
@@ -1705,7 +1767,7 @@ javascript é interpretada -> código é executado de cima pra baixo sem compila
 
 Tipagem é fraca ( não há verificação em todas as operações , ex: você pode somar inteiros com strings ) e dinâmica ( a partir da atribuição o tipo saberá o tipo da variável - inferência de tipo) , você pode atribuir a mesma variável a diferentes tipos
 
-```javascript
+```Javascript
 var x; // Now x is undefined 
 x = 5;// Now x is a Number 
 x = "John"; // Now x is a String
@@ -1726,6 +1788,8 @@ obs: console.log( `1- 0 é : " ${exemplo}<span> </span>`); -> mistura variável 
 Javascript algorithms and data Structues certification
 
 Cursando o Javascript algorithms and data Structues certification
+
+## Aulas
 
 ### Aula 1.2 Currying, Hoisting, Imutabilidade, Tipos e Variáveis
 
@@ -1972,21 +2036,22 @@ Fn.prop = 'Posso criar propriedades';
 console.log (Fn.prop);
 
 const fn1 =>  fnparam => allowed => { /// uma funcao que recebe um parametro e e se permitido executa outra funcao
+```Javascript 
 if (allowed) {
 fnParam();
 }
 
 }
-
+```
 /// A funcao abaixo pode ser reescrita como
-
+```Javascript 
 function controlFnExec (fnParam)
 {
 return function(allowed) {
 if (alloed) {
-fnParam();
-}
-}
+  fnParam();
+  }
+  }
 }
 
 /// a funcao abaixo é a reescrita da funcao acima usando arrow function
@@ -1995,9 +2060,9 @@ function controlFnExec (fnParam)
 {
 return function(allowed) {
 if (allowed) {
-fnParam();
-}
-}
+  fnParam();
+  }
+  }
 }
 
 const controlFnExec => fnParam => allowed => {  /// mais enxuto , mais limpo
@@ -2005,7 +2070,7 @@ if (allowed) {
 fnParam();
 }
 }
-
+```
 #### Principal diferença entre funcao arrow e function normal
 
 this referencia o contexto em que foi criada
@@ -2031,82 +2096,96 @@ https://www.w3schools.com/js/js_array_iteration.asp
 #### Operadores:
 
 JS possui operadores unários, binario  e ternário
+```Javascript 
+  a = ++2 unário /// a jah recebe valor incrementado
+  b = 2++ unário /// b recebe o valor atual 2
 
-a = ++2 unário /// a jah recebe valor incrementado
-b = 2++ unário /// b recebe o valor atual 2
+  a+b binário
+  a%b binário resto
+  && and
+  || or
+  !true retorna false
+  !false retorna true
+  !"Gato" retorna false /// string preenchida com valor é true
+  " " true
+  1
+  "" false
+  0
 
-a+b binário
-a%b binário resto
-&& and
-|| or
-!true retorna false
-!false retorna true
-!"Gato" retorna false /// string preenchida com valor é true
-" " true
-1
-"" false
-0
-
-!!
-
+  !!
+```
 ternário
-condicao ? valor1:valor2
-true ? 'foo' : 'bar' /// retorna 'foo'
-false ? 'foo' : 'bar' /// retorna 'bar'
 
-+true  soma 1
-+false soma zero ( funciona como se fosse um parse int)
-+"3" retorna 3
+```Javascript 
+  condicao ? valor1:valor2
+  true ? 'foo' : 'bar' /// retorna 'foo'
+  false ? 'foo' : 'bar' /// retorna 'bar'
 
-2**3 exponenciacao
+  +true  soma 1
+  +false soma zero ( funciona como se fosse um parse int)
+  +"3" retorna 3
 
-== igualdade (true)
-=== igualdade e do mesmo tipo (true)
-!== operandos iguals mas nao sao do mesmo tipo (true)
+  2**3 exponenciacao
 
+  == igualdade (true)
+  === igualdade e do mesmo tipo (true)
+  !== operandos iguals mas nao sao do mesmo tipo (true)
+```
 #### Operador Spread:
 
 Introduzido no ES6
 
 Itera cada item e passa um parametro
 
+```Javascript
 var parter = ['ombro','joelho'] ;
 var musica = ['cabeca',...partes,'e,'pes'] ;
+```
 
 concatena dois arrays criando um novo array , no lugar de partes insere ombro joelho
 
+```Javascript
 function fn (x,y,z) {}
 var args = [0,1,2];
 fn(...args) ;  /// x = 0 , y = 1 , z = 2
+```
 
 #### Operador delete e typeof são unários
 
 #### Operador in
 
+```Javascript
 var musica = new Array ["A", "B", "C"] ;
 
 0  in musica /// true
 "A" in musica; /// retorna false vc deve especificar o num do indice e nao o valor
 "A" in musica[0]; /// retorna true
 "lenght" in musica /// true pois length é uma propriedade de todo string
+```
 
 #### Operador binario instanceof
 
 Verifica se um objeto é uma instancia
 
+```Javascript
 var dia = new Date (2018,12,17);
 if (dia instance of Date) // true
+```
 
 #### for in e for of
 
+```Javascript
 for in -> Passa por todos os valores dos objetos
 
 for of ->  retorna o indice de cada objeto
+```
 
 #### continue
 
+```Javascript
 if (element %2 ===0 )
 continue
+```
 
 pula a execução para os pares
 
@@ -2120,6 +2199,7 @@ Sempre que criamos uma variável em javascrypt ele cria uma variavel __proto__ q
 
 Toda função construtora tem um prototype
 
+```Javascript
 myText.__proto__.split é o mesmo que my myText.split ou ainda String.prototype.split
 
 myText.__proto__.split === String.prototype.split /// true
@@ -2129,14 +2209,16 @@ myText.constructor === String ///true
 __proto __ -> prototype -> constructor
 
 new Foo(); /// um novo objeto é criado a partir da função construtora Foo herdando Foo.prototype
+```
 
 se a função construtora tem um retorno será respeitado. Senão será retornado o objeto criado em 1
 
+```Javascript
 function Pessoa(name){
 this.name = name;
-return {
-name:'teste'
-};
+  return {
+    name:'teste'
+  };
 }
 
 const p = new Pessoa ('Guilherme' )
@@ -2147,33 +2229,37 @@ this.name = name;
 }
 const p = new Pessoa ('Guilherme' )
 console.log (p);  /// retorna Guilherme
+```
 
 obs  : função call passa um contexto para esta função ser executada
 
+```Javascript
 ex 2: O problema dessa abordagem é que toda vez que realizarmos new Cachorro() latir e movimentar serão criadas
 'use scrict';
 function Animal (qtdePatas){
-this.qtdePatas = qtdePatas;
-this.movimentar = function() {
-}
+  this.qtdePatas = qtdePatas;
+  this.movimentar = function() {
+  }
 }
 
 function Cachorro (morde){
 Animal.call(this,4); /// a funcao animal vai ser executada quando Cachorro for instanciada
 this.morde = morde;
 this.latir = function() {
-console.log ('Au !');
-}
+    console.log ('Au !');
+  }
 }
 //
 const pug = new Cachorro (false);
 //const pitbull  = new Cachorro (true);
 
 console.log(pug);
+```
 
 ex 3  : Nesta abordagem usamos o prototype que define o objeto cachorro tera qt deparas e movimentar por padrao
 nao serão criadas as funcoes movimentar e latir , se new cachorro já foi dado e um novo objeto for criado , o cachorro terá esta nova propriedade
 
+```Javascript
 'use scrict';
 
 function Animal (){}
@@ -2194,6 +2280,7 @@ console.log ('Au!');
 const pug = new Cachorro (false);
 //const pitbull  = new Cachorro (true);
 console.log(pug);
+```
 
 Cuidado! com prototype vc pode trocar a implementação até mesmo de um tipo nativo , vc pode mudar
 a programação do String.split por exemplo
@@ -2227,7 +2314,7 @@ A class is a type of function, but instead of using the keyword function to init
 Example
 Create a Car class, and then create an object called "mycar" based on the Car class:
 
-```
+```Javascript 
 class Car {  // Create a class
   constructor(brand) {  // Class constructor
     this.carname = brand;  // Class body/properties
@@ -2236,19 +2323,21 @@ class Car {  // Create a class
 mycar = new Car("Ford");  // Create an object of Car class
 ```
 
-Class Keywords
+#### Class Keywords
+
 Keyword	Description
-extends	Extends a class (inherit)
-static	Defines a static method for a class
-super	Refers to the parent class
+
+- extends	Extends a class (inherit)
+- static	Defines a static method for a class
+- super	Refers to the parent class
 
 #### Modificadores de Acesso
 
 Js nao tem
-Atualmente v 12 do node , mas ainda nao tem suporte nos browsers , controla o que é privado e publico nos browsers
-usa funções get e set para recuperar os atributos
+Atualmente v 12 do node , mas ainda nao tem suporte nos browsers , controla o que é privado e publico nos browsers usa funções get e set para recuperar os atributos
 sintaxe:
-hashtag_nomevar -> torna a variável privada
+
+- hashtag_nomevar -> torna a variável privada
 
 #### Encapsulamento
 
@@ -2262,13 +2351,13 @@ permite que acesse métodos e atributos sem instanciar uma classe
 
 ex1: com funcoes , implementação de static do JS
 
-```
+```Javascript
 'use strict';
 
 function Person() {}
 
 Person.walk = function () {
-console.log('walking');
+  console.log('walking');
 }
 console.log(Person.walk());
 
@@ -2277,7 +2366,7 @@ ex2: com classes com ES6 temos a palavra chave static pode ser chamada sem insta
 'use strict';
 function Person() {}
 static walk()  {
-console.log('walking');
+  console.log('walking');
 }
 
 console.log(Person.walk());
@@ -2298,8 +2387,12 @@ Nome, Exemplo, contexto , problema, solução.
 
 1994 Gof Erich, Richard , Ralph John  DP Elements of Reusable OO Software -> Tipos Criação , estruturais e comportamentais
 
-```
-Padroes de criação : abstraem e / ou adiam o processo de criação dos objetos , tornamm o sistema independete de como seus objetos são criados , compostos e representados
+![](./img/design.PNG)
+
+
+
+```Javascript
+Padroes de criação (design pattern): abstraem e / ou adiam o processo de criação dos objetos , tornamm o sistema independete de como seus objetos são criados , compostos e representados
 mais famosos :
 Abstract Factory
 Builder
@@ -2308,7 +2401,7 @@ Prototype
 Singleton
 ```
 
-Padroes esttruturais :
+### Design PAtterns Padroes esttruturais :
 
 Se preocupam com a forma como classes e objetos sao compostos para formar estruturas maiores : Adapter, Bridge, Composite, Decorator , Facade , Business Delegate , Flyweight, Proxy
 
@@ -2329,27 +2422,644 @@ Observer >  A instancia (subscriber) mantem uma coleção de objetos (observers)
 Modoule > Permite organizar o corido sem a necessidade de expor variáveis globais No ES6 (export default)
 ```
 
+
+React Patterns : 
+
+- Contents
+- Translations
+- Element
+- Component
+- Expressions
+- Props
+- defaultProps
+- Destructuring props
+- JSX spread attributes
+- Merge destructured props with other values
+- Conditional rendering
+- Children types
+- Array as children
+- Function as children
+- Render prop
+- Children pass-through
+- Proxy component
+- Style component
+- Event switch
+- Layout component
+- Container component
+- Higher-order component
+- State hoisting
+- Controlled input
+
+- Translations
+These translations are not verified and links are not endorsements.
+Chinese
+
+Element
+Elements are anything inside angle brackets.
+
+
+``` JS
+<div></div>
+<Greeting />
+```
+Components return Elements.
+
+Component
+Define a Component by declaring a function that returns a React Element.
+
+``` JS
+function Greeting() {
+  return <div>Hi there!</div>;
+}
+```
+
+Expressions
+Use curly braces to embed expressions in JSX.
+
+``` JS
+function Greeting() {
+  let name = "chantastic";
+
+  return <div>Hi {name}!</div>;
+}
+```
+
+Props
+Take props as an argument to allow outside customizations of your Component.
+``` JS
+
+function Greeting(props) {
+  return <div>Hi {props.name}!</div>;
+}
+defaultProps
+Specify default values for props with defaultProps.
+
+function Greeting(props) {
+  return <div>Hi {props.name}!</div>;
+}
+Greeting.defaultProps = {
+  name: "Guest"
+};
+```
+Destructuring props
+Destructuring assignment is a JavaScript feature.
+It was added to the language in ES2015.
+So it might not look familiar.
+
+Think of it like the opposite of literal assignment.
+``` JS
+
+let person = { name: "chantastic" };
+let { name } = person;
+Works with Arrays too.
+
+let things = ["one", "two"];
+let [first, second] = things;
+```
+Destructuring assignment is used a lot in function components.
+These component declarations below are equivalent.
+``` JS
+
+function Greeting(props) {
+  return <div>Hi {props.name}!</div>;
+}
+
+function Greeting({ name }) {
+  return <div>Hi {name}!</div>;
+}
+```
+There's a syntax for collecting remaining props into an object.
+It's called rest parameter syntax and looks like this.
+``` JS
+
+function Greeting({ name, ...restProps }) {
+  return <div>Hi {name}!</div>;
+}
+```
+Those three dots (...) take all the remaining properties and assign them to the object restProps.
+
+So, what do you do with restProps once you have it?
+Keep reading...
+
+JSX spread attributes
+Spread Attributes is a feature of JSX.
+It's a syntax for providing an object's properties as JSX attributes.
+
+Following the example from Destructuring props,
+We can spread restProps over our <div>.
+``` JS
+
+function Greeting({ name, ...restProps }) {
+  return <div {...restProps}>Hi {name}!</div>;
+}
+```
+This makes Greeting super flexible.
+We can pass DOM attributes to Greeting and trust that they'll be passed through to div.
+
+<Greeting name="Fancy pants" className="fancy-greeting" id="user-greeting" />
+
+Avoid forwarding non-DOM props to components.
+Destructuring assignment is popular because it gives you a way to separate component-specific props from DOM/platform-specific attributes.
+``` JS
+
+function Greeting({ name, ...platformProps }) {
+  return <div {...platformProps}>Hi {name}!</div>;
+}
+```
+Merge destructured props with other values
+Components are abstractions.
+Good abstractions allow for extension.
+
+Consider this component that uses a class attribute for style a button.
+``` JS
+
+function MyButton(props) {
+  return <button className="btn" {...props} />;
+}
+This works great until we try to extend it with another class.
+```
+``` JS
+
+<MyButton className="delete-btn">Delete...</MyButton>
+In this case, delete-btn replaces btn.
+```
+Order matters for JSX spread attributes.
+The props.className being spread is overriding the className in our component.
+
+We can change the order but now the className will never be anything but btn.
+``` JS
+
+function MyButton(props) {
+  return <button {...props} className="btn" />;
+}
+```
+We need to use destructuring assignment to get the incoming className and merge with the base className.
+We can do this simply by adding all values to an array and joining them with a space.
+``` JS
+
+function MyButton({ className, ...props }) {
+  let classNames = ["btn", className].join(" ");
+
+  return <button className={classNames} {...props} />;
+  
+}
+```
+To guard from undefined showing up as a className, you could update your logic to filter out falsy values:
+``` JS
+
+function MyButton({ className, ...props }) {
+  let classNames = ["btn", className].filter(Boolean).join(" ").trim();
+
+  return <button className={classNames} {...props} />;
+}
+```
+Bear in mind though that if an empty object is passed it'll be included in the class as well, resulting in: btn [object Object].
+
+The better approach is to make use of available packages, like classnames or clsx, that could be used to join classnames, relieving you from having to deal with it manually.
+
+Conditional rendering
+You can't use if/else statements inside a component declarations.
+So conditional (ternary) operator and short-circuit evaluation are your friends.
+``` JS
+
+if
+{
+  condition && <span>Rendered when `truthy`</span>;
+}
+unless
+{
+  condition || <span>Rendered when `falsy`</span>;
+}
+if-else
+{
+  condition ? (
+    <span>Rendered when `truthy`</span>
+  ) : (
+    <span>Rendered when `falsy`</span>
+  );
+}
+```
+Children types
+React can render children from most types.
+In most cases it's either an array or a string.
+``` JS
+
+String
+<div>Hello World!</div>
+Array
+<div>{["Hello ", <span>World</span>, "!"]}</div>
+Array as children
+```
+Providing an array as children is a very common.
+It's how lists are drawn in React.
+
+We use map() to create an array of React Elements for every value in the array.
+``` JS
+
+<ul>
+  {["first", "second"].map(item => (
+    <li>{item}</li>
+  ))}
+</ul>
+That's equivalent to providing a literal array.
+
+<ul>{[<li>first</li>, <li>second</li>]}</ul>
+This pattern can be combined with destructuring, JSX Spread Attributes, and other components, for some serious terseness.
+
+<ul>
+  {arrayOfMessageObjects.map(({ id, ...message }) => (
+    <Message key={id} {...message} />
+  ))}
+</ul>
+```
+Function as children
+React components don't support functions as children. However, render props is a pattern for creating components that take functions as children.
+
+Render prop
+Here's a component that uses a render callback.
+It's not useful, but it's an easy illustration to start with.
+``` JS
+
+const Width = ({ children }) => children(500);
+The component calls children as a function, with some number of arguments. Here, it's the number 500.
+```
+To use this component, we give it a function as children.
+``` JS
+
+<Width>{width => <div>window is {width}</div>}</Width>
+We get this output.
+
+<div>window is 500</div>
+With this setup, we can use this width to make rendering decisions.
+
+<Width>
+  {width => (width > 600 ? <div>min-width requirement met!</div> : null)}
+</Width>
+```
+If we plan to use this condition a lot, we can define another components to encapsulate the reused logic.
+``` JS
+
+const MinWidth = ({ width: minWidth, children }) => (
+  <Width>{width => (width > minWidth ? children : null)}</Width>
+);
+```
+Obviously a static Width component isn't useful but one that watches the browser window is. Here's a sample implementation.
+``` JS
+
+class WindowWidth extends React.Component {
+  constructor() {
+    super();
+    this.state = { width: 0 };
+  }
+
+  componentDidMount() {
+    this.setState({ width: window.innerWidth }, () =>
+      window.addEventListener("resize", ({ target }) =>
+        this.setState({ width: target.innerWidth })
+      )
+    );
+  }
+
+  render() {
+    return this.props.children(this.state.width);
+  }
+}
+```
+Many developers favor Higher Order Components for this type of functionality. It's a matter of preference.
+
+Children pass-through
+You might create a component designed to apply context and render its children.
+``` JS
+
+class SomeContextProvider extends React.Component {
+  getChildContext() {
+    return { some: "context" };
+  }
+
+  render() {
+    // how best do we return `children`?
+  }
+}
+```
+You're faced with a decision. Wrap children in an extraneous <div /> or return children directly. The first options gives you extra markup (which can break some stylesheets). The second will result in unhelpful errors.
+``` JS
+
+// option 1: extra div
+return <div>{children}</div>;
+
+// option 2: unhelpful errors
+return children;
+It's best to treat children as an opaque data type. React provides React.Children for dealing with children appropriately.
+
+return React.Children.only(this.props.children);
+```
+Proxy component
+(I'm not sure if this name makes sense)
+
+Buttons are everywhere in web apps. And every one of them must have the type attribute set to "button".
+```
+
+<button type="button">
+Writing this attribute hundreds of times is error prone. We can write a higher level component to proxy props to a lower-level button component.
+
+const Button = props =>
+  <button type="button" {...props}>
+We can use Button in place of button and ensure that the type attribute is consistently applied everywhere.
+
+<Button />
+// <button type="button"><button>
+
+<Button className="CTA">Send Money</Button>
+// <button type="button" class="CTA">Send Money</button>
+Style component
+This is a Proxy component applied to the practices of style.
+
+Say we have a button. It uses classes to be styled as a "primary" button.
+
+
+<button type="button" className="btn btn-primary">
+We can generate this output using a couple single-purpose components.
+```
+
+import classnames from "classnames";
+``` JS
+
+const PrimaryBtn = props => <Btn {...props} primary />;
+
+const Btn = ({ className, primary, ...props }) => (
+  <button
+    type="button"
+    className={classnames("btn", primary && "btn-primary", className)}
+    {...props}
+  />
+);
+```
+It can help to visualize this.
+``` JS
+
+PrimaryBtn()
+  ↳ Btn({primary: true})
+    ↳ Button({className: "btn btn-primary"}, type: "button"})
+      ↳ '<button type="button" class="btn btn-primary"></button>'
+Using these components, all of these result in the same output.
+
+<PrimaryBtn />
+<Btn primary />
+<button type="button" className="btn btn-primary" />
+This can be a huge boon to style maintenance. It isolates all concerns of style to a single component.
+
+Event switch
+When writing event handlers it's common to adopt the handle{eventName} naming convention.
+
+
+handleClick(e) { /* do something */ }
+
+For components that handle several event types, these function names can be repetitive. The names themselves might not provide much value, as they simply proxy to other actions/functions.
+``` JS
+
+handleClick() { require("./actions/doStuff")(/* action stuff */) }
+handleMouseEnter() { this.setState({ hovered: true }) }
+handleMouseLeave() { this.setState({ hovered: false }) }
+```
+Consider writing a single event handler for your component and switching on event.type.
+``` JS
+
+handleEvent({type}) {
+  switch(type) {
+    case "click":
+      return require("./actions/doStuff")(/* action dates */)
+    case "mouseenter":
+      return this.setState({ hovered: true })
+    case "mouseleave":
+      return this.setState({ hovered: false })
+    default:
+      return console.warn(`No case for event type "${type}"`)
+  }
+}
+```
+Alternatively, for simple components, you can call imported actions/functions directly from components, using arrow functions.
+
+
+<div onClick={() => someImportedAction({ action: "DO_STUFF" })}
+Don't fret about performance optimizations until you have problems. Seriously don't.
+
+Layout component
+Layout components result in some form of static DOM element. It might not need to update frequently, if ever.
+
+Consider a component that renders two children side-by-side.
+``` JS
+
+<HorizontalSplit
+  startSide={<SomeSmartComponent />}
+  endSide={<AnotherSmartComponent />}
+/>
+```
+We can aggressively optimize this component.
+
+While HorizontalSplit will be parent to both components, it will never be their owner. We can tell it to update never, without interrupting the lifecycle of the components inside.
+``` JS
+
+class HorizontalSplit extends React.Component {
+  shouldComponentUpdate() {
+    return false;
+  }
+
+  render() {
+    return (
+      <FlexContainer>
+        <div>{this.props.startSide}</div>
+        <div>{this.props.endSide}</div>
+      </FlexContainer>
+    );
+  }
+}
+```
+Container component
+"A container does data fetching and then renders its corresponding sub-component. That’s it."—Jason Bonta
+
+Given this reusable CommentList component.
+``` JS
+
+const CommentList = ({ comments }) => (
+  <ul>
+    {comments.map(comment => (
+      <li>
+        {comment.body}-{comment.author}
+      </li>
+    ))}
+  </ul>
+);
+```
+We can create a new component responsible for fetching data and rendering the CommentList function component.
+``` JS
+
+class CommentListContainer extends React.Component {
+  constructor() {
+    super()
+    this.state = { comments: [] }
+  }
+
+  componentDidMount() {
+    $.ajax({
+      url: "/my-comments.json",
+      dataType: 'json',
+      success: comments =>
+        this.setState({comments: comments});
+    })
+  }
+
+  render() {
+    return <CommentList comments={this.state.comments} />
+  }
+}
+```
+We can write different containers for different application contexts.
+
+Higher-order component
+A higher-order function is a function that takes and/or returns a function. It's not more complicated than that. So, what's a higher-order component?
+
+If you're already using container components, these are just generic containers, wrapped up in a function.
+
+Let's start with our Greeting component.
+``` JS
+
+const Greeting = ({ name }) => {
+  if (!name) {
+    return <div>Connecting...</div>;
+  }
+
+  return <div>Hi {name}!</div>;
+};
+```
+If it gets props.name, it's gonna render that data. Otherwise it'll say that it's "Connecting...". Now for the the higher-order bit.
+``` JS
+
+const Connect = ComposedComponent =>
+  class extends React.Component {
+    constructor() {
+      super();
+      this.state = { name: "" };
+    }
+
+    componentDidMount() {
+      // this would fetch or connect to a store
+      this.setState({ name: "Michael" });
+    }
+
+    render() {
+      return <ComposedComponent {...this.props} name={this.state.name} />;
+    }
+  };
+  ```
+This is just a function that returns component that renders the component we passed as an argument.
+
+Last step, we need to wrap our Greeting component in Connect.
+
+const ConnectedMyComponent = Connect(Greeting);
+This is a powerful pattern for providing fetching and providing data to any number of function components.
+
+State hoisting
+function-component don't hold state (as the name implies).
+
+Events are changes in state. Their data needs to be passed to stateful container components parents.
+
+This is called "state hoisting". It's accomplished by passing a callback from a container component to a child component.
+``` JS
+
+class NameContainer extends React.Component {
+  render() {
+    return <Name onChange={newName => alert(newName)} />;
+  }
+}
+
+const Name = ({ onChange }) => (
+  <input onChange={e => onChange(e.target.value)} />
+);
+Name receives an onChange callback from NameContainer and calls on events.
+
+The alert above makes for a terse demo but it's not changing state. Let's change the internal state of NameContainer.
+
+class NameContainer extends React.Component {
+  constructor() {
+    super();
+    this.state = { name: "" };
+  }
+
+  render() {
+    return <Name onChange={newName => this.setState({ name: newName })} />;
+  }
+}
+```
+The state is hoisted to the container, by the provided callback, where it's used to update local state. This sets a nice clear boundary and maximizes the re-usability of function component.
+
+This pattern isn't limited to function components. Because function components don't have lifecycle events, you'll use this pattern with component classes as well.
+
+Controlled input is an important pattern to know for use with state hoisting
+
+(It's best to process the event object on the stateful component)
+
+Controlled input
+It's hard to talk about controlled inputs in the abstract. Let's start with an uncontrolled (normal) input and go from there.
+```
+<input type="text" />
+When you fiddle with this input in the browser, you see your changes. This is normal.
+
+A controlled input disallows the DOM mutations that make this possible. You set the value of the input in component-land and it doesn't change in DOM-land.
+
+
+<input type="text" value="This won't change. Try it." />
+Obviously static inputs aren't very useful to your users. So, we derive a value from state.
+
+```
+
+``` JS
+class ControlledNameInput extends React.Component {
+  constructor() {
+    super();
+    this.state = { name: "" };
+  }
+
+  render() {
+    return <input type="text" value={this.state.name} />;
+  }
+}
+```
+Then, changing the input is a matter of changing component state.
+
+``` JS
+return (
+  <input
+    value={this.state.name}
+    onChange={e => this.setState({ name: e.target.value })}
+  />
+);
+
+```
+This is a controlled input. It only updates the DOM when state has changed in our component. This is invaluable when creating consistent UIs.
+
+If you're using function components for form elements, read about using state hoisting to move new state up the component tree.
+
 ### ES6 let e var
 
 let foi introduzido no Es6 para evitar os problemas da variável pública var a variable with the same name can only be declared once
 
-```
+```Javascript
 let camper = 'James';
 let camper = 'David'; // throws an error
-
+```
 Note the "use strict". This enables Strict Mode, which catches common coding mistakes and "unsafe" actions. For instance:
 "use strict";
 x = 3.14; // throws an error because x is not declared
 
 When you declare a variable with the var keyword, it is declared globally, or locally if declared inside a function.
-
+```Javascript
 var printNumTwo;
 for (var i = 0; i < 3; i++) {
 if (i === 2) {
-printNumTwo = function() {
-return i;
-};
-}
+    printNumTwo = function() {
+    return i;
+    };
+  }
 }
 console.log(printNumTwo());
 // returns 3
@@ -2360,10 +3070,10 @@ printNumTwo() prints 3 and not 2 i foi atualizado e o valor retornado é o valor
 let printNumTwo;
 for (let i = 0; i < 3; i++) {
 if (i === 2) {
-printNumTwo = function() {
-return i;
-};
-}
+      printNumTwo = function() {
+    return i;
+    };
+  }
 }
 console.log(printNumTwo());
 // returns 2
@@ -2374,11 +3084,11 @@ function checkScope() {
 'use strict';
 let i = 'function scope';
 if (true) {
-let i = 'block scope';
-console.log('Block scope i is: ', i);
-}
-console.log('Function scope i is: ', i);
-return i;
+    let i = 'block scope';
+    console.log('Block scope i is: ', i);
+    }
+    console.log('Function scope i is: ', i);
+    return i;
 }
 ```
 
@@ -2390,7 +3100,7 @@ A common practice when naming constants is to use all uppercase letters, with wo
 
 However, it is important to understand that objects (including arrays and functions) assigned to a variable using const are still mutable. Using the const declaration only prevents reassignment of the variable identifier.Pode mudar cada elemento mas nao pode mudar o vetor inteiro
 
-```
+```Javascript
 "use strict";
 const s = [5, 6, 7];
 s = [1, 2, 3]; // throws error, trying to assign a const
@@ -2406,7 +3116,7 @@ To ensure your data doesn't change, JavaScript provides a function Object.freeze
 
 Nova Sintaxe que permite simplificar a declaração de funções. magic recebe o resultado da função ou seja uma data.
 
-```
+```Javascript
 const magic = () => {
 "use strict";
 return new Date();
@@ -2419,6 +3129,7 @@ const myFunc = () => "value";
 
 Argumentos em uma arrow function :
 
+```Javascript
 // doubles input value and returns it
 const doubler = (item) => item * 2;
 
@@ -2427,10 +3138,11 @@ const doubler = item => item * 2;
 
 // multiplies the first input value by the second and returns it
 const multiplier = (item, multi) => item * multi;
+```
 
 parametro default em arrow functions
 
-```
+```Javascript
 const greeting = (name = "Anonymous") => "Hello " + name;
 console.log(greeting("John")); // Hello John
 console.log(greeting()); // Hello Anonymous
@@ -2438,7 +3150,7 @@ console.log(greeting()); // Hello Anonymous
 
 Parametro rest em arrow functions
 
-```
+```Javascript
 function howMany(...args) {
 return "You have passed " + args.length + " arguments.";
 }
@@ -2454,7 +3166,7 @@ return args.reduce((a, b) => a + b, 0);
 
 ES6 introduces the spread operator, which allows us to expand arrays and other expressions in places where multiple parameters or elements are expected.
 
-```
+```Javascript
 const arr = [6, 89, 3, 45];
 const maximus = Math.max(...arr); // returns 89
 
@@ -2476,7 +3188,7 @@ console.log(arr2);
 Extrai informações de um objeto de maneira visualmente limpa
 Destructuring assignment is special syntax introduced in ES6, for neatly assigning values taken directly from an object.
 
-```
+```Javascript
 const { name, age } = user;
 // name = 'John Doe', age = 34
 
@@ -2534,7 +3246,7 @@ Destructuring Assignment variáveis vindas de um array
 
 One key difference between the spread operator and array destructuring is that the spread operator unpacks all contents of an array into a comma-separated list. Consequently, you cannot pick or choose which elements you want to assign to variables.
 
-```
+```Javascript
 const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
 console.log(a, b, c); // 1, 2, 5
 
@@ -2550,7 +3262,7 @@ In some situations involving array destructuring, we might want to collect the r
 
 The result is similar to Array.prototype.slice(), as shown below:
 
-```
+```Javascript
 const [a, b, ...arr] = [1, 2, 3, 4, 5, 7];
 console.log(a, b); // 1, 2
 console.log(arr); // [3, 4, 5, 7]
@@ -2558,7 +3270,7 @@ console.log(arr); // [3, 4, 5, 7]
 
 The rest element only works correctly as the last variable in the list.
 
-```
+```Javascript
 const source = [1,2,3,4,5,6,7,8,9,10];
 function removeFirstTwo(list) {
 "use strict";
@@ -2573,7 +3285,7 @@ const arr = removeFirstTwo(source);
 
 Use Destructuring Assignment to Pass an Object as a Function's Parameters
 
-```
+```Javascript
 const profileUpdate = (profileData) => {
 const { name, age, nationality, location } = profileData;
 // do something with these variables
@@ -2587,7 +3299,7 @@ const profileUpdate = ({ name, age, nationality, location }) => {
 
 Use destructuring assignment within the argument to the function half to send only max and min inside the function.
 
-```
+```Javascript
 const stats = {
 max: 56.78,
 standard_deviation: 4.34,
@@ -2611,7 +3323,7 @@ Template literals allow you to create multi-line strings and to use string inter
 
 Consider the code below:
 
-```
+```Javascript
 const person = {
 name: "Zodiac Hasbro",
 age: 56
@@ -2627,9 +3339,7 @@ console.log(greeting); // prints
 
 A lot of things happened there. Firstly, the example uses backticks (`), not quotes (' or "), to wrap the string. Secondly, notice that the string is multi-line, both in the code and the output. This saves inserting \n within strings. The ${variable} syntax used above is a placeholder. Basically, you won't have to use concatenation with the + operator anymore. To add variables to strings, you just drop the variable in a template string and wrap it with ${ and }. Similarly, you can include other expressions in your string literal, for example ${a + b}. This new way of creating strings gives you more flexibility to create robust strings.
 
-###
-
-```
+```Javascript
 const result = {
 success: ["max-length", "no-amd", "prefer-arrow-functions"],
 failure: ["no-var", "var-on-top", "linebreak"],
@@ -2661,7 +3371,7 @@ ES6 adds some nice support for easily defining object literals.
 
 Consider the following code:
 
-```
+```Javascript
 const getMousePosition = (x, y) => ({
 x: x,
 y: y
@@ -2670,7 +3380,7 @@ y: y
 
 getMousePosition is a simple function that returns an object containing two properties. ES6 provides the syntactic sugar to eliminate the redundancy of having to write x: x. You can simply write x once, and it will be converted tox: x (or something equivalent) under the hood. Here is the same function from above rewritten to use this new syntax:
 
-```
+```Javascript
 const getMousePosition = (x, y) => ({ x, y });
 ```
 
@@ -2678,7 +3388,7 @@ ES6: Write Concise Declarative Functions with ES6
 
 When defining functions within objects in ES5, we have to use the keyword function as follows:
 
-```
+```Javascript
 const person = {
 name: "Taylor",
 sayHello: function() {
@@ -2689,7 +3399,7 @@ return `Hello! My name is ${this.name}.`;
 
 With ES6, You can remove the function keyword and colon altogether when defining functions in objects. Here's an example of this syntax:
 
-```
+```Javascript
 const person = {
 name: "Taylor",
 sayHello() {
@@ -2703,7 +3413,7 @@ return `Hello! My name is ${this.name}.`;
 ES6 provides a new syntax to create objects, using the class keyword. It should be noted that the class syntax is just syntax, and not a full-fledged class-based implementation of an object-oriented paradigm, unlike in languages such as Java, Python, Ruby, etc.
 In ES5, we usually define a constructor function and use the new keyword to instantiate an object.
 
-```
+```Javascript
 var SpaceShuttle = function(targetPlanet){
 this.targetPlanet = targetPlanet;
 }
@@ -2735,7 +3445,7 @@ Getter functions are meant to simply return (get) the value of an object's priva
 
 Setter functions are meant to modify (set) the value of an object's private variable based on the value passed into the setter function. This change could involve calculations, or even overwriting the previous value completely.
 
-```
+```Javascript
 class Book {
 constructor(author) {
 this._author = author;
@@ -2758,7 +3468,7 @@ console.log(lol.writer);  // wut
 
 Notice the syntax used to invoke the getter and setter. They do not even look like functions. Getters and setters are important because they hide internal implementation details. Note: It is convention to precede the name of a private variable with an underscore (_). However, the practice itself does not make a variable private.
 
-```
+```Javascript
 // Only change code below this line
 class Thermostat {
 constructor(temperature) {
@@ -2787,7 +3497,7 @@ console.log (temp);
 
 utilizando um script
 
-```
+```Javascript
 <html>
   <body>
     <!-- Only change code below this line -->
@@ -2800,7 +3510,7 @@ utilizando um script
 ES6: Use export to Share a Code Block
 Imagine a file called math_functions.js that contains several functions related to mathematical operations. One of them is stored in a variable, add, that takes in two numbers and returns their sum. You want to use this function in several different JavaScript files. In order to share it with these other files, you first need to export it.
 
-```
+```Javascript
 export const add = (x, y) => {
 return x + y;
 }
@@ -2815,7 +3525,7 @@ export { add };
 
 When you export a variable or function, you can import it in another file and use it without having to rewrite the code. You can export multiple things by repeating the first example for each thing you want to export, or by placing them all in the export statement of the second example, like this:
 
-```
+```Javascript
 export { add, subtract };
 
 const uppercaseString = (string) => {
@@ -2841,7 +3551,7 @@ import * as myMathModule from "./math_functions.js";
 
 you will use this syntax if only one value is being exported from a file. It is also used to create a fallback value for a file or module.
 
-```
+```Javascript
 // named function
 export default function add(x, y) {
 return x + y;
@@ -2874,7 +3584,7 @@ const myPromise = new Promise((resolve, reject) => {
 
 A promise has three states: pending, fulfilled, and rejected. The promise you created in the last challenge is forever stuck in the pending state because you did not add a way to complete the promise. The resolve and reject parameters given to the promise argument are used to do this. resolve is used when you want your promise to succeed, and reject is used when you want it to fail. These are methods that take an argument, as seen below.
 
-```
+```Javascript
 const makeServerRequest = new Promise((resolve, reject) => {
 // responseFromServer represents a response from a server
 let responseFromServer;
@@ -2891,7 +3601,7 @@ reject("Data not received");// Change this line
 
 Promises are most useful when you have a process that takes an unknown amount of time in your code (i.e. something asynchronous), often a server request. When you make a server request it takes some amount of time, and after it completes you usually want to do something with the response from the server. This can be achieved by using the then method. The then method is executed immediately after your promise is fulfilled with resolve. Here’s an example:
 
-```
+```Javascript
 myPromise.then(result => {
 // do something with the result.
 });
@@ -2917,7 +3627,7 @@ console.log(result);
 
 ### ES6: Handle a Rejected Promise with catch
 
-```
+```Javascript
 myPromise.catch(error => {
 // do something with the error.
 });
@@ -2954,7 +3664,9 @@ In this unit, you create a simple application called ratefinder that returns a l
 ### Curso entendendo promises de uma vez por todas
 
 Lucas Santos -> https://medium.com/trainingcenter/entendendo-promises-de-uma-vez-por-todas-32442ec725c2
-###Parte 2
+
+#### Parte 2
+
 Promises : Podemos fazer varias requisições em javascript para diversas páginas e isto pode nao ser respondido na hora
 poderíamos paralelizar essas promises realizando um código assíncrono :
 
@@ -3549,13 +4261,6 @@ var obj = {
 console.log(obj);
 ```
 
-```javascript
-
-```
-
-```javascript
-
-```
 
 ### Aplicando Conceitos Rest, Spread , Operator e Destructuring
 
@@ -4500,13 +5205,6 @@ users.userLogged({user : "joao "});
 
 Event target trabalha com a api do browser eventListner
 
-```Javascript
-
-```
-
-```Javascript
-
-```
 
 ### 5 Tratamento e exceções
 
@@ -5035,13 +5733,7 @@ it.only ('Calls req with sum and index values ',function(){
  });
 ```
 
-```Javascript
-
-```
-
-## CSS
-
-https://github.com/luizrosalba/homecomstyledcomponents
+- Os estilos pela tag style são feitos por um JSON onde o CSS é escrito CamelCase.
 
 ## ReactJs
 
@@ -5076,6 +5768,27 @@ https://github.com/luizrosalba/IntroReactJs
 - Sempre que há uma mudança no html o react faz uma diferença e somente no pedaço onde há atualização é feita uma nova renderização
 
 ### Components
+
+What’s a component? Building a React app is all about components. An individual React component can be thought of as a UI component in an app. We can break apart the interface of our
+app into two classes of components: There are two ways to declare React components:
+
+- (1) As ES6 classes (as above)
+- (2) Function components
+  An example of using an ES6 class:
+
+```Javascript
+class HelloWorld extends React.Component {
+  render() { return <>Hello, world!</>;}
+}
+```
+
+The same component written in a “functional component” style:
+
+```Javascript
+function HelloWorld() {
+return <p>Hello, world!</p>;
+}
+```
 
 - Deixa tudo modular ?
 - componentes e props
@@ -5141,6 +5854,63 @@ understand the difference between HTML and JSX
 - Browser nao intepreta JSX , para isso é necessario um transpilador para a aplicação entender o código (exemplo BABEL)
 - para executar um JS dentro de um JSX deve estar entre chaves
 
+```Javascript 
+return (
+<div className='ui unstackable items'>
+Hello, friend! I am a basic React component.
+</div>
+);
+```
+
+The syntax of the return value doesn’t look like traditional JavaScript. We’re using
+JSX (JavaScript eXtension syntax), a syntax extension for JavaScript written by
+Facebook. Using JSX enables us to write the markup for our component views in a
+familiar, HTML-like syntax. In the end, this JSX code compiles to vanilla JavaScript.
+Although using JSX is not a necessity, we’ll use it in this book as it pairs really well
+with React.
+
+### Babel
+
+We mentioned at the beginning of the chapter that all the code in the book would be
+using ES6 JavaScript. However, most browsers in use today do not fully support ES6.
+Babel is a JavaScript transpiler. Babel turns ES6 code into ES5 code. We call this
+process transpiling. So we can enjoy the features of ES6 today yet ensure our code
+still runs in browsers that only support ES5.
+Another handy feature of Babel is that it understands JSX. Babel compiles our JSX
+into vanilla ES5 JS that our browser can then interpret and execute. We just need to
+instruct the browser that we want to use Babel to compile and run our JavaScript
+code.
+The sample code’s index.html already imports Babel in the head tags of index.html:
+
+```HTML
+<head>
+<!-- ... -->
+<script src="vendor/babel-standalone.js"></script>
+<!-- ... -->
+</head>
+```
+
+All we need to do is tell our JavaScript runtime that our code should be compiled
+by Babel. We can do this by setting the type attribute when we import the script in
+index.html to text/babel.
+Open index.html and change the script tag that loads ./js/app.js. We’re going to
+add two attributes:
+
+<script src="./js/seed.js"></script>
+
+<script
+type="text/babel"
+data-plugins="transform-class-properties"
+src="./js/app.js"
+></script>
+
+The attribute type="text/babel" indicates to Babel that we would like it to handle
+the loading of this script. The attribute data-plugins specifies a special Babel plugin
+we use in this book. We discuss this plugin at the end of the chapter.
+
+Babel successfully compiled our JSX into JavaScript and our browser was able to run
+that JavaScript without any issues.
+
 ### O que é webpack
 
 ### Integrando webpack ao desenvolvimento com ReactJS
@@ -5193,6 +5963,33 @@ understand the difference between HTML and JSX
 - no webpack adicionar devtool: 'source-map',
 - npm run start:dev
 
+### CSS e React
+
+https://github.com/luizrosalba/homecomstyledcomponents
+
+### Css componentes e elementos
+
+Como estilizar ?
+
+### inline
+
+Dentro do arquivo jsx
+
+- Pros  : Pratico , direta , ajuste  rapido  e testes de estilo
+- contra - manutenção
+
+```Javascript 
+import React from 'react';
+
+// 1. Como estilizar uma lista usando estilos inline.
+
+const listaEstilizada = {
+  marginTop: '10px',
+  border: '1px solid blue',
+  padding: '25px'
+};
+```
+
 ### Aula 3 - Conceitos aplicados aos tipos de dados e condições da biblioteca
 
 - Renderização condicional : Em React você pode criar componentes distintos ,que encapsulam o comportamento que você precisa. Você pode renderizar apenas alguns dos elementos , dependendo do estado da sua aplicação
@@ -5209,7 +6006,7 @@ understand the difference between HTML and JSX
 - npm i
 - cada elemento deve ter sua key - neste caso usamos o id de customer para fazer a key . colocar o indice poderia dar problema se estivermos trabalhando com dois vetores . chaves devem ser unicas apenas entre elementos irmaos
 
-```
+```Javascript 
 import React from "react";
 
 const listCustomer = [
@@ -5276,14 +6073,14 @@ export default App;
 - eventos em react são nomeadas usando camelCase ao invés de letras minúsculas
 - com o jsx você passa uma função como manipulador de enventos ao invés de um texto
 
-### Eventos
+#### Eventos
 
 - npm i
 - npm start
 - passando eventos . "e" acessa o prototype do browser daquele elemento
 -
 
-```
+```Javascript 
 import React from "react";
 
 const showEvent = (e) => {
@@ -5318,7 +6115,7 @@ export default App;
 
 Mudando o contexto para dentro do app para acessar sem usar o this
 
-```
+```Javascript 
 import React from "react";
 
 
@@ -5358,7 +6155,7 @@ export default App;
 
 Adicionando um botao para deletar cada cliente na lista da aula anterior :
 
-```
+```Javascript 
 import React from "react";
 
 const listCustomer = [
@@ -5424,7 +6221,7 @@ export default App;
 
 Passando o id como argumento para o manipilador de eventos
 
-```
+```Javascript 
 import React from "react";
 
 const listCustomer = [
@@ -5497,7 +6294,7 @@ export default App;
 - Começar com um mock  (simulam o comportamento de objetos reais de forma controlada. São normalmente criados para testar o comportamento de outros objetos. Em outras palavras, os objetos mock são objetos “falsos” que simulam o comportamento de uma classe ou objeto “real” para que possamos focar o teste na unidade a ser testada.)
 - Separar a Ui em páginas (escopos) diferentes por exemplo , colocar listcustomer em um arquivo e importa-lo
 - separar a UI em uma hierarquia de componentes
-- Criar uma versão estátia  em react
+- Criar uma versão estática  em react
 - Identificar a representação minima mas completa da UI
 - Identificar onde o state deve ficar
 - adicionar o fluxo de dados inverso
@@ -5506,32 +6303,7 @@ export default App;
 
 ### Desenvolvimento de Aplicações para internet com ReactJS
 
-## Css componentes e elementos
-
-Como estilizar ?
-
-### inline
-
-Dentro do arquivo jsx
-
-- Pros  : Pratico , direta , ajuste  rapido  e testes de estilo
-- contra - manutenção
-
-```
-import React from 'react';
-
-// 1. Como estilizar uma lista usando estilos inline.
-
-const listaEstilizada = {
-  marginTop: '10px',
-  border: '1px solid blue',
-  padding: '25px'
-};
-```
-
-- Os estilos pela tag style são feitos por um JSON onde o CSS é escrito CamelCase.
-
-### classes
+#### classes
 
 - pros Modularizada define-se classes pelo atributo classname
 - contra dificil manutencao
@@ -5539,7 +6311,7 @@ const listaEstilizada = {
 - conflitos de nomes (solução: Design patterns)
 - arquivo ClassName.css
 
-```
+```Javascript 
 .div-style {
   display: flex; 
   flex-direction: column; 
@@ -5550,7 +6322,7 @@ const listaEstilizada = {
 
 e depois importa-se no codigo , usamos className e não class para poder importa-lo no react
 
-```
+```Javascript 
 import './ClassName.css'
 function Hello(){
     return <div className="div-style"> Ola mundo </div>
@@ -5688,7 +6460,7 @@ tem um estado interno aceitando atributo value
 - state
 - set state
 
-## Componente controlado
+### Componente controlado
 
 - O recomendado no react é fazer componentes controlados
 
@@ -5802,7 +6574,7 @@ class SorveteForm extends React.Component {
 export default SorveteForm;
 ```
 
-## Componente não controlado
+### Componente não controlado
 
 - pega o estado do dom
 - o react observa estes estados através de uma referencia
@@ -5877,14 +6649,14 @@ Qual(is) componente(s) podemos utilizar em componentes controlados em React?
 textarea e select
 <textarea> </textarea> e <select> </select>.
 
-## bibliotecas
+### Bibliotecas para Forms
 
 - forms no react são verbosos tem que escrever bastante para funcionar
 - é possível usar algumas biblios :
 - formik (recomendada pela documentação do react )
 - Redux-forms
 
-# Flux
+## Flux
 
 - Arquitetura criada pelo Fb para comunicação entre componentes
 - falta de sincronização entre os componentes de notificação no facebook
@@ -5892,23 +6664,23 @@ textarea e select
 - Fb criou o flux e resolveu o problema
 - padrão para trafego de dados unidirecional![](img/flux.PNG)
 
-## Action
+### Action
 
 - Formata a mensagem a ser enviada (telégrafo)
 
-## Dispatcher
+### Dispatcher
 
 - Sabe todos os callbacks para diferentes Stores  (telefonista)
 
-## Store
+### Store
 
 É um gerente supercontrolador, guarda a informação e todas as alterações tem que ser feitas por ele mesmo mais ninguem
 
-## View
+### View
 
 Gerente intermediario (middleware) recebe as notificações da store e passa os dados para as visões abaixo dela
 
-## Arquitetura Flux
+### Arquitetura Flux
 
 Diversas implementações
 
@@ -5931,7 +6703,7 @@ Diversas implementações
 - Store não é um armazenamento central, o ideal é usar as stores para dados
   que vao ser compartilhados entre vários componentes
 
-# O que é Redux
+### Redux
 
 - Criado por Abramov e Clark em 2015
 - Redux é uma  implementação de flux
@@ -5945,25 +6717,25 @@ Diversas implementações
 - A camada de view eh chamada de react
 - Reducer
 
-## actions
+#### actions
 
 - são como as do flux
 - apensa retornam um objeto de action formatado
 - As actions formatam a mensagem a ser enviada para o dispatcher.
 
-## Store
+#### Store
 
 - unica store
 - cuida de toda árvore de estados
 - reducers cuidam de descobrir qual estado muda
 
-## reducers
+#### reducers
 
 - simplifica e divide o tarbalho da store
 - se conecta ao root reducer que divide os estados em pequenos reducers para descobrir como lidar com eese estado
 - estados imutáveis
 
-## Views
+#### Views
 
 - Em react adiciona na camada de View 3 novos conceitos para conectar a View a Store (provider, connect() e selector )
 - Provider wrapper da arvore de components, torna mais facil os componentes filhos se conectarem usando o connect
@@ -6121,11 +6893,11 @@ Sabe todos os callbacks para diferentes stores.
 Sobre o Flux, assinale a alternativa correta:
 As actions formatam a mensagem a ser enviada para o dispatcher.
 
-# Aula 3
+## Aula 3
 
-## Comunicação avançada entre aplicações
+### Comunicação avançada entre aplicações
 
-## rest http com react
+### rest http com react
 
 Apis HTTP
 Servem para conectar um ou mais servidores http
@@ -6137,7 +6909,7 @@ Servem para conectar um ou mais servidores http
 - fetch api (nativamente) Jquery ajax
 - Axios (lib http muito usada com react)
 
-## Fetch Api
+### Fetch Api
 
 Alguns browsers ainda nao suportam (talvez melhor usar node fetch)
 
@@ -6323,6 +7095,7 @@ class WordAdder extends React.PureComponent {
 
   handleCLick(){
     /// Essa parte é um padrao ruim e causa um bug 
+    
     const words = this.state.words; 
     words.push('marklar');
     this.setState({words:words});
@@ -6330,7 +7103,7 @@ class WordAdder extends React.PureComponent {
   render (){
     return (
      <div>
-    <button onClick={()=>this.handeClick} />
+    <button onClick={()=>this.handeClick} />/// mesmo mudando as palavras elas são consideradas iguais 
     <ListOfWords words={this.state.words} />
      </div>
   );
@@ -6338,15 +7111,16 @@ class WordAdder extends React.PureComponent {
 }
 ```
 
-7:30
 
-- como vc muda o valor , você nao consegue trabalhr com ela
-- soluçaõ :
-- evitar mutar valroes ou estados
+
+- como vc muda o valor , você nao consegue trabalhar com ela
+- solução :
+- evitar mutar valores ou estados mas criar um cópia mutaves  
+
 
 ![](img/sol1.PNG)
 
-- Usando uma biblio de imutabilidade
+- outra forma de resolver , seria u sando uma biblio de imutabilidade como a immutable js 
   imutable.js![](img/sol2.PNG)
 
 outras libs
@@ -6366,7 +7140,7 @@ outras libs
 - retornam o valor para a função mapStateToProps , verificando quem precisa de rerender
 - Por que não funciona com objetos mutáveis ?![](img/porque.PNG)
 
-## REdux + Rest
+## Redux + Rest
 
 - Exemplo : Sistema de loggin ou notificações
 - manter a sincronia independente da tela onde estiver
@@ -6417,7 +7191,7 @@ outras libs
 - DeBugging
 - Tratamento de erros
 
-## TDD
+### TDD
 
 Desenvolviemnto orientado a teste
 
@@ -6437,7 +7211,7 @@ Desenvolviemnto orientado a teste
 
 primeiro os testes mais básicos depois os mais completos
 
-## BDD
+### BDD
 
 Behavior-Driven Development
 
@@ -6465,7 +7239,7 @@ E devo estar na tela de login
 - npm add --dev jest-cucumber (existe uma extensão para Vs code para .feature)
 - Chai
 
-## Debbugin
+### Debbugin
 
 Depuração , processo de encontrar e reduzir defeitos de um software
 
@@ -7015,7 +7789,244 @@ Aprenda sobre o framework Bootstrap
 
 ## Node JS
 
+## NPM 
+NPM, which stands for Node Package Manager, is a companion app that installs 
+alongside Node (though it is developed separately and can be updated on a different 
+schedule than Node). With it, you can download packages, which are reusable JavaScript 
+modules (and any supporting stuff they might need) from a central package registry (or a 
+private repository if you have one). The central repository you can find at
+www.npmjs.com
+You can visit it through a web browser and look through all the packages available, 
+which makes finding exactly what you need easy.
+
+A Few More NPM Commands
+Aside from install, there are many other NPM commands, but you’ll probably only use 
+a subset most of the time. For example, to find out what modules are installed in your 
+project, you can issue this command:
+- npm ls
+Like on a *nix system, ls is short for list, and that’s what it does: lists the installed 
+modules. What you’ll see is a textual tree that shows the modules and then the modules 
+they depend on. In other words, more will likely be shown than just the modules you 
+explicitly installed (some modules don’t have dependencies, but in the NPM ecosystem, 
+those tend to be the exception rather than the rule).
+Tip  one very helpful tip i can give is that if you want to see just the top-level 
+modules, whether in the global or local cache, you can add --depth=0 to the ls 
+command.
+If you want to see what’s installed in global cache instead, you can do
+- npm -g ls
+In fact, keep that -g option in mind because you can add that to most NPM 
+commands to differentiate between the local and global caches.
+You can also update a given module:
+- npm update express
+Just provide the name of the module to update, and NPM will take care of it, updating 
+to the latest available version. If you don’t provide a package name, then NPM will dutifully 
+update all packages. And yes, you can drop a -g on it either way to target the global cache.
+
+### Initializing a New NPM/Node Project
+Now, in all of this, I did skip one step that clearly is optional but is, in fact, typical, and 
+that’s initializing a new project. With most Node/NPM projects, you’ll also have a file 
+named package.json in the root directory of the project. This file is the project manifest 
+file, and it provides metadata information to NPM (and Node, at least indirectly) about 
+your project that it needs to do certain things. It will tell NPM what modules to install if 
+they haven’t been installed yet for one thing (which makes giving a project to another 
+developer very easy!). It will also contain information like the name and version of the 
+project, its main entry point, and lots of other information (most of which is optional, but 
+we’ll look at that a bit more in the next chapter).
+While you can write this file by hand or even go entirely without it, it’s a good idea to 
+have it, and it’s a good idea to let NPM create it for you, which you can do by executing 
+this command:
+- npm init
+
+### Adding Dependencies
+Now, let’s say you want to add that Express package I mentioned to this project. There 
+are two choices. First, you could edit package.json yourself, adding this element:
+"dependencies": {
+  "express": "^4.16.1"
+}
+However, doing just that won’t have any effect. The module isn’t installed at this 
+point. To do that, you now must issue a command:
+- npm install
+NPM will now (using Node as a runtime, it should be mentioned, because NPM is 
+just a JavaScript application that runs on Node) go fetch the Express package from the 
+central repository, will determine all the dependencies it needs, and will download 
+and install all of them in the node_modules directory under the current directory. All 
+these modules are now in the project cache (not global cache, it should be noted) and 
+ready for you to use (normally, you wouldn’t use the transient dependencies of Express 
+directly, though you certainly could, but it’s good form to declare all the modules you 
+intend to use explicitly in package.json as dependencies).
+Another alternative, and the one generally favored by developers, is not to edit the 
+file directly and instead let NPM do it by issuing a command like this:
+- npm install express --save
+This will cause NPM to add the dependency entry in package.json for you. This 
+avoids the possibility of accidentally fat-fingering something and having a broken 
+experience (or, worse, handing the project to another developer only to get the dreaded 
+“It won’t even start up!” call).
+
+- Note  You can also replace --save with --save-dev. this results in a 
+devDependencies entry being added to package.json. the difference is 
+that devDependencies are modules that you only need during development, 
+but which your project code itself doesn’t depend on. as you’ll see later, two 
+good examples of this are typeScript and Webpack. also, when uninstalling 
+dependencies, --save and --save-dev can also be used to remove the 
+dependency from package.json.
+
+The reason this is all important is that, now, let’s say you want to give this project 
+to someone else. You typically do not want to provide them with all the dependencies 
+your project requires, all the content of node_modules, if for no other reason that that 
+directory can quickly grow to a large size. Instead, they can recreate it using the  
+package.json file just by doing this:
+npm install
+That will cause NPM to read the package.json file and automatically install all 
+the dependencies! Now, the person you’re working with has the same development 
+environment as you as far as project dependencies go for this project without having to  do any leg work themselves! Pretty sweet, right?
+As you can guess, there’s quite a bit more to NPM than just what I’ve shown here, but 
+these are the real basics.
+
+ ### NPM: More on package.json
+In the last chapter, you learned how to init a project with NPM, which generates a 
+package.json file. I said then that most of its contents were optional, and that’s definitely 
+true, but let’s talk about what’s available in that file, discussing each of the keys available 
+(remember it’s just a JSON file, which means it’s defining a JavaScript object, which has keys or properties or attributes or even elements – all these terms are generally taken to be 
+interchangeable in this context):
+-  name – We start with a simple one: the name of the thing you’re 
+coding! The name element’s value must be no more than 214 
+characters, cannot start with a dot or an underscore, can have no 
+uppercase letters, and must be URL-safe.
+-   author – The author is a single person and is defined by an object 
+with three potential attributes: name, email, and url (where name is 
+required, and both email and url are optional). Alternatively, you 
+can make the value a single string in the form "<name> <email> 
+(<url>)" and NPM will parse it for you automatically.
+- bin – Some packages require executables to be installed to do their 
+work and added to the path. That’s where the bin element comes 
+in. You can make the value an object (or map, which is probably the 
+more appropriate term here) that maps a command to an executable 
+and NPM will take care of “installing” it for you when you install the 
+package by creating the appropriate symlink.
+-  browser – Some modules are meant to be used in a browser, not in 
+Node, and for those packages, you can use this element instead of 
+the main element (coming up shortly!) to hint to the users of your 
+package that it depends on primitives available to JavaScript that 
+aren’t available in Node.
+-  bugs – If your project has an issue tracker, then you can reference 
+it with the bugs element. The value of this is an object with two 
+attributes, url and email, and you can specify either or both (but you 
+must specify at least one, or NPM will complain).
+-  bundledDependencies – Some projects need to preserve NPM 
+packages locally or through a single download. For those, this 
+element allows you to specify an array of package names that will be 
+bundled with your package when you publish it.
+-  config – If you need to have parameters available in the environment 
+when your package is used, then the config element might do the 
+trick. Here, you can specify a value like "config" : { "port" : 
+"8888" } and then in your code you can reference npm_package_
+config_port as an environment variable to get the value configured.
+-  contributors – The contributors element is just like the author element 
+except that this is an array of people who helped with the project.
+-  cpu – If your code is only meant to run on certain system architectures, 
+you can specify which as an array of strings with the cpu element.
+-  dependencies – You saw the dependencies element in the previous 
+chapter, but I’ll also mention that in addition to specifying a package 
+name and optionally a version to be pulled down from the NPM 
+registry, you can also specify a URL to a tarball to be downloaded or a 
+Git/GitHub URL or a local file system path.
+
+- description – A freeform string that describes your package. It’s as 
+simple as that!
+-  devDependencies – Again, one I mentioned in the previous chapter, 
+and it’s simply the same as dependencies, but it names packages that 
+are only needed during development.
+-  directories – This element allows you to describe the structure 
+your package, things like the location of library components binary 
+content, man pages, Markdown documentation, examples, and tests. 
+See the Common JS package specification for details on this.
+-  engines – This element allows you to specify what version(s) of Node 
+your package works on. You can also use this element to define what 
+version(s) of NPM is capable of properly installing the package.
+-  files – When your package is installed as a dependency, NPM will 
+need to know what files to include. It will by default assume all, but if 
+you want or need to be specified, then the files element will let you 
+do that. It works a lot like a .gitignore file, but in reverse: anything 
+listed in this element will be included, not ignored.
+-  homepage – If your project has a web site, then you can specify the 
+URL of its homepage with this element.
+-  keywords – The keywords element is an arbitrary array of strings that 
+can be used to help people find your package (more on this in the 
+next section).
+-  license – The value of the license element is the license your 
+package is released under. The value of this must be a currently 
+registered SPDX license identifier (see spdx.org for a list). 
+Alternatively, if you are using a custom license or one that doesn’t yet 
+have an SPDX identifier, then you can set the value to "SEE LICENSE 
+IN <filename>" and place the <filename> license file alongside the 
+package.json file. Or, if you don’t grant rights to use your package to 
+anyone (vis-à-vis, you want to make it private and/or unpublished), 
+then you can use a value of "UNLICENSED".
+-   man – With this element you can specify a single file or an array of 
+filenames to put in place for the Linux man program to display for 
+your package.
+-  main – This is the primary entry point to your package. For example, 
+if your package is named super_duper_cool_package, then a user 
+will expect to be able to do require("super_duper_cool_package") 
+after they install it. To allow this, the main element must point to the 
+file that exports your package’s main export object.
+-  optionalDependencies – If your package has dependencies and 
+NPM can’t install them, then it will fail the installation of your 
+package. If, however, you want to specify that some dependencies 
+are okay to be missing and that NPM should go ahead with the 
+installation anyway, then optionalDependencies is where you can 
+list them.
+-  os – Just like cpu, if your package only works on certain OSs, then this 
+element is where you can have an array of strings naming those it 
+runs on.
+-  peerDependencies – Sometimes, a package will function as a plugin 
+to others, and so you’ll need a way to define what other packages 
+yours is compatible with. The peerDependencies element allows you 
+to do that.
+-  private – If you want to ensure that you can’t accidentally publish 
+your package, then set private to false, and NPM will refuse to publish 
+it (more to come on publishing in the next section).
+-  publishConfig – This element is an object that defines many pieces 
+of metadata that come into play with publishing your package to the 
+NPM registry. This includes things like tags and such. This can get 
+fairly involved, and we won’t (for the most part) be worrying about 
+any of it in this book beyond a few words in the next section, so I’ll 
+leave this one to the NPM documentation if and when you need it.
+-  repository – If you’d like to specify where the code for your package 
+lives, whether GitHub or something else, whether public or private, 
+the repository element is where you do that.
 https://github.com/luizrosalba/ArquiteturainternanoNodeefilas.md/blob/master/README.md
+
+
+### Auditing Package Security
+The sad reality is that, sometimes, packages you use will be discovered to have security 
+vulnerabilities, just like any other software you use. But, being aware of this, the NPM 
+team has constructed a useful command for dealing with this:
+- npm audit
+Running this command will scan your package.json file (or global packages if you 
+use -g) and submit the list of dependencies to the default NPM registry requesting a 
+report on any known vulnerabilities in them. This report will also include information on 
+how to remediate. But, if you want the quick answer, execute this command:
+- npm audit fix
+That will cause NPM to update any vulnerable packages with the newest available 
+version that hasn’t had the vulnerability reported in it.
+If you’d like to see a detailed audit report, execute
+- npm audit --json
+or, if you prefer plain text
+- npm audit --readable
+Finally, if you’d like to see what npm audit fix would do but without literally doing 
+it, you can use
+- npm audit fix --dry-run
+
+
+###  Updating Packages
+Once you have a project set up, you may on occasion want to update the packages it 
+depends on. This is very easy to do:
+- npm update
+Yep, that’s it! NPM will go off and update all packages to the latest version, respecting 
+your SemVer settings. You naturally can stick a -g in there too in order to update global 
+packages.
+
 
 ## TDD e BDD
 
@@ -7476,7 +8487,7 @@ Vantagens :
 - toda config pronta
 - alteramos o index.js para :
 
-```
+```Javascript 
 module.exports = async function (context, req) {
     context.res =  { 
         status:200, 
@@ -7490,7 +8501,7 @@ module.exports = async function (context, req) {
 - tiramos o metodo post da function.json
 - definindo o nome da rota
 
-```
+```Javascript 
 {
   "bindings": [
     {
@@ -7516,7 +8527,7 @@ module.exports = async function (context, req) {
 - npm i mongodb
 - em index.js
 
-```
+```Javascript 
 const createMongoClient = require('../shared/mongoClient');
 
 module.exports = async context => {
@@ -7537,7 +8548,7 @@ module.exports = async context => {
 - GetProductByID
 - no functions
 
-```
+```Javascript 
 {
   "bindings": [
     {
@@ -7559,7 +8570,7 @@ module.exports = async context => {
 
 - no index
 
-```
+```Javascript 
 const { ObjectID } = require('mongodb');
 const createMongoClient = require('../shared/mongoClient');
 
@@ -7591,7 +8602,7 @@ module.exports = async function (context, req) {
 - CreateProduct
 - index.js
 
-```
+```Javascript 
 const createMongoClient = require('../shared/mongoClient');
 
 module.exports = async function (context, req) {
@@ -7622,7 +8633,7 @@ module.exports = async function (context, req) {
 
 - no function.json
 
-```
+```Javascript 
 {
   "bindings": [
     {
@@ -7644,8 +8655,7 @@ module.exports = async function (context, req) {
 
 - no postman
 - criar o body raw
-
-```
+```Javascript 
 {
     "nome" : "curso" , 
     "price": 3 
@@ -7657,7 +8667,7 @@ module.exports = async function (context, req) {
 - 201 created
 - ao dar get percebemos o produto criado
 
-```
+```Javascript 
 {
     "_id": "5f45667fc4d15216d86e6efe",
     "nome": "curso",
@@ -7671,7 +8681,7 @@ module.exports = async function (context, req) {
 -
 - no index
 
-```
+```Javascript 
 const { ObjectID } = require('mongodb');
 const createMongoClient = require('../shared/mongoClient');
 
@@ -7708,7 +8718,7 @@ module.exports = async function (context, req) {
 
 na function
 
-```
+```Javascript 
 {
   "bindings": [
     {
@@ -7731,7 +8741,7 @@ na function
 - put http://localhost:7071/api/products/5f45667fc4d15216d86e6efe
   com o body raw para atualizar o preco para 4 reais
 
-```
+```Javascript 
 {
     "nome" : "curso" , 
     "price": 4 
@@ -7745,7 +8755,7 @@ na function
 - Delete Product
   no index
 
-```
+```Javascript 
 const { ObjectID } = require('mongodb');
 const createMongoClient = require('../shared/mongoClient');
 
@@ -7781,7 +8791,7 @@ module.exports = async function (context, req) {
 
 No Functions
 
-```
+```Javascript 
 {
   "bindings": [
     {
@@ -7825,45 +8835,3 @@ No Functions
 ## Clean Code
 
 https://github.com/luizrosalba/clean-code-javascript
-
-## Livro Fullstack react the complete guide
-
-What’s a component?
-Building a React app is all about components. An individual React component can
-be thought of as a UI component in an app. We can break apart the interface of our
-app into two classes of components:
-
-There are two ways to declare React components:
-
-- (1) As ES6 classes (as above)
-- (2) Function components
-  An example of using an ES6 class:
-
-```Javascript
-class HelloWorld extends React.Component {
-  render() { return <>Hello, world!</>;}
-}
-```
-
-The same component written in a “functional component” style:
-
-```Javascript
-function HelloWorld() {
-return <p>Hello, world!</p>;
-}
-```
-
-```
-return (
-<div className='ui unstackable items'>
-Hello, friend! I am a basic React component.
-</div>
-);
-```
-
-The syntax of the return value doesn’t look like traditional JavaScript. We’re using
-JSX (JavaScript eXtension syntax), a syntax extension for JavaScript written by
-Facebook. Using JSX enables us to write the markup for our component views in a
-familiar, HTML-like syntax. In the end, this JSX code compiles to vanilla JavaScript.
-Although using JSX is not a necessity, we’ll use it in this book as it pairs really well
-with React.
