@@ -2889,6 +2889,99 @@ for (let property in duck) {
 console.log(ownProps); // prints ["name"]
 console.log(prototypeProps); // prints ["numLegs"]
 ```
+#### Understand the Constructor Property
+
+There is a special constructor property located on the object instances duck and beagle that were created in the previous challenges:
+```JS 
+let duck = new Bird();
+let beagle = new Dog();
+
+console.log(duck.constructor === Bird);  //prints true
+console.log(beagle.constructor === Dog);  //prints true
+```
+
+Note that the constructor property is a reference to the constructor function that created the instance. The advantage of the constructor property is that it's possible to check for this property to find out what kind of object it is. Here's an example of how this could be used:
+```JS 
+function joinBirdFraternity(candidate) {
+  if (candidate.constructor === Bird) {
+    return true;
+  } else {
+    return false;
+  }
+}
+```
+
+Note
+Since the constructor property can be overwritten (which will be covered in the next two challenges) it’s generally better to use the instanceof method to check the type of an object.
+
+#### Change the Prototype to a New Object
+
+Up until now you have been adding properties to the prototype individually:
+```JS 
+Bird.prototype.numLegs = 2;
+This becomes tedious after more than a few properties.
+
+Bird.prototype.eat = function() {
+  console.log("nom nom nom");
+}
+
+Bird.prototype.describe = function() {
+  console.log("My name is " + this.name);
+}
+```
+A more efficient way is to set the prototype to a new object that already contains the properties. This way, the properties are added all at once:
+```JS 
+Bird.prototype = {
+  numLegs: 2, 
+  eat: function() {
+    console.log("nom nom nom");
+  },
+  describe: function() {
+    console.log("My name is " + this.name);
+  }
+};
+```
+
+#### Remember to Set the Constructor Property when Changing the Prototype
+
+There is one crucial side effect of manually setting the prototype to a new object. It erases the constructor property! This property can be used to check which constructor function created the instance, but since the property has been overwritten, it now gives false results:
+
+```JS 
+duck.constructor === Bird; // false -- Oops
+duck.constructor === Object; // true, all objects inherit from Object.prototype
+duck instanceof Bird; // true, still works
+```
+To fix this, whenever a prototype is manually set to a new object, remember to define the constructor property:
+
+```JS 
+Bird.prototype = {
+  constructor: Bird, // define the constructor property
+  numLegs: 2,
+  eat: function() {
+    console.log("nom nom nom");
+  },
+  describe: function() {
+    console.log("My name is " + this.name); 
+  }
+};
+```
+#### Understand Where an Object’s Prototype Comes From
+
+Just like people inherit genes from their parents, an object inherits its prototype directly from the constructor function that created it. For example, here the Bird constructor creates the duck object:
+
+``` Js 
+function Bird(name) {
+  this.name = name;
+}
+
+let duck = new Bird("Donald");
+``` 
+duck inherits its prototype from the Bird constructor function. You can show this relationship with the isPrototypeOf method:
+``` Js 
+Bird.prototype.isPrototypeOf(duck);
+// returns true
+``` 
+
 
 #### Herança
 
