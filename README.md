@@ -1,7 +1,7 @@
 # Resumo dos meus Estudos !
 
-Fonte : Modern full stack ,   Aulas DIO , Internet
---------------------------------------------------
+Fonte : Modern full stack ,   Aulas DIO , Internet , freecode
+-------------------------------------------------------------
 
 ## Git
 
@@ -86,7 +86,7 @@ Um Resumo dos Comandos Git, lista de Comandos importantes do Git
 - tags com abertura e fechamento
 - estrutura básica
 
-```Javascript 
+```Javascript
 <!DOCTYPE html> 
 <html>
     <head>
@@ -103,7 +103,7 @@ Um Resumo dos Comandos Git, lista de Comandos importantes do Git
 
 Semantica após 2014 (nova versão , evita os divs)
 
-```Javascript 
+```Javascript
 <section>
 
 Representa uma seção genérica de conteúdo quando não houver um elemento mais específico para isso.
@@ -129,7 +129,7 @@ Esse elemento representa o rodapé do conteúdo ou de parte dele, pois ele é ac
 Eles não foram criados na versão 5 do HTML e nem são específicos para semântica, mas servem para esse propósito. São utilizados para marcar a importância dos títulos, sendo <h1> o mais importante e <h6> o menos. Uma dica: use apenas um <h1> por página, pois ele representa o objetivo da sua página.
 ```
 
-```Javascript 
+```Javascript
 <a> Link </a>
 <a href = "linkedin.com/"> Link </a>
 <a href = "mailtto:luizrosalba@gmail.com"> email </a>
@@ -140,7 +140,7 @@ Eles não foram criados na versão 5 do HTML e nem são específicos para semân
 - seletores são elementos html a,p,h1,h3
 - dentro de chaves uma propriedade e um valor
 
-```Javascript 
+```Javascript
 a,p,h1,h3{
     color: blue; 
     font-size:14px;
@@ -153,13 +153,13 @@ a,p,h1,h3{
 - classe é precedida por um ponto
 - id precedido por um #
 
-```Javascript 
+```Javascript
 .header{
     padding:10px
 }
 ```
 
-```Javascript 
+```Javascript
 #header{
     padding:15px
 }
@@ -352,6 +352,64 @@ UTC()	Returns the number of milliseconds in a date since midnight of January 1, 
 valueOf()	Returns the primitive value of a Date object
 ```
 
+
+Method	Description
+getDate()	Returns the day of the month (from 1-31)
+getDay()	Returns the day of the week (from 0-6)
+getFullYear()	Returns the year
+getHours()	Returns the hour (from 0-23)
+getMilliseconds()	Returns the milliseconds (from 0-999)
+getMinutes()	Returns the minutes (from 0-59)
+getMonth()	Returns the month (from 0-11)
+getSeconds()	Returns the seconds (from 0-59)
+getTime()	Returns the number of milliseconds since midnight Jan 1 1970, and a specified date
+getTimezoneOffset()	Returns the time difference between UTC time and local time, in minutes
+getUTCDate()	Returns the day of the month, according to universal time (from 1-31)
+getUTCDay()	Returns the day of the week, according to universal time (from 0-6)
+getUTCFullYear()	Returns the year, according to universal time
+getUTCHours()	Returns the hour, according to universal time (from 0-23)
+getUTCMilliseconds()	Returns the milliseconds, according to universal time (from 0-999)
+getUTCMinutes()	Returns the minutes, according to universal time (from 0-59)
+getUTCMonth()	Returns the month, according to universal time (from 0-11)
+getUTCSeconds()	Returns the seconds, according to universal time (from 0-59)
+getYear()	Deprecated. Use the getFullYear() method instead
+now()	Returns the number of milliseconds since midnight Jan 1, 1970
+parse()	Parses a date string and returns the number of milliseconds since January 1, 1970
+setDate()	Sets the day of the month of a date object
+setFullYear()	Sets the year of a date object
+setHours()	Sets the hour of a date object
+setMilliseconds()	Sets the milliseconds of a date object
+setMinutes()	Set the minutes of a date object
+setMonth()	Sets the month of a date object
+setSeconds()	Sets the seconds of a date object
+setTime()	Sets a date to a specified number of milliseconds after/before January 1, 1970
+setUTCDate()	Sets the day of the month of a date object, according to universal time
+setUTCFullYear()	Sets the year of a date object, according to universal time
+setUTCHours()	Sets the hour of a date object, according to universal time
+setUTCMilliseconds()	Sets the milliseconds of a date object, according to universal time
+setUTCMinutes()	Set the minutes of a date object, according to universal time
+setUTCMonth()	Sets the month of a date object, according to universal time
+setUTCSeconds()	Set the seconds of a date object, according to universal time
+setYear()	Deprecated. Use the setFullYear() method instead
+toDateString()	Converts the date portion of a Date object into a readable string
+toGMTString()	Deprecated. Use the toUTCString() method instead
+toISOString()	Returns the date as a string, using the ISO standard
+toJSON()	Returns the date as a string, formatted as a JSON date
+```JS 
+var d = new Date();
+var n = d.toJSON();
+```
+toLocaleDateString()	Returns the date portion of a Date object as a string, using locale conventions
+toLocaleTimeString()	Returns the time portion of a Date object as a string, using locale conventions
+toLocaleString()	Converts a Date object to a string, using locale conventions
+toString()	Converts a Date object to a string
+toTimeString()	Converts the time portion of a Date object to a string
+toUTCString()	Converts a Date object to a string, according to universal time
+UTC()	Returns the number of milliseconds in a date since midnight of January 1, 1970, according to UTC time
+valueOf()	Returns the primitive value of a Date object
+
+
+
 ### JavaScript Global Properties
 
 ```
@@ -401,9 +459,242 @@ window.location = "demo_json.php?x=" + myJSON;
 ```
 
 JSON Methods
+
+Exmeplo  extração de informações de um JSON : 
+```JS
+var watchList = [
+  {
+    "Title": "Inception",
+    "Year": "2010",
+    "Rated": "PG-13",
+    "Released": "16 Jul 2010",
+    "Runtime": "148 min",
+    "Genre": "Action, Adventure, Crime",
+    "Director": "Christopher Nolan",
+    "Writer": "Christopher Nolan",
+    "Actors": "Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page, Tom Hardy",
+    "Plot": "A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.",
+    "Language": "English, Japanese, French",
+    "Country": "USA, UK",
+    "Awards": "Won 4 Oscars. Another 143 wins & 198 nominations.",
+    "Poster": "http://ia.media-imdb.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
+    "Metascore": "74",
+    "imdbRating": "8.8",
+    "imdbVotes": "1,446,708",
+    "imdbID": "tt1375666",
+    "Type": "movie",
+    "Response": "True"
+  },
+  {
+    "Title": "Interstellar",
+    "Year": "2014",
+    "Rated": "PG-13",
+    "Released": "07 Nov 2014",
+    "Runtime": "169 min",
+    "Genre": "Adventure, Drama, Sci-Fi",
+    "Director": "Christopher Nolan",
+    "Writer": "Jonathan Nolan, Christopher Nolan",
+    "Actors": "Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow",
+    "Plot": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    "Language": "English",
+    "Country": "USA, UK",
+    "Awards": "Won 1 Oscar. Another 39 wins & 132 nominations.",
+    "Poster": "http://ia.media-imdb.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SX300.jpg",
+    "Metascore": "74",
+    "imdbRating": "8.6",
+    "imdbVotes": "910,366",
+    "imdbID": "tt0816692",
+    "Type": "movie",
+    "Response": "True"
+  },
+  {
+    "Title": "The Dark Knight",
+    "Year": "2008",
+    "Rated": "PG-13",
+    "Released": "18 Jul 2008",
+    "Runtime": "152 min",
+    "Genre": "Action, Adventure, Crime",
+    "Director": "Christopher Nolan",
+    "Writer": "Jonathan Nolan (screenplay), Christopher Nolan (screenplay), Christopher Nolan (story), David S. Goyer (story), Bob Kane (characters)",
+    "Actors": "Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine",
+    "Plot": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice.",
+    "Language": "English, Mandarin",
+    "Country": "USA, UK",
+    "Awards": "Won 2 Oscars. Another 146 wins & 142 nominations.",
+    "Poster": "http://ia.media-imdb.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg",
+    "Metascore": "82",
+    "imdbRating": "9.0",
+    "imdbVotes": "1,652,832",
+    "imdbID": "tt0468569",
+    "Type": "movie",
+    "Response": "True"
+  },
+  {
+    "Title": "Batman Begins",
+    "Year": "2005",
+    "Rated": "PG-13",
+    "Released": "15 Jun 2005",
+    "Runtime": "140 min",
+    "Genre": "Action, Adventure",
+    "Director": "Christopher Nolan",
+    "Writer": "Bob Kane (characters), David S. Goyer (story), Christopher Nolan (screenplay), David S. Goyer (screenplay)",
+    "Actors": "Christian Bale, Michael Caine, Liam Neeson, Katie Holmes",
+    "Plot": "After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from the corruption that Scarecrow and the League of Shadows have cast upon it.",
+    "Language": "English, Urdu, Mandarin",
+    "Country": "USA, UK",
+    "Awards": "Nominated for 1 Oscar. Another 15 wins & 66 nominations.",
+    "Poster": "http://ia.media-imdb.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg",
+    "Metascore": "70",
+    "imdbRating": "8.3",
+    "imdbVotes": "972,584",
+    "imdbID": "tt0372784",
+    "Type": "movie",
+    "Response": "True"
+  },
+  {
+    "Title": "Avatar",
+    "Year": "2009",
+    "Rated": "PG-13",
+    "Released": "18 Dec 2009",
+    "Runtime": "162 min",
+    "Genre": "Action, Adventure, Fantasy",
+    "Director": "James Cameron",
+    "Writer": "James Cameron",
+    "Actors": "Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang",
+    "Plot": "A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
+    "Language": "English, Spanish",
+    "Country": "USA, UK",
+    "Awards": "Won 3 Oscars. Another 80 wins & 121 nominations.",
+    "Poster": "http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg",
+    "Metascore": "83",
+    "imdbRating": "7.9",
+    "imdbVotes": "876,575",
+    "imdbID": "tt0499549",
+    "Type": "movie",
+    "Response": "True"
+  }
+];
+```
+
+Using ES6 notation, each item in array is processed to extract title and rating.
+Parantheses are needed to return an object.
+
+```JS 
+const ratings = watchList.map(({ Title: title, imdbRating: rating }) => ({title, rating}));
+```
+
+Extrai um JSON e filtra se maior que 8.0 
+
+```JS 
+
+// Only change code below this line
+
+const mapped = watchList.map(item => ({
+  title: item["Title"],
+  rating: item["imdbRating"]
+}));
+
+const filteredList = mapped.filter(item => item["rating"] > 8.0 );
+
+// Only change code above this line
+
+console.log(filteredList);
+
+```
+
+Extraindo title e rating de um JSON chamado watchList
+array.prototype.map takes a function as in input and returns an array. 
+The returned array includes elements that is processed by the function.
+This function takes individual elements as input.
+duas formas : 
+
+```JS
+const ratings = watchList.map(item => ({
+  title: item["Title"],
+  rating: item["imdbRating"]
+}));
+```
+
+Calculando a média filtrada por autor 
+```JS 
+
+function getRating(watchList){
+  // Only change code below this line
+   
+  const mapped = watchList.map(item => ({
+    rating: item["imdbRating"],
+    director: item["Director"]
+  }));
+
+  const filteredList = mapped.filter(item => item["director"] === "Christopher Nolan" );
+    
+  const averageRating = filteredList.reduce((sum, item) => sum + parseFloat(item.rating), 0)/filteredList.length;
+
+  // Only change code above this line
+  return averageRating;
+}
+```
 Method	Description
 parse()	Parses a JSON string and returns a JavaScript object
+```JS 
+const json = '{"result":true, "count":42}';
+const obj = JSON.parse(json);
+
+console.log(obj.count);
+// expected output: 42
+
+console.log(obj.result);
+// expected output: true
+```
+outro exemplo : 
+
+
+```Js
+
+
+var obj = JSON.parse('{"name":"John","age":30,"city":"New York"}');
+console.log(JSON.stringify(obj)); ///{"name":"John","age":30,"city":"New York"}
+
+```
+
+outro exemplo : 
+
+```JS 
+let userData = '{ "name": "John", "age": 35, "isAdmin": false, "friends": [0,1,2,3] }';
+
+let user = JSON.parse(userData);
+
+console.log( user.friends[1] ); // 1
+``` 
+
 stringify()	Convert a JavaScript object to a JSON string
+```JS 
+JSON.stringify({});                  // '{}'
+JSON.stringify(true);                // 'true'
+JSON.stringify('foo');               // '"foo"'
+JSON.stringify([1, 'false', false]); // '[1,"false",false]'
+JSON.stringify({ x: 5 });            // '{"x":5}'
+
+JSON.stringify({ x: 5, y: 6 });
+// '{"x":5,"y":6}' or '{"y":6,"x":5}'
+JSON.stringify([new Number(1), new String('false'), new Boolean(false)]);
+// '[1,"false",false]'
+
+// Symbols:
+JSON.stringify({ x: undefined, y: Object, z: Symbol('') });
+// '{}'
+JSON.stringify({ [Symbol('foo')]: 'foo' });
+// '{}'
+JSON.stringify({ [Symbol.for('foo')]: 'foo' }, [Symbol.for('foo')]);
+// '{}'
+JSON.stringify({ [Symbol.for('foo')]: 'foo' }, function(k, v) {
+  if (typeof k === 'symbol') {
+    return 'a symbol';
+  }
+});
+// '{}'
+
+```
 
 Valid Data Types
 In JSON, values must be one of the following data types:
@@ -574,7 +865,7 @@ charAt()	Returns the character at the specified index (position)
 charCodeAt()	Returns the Unicode of the character at the specified index
 concat()	Joins two or more strings, and returns a new joined strings
 
-```JS 
+```JS
 const array1 = ['a', 'b', 'c'];
 const array2 = ['d', 'e', 'f'];
 const array3 = array1.concat(array2);
@@ -589,7 +880,7 @@ indexOf()	Returns the position of the first found occurrence of a specified valu
 lastIndexOf()	Returns the position of the last found occurrence of a specified value in a string
 localeCompare()	Compares two strings in the current locale
 
-```JS 
+```JS
 const a = 'réservé'; // with accents, lowercase
 const b = 'RESERVE'; // no accents, uppercase
 
@@ -600,9 +891,11 @@ console.log(a.localeCompare(b, 'en', { sensitivity: 'base' }));
 ```
 
 match()	Searches a string for a match against a regular expression, and returns the matches
-```JS 
+
+```JS
 
 ```
+
 repeat()	Returns a new string with a specified number of copies of an  string
 replace()	Searches a string for a specified value, or a regular expression, and returns a new string where the specified values are replaced
 search()	Searches a string for a specified value, or regular expression, and returns the position of the match
@@ -611,7 +904,8 @@ split()	Splits a string into an array of substrings
 startsWith()	Checks whether a string begins with specified characters
 
 substr()	Extracts the characters from a string, beginning at a specified start position, and through the specified number of character
-```JS 
+
+```JS
 var str = 'abcdefghij';
 console.log('(1, 2): '   + str.substr(1, 2));   // '(1, 2): bc'
 console.log('(-3, 2): '  + str.substr(-3, 2));  // '(-3, 2): hi'
@@ -630,9 +924,6 @@ toUpperCase()	Converts a string to uppercase letters
 trim()	Removes whitespace from both ends of a string
 valueOf()	Returns the primitive value of a String object
 
-
-
-
 ### Escopo de variáveis
 
 Variables which are used without the var keyword are automatically created in the global scope. (mesmo dentro de funções)
@@ -642,6 +933,7 @@ It is possible to have both local and global variables with the same name. When 
 ### Arrays
 
 #### Array Properties
+
 constructor	Returns the function that created the Array object's prototype
 length	Sets or returns the number of elements in an array
 prototype	Allows you to add properties and methods to an Array object
@@ -683,17 +975,12 @@ toString()	Converts an array to a string, and returns the result
 unshift()	Adds new elements to the beginning of an array, and returns the new length
 valueOf()	Returns the primitive value of an array
 
-
-
-
-
-Method Example 
-
-
+Method Example
 
 concat()	Joins two or more arrays, and returns a copy of the joined arrays
 copyWithin()	Copies array elements within the array, to and from specified positions
-``` Js
+
+```Js
 const array1 = ['a', 'b', 'c', 'd', 'e'];
 
 // copy to index 0 the element at index 3
@@ -704,11 +991,13 @@ console.log(array1.copyWithin(0, 3, 4));
 console.log(array1.copyWithin(1, 3));
 // expected output: Array ["d", "d", "e", "d", "e"]
 ```
+
 entries()	Returns a key/value pair Array Iteration Object
 every()	Checks if every element in an array pass a test
 fill()	Fill the elements in an array with a static value
 filter()	Creates a new array with every element in an array that pass a test
-```JS 
+
+```JS
 const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
 
 const result = words.filter(word => word.length > 6);
@@ -720,7 +1009,6 @@ console.log(result);
 
 find()	Returns the value of the first element in an array that pass a test
 findIndex()	Returns the index of the first element in an array that pass a test
-
 
 Array.prototype.flat()
 
@@ -738,7 +1026,7 @@ console.log(arr2.flat(2));
 
 Array.prototype.flatMap()
 
-```JS 
+```JS
 let arr1 = [1, 2, 3, 4];
 
 arr1.map(x => [x * 2]); 
@@ -752,9 +1040,7 @@ arr1.flatMap(x => [[x * 2]]);
 // [[2], [4], [6], [8]]
 ```
 
-
-
-``` JS 
+```JS
 let arr1 = ["it's Sunny in", "", "California"];
 
 arr1.map(x => x.split(" "));
@@ -764,16 +1050,60 @@ arr1.flatMap(x => x.split(" "));
 // ["it's","Sunny","in", "", "California"]
 ```
 
-
-
 forEach()	Calls a function for each array element
+
+Exemplo : Produz uma função myMap que utiliza um this.forEach para aplicar a função do callback nas entradas 
+
+```JS 
+// the global Array
+var s = [23, 65, 98, 5];
+
+Array.prototype.myMap = function(callback) {
+  var newArray = [];
+  // Add your code below this line
+  this.forEach(a => newArray.push(callback(a)));
+  // Add your code above this line
+  return newArray;
+};
+
+var new_s = s.myMap(function(item) {
+  return item * 2;
+});
+```
+
+Exemplo : Produz uma função myMap que utiliza um for para aplicar a função do callback nas entradas 
+
+
+```JS 
+// The global Array
+var s = [23, 65, 98, 5];
+
+Array.prototype.myMap = function(callback) {
+  var newArray = [];
+
+  // Add your code below this line
+  for (let i = 0; i < this.length; i++) {
+    newArray.push(callback(this[i]));  /// this se refere ao objeto que chama a funcao (s)
+  }
+  // Add your code above this line
+
+  return newArray;
+};
+
+var new_s = s.myMap(function(item) {
+  return item * 2;
+});
+```
+
+
+
 from()	Creates an array from an object
 includes()	Check if an array contains the specified element
 indexOf()	Search the array for an element and returns its position
 isArray()	Checks whether an object is an array
 join()	Joins all elements of an array into a string
 
-```JS 
+```JS
 const elements = ['Fire', 'Air', 'Water'];
 
 console.log(elements.join());
@@ -784,7 +1114,7 @@ console.log(elements.join(''));
 
 console.log(elements.join('-'));
 // expected output: "Fire-Air-Water"
-``` 
+```
 
 keys()	Returns a Array Iteration Object, containing the keys of the original array
 lastIndexOf()	Search the array for an element, starting at the end, and returns its position
@@ -845,7 +1175,7 @@ Array(3).fill(4);                // [4, 4, 4]   preenche um vetor de tres posiç
 Operações com arrays
 */
 
-```Js 
+```Js
 var myArray1 = [["Bulls", 23], ["White Sox", 45]];
 
 var myArray2 = [50,60,70];
@@ -939,10 +1269,9 @@ Arr.slice(-1); // [5]
 Arr.slice(-3); // [3,4,5]
 ```
 
-exemplos slice
+exemplos slice Imutavel 
 
-
-``` JS 
+```JS
 const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
 
 console.log(animals.slice(2));
@@ -954,6 +1283,7 @@ console.log(animals.slice(2, 4));
 console.log(animals.slice(1, 5));
 // expected output: Array ["bison", "camel", "duck", "elephant"]
 ```
+
 ```Js
 console.log("Slice - Imutável retira uma Fatia , não muda o vetor"); 
 console.log(array1.slice(0,2)); //a partir da pos 0 pega 2 elementos 
@@ -978,7 +1308,6 @@ console.log(ourArray);
 
 ##### splice
 
-
 ```Js
 const months = ['Jan', 'March', 'April', 'June'];
 months.splice(1, 0, 'Feb'); /// o segundo parametro 0 significa insercao
@@ -992,7 +1321,7 @@ months.splice(4, 1, 'May');
 console.log(months);
 // expected output: Array ["Jan", "Feb", "March", "April", "May"]
 
-``` 
+```
 
 Mutável, Altera o array adicionando novos elementos enquanto remove elementos antigos
 
@@ -1004,7 +1333,7 @@ Arr.splice(0,0,'first'); // [] /// inicio, quanto itens remove o que adicionar a
 console.log(arr); /// ["fisrt",1,2];
 ```
 
-//splice :  Não é imutavel, Altera o array adicionando
+//splice : Mutavel, Altera o array adicionando
 
 // novos elementos enquanto remove elementos antigos
 
@@ -1121,7 +1450,8 @@ Retorna o primeiro item de um array que satisfaz uma condição
 const arr = [1,2,3,4];  
 const firstGreatherThanTwo = arr.find (value => value > 2) ; /// 3
 ```
-```JS 
+
+```JS
 const array1 = [5, 12, 8, 130, 44];
 const found = array1.find(element => element > 10);
 console.log(found);
@@ -1304,7 +1634,7 @@ Criar com aspas fará ela criar uma prop com  o nome da variável e nao com o co
 
 Deleta uma propriedade de um objeto
 
-```Javascript 
+```Javascript
 let foods = {
   apples: 25,
   oranges: 32,
@@ -1321,8 +1651,7 @@ delete foods.strawberries ;
 // Only change code above this line
 
 console.log(foods);
-``` 
-
+```
 
 #### .hasOwnProperty()
 
@@ -1339,9 +1668,9 @@ myObj.hasOwnProperty("top");    // true
 myObj.hasOwnProperty("middle"); // false
 ```
 
-Outro exempo usando in 
+Outro exempo usando in
 
-```Javascript 
+```Javascript
 let users = {
   Alan: {
     age: 27,
@@ -1370,8 +1699,7 @@ function isEveryoneHere(obj) {
 
 console.log(isEveryoneHere(users));
 
-``` 
-
+```
 
 JavaScript Object Notation or JSON is a related data interchange format used to store data.
 
@@ -1828,10 +2156,11 @@ let result = hello.replace(wsRegex, ""); // Change this line
 console.log (result);
 ```
 
-### Scripts Prontos 
+### Scripts Prontos
 
-Cria grupos sequenciais de tamanho n em um vetor 
-``` Js 
+Cria grupos sequenciais de tamanho n em um vetor
+
+```Js
 function chunkArrayInGroups(arr, size) {
   let arr2 = [];
   for (let i = 0 ; i < arr.length; i=i+size )
@@ -1844,8 +2173,8 @@ function chunkArrayInGroups(arr, size) {
 console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 4)); /// [[0,1,2,3] ,[4,5,6,7],[8]] 
 ```
 
-// Remove todos os negativos 
-//  separa todos os impares em um numero par +1 
+// Remove todos os negativos
+//  separa todos os impares em um numero par +1
 
 ```
 let a = [5, 4, -3, 20, 17, -33, -4, 18]
@@ -1862,9 +2191,9 @@ a.flatMap( (n) =>
 
 ```
 
+Verifica se todas as letras da segunda palavra estão presentes na primeira palavra ignorando Case
 
-Verifica se todas as letras da segunda palavra estão presentes na primeira palavra ignorando Case 
-``` Js 
+```Js
 function mutation(arr) {
   let pal1= arr[0].toLowerCase();
   let pal2= arr[1].toLowerCase();
@@ -1876,9 +2205,11 @@ function mutation(arr) {
 }
 
 console.log(mutation(["Alien", "line"])); /// true 
-``` 
-Retorna o menor indice para inserção de um vetor em outro vetor 
-``` JS
+```
+
+Retorna o menor indice para inserção de um vetor em outro vetor
+
+```JS
 function getIndexToIns(arr, num) {
    let vals = arr.sort((current,next) =>  current - next);  
    let pos = 0 ; 
@@ -1889,7 +2220,9 @@ function getIndexToIns(arr, num) {
   return pos;
 }
 ```
+
 Converte para boleano e adiciona no vetor se for true
+
 ```JS
 function bouncer(arr) {
   let arr2=[];
@@ -1902,8 +2235,10 @@ function bouncer(arr) {
 
 bouncer([7, "ate", "", false, 9]);
 ```
+
 Insere o vetor um na posicao n do vetor 2
-``` Js 
+
+```Js
 function frankenSplice(arr1, arr2, n) {
   let arr3=[...arr2];
   arr3.splice(n,0,...arr1);
@@ -1911,8 +2246,10 @@ function frankenSplice(arr1, arr2, n) {
 }
 (frankenSplice([1, 2, 3], [4, 5], 1)); /// [4,1,2,3,5]
 ```
-Coloca cada letra maiuscula no começo de uma sentança 
-``` Js
+
+Coloca cada letra maiuscula no começo de uma sentança
+
+```Js
 function titleCase(str) {
   let arr= str.toLowerCase().split(" ");
   let arr2= [];
@@ -1929,30 +2266,33 @@ function titleCase(str) {
 
 console.log(titleCase("I'm a little tea pot"));
 
-``` 
+```
 
-Verifica o tipo da variavel 
+Verifica o tipo da variavel
 
-``` JS 
+```JS
 function booWho(bool) {
   (bool = (typeof bool==="boolean") ?true:false);
   return bool;
 }
  console.log(booWho(null));  /// false 
  console.log(booWho(false));  /// true é boleana 
- ```
+```
 
-Retorna o valor do primeito elemento que atende a condição 
-```Js 
+Retorna o valor do primeito elemento que atende a condição
+
+```Js
 function findElement(arr, func) {
   let num ;
   num = arr.find (func);
   return num;
 }
  console.log(findElement([1, 2, 3, 4], num => num % 2 === 0));// 2
-```  
-Retorna a palavra repetida n vezes 
-``` Js 
+```
+
+Retorna a palavra repetida n vezes
+
+```Js
 function repeatStringNumTimes(str, num) {
   let newstr=str;
   if (num<=0) return ""; 
@@ -1967,10 +2307,11 @@ function repeatStringNumTimes(str, num) {
   return newstr;
 }
 repeatStringNumTimes("abc", 3);
-``` 
+```
 
 Retorna se a palavra termina com uma dada string
-``` JS 
+
+```JS
 function confirmEnding(str, target) {
   let tamLetra = target.length;
   let compara = (str.substr(-tamLetra, tamLetra));  // '(-3, 2): hi'
@@ -1979,15 +2320,16 @@ function confirmEnding(str, target) {
   return str;
 }
 confirmEnding("Bastian", "n"); /// true , bastian termina com n
-```  
+```
 
-Retorna um vetor contendo os maiores valores de cada vetor 
+Retorna um vetor contendo os maiores valores de cada vetor
+
 ```JS
 function largestOfFour(arr) {
   let temp =[]; 
   for (let vec of arr)
   {
-    let valUnicos = [...new Set(vec.sort((current,next) => next - current))];            
+    let valUnicos = [...new Set(vec.sort((current,next) => next - current))];        
     temp.push(valUnicos[0])
   }
   arr = [...temp] ;
@@ -1998,7 +2340,8 @@ function largestOfFour(arr) {
 largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]); ///  [5,27,39,1001]
 ```
 
-Fatorial sem recursividade 
+Fatorial sem recursividade
+
 ```Js
 function factorialize(num) {
   if (num <=0) return 1;
@@ -2006,9 +2349,10 @@ function factorialize(num) {
   return num;
 }
 factorialize(5);
-``` 
+```
 
-Inverte uma palavra 
+Inverte uma palavra
+
 ```Javascript
 function reverseString(str) {
    const arr = str.split("");
@@ -2019,13 +2363,15 @@ function reverseString(str) {
 console.log(reverseString("hello")); /// olleh
 ```
 
-
 Converte um vetor inteiro de uma vez só para um tipo de dados
-```Javascript 
+
+```Javascript
 Vi  = Vi.map((x) =>parseInt(x));
 ```
-Retorna a maior palavra 
-``` Js 
+
+Retorna a maior palavra
+
+```Js
 function findLongestWordLength(str) {
   const arr = str.split(" ");
   let maior = 0; 
@@ -2039,6 +2385,7 @@ function findLongestWordLength(str) {
 
 findLongestWordLength("The quick brown fox jumped over the lazy dog");
 ```
+
 Retorna o indice das posições de um vetor que satisfazem uma condição
 
 ```Javascript
@@ -2073,7 +2420,6 @@ function randomRange(myMin, myMax) {
 }
 ```
 
-
 Em outras bases The parseInt() function parses a string and returns an integer. It takes a second argument for the radix, which specifies the base of the number in the string. The radix can be an integer between 2 and 36.
 
 ```Javascript
@@ -2082,9 +2428,6 @@ function convertToInteger(str,radix) {
 }
 convertToInteger("10011",2); /// converte a string para um inteiro na base binaria
 ```
-
-
-
 
 Definition and Usage
 The sort() method sorts the items of an array.
@@ -2214,10 +2557,6 @@ unction compare(a, b) {
   return comparison * -1;
 }
 ```
-
-
-
-
 
 ## ES6
 
@@ -2504,15 +2843,18 @@ Fn.prop = 'Posso criar propriedades';
 console.log (Fn.prop);
 
 const fn1 =>  fnparam => allowed => { /// uma funcao que recebe um parametro e e se permitido executa outra funcao
-```Javascript 
+
+```Javascript
 if (allowed) {
 fnParam();
 }
 
 }
 ```
+
 /// A funcao abaixo pode ser reescrita como
-```Javascript 
+
+```Javascript
 function controlFnExec (fnParam)
 {
 return function(allowed) {
@@ -2539,6 +2881,7 @@ fnParam();
 }
 }
 ```
+
 #### Principal diferença entre funcao arrow e function normal
 
 this referencia o contexto em que foi criada
@@ -2564,7 +2907,8 @@ https://www.w3schools.com/js/js_array_iteration.asp
 #### Operadores:
 
 JS possui operadores unários, binario  e ternário
-```Javascript 
+
+```Javascript
   a = ++2 unário /// a jah recebe valor incrementado
   b = 2++ unário /// b recebe o valor atual 2
 
@@ -2582,9 +2926,10 @@ JS possui operadores unários, binario  e ternário
 
   !!
 ```
+
 ternário
 
-```Javascript 
+```Javascript
   condicao ? valor1:valor2
   true ? 'foo' : 'bar' /// retorna 'foo'
   false ? 'foo' : 'bar' /// retorna 'bar'
@@ -2599,6 +2944,7 @@ ternário
   === igualdade e do mesmo tipo (true)
   !== operandos iguals mas nao sao do mesmo tipo (true)
 ```
+
 #### Operador Spread:
 
 Introduzido no ES6
@@ -2648,10 +2994,9 @@ for in -> retorna os valores de cada objeto
 for of ->  retorna o indice de cada objeto
 ```
 
+Exemplo for in
 
-Exemplo for in  
-
-``` JS 
+```JS
  let str = "The quick brown fox jumped over the lazy dog";
  const arr = str.split(" ");
   for (let pal of arr)
@@ -2659,6 +3004,7 @@ Exemplo for in
     console.log(pal);  
   }
 ```
+
 saida retorna o indice de cada objeto
 0
 1
@@ -2669,9 +3015,9 @@ saida retorna o indice de cada objeto
 6
 7
 8
-Exemplo for of 
+Exemplo for of
 
-``` JS 
+```JS
  let str = "The quick brown fox jumped over the lazy dog";
  const arr = str.split(" ");
   for (let pal of arr)
@@ -2679,7 +3025,8 @@ Exemplo for of
     console.log(pal);  
   }
 ```
-saida retorna os valores de cada objeto 
+
+saida retorna os valores de cada objeto
 The
 quick
 brown
@@ -2709,7 +3056,7 @@ The object structure makes it flexible within a program. Objects can transfer in
 
 Your choice of programming approach depends on a few factors. These include the type of problem, as well as how you want to structure your data and algorithms. This section covers object oriented programming principles in JavaScript.
 
-#### Objetos e propriedades 
+#### Objetos e propriedades
 
 Think about things people see every day, like cars, shops, and birds. These are all objects: tangible things people can observe and interact with.
 
@@ -2719,23 +3066,24 @@ These qualities, or properties, define what makes up an object. Note that simila
 
 Objects in JavaScript are used to model real-world objects, giving them properties and behavior just like their real-world counterparts. Here's an example using these concepts to create a duck object:
 
-``` Js 
+```Js
 let duck = {
   name: "Aflac",
   numLegs: 2
 };
 console.log(duck.name);
 ```
+
 // This prints "Aflac" to the console
 Dot notation is used on the object name, duck, followed by the name of the property, name, to access the value of "Aflac".
 
-#### Métodos 
+#### Métodos
 
 Objects can have a special type of property, called a method.
 
 Methods are properties that are functions. This adds different behavior to an object. Here is the duck example with a method:
 
-``` Js 
+```Js
 let duck = {
   name: "Aflac",
   numLegs: 2,
@@ -2743,73 +3091,88 @@ let duck = {
 };
 duck.sayName();
 // Returns "The name of this duck is Aflac.
-``` 
-#### Sobre This 
+```
+
+#### Sobre This
 
 sayName: function() {return "The name of this duck is " + duck.name + ".";}
 
 While this is a valid way to access the object's property, there is a pitfall here. If the variable name changes, any code referencing the original name would need to be updated as well. In a short object definition, it isn't a problem, but if an object has many references to its properties there is a greater chance for error.
 A way to avoid these issues is with the this keyword:
-``` Js 
+
+```Js
 let duck = {
   name: "Aflac",
   numLegs: 2,
   sayName: function() {return "The name of this duck is " + this.name + ".";}
 };
-``` 
+```
+
 this refers to the object that the method is associated with: duck. If the object's name is changed to mallard, it is not necessary to find all the references to duck in the code. It makes the code reusable and easier to read.
 
-#### Construtores 
+#### Construtores
+
 Constructors are functions that create new objects. They define properties and behaviors that will belong to the new object. Think of them as a blueprint for the creation of new objects.
 Here is an example of a constructor:
-``` Js 
+
+```Js
 function Bird() {
   this.name = "Albert";
   this.color = "blue";
   this.numLegs = 2;
 }
 ```
+
 - Constructors are defined with a capitalized name to distinguish them from other functions that are not constructors.
 - Constructors use the keyword this to set properties of the object they will create. Inside the constructor, this refers to the new object it will create.
 - Constructors define properties and behaviors instead of returning a value as other functions might.
 
-#### Operador new 
-``` Js 
+#### Operador new
+
+```Js
 let blueBird = new Bird();
-``` 
+```
 
 Notice that the new operator is used when calling a constructor. This tells JavaScript to create a new instance of Bird called blueBird. Without the new operator, this inside the constructor would not point to the newly created object, giving unexpected results. Now blueBird has all the properties defined inside the Bird constructor:
-``` Js 
+
+```Js
 blueBird.name; // => Albert
 blueBird.color; // => blue
 blueBird.numLegs; // => 2
-``` 
+```
+
 Just like any other object, its properties can be accessed and modified:
 
 blueBird.name = 'Elvira';
 blueBird.name; // => Elvira
 
-
 #### Extend Constructors to Receive Arguments
+
 Suppose you were writing a program to keep track of hundreds or even thousands of different birds in an aviary. It would take a lot of time to create all the birds, then change the properties to different values for every one. To more easily create different Bird objects, you can design your Bird constructor to accept parameters:
-``` Js
+
+```Js
 function Bird(name, color) {
   this.name = name;
   this.color = color;
   this.numLegs = 2;
 }
-``` 
+```
+
 Then pass in the values as arguments to define each unique bird into the Bird constructor: let cardinal = new Bird("Bruce", "red"); This gives a new instance of Bird with name and color properties set to Bruce and red, respectively. The numLegs property is still set to 2. The cardinal has these properties:
-``` Js
+
+```Js
 cardinal.name // => Bruce
 cardinal.color // => red
 cardinal.numLegs // => 2
-``` 
+```
+
 The constructor is more flexible. It's now possible to define the properties for each Bird at the time it is created, which is one way that JavaScript constructors are so useful. They group objects together based on shared characteristics and behavior and define a blueprint that automates their creation.
 
 #### Verify an Object's Constructor with instanceof
+
 instanceof allows you to compare an object to a constructor, returning true or false based on whether or not that object was created with the constructor. Here's an example:
-```JS 
+
+```JS
 let Bird = function(name, color) {
   this.name = name;
   this.color = color;
@@ -2823,7 +3186,7 @@ crow instanceof Bird; // => true
 
 #### Understand Own Properties
 
-``` JS 
+```JS
 function Bird(name) {
   this.name  = name;
   this.numLegs = 2;
@@ -2841,7 +3204,8 @@ for (let property in duck) {
 }
 console.log(ownProps); // prints [ "name", "numLegs" ]
 
-``` 
+```
+
 #### Use Prototype Properties to Reduce Duplicate Code
 
 Since numLegs will probably have the same value for all instances of Bird, you essentially have a duplicated variable numLegs inside each Bird instance.
@@ -2849,20 +3213,22 @@ Since numLegs will probably have the same value for all instances of Bird, you e
 This may not be an issue when there are only two instances, but imagine if there are millions of instances. That would be a lot of duplicated variables.
 
 A better way is to use Bird’s prototype. Properties in the prototype are shared among ALL instances of Bird. Here's how to add numLegs to the Bird prototype:
-```JS 
+
+```JS
 Bird.prototype.numLegs = 2;
 Now all instances of Bird have the numLegs property.
 
 console.log(duck.numLegs);  // prints 2
 console.log(canary.numLegs);  // prints 2
-``` 
+```
+
 Since all instances automatically have the properties on the prototype, think of a prototype as a "recipe" for creating objects. Note that the prototype for duck and canary is part of the Bird constructor as Bird.prototype. Nearly every object in JavaScript has a prototype property which is part of the constructor function that created it.
 
 #### Iterate Over All Properties
 
 You have now seen two kinds of properties: own properties and prototype properties. Own properties are defined directly on the object instance itself. And prototype properties are defined on the prototype.
 
-```JS 
+```JS
 function Bird(name) {
   this.name = name;  //own property
 }
@@ -2870,11 +3236,11 @@ function Bird(name) {
 Bird.prototype.numLegs = 2; // prototype property
 
 let duck = new Bird("Donald");
-``` 
+```
 
 Here is how you add duck's own properties to the array ownProps and prototype properties to the array prototypeProps:
 
-```JS 
+```JS
 let ownProps = [];
 let prototypeProps = [];
 
@@ -2889,10 +3255,12 @@ for (let property in duck) {
 console.log(ownProps); // prints ["name"]
 console.log(prototypeProps); // prints ["numLegs"]
 ```
+
 #### Understand the Constructor Property
 
 There is a special constructor property located on the object instances duck and beagle that were created in the previous challenges:
-```JS 
+
+```JS
 let duck = new Bird();
 let beagle = new Dog();
 
@@ -2901,7 +3269,8 @@ console.log(beagle.constructor === Dog);  //prints true
 ```
 
 Note that the constructor property is a reference to the constructor function that created the instance. The advantage of the constructor property is that it's possible to check for this property to find out what kind of object it is. Here's an example of how this could be used:
-```JS 
+
+```JS
 function joinBirdFraternity(candidate) {
   if (candidate.constructor === Bird) {
     return true;
@@ -2917,7 +3286,8 @@ Since the constructor property can be overwritten (which will be covered in the 
 #### Change the Prototype to a New Object
 
 Up until now you have been adding properties to the prototype individually:
-```JS 
+
+```JS
 Bird.prototype.numLegs = 2;
 This becomes tedious after more than a few properties.
 
@@ -2929,8 +3299,10 @@ Bird.prototype.describe = function() {
   console.log("My name is " + this.name);
 }
 ```
+
 A more efficient way is to set the prototype to a new object that already contains the properties. This way, the properties are added all at once:
-```JS 
+
+```JS
 Bird.prototype = {
   numLegs: 2, 
   eat: function() {
@@ -2946,14 +3318,15 @@ Bird.prototype = {
 
 There is one crucial side effect of manually setting the prototype to a new object. It erases the constructor property! This property can be used to check which constructor function created the instance, but since the property has been overwritten, it now gives false results:
 
-```JS 
+```JS
 duck.constructor === Bird; // false -- Oops
 duck.constructor === Object; // true, all objects inherit from Object.prototype
 duck instanceof Bird; // true, still works
 ```
+
 To fix this, whenever a prototype is manually set to a new object, remember to define the constructor property:
 
-```JS 
+```JS
 Bird.prototype = {
   constructor: Bird, // define the constructor property
   numLegs: 2,
@@ -2965,27 +3338,31 @@ Bird.prototype = {
   }
 };
 ```
+
 #### Understand Where an Object’s Prototype Comes From
 
 Just like people inherit genes from their parents, an object inherits its prototype directly from the constructor function that created it. For example, here the Bird constructor creates the duck object:
 
-``` Js 
+```Js
 function Bird(name) {
   this.name = name;
 }
 
 let duck = new Bird("Donald");
-``` 
+```
+
 duck inherits its prototype from the Bird constructor function. You can show this relationship with the isPrototypeOf method:
-``` Js 
+
+```Js
 Bird.prototype.isPrototypeOf(duck);
 // returns true
-``` 
+```
+
 #### Understand the Prototype Chain
 
 All objects in JavaScript (with a few exceptions) have a prototype. Also, an object’s prototype itself is an object.
 
-``` JS 
+```JS
 function Bird(name) {
   this.name = name;
 }
@@ -2994,14 +3371,18 @@ typeof Bird.prototype; // yields 'object'
 ```
 
 Because a prototype is an object, a prototype can have its own prototype! In this case, the prototype of Bird.prototype is Object.prototype:
-```Js 
+
+```Js
 Object.prototype.isPrototypeOf(Bird.prototype); // returns true
-``` 
+```
+
 How is this useful? You may recall the hasOwnProperty method from a previous challenge:
-```Js 
+
+```Js
 let duck = new Bird("Donald");
 duck.hasOwnProperty("name"); // yields true
-``` 
+```
+
 The hasOwnProperty method is defined in Object.prototype, which can be accessed by Bird.prototype, which can then be accessed by duck. This is an example of the prototype chain. In this prototype chain, Bird is the supertype for duck, while duck is the subtype. Object is a supertype for both Bird and duck. Object is a supertype for all objects in JavaScript. Therefore, any object can use the hasOwnProperty method.
 
 #### Use Inheritance So You Don't Repeat Yourself
@@ -3009,7 +3390,8 @@ The hasOwnProperty method is defined in Object.prototype, which can be accessed 
 There's a principle in programming called Don't Repeat Yourself (DRY). The reason repeated code is a problem is because any change requires fixing code in multiple places. This usually means more work for programmers and more room for errors.
 
 Notice in the example below that the describe method is shared by Bird and Dog:
-```Js 
+
+```Js
 Bird.prototype = {
   constructor: Bird,
   describe: function() {
@@ -3024,8 +3406,10 @@ Dog.prototype = {
   }
 };
 ```
+
 The describe method is repeated in two places. The code can be edited to follow the DRY principle by creating a supertype (or parent) called Animal:
-```Js 
+
+```Js
 function Animal() { };
 
 Animal.prototype = {
@@ -3035,8 +3419,10 @@ Animal.prototype = {
   }
 };
 ```
+
 Since Animal includes the describe method, you can remove it from Bird and Dog:
-```Js 
+
+```Js
 Bird.prototype = {
   constructor: Bird
 };
@@ -3045,45 +3431,55 @@ Dog.prototype = {
   constructor: Dog
 };
 ```
+
 #### Inherit Behaviors from a Supertype
 
 In the previous challenge, you created a supertype called Animal that defined behaviors shared by all animals:
-```Js 
+
+```Js
 function Animal() { }
 Animal.prototype.eat = function() {
   console.log("nom nom nom");
 };
 ```
+
 This and the next challenge will cover how to reuse Animal's methods inside Bird and Dog without defining them again. It uses a technique called inheritance. This challenge covers the first step: make an instance of the supertype (or parent). You already know one way to create an instance of Animal using the new operator:
-```Js 
+
+```Js
 let animal = new Animal();
 ```
+
 There are some disadvantages when using this syntax for inheritance, which are too complex for the scope of this challenge. Instead, here's an alternative approach without those disadvantages:
 
-```Js 
+```Js
 let animal = Object.create(Animal.prototype);
 ```
+
 Object.create(obj) creates a new object, and sets obj as the new object's prototype. Recall that the prototype is like the "recipe" for creating an object. By setting the prototype of animal to be Animal's prototype, you are effectively giving the animal instance the same "recipe" as any other instance of Animal.
-```JS 
+
+```JS
 animal.eat(); // prints "nom nom nom"
 animal instanceof Animal; // => true
 ```
-
 
 #### Set the Child's Prototype to an Instance of the Parent
 
 In the previous challenge you saw the first step for inheriting behavior from the supertype (or parent) Animal: making a new instance of Animal.
 
-This challenge covers the next step: set the prototype of the subtype (or child)—in this case, Bird—to be an instance of Animal. 
-Passaro agora é subtipo de animal 
-```JS 
+This challenge covers the next step: set the prototype of the subtype (or child)—in this case, Bird—to be an instance of Animal.
+Passaro agora é subtipo de animal
+
+```JS
 Bird.prototype = Object.create(Animal.prototype);
 ```
+
 Remember that the prototype is like the "recipe" for creating an object. In a way, the recipe for Bird now includes all the key "ingredients" from Animal.
-```JS 
+
+```JS
 let duck = new Bird("Donald");
 duck.eat(); // prints "nom nom nom"
 ```
+
 duck inherits all of Animal's properties, including the eat method.
 
 #### Reset an Inherited Constructor Property
@@ -3098,19 +3494,21 @@ Bird.prototype = Object.create(Animal.prototype);
 let duck = new Bird();
 duck.constructor // function Animal(){...}
 ```
+
 But duck and all instances of Bird should show that they were constructed by Bird and not Animal. To do so, you can manually set Bird's constructor property to the Bird object:
+
 ```JS
 Bird.prototype.constructor = Bird; //// pode ser até depois da atribuição let duck = new Bird(); irá corrigir corretamente o  construtor 
 duck.constructor // function Bird(){...}
 ```
-
 
 #### Add Methods After Inheritance
 
 A constructor function that inherits its prototype object from a supertype constructor function can still have its own methods in addition to inherited methods.
 
 For example, Bird is a constructor that inherits its prototype from Animal:
-```Js 
+
+```Js
 function Animal() { }
 Animal.prototype.eat = function() {
   console.log("nom nom nom");
@@ -3120,16 +3518,20 @@ Bird.prototype = Object.create(Animal.prototype);
 Bird.prototype.constructor = Bird;
 
 ```
-In addition to what is inherited from Animal, you want to add behavior that is unique to Bird objects. Here, Bird will get a fly() function. 
+
+In addition to what is inherited from Animal, you want to add behavior that is unique to Bird objects. Here, Bird will get a fly() function.
 
 Functions are added to Bird's prototype the same way as any constructor function:
-```Js 
+
+```Js
 Bird.prototype.fly = function() {
   console.log("I'm flying!");
 };
 ```
+
 Now instances of Bird will have both eat() and fly() methods:
-```Js 
+
+```Js
 let duck = new Bird();
 duck.eat(); // prints "nom nom nom"
 duck.fly(); // prints "I'm flying!"
@@ -3139,15 +3541,19 @@ duck.fly(); // prints "I'm flying!"
 
 In previous lessons, you learned that an object can inherit its behavior (methods) from another object by referencing its prototype object:
 
-```JS 
+```JS
 ChildObject.prototype = Object.create(ParentObject.prototype);
-``` 
+```
+
 Then the ChildObject received its own methods by chaining them onto its prototype:
-```JS 
+
+```JS
 ChildObject.prototype.methodName = function() {...};
-``` 
+```
+
 It's possible to override an inherited method. It's done the same way - by adding a method to ChildObject.prototype using the same method name as the one to override. Here's an example of Bird overriding the eat() method inherited from Animal:
-```JS 
+
+```JS
 function Animal() { }
 Animal.prototype.eat = function() {
   return "nom nom nom";
@@ -3162,6 +3568,7 @@ Bird.prototype.eat = function() {
   return "peck peck peck";
 };
 ```
+
 If you have an instance let duck = new Bird(); and you call duck.eat(), this is how JavaScript looks for the method on duck’s prototype chain:
 
 duck => Is eat() defined here? No.
@@ -3174,6 +3581,7 @@ Object => JavaScript stopped searching before reaching this level.
 As you have seen, behavior is shared through inheritance. However, there are cases when inheritance is not the best solution. Inheritance does not work well for unrelated objects like Bird and Airplane. They can both fly, but a Bird is not a type of Airplane and vice versa.
 
 For unrelated objects, it's better to use mixins. A mixin allows other objects to use a collection of functions.
+
 ```JS
 let flyMixin = function(obj) {
   obj.fly = function() {
@@ -3195,15 +3603,17 @@ let plane = {
 flyMixin(bird);
 flyMixin(plane);
 ```
+
 Here bird and plane are passed into flyMixin, which then assigns the fly function to each object. Now bird and plane can both fly:
+
 ```JS
 bird.fly(); // prints "Flying, wooosh!"
 plane.fly(); // prints "Flying, wooosh!"
 ```
+
 Note how the mixin allows for the same fly method to be reused by unrelated objects bird and plane.
 
 #### Use Closure to Protect Properties Within an Object from Being Modified Externally
-
 
 In the previous challenge, bird had a public property name. It is considered public because it can be accessed and changed outside of bird's definition.
 
@@ -3213,7 +3623,7 @@ Therefore, any part of your code can easily change the name of bird to any value
 
 The simplest way to make this public property private is by creating a variable within the constructor function. This changes the scope of that variable to be within the constructor function versus available globally. This way, the variable can only be accessed and changed by methods also within the constructor function.
 
-```JS 
+```JS
 function Bird() {
   let hatchedEgg = 10; // private variable
 
@@ -3225,23 +3635,28 @@ function Bird() {
 let ducky = new Bird();
 ducky.getHatchedEggCount(); // returns 10
 ```
+
 Here getHatchedEggCount is a privileged method, because it has access to the private variable hatchedEgg. This is possible because hatchedEgg is declared in the same context as getHatchedEggCount. In JavaScript, a function always has access to the context in which it was created. This is called closure.
 
 #### Understand the Immediately Invoked Function Expression (IIFE)
+
 A common pattern in JavaScript is to execute a function as soon as it is declared:
-/// note que a funcao nem precisa de nome 
-```JS 
+/// note que a funcao nem precisa de nome
+
+```JS
 (function () {
   console.log("Chirp, chirp!");
 })(); // this is an anonymous function expression that executes right away
 // Outputs "Chirp, chirp!" immediately
 ```
+
 Note that the function has no name and is not stored in a variable. The two parentheses () at the end of the function expression cause it to be immediately executed or invoked. This pattern is known as an immediately invoked function expression or IIFE.
 
 #### Use an IIFE to Create a Module
 
 An immediately invoked function expression (IIFE) is often used to group related functionality into a single object or module. For example, an earlier challenge defined two mixins:
-```JS 
+
+```JS
 function glideMixin(obj) {
   obj.glide = function() {
     console.log("Gliding on the water");
@@ -3253,31 +3668,31 @@ function flyMixin(obj) {
   };
 }
 ```
+
 We can group these mixins into a module as follows:
-  ```JS 
+
+```JS
 let motionModule = (function () {
-  return {
-    glideMixin: function(obj) {
-      obj.glide = function() {
-        console.log("Gliding on the water");
-      };
-    },
-    flyMixin: function(obj) {
-      obj.fly = function() {
-        console.log("Flying, wooosh!");
-      };
-    }
+return {
+  glideMixin: function(obj) {
+    obj.glide = function() {
+      console.log("Gliding on the water");
+    };
+  },
+  flyMixin: function(obj) {
+    obj.fly = function() {
+      console.log("Flying, wooosh!");
+    };
   }
+}
 })(); // The two parentheses cause the function to be immediately invoked
 
 ```
+
 Note that you have an immediately invoked function expression (IIFE) that returns an object motionModule. This returned object contains all of the mixin behaviors as properties of the object. The advantage of the module pattern is that all of the motion behaviors can be packaged into a single object that can then be used by other parts of your code. Here is an example using it:
 
 motionModule.glideMixin(duck);
 duck.glide();
-
-
-
 
 #### Herança
 
@@ -3402,7 +3817,7 @@ A class is a type of function, but instead of using the keyword function to init
 Example
 Create a Car class, and then create an object called "mycar" based on the Car class:
 
-```Javascript 
+```Javascript
 class Car {  // Create a class
   constructor(brand) {  // Class constructor
     this.carname = brand;  // Class body/properties
@@ -3460,7 +3875,484 @@ static walk()  {
 console.log(Person.walk());
 ```
 
-### Orientação a objetos e desing patterns
+### Programação Funcional 
+Functional programming is a style of programming where solutions are simple, isolated functions, without any side effects outside of the function scope.
+
+INPUT -> PROCESS -> OUTPUT
+
+Functional programming is about:
+
+1) Isolated functions - there is no dependence on the state of the program, which includes global variables that are subject to change
+
+2) Pure functions - the same input always gives the same output
+
+3) Functions with limited side effects - any changes, or mutations, to the state of the program outside the function are carefully controlled
+
+
+#### Understand Functional Programming Terminology
+The FCC Team had a mood swing and now wants two types of tea: green tea and black tea. General Fact: Client mood swings are pretty common.
+
+With that information, we'll need to revisit the getTea function from last challenge to handle various tea requests. We can modify getTea to accept a function as a parameter to be able to change the type of tea it prepares. This makes getTea more flexible, and gives the programmer more control when client requests change.
+But first, let's cover some functional terminology:
+
+Callbacks are the functions that are slipped or passed into another function to decide the invocation of that function. You may have seen them passed to other methods, for example in filter, 
+the callback function tells JavaScript the criteria for how to filter an array.
+
+Functions that can be assigned to a variable, passed into another function, or returned from another function just like any other normal value, are called first class functions. In JavaScript, all functions are first class functions.
+
+The functions that take a function as an argument, or return a function as a return value are called higher order functions.
+
+When the functions are passed in to another function or returned from another function, then those functions which gets passed in or returned can be called a lambda.
+
+
+
+```Js 
+// Function that returns a string representing a cup of green tea
+const prepareGreenTea = () => 'greenTea';
+
+// Function that returns a string representing a cup of black tea
+const prepareBlackTea = () => 'blackTea';
+
+/*
+Given a function (representing the tea type) and number of cups needed, the
+following function returns an array of strings (each representing a cup of
+a specific type of tea).
+*/
+const getTea = (prepareTea, numOfCups) => {
+  const teaCups = [];
+
+  for(let cups = 1; cups <= numOfCups; cups += 1) {
+    const teaCup = prepareTea();
+    teaCups.push(teaCup);
+  }
+  return teaCups;
+};
+
+// Only change code below this line
+const tea4GreenTeamFCC = getTea(prepareGreenTea,27);
+const tea4BlackTeamFCC = getTea(prepareBlackTea,13);
+// Only change code above this line
+
+console.log(
+  tea4GreenTeamFCC,
+  tea4BlackTeamFCC
+);
+```
+#### Understand the Hazards of Using Imperative Code
+
+Functional programming is a good habit. It keeps your code easy to manage, and saves you from sneaky bugs. But before we get there, let's look at an imperative approach to programming to highlight where you may have issues.
+
+In English (and many other languages), the imperative tense is used to give commands. Similarly, an imperative style in programming is one that gives the computer a set of statements to perform a task.
+
+Often the statements change the state of the program, like updating global variables. A classic example is writing a for loop that gives exact directions to iterate over the indices of an array.
+
+In contrast, functional programming is a form of declarative programming. You tell the computer what you want done by calling a method or function.
+
+JavaScript offers many predefined methods that handle common tasks so you don't need to write out how the computer should perform them. For example, instead of using the for loop mentioned above, you could call the map method which handles the details of iterating over an array. This helps to avoid semantic errors, like the "Off By One Errors" that were covered in the Debugging section.
+
+Consider the scenario: you are browsing the web in your browser, and want to track the tabs you have opened. Let's try to model this using some simple object-oriented code.
+
+A Window object is made up of tabs, and you usually have more than one Window open. The titles of each open site in each Window object is held in an array. After working in the browser (opening new tabs, merging windows, and closing tabs), you want to print the tabs that are still open. Closed tabs are removed from the array and new tabs (for simplicity) get added to the end of it.
+
+The code editor shows an implementation of this functionality with functions for tabOpen(), tabClose(), and join(). The array tabs is part of the Window object that stores the name of the open pages.
+
+```JS 
+// tabs is an array of titles of each site open within the window
+var Window = function(tabs) {
+  this.tabs = tabs; // We keep a record of the array inside the object
+};
+
+// When you join two windows into one window
+Window.prototype.join = function (otherWindow) {
+  this.tabs = this.tabs.concat(otherWindow.tabs);
+  return this;
+};
+
+// When you open a new tab at the end
+Window.prototype.tabOpen = function (tab) {
+  this.tabs.push('new tab'); // Let's open a new tab for now
+  return this;
+};
+
+// When you close a tab
+Window.prototype.tabClose = function (index) {
+
+  //foi necessario trocar o splice ( mutavel ) por slice (imutavel )
+
+  var tabsBeforeIndex = this.tabs.slice(0, index); // Get the tabs before the tab
+  var tabsAfterIndex = this.tabs.slice(index + 1); // Get the tabs after the tab
+
+  this.tabs = tabsBeforeIndex.concat(tabsAfterIndex); // Join them together
+
+  // Only change code above this line
+
+  return this;
+ };
+
+// Let's create three browser windows
+var workWindow = new Window(['GMail', 'Inbox', 'Work mail', 'Docs', 'freeCodeCamp']); // Your mailbox, drive, and other work sites
+var socialWindow = new Window(['FB', 'Gitter', 'Reddit', 'Twitter', 'Medium']); // Social sites
+var videoWindow = new Window(['Netflix', 'YouTube', 'Vimeo', 'Vine']); // Entertainment sites
+
+// Now perform the tab opening, closing, and other operations
+var finalTabs = socialWindow
+  .tabOpen() // Open a new tab for cat memes
+  .join(videoWindow.tabClose(2)) // Close third tab in video window, and join
+  .join(workWindow.tabClose(1).tabOpen());
+console.log(finalTabs.tabs);
+``` 
+####  Avoid Mutations and Side Effects Using Functional Programming
+
+If you haven't already figured it out, the issue in the previous challenge was with the splice call in the tabClose() function. Unfortunately, splice changes the original array it is called on, so the second call to it used a modified array, and gave unexpected results.
+
+This is a small example of a much larger pattern - you call a function on a variable, array, or an object, and the function changes the variable or something in the object.
+
+One of the core principles of functional programming is to not change things. Changes lead to bugs. It's easier to prevent bugs knowing that your functions don't change anything, including the function arguments or any global variable.
+
+The previous example didn't have any complicated operations but the splice method changed the original array, and resulted in a bug.
+
+Recall that in functional programming, changing or altering things is called mutation, and the outcome is called a side effect. A function, ideally, should be a pure function, meaning that it does not cause any side effects.
+
+Let's try to master this discipline and not alter any variable or object in our code.
+
+Fill in the code for the function incrementer so it returns the value of the global variable fixedValue increased by one.
+``` Js 
+// The global variable
+var fixedValue = 4;
+
+function incrementer () { /// funcao pura 
+  // Only change code below this line
+  return fixedValue+1;
+
+  // Only change code above this line
+}
+``` 
+
+
+#### Pass Arguments to Avoid External Dependence in a Function
+
+The last challenge was a step closer to functional programming principles, but there is still something missing.
+
+We didn't alter the global variable value, but the function incrementer would not work without the global variable fixedValue being there.
+
+Another principle of functional programming is to always declare your dependencies explicitly. This means if a function depends on a variable or object being present, then pass that variable or object directly into the function as an argument.
+
+There are several good consequences from this principle. The function is easier to test, you know exactly what input it takes, and it won't depend on anything else in your program.
+
+This can give you more confidence when you alter, remove, or add new code. You would know what you can or cannot change and you can see where the potential traps are.
+
+Finally, the function would always produce the same output for the same set of inputs, no matter what part of the code executes it.
+
+Let's update the incrementer function to clearly declare its dependencies.
+
+Write the incrementer function so it takes an argument, and then returns a result after increasing the value by one.
+
+
+``` Js 
+// The global variable
+var fixedValue = 4;
+
+// Only change code below this line
+function incrementer (fixedValue) {
+  return fixedValue+1;
+
+  // Only change code above this line
+}
+``` 
+
+#### Use the filter Method to Extract Data from an Array
+
+Another useful array function is Array.prototype.filter(), or simply filter().
+
+filter calls a function on each element of an array and returns a new array containing only the elements for which that function returns true. In other words, it filters the array, based on the function passed to it. Like map, it does this without needing to modify the original array.
+
+The callback function accepts three arguments. The first argument is the current element being processed. The second is the index of that element and the third is the array upon which the filter method was called.
+
+See below for an example using the filter method on the users array to return a new array containing only the users under the age of 30. For simplicity, the example only uses the first argument of the callback.
+
+```JS 
+const users = [
+  { name: 'John', age: 34 },
+  { name: 'Amy', age: 20 },
+  { name: 'camperCat', age: 10 }
+];
+
+const usersUnder30 = users.filter(user => user.age < 30);
+console.log(usersUnder30); // [ { name: 'Amy', age: 20 }, { name: 'camperCat', age: 10 } ]
+``` 
+
+
+#### Refactor Global Variables Out of Functions
+
+So far, we have seen two distinct principles for functional programming:
+
+1) Don't alter a variable or object - create new variables and objects and return them if need be from a function.
+
+2) Declare function arguments - any computation inside a function depends only on the arguments, and not on any global object or variable.
+
+Adding one to a number is not very exciting, but we can apply these principles when working with arrays or more complex objects.
+
+Rewrite the code so the global array bookList is not changed inside either function. The add function should add the given bookName to the end of the array passed to it and return a new array (list). The remove function should remove the given bookName from the array passed to it.
+
+Note: Both functions should return an array, and any new parameters should be added before the bookName parameter.
+
+```JS 
+// The global variable
+var bookList = ["The Hound of the Baskervilles", "On The Electrodynamics of Moving Bodies", "Philosophiæ Naturalis Principia Mathematica", "Disquisitiones Arithmeticae"];
+
+// Change code below this line
+function add (bookList,bookName) {
+  let bookList2 = [...bookList];
+  bookList2.push(bookName);
+  return bookList2;
+  
+  // Change code above this line
+}
+
+// Change code below this line
+function remove (bookList,bookName) {
+  var book_index = bookList.indexOf(bookName);
+  let bookList2 = [...bookList];
+  if (book_index >= 0) {
+
+    bookList2.splice(book_index, 1);
+    return bookList2;
+
+    // Change code above this line
+    }
+}
+
+var newBookList = add(bookList, 'A Brief History of Time');
+var newerBookList = remove(bookList, 'On The Electrodynamics of Moving Bodies');
+var newestBookList = remove(add(bookList, 'A Brief History of Time'), 'On The Electrodynamics of Moving Bodies');
+
+console.log(bookList);
+
+``` 
+
+
+#### Use the map Method to Extract Data from an Array
+
+So far we have learned to use pure functions to avoid side effects in a program. Also, we have seen the value in having a function only depend on its input arguments.
+
+This is only the beginning. As its name suggests, functional programming is centered around a theory of functions.
+
+It would make sense to be able to pass them as arguments to other functions, and return a function from another function. Functions are considered first class objects in JavaScript, which means they can be used like any other object. They can be saved in variables, stored in an object, or passed as function arguments.
+
+Let's start with some simple array functions, which are methods on the array object prototype. In this exercise we are looking at Array.prototype.map(), or more simply map.
+
+The map method iterates over each item in an array and returns a new array containing the results of calling the callback function on each element. It does this without mutating the original array.
+
+When the callback is used, it is passed three arguments. The first argument is the current element being processed. The second is the index of that element and the third is the array upon which the map method was called.
+
+See below for an example using the map method on the users array to return a new array containing only the names of the users as elements. For simplicity, the example only uses the first argument of the callback.
+
+```Js 
+const users = [
+  { name: 'John', age: 34 },
+  { name: 'Amy', age: 20 },
+  { name: 'camperCat', age: 10 }
+];
+
+const names = users.map(user => user.name);
+console.log(names); // [ 'John', 'Amy', 'camperCat' ]
+
+``` 
+
+
+####  Implement map on a Prototype
+
+As you have seen from applying Array.prototype.map(), or simply map() earlier, the map method returns an array of the same length as the one it was called on. It also doesn't alter the original array, as long as its callback function doesn't.
+
+In other words, map is a pure function, and its output depends solely on its inputs. Plus, it takes another function as its argument.
+
+It would teach us a lot about map to try to implement a version of it that behaves exactly like the Array.prototype.map() with a for loop or Array.prototype.forEach().
+
+Note: A pure function is allowed to alter local variables defined within its scope, although, it's preferable to avoid that as well.
+
+Write your own Array.prototype.myMap(), which should behave exactly like Array.prototype.map(). You may use a for loop or the forEach method.
+
+
+```JS 
+// The global Array
+var s = [23, 65, 98, 5];
+
+Array.prototype.myMap = function(callback) {
+  var newArray = [];
+
+  // Add your code below this line
+  for (let i = 0; i < this.length; i++) {
+    newArray.push(callback(this[i]));  /// this se refere ao objeto que chama a funcao (s)
+  }
+  // Add your code above this line
+
+  return newArray;
+};
+
+var new_s = s.myMap(function(item) {
+  return item * 2;
+});
+```
+
+
+
+#### Implement the filter Method on a Prototype
+
+It would teach us a lot about the filter method if we try to implement a version of it that behaves exactly like Array.prototype.filter(). It can use either a for loop or Array.prototype.forEach().
+
+Note: A pure function is allowed to alter local variables defined within its scope, although, it's preferable to avoid that as well.
+
+Write your own Array.prototype.myFilter(), which should behave exactly like Array.prototype.filter(). You may use a for loop or the Array.prototype.forEach() method.
+
+
+
+``` JS 
+// The global variable
+var s = [23, 65, 98, 5];
+
+Array.prototype.myFilter = function(callback){
+  // Only change code below this line
+  var newArray = [];
+   for (let i = 0; i < this.length; i++) {
+     if ( callback(this[i]) )
+      newArray.push(this[i]);  /// this se refere ao objeto que chama a funcao (s)
+  }
+  // Only change code above this line
+  console.log(newArray);
+  return newArray;
+
+};
+
+var new_s = s.myFilter(function(item){
+  return item % 2 === 1;
+});
+
+```
+
+#### Return Part of an Array Using the slice Method
+
+
+The slice method returns a copy of certain elements of an array. It can take two arguments, the first gives the index of where to begin the slice, the second is the index for where to end the slice (and it's non-inclusive). If the arguments are not provided, the default is to start at the beginning of the array through the end, which is an easy way to make a copy of the entire array. The slice method does not mutate the original array, but returns a new one.
+
+Here's an example:
+
+var arr = ["Cat", "Dog", "Tiger", "Zebra"];
+var newArray = arr.slice(1, 3);
+// Sets newArray to ["Dog", "Tiger"]
+
+
+### Remove Elements from an Array Using slice Instead of splice
+
+A common pattern while working with arrays is when you want to remove items and keep the rest of the array. JavaScript offers the splice method for this, which takes arguments for the index of where to start removing items, then the number of items to remove. If the second argument is not provided, the default is to remove items through the end. However, the splice method mutates the original array it is called on. Here's an example:
+
+```JS 
+var cities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
+cities.splice(3, 1); // Returns "London" and deletes it from the cities array
+```
+
+// cities is now ["Chicago", "Delhi", "Islamabad", "Berlin"]
+As we saw in the last challenge, the slice method does not mutate the original array, but returns a new one which can be saved into a variable. Recall that the slice method takes two arguments for the indices to begin and end the slice (the end is non-inclusive), and returns those items in a new array. Using the slice method instead of splice helps to avoid any array-mutating side effects.
+
+```JS 
+function nonMutatingSplice(cities) {
+  // Only change code below this line
+  return cities.slice(0,3);
+
+  // Only change code above this line
+}
+var inputCities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
+nonMutatingSplice(inputCities);
+``` 
+
+
+#### Combine Two Arrays Using the concat MethodPassed
+
+Concatenation means to join items end to end. JavaScript offers the concat method for both strings and arrays that work in the same way. For arrays, the method is called on one, then another array is provided as the argument to concat, which is added to the end of the first array. It returns a new array and does not mutate either of the original arrays. Here's an example:
+``` JS 
+[1, 2, 3].concat([4, 5, 6]);
+```
+// Returns a new array [1, 2, 3, 4, 5, 6]
+Use the concat method in the nonMutatingConcat function to concatenate attach to the end of original. The function should return the concatenated array.
+
+```Js 
+function nonMutatingConcat(original, attach) {
+  // Only change code below this line
+
+
+  // Only change code above this line
+}
+var first = [1, 2, 3];
+var second = [4, 5];
+nonMutatingConcat(first, second);
+```
+
+#### Add Elements to the End of an Array Using concat Instead of push
+
+Functional programming is all about creating and using non-mutating functions.
+
+The last challenge introduced the concat method as a way to combine arrays into a new one without mutating the original arrays. Compare concat to the push method. Push adds an item to the end of the same array it is called on, which mutates that array. Here's an example:
+```JS 
+var arr = [1, 2, 3];
+arr.push([4, 5, 6]);
+```
+// arr is changed to [1, 2, 3, [4, 5, 6]]
+// Not the functional programming way
+Concat offers a way to add new items to the end of an array without any mutating side effects.
+```JS
+function nonMutatingPush(original, newItem) {
+  // Only change code below this line
+  return original.concat(newItem);
+
+  // Only change code above this line
+}
+var first = [1, 2, 3];
+var second = [4, 5];
+nonMutatingPush(first, second);
+```
+
+#### Use the reduce Method to Analyze Data
+
+Array.prototype.reduce(), or simply reduce(), is the most general of all array operations in JavaScript. You can solve almost any array processing problem using the reduce method.
+
+The reduce method allows for more general forms of array processing, and it's possible to show that both filter and map can be derived as special applications of reduce. The reduce method iterates over each item in an array and returns a single value (i.e. string, number, object, array). This is achieved via a callback function that is called on each iteration.
+
+The callback function accepts four arguments. The first argument is known as the accumulator, which gets assigned the return value of the callback function from the previous iteration, the second is the current element being processed, the third is the index of that element and the fourth is the array upon which reduce is called.
+
+In addition to the callback function, reduce has an additional parameter which takes an initial value for the accumulator. If this second parameter is not used, then the first iteration is skipped and the second iteration gets passed the first element of the array as the accumulator.
+
+See below for an example using reduce on the users array to return the sum of all the users' ages. For simplicity, the example only uses the first and second arguments.
+
+const users = [
+  { name: 'John', age: 34 },
+  { name: 'Amy', age: 20 },
+  { name: 'camperCat', age: 10 }
+];
+
+const sumOfAges = users.reduce((sum, user) => sum + user.age, 0);
+console.log(sumOfAges); // 64
+In another example, see how an object can be returned containing the names of the users as properties with their ages as values.
+
+const users = [
+  { name: 'John', age: 34 },
+  { name: 'Amy', age: 20 },
+  { name: 'camperCat', age: 10 }
+];
+
+const usersObj = users.reduce((obj, user) => {
+  obj[user.name] = user.age;
+  return obj;
+}, {});
+console.log(usersObj); // { John: 34, Amy: 20, camperCat: 10 }
+
+The variable watchList holds an array of objects with information on several movies. Use reduce to find the average IMDB rating of the movies directed by Christopher Nolan. Recall from prior challenges how to filter data and map over it to pull what you need. You may need to create other variables, and return the average rating from getRating function. Note that the rating values are saved as strings in the object and need to be converted into numbers before they are used in any mathematical operations.
+
+
+
+#### Use Higher-Order Functions map, filter, or reduce to Solve a Complex Problem
+
+PAREI AQUI 
+
+### Desing patterns
 
 DP são soluções gerais para problemas recorrentes em desenvolvimento de um software
 Não se trata de um framework ou um código , mas uma definiçao de alto nivel de como um problema pode ser solucionado
@@ -3476,8 +4368,6 @@ Nome, Exemplo, contexto , problema, solução.
 1994 Gof Erich, Richard , Ralph John  DP Elements of Reusable OO Software -> Tipos Criação , estruturais e comportamentais
 
 ![](./img/design.PNG)
-
-
 
 ```Javascript
 Padroes de criação (design pattern): abstraem e / ou adiam o processo de criação dos objetos , tornamm o sistema independete de como seus objetos são criados , compostos e representados
@@ -3510,8 +4400,7 @@ Observer >  A instancia (subscriber) mantem uma coleção de objetos (observers)
 Modoule > Permite organizar o corido sem a necessidade de expor variáveis globais No ES6 (export default)
 ```
 
-
-React Patterns : 
+React Patterns :
 
 - Contents
 - Translations
@@ -3537,25 +4426,24 @@ React Patterns :
 - Higher-order component
 - State hoisting
 - Controlled input
-
 - Translations
-These translations are not verified and links are not endorsements.
-Chinese
+  These translations are not verified and links are not endorsements.
+  Chinese
 
 Element
 Elements are anything inside angle brackets.
 
-
-``` JS
+```JS
 <div></div>
 <Greeting />
 ```
+
 Components return Elements.
 
 Component
 Define a Component by declaring a function that returns a React Element.
 
-``` JS
+```JS
 function Greeting() {
   return <div>Hi there!</div>;
 }
@@ -3564,7 +4452,7 @@ function Greeting() {
 Expressions
 Use curly braces to embed expressions in JSX.
 
-``` JS
+```JS
 function Greeting() {
   let name = "chantastic";
 
@@ -3574,7 +4462,8 @@ function Greeting() {
 
 Props
 Take props as an argument to allow outside customizations of your Component.
-``` JS
+
+```JS
 
 function Greeting(props) {
   return <div>Hi {props.name}!</div>;
@@ -3589,13 +4478,15 @@ Greeting.defaultProps = {
   name: "Guest"
 };
 ```
+
 Destructuring props
 Destructuring assignment is a JavaScript feature.
 It was added to the language in ES2015.
 So it might not look familiar.
 
 Think of it like the opposite of literal assignment.
-``` JS
+
+```JS
 
 let person = { name: "chantastic" };
 let { name } = person;
@@ -3604,9 +4495,11 @@ Works with Arrays too.
 let things = ["one", "two"];
 let [first, second] = things;
 ```
+
 Destructuring assignment is used a lot in function components.
 These component declarations below are equivalent.
-``` JS
+
+```JS
 
 function Greeting(props) {
   return <div>Hi {props.name}!</div>;
@@ -3616,14 +4509,17 @@ function Greeting({ name }) {
   return <div>Hi {name}!</div>;
 }
 ```
+
 There's a syntax for collecting remaining props into an object.
 It's called rest parameter syntax and looks like this.
-``` JS
+
+```JS
 
 function Greeting({ name, ...restProps }) {
   return <div>Hi {name}!</div>;
 }
 ```
+
 Those three dots (...) take all the remaining properties and assign them to the object restProps.
 
 So, what do you do with restProps once you have it?
@@ -3635,12 +4531,14 @@ It's a syntax for providing an object's properties as JSX attributes.
 
 Following the example from Destructuring props,
 We can spread restProps over our <div>.
-``` JS
+
+```JS
 
 function Greeting({ name, ...restProps }) {
   return <div {...restProps}>Hi {name}!</div>;
 }
 ```
+
 This makes Greeting super flexible.
 We can pass DOM attributes to Greeting and trust that they'll be passed through to div.
 
@@ -3648,42 +4546,50 @@ We can pass DOM attributes to Greeting and trust that they'll be passed through 
 
 Avoid forwarding non-DOM props to components.
 Destructuring assignment is popular because it gives you a way to separate component-specific props from DOM/platform-specific attributes.
-``` JS
+
+```JS
 
 function Greeting({ name, ...platformProps }) {
   return <div {...platformProps}>Hi {name}!</div>;
 }
 ```
+
 Merge destructured props with other values
 Components are abstractions.
 Good abstractions allow for extension.
 
 Consider this component that uses a class attribute for style a button.
-``` JS
+
+```JS
 
 function MyButton(props) {
   return <button className="btn" {...props} />;
 }
 This works great until we try to extend it with another class.
 ```
-``` JS
+
+```JS
 
 <MyButton className="delete-btn">Delete...</MyButton>
 In this case, delete-btn replaces btn.
 ```
+
 Order matters for JSX spread attributes.
 The props.className being spread is overriding the className in our component.
 
 We can change the order but now the className will never be anything but btn.
-``` JS
+
+```JS
 
 function MyButton(props) {
   return <button {...props} className="btn" />;
 }
 ```
+
 We need to use destructuring assignment to get the incoming className and merge with the base className.
 We can do this simply by adding all values to an array and joining them with a space.
-``` JS
+
+```JS
 
 function MyButton({ className, ...props }) {
   let classNames = ["btn", className].join(" ");
@@ -3692,8 +4598,10 @@ function MyButton({ className, ...props }) {
   
 }
 ```
+
 To guard from undefined showing up as a className, you could update your logic to filter out falsy values:
-``` JS
+
+```JS
 
 function MyButton({ className, ...props }) {
   let classNames = ["btn", className].filter(Boolean).join(" ").trim();
@@ -3701,6 +4609,7 @@ function MyButton({ className, ...props }) {
   return <button className={classNames} {...props} />;
 }
 ```
+
 Bear in mind though that if an empty object is passed it'll be included in the class as well, resulting in: btn [object Object].
 
 The better approach is to make use of available packages, like classnames or clsx, that could be used to join classnames, relieving you from having to deal with it manually.
@@ -3708,7 +4617,8 @@ The better approach is to make use of available packages, like classnames or cls
 Conditional rendering
 You can't use if/else statements inside a component declarations.
 So conditional (ternary) operator and short-circuit evaluation are your friends.
-``` JS
+
+```JS
 
 if
 {
@@ -3727,10 +4637,12 @@ if-else
   );
 }
 ```
+
 Children types
 React can render children from most types.
 In most cases it's either an array or a string.
-``` JS
+
+```JS
 
 String
 <div>Hello World!</div>
@@ -3738,11 +4650,13 @@ Array
 <div>{["Hello ", <span>World</span>, "!"]}</div>
 Array as children
 ```
+
 Providing an array as children is a very common.
 It's how lists are drawn in React.
 
 We use map() to create an array of React Elements for every value in the array.
-``` JS
+
+```JS
 
 <ul>
   {["first", "second"].map(item => (
@@ -3760,19 +4674,23 @@ This pattern can be combined with destructuring, JSX Spread Attributes, and othe
   ))}
 </ul>
 ```
+
 Function as children
 React components don't support functions as children. However, render props is a pattern for creating components that take functions as children.
 
 Render prop
 Here's a component that uses a render callback.
 It's not useful, but it's an easy illustration to start with.
-``` JS
+
+```JS
 
 const Width = ({ children }) => children(500);
 The component calls children as a function, with some number of arguments. Here, it's the number 500.
 ```
+
 To use this component, we give it a function as children.
-``` JS
+
+```JS
 
 <Width>{width => <div>window is {width}</div>}</Width>
 We get this output.
@@ -3784,15 +4702,19 @@ With this setup, we can use this width to make rendering decisions.
   {width => (width > 600 ? <div>min-width requirement met!</div> : null)}
 </Width>
 ```
+
 If we plan to use this condition a lot, we can define another components to encapsulate the reused logic.
-``` JS
+
+```JS
 
 const MinWidth = ({ width: minWidth, children }) => (
   <Width>{width => (width > minWidth ? children : null)}</Width>
 );
 ```
+
 Obviously a static Width component isn't useful but one that watches the browser window is. Here's a sample implementation.
-``` JS
+
+```JS
 
 class WindowWidth extends React.Component {
   constructor() {
@@ -3813,11 +4735,13 @@ class WindowWidth extends React.Component {
   }
 }
 ```
+
 Many developers favor Higher Order Components for this type of functionality. It's a matter of preference.
 
 Children pass-through
 You might create a component designed to apply context and render its children.
-``` JS
+
+```JS
 
 class SomeContextProvider extends React.Component {
   getChildContext() {
@@ -3829,8 +4753,10 @@ class SomeContextProvider extends React.Component {
   }
 }
 ```
+
 You're faced with a decision. Wrap children in an extraneous <div /> or return children directly. The first options gives you extra markup (which can break some stylesheets). The second will result in unhelpful errors.
-``` JS
+
+```JS
 
 // option 1: extra div
 return <div>{children}</div>;
@@ -3841,10 +4767,12 @@ It's best to treat children as an opaque data type. React provides React.Childre
 
 return React.Children.only(this.props.children);
 ```
+
 Proxy component
 (I'm not sure if this name makes sense)
 
 Buttons are everywhere in web apps. And every one of them must have the type attribute set to "button".
+
 ```
 
 <button type="button">
@@ -3870,7 +4798,8 @@ We can generate this output using a couple single-purpose components.
 ```
 
 import classnames from "classnames";
-``` JS
+
+```JS
 
 const PrimaryBtn = props => <Btn {...props} primary />;
 
@@ -3882,8 +4811,10 @@ const Btn = ({ className, primary, ...props }) => (
   />
 );
 ```
+
 It can help to visualize this.
-``` JS
+
+```JS
 
 PrimaryBtn()
   ↳ Btn({primary: true})
@@ -3909,8 +4840,10 @@ handleClick() { require("./actions/doStuff")(/* action stuff */) }
 handleMouseEnter() { this.setState({ hovered: true }) }
 handleMouseLeave() { this.setState({ hovered: false }) }
 ```
+
 Consider writing a single event handler for your component and switching on event.type.
-``` JS
+
+```JS
 
 handleEvent({type}) {
   switch(type) {
@@ -3925,8 +4858,8 @@ handleEvent({type}) {
   }
 }
 ```
-Alternatively, for simple components, you can call imported actions/functions directly from components, using arrow functions.
 
+Alternatively, for simple components, you can call imported actions/functions directly from components, using arrow functions.
 
 <div onClick={() => someImportedAction({ action: "DO_STUFF" })}
 Don't fret about performance optimizations until you have problems. Seriously don't.
@@ -3935,17 +4868,20 @@ Layout component
 Layout components result in some form of static DOM element. It might not need to update frequently, if ever.
 
 Consider a component that renders two children side-by-side.
-``` JS
+
+```JS
 
 <HorizontalSplit
   startSide={<SomeSmartComponent />}
   endSide={<AnotherSmartComponent />}
 />
 ```
+
 We can aggressively optimize this component.
 
 While HorizontalSplit will be parent to both components, it will never be their owner. We can tell it to update never, without interrupting the lifecycle of the components inside.
-``` JS
+
+```JS
 
 class HorizontalSplit extends React.Component {
   shouldComponentUpdate() {
@@ -3962,11 +4898,13 @@ class HorizontalSplit extends React.Component {
   }
 }
 ```
+
 Container component
 "A container does data fetching and then renders its corresponding sub-component. That’s it."—Jason Bonta
 
 Given this reusable CommentList component.
-``` JS
+
+```JS
 
 const CommentList = ({ comments }) => (
   <ul>
@@ -3978,8 +4916,10 @@ const CommentList = ({ comments }) => (
   </ul>
 );
 ```
+
 We can create a new component responsible for fetching data and rendering the CommentList function component.
-``` JS
+
+```JS
 
 class CommentListContainer extends React.Component {
   constructor() {
@@ -4001,6 +4941,7 @@ class CommentListContainer extends React.Component {
   }
 }
 ```
+
 We can write different containers for different application contexts.
 
 Higher-order component
@@ -4009,7 +4950,8 @@ A higher-order function is a function that takes and/or returns a function. It's
 If you're already using container components, these are just generic containers, wrapped up in a function.
 
 Let's start with our Greeting component.
-``` JS
+
+```JS
 
 const Greeting = ({ name }) => {
   if (!name) {
@@ -4019,8 +4961,10 @@ const Greeting = ({ name }) => {
   return <div>Hi {name}!</div>;
 };
 ```
+
 If it gets props.name, it's gonna render that data. Otherwise it'll say that it's "Connecting...". Now for the the higher-order bit.
-``` JS
+
+```JS
 
 const Connect = ComposedComponent =>
   class extends React.Component {
@@ -4038,7 +4982,8 @@ const Connect = ComposedComponent =>
       return <ComposedComponent {...this.props} name={this.state.name} />;
     }
   };
-  ```
+```
+
 This is just a function that returns component that renders the component we passed as an argument.
 
 Last step, we need to wrap our Greeting component in Connect.
@@ -4052,7 +4997,8 @@ function-component don't hold state (as the name implies).
 Events are changes in state. Their data needs to be passed to stateful container components parents.
 
 This is called "state hoisting". It's accomplished by passing a callback from a container component to a child component.
-``` JS
+
+```JS
 
 class NameContainer extends React.Component {
   render() {
@@ -4078,6 +5024,7 @@ class NameContainer extends React.Component {
   }
 }
 ```
+
 The state is hoisted to the container, by the provided callback, where it's used to update local state. This sets a nice clear boundary and maximizes the re-usability of function component.
 
 This pattern isn't limited to function components. Because function components don't have lifecycle events, you'll use this pattern with component classes as well.
@@ -4088,6 +5035,7 @@ Controlled input is an important pattern to know for use with state hoisting
 
 Controlled input
 It's hard to talk about controlled inputs in the abstract. Let's start with an uncontrolled (normal) input and go from there.
+
 ```
 <input type="text" />
 When you fiddle with this input in the browser, you see your changes. This is normal.
@@ -4100,7 +5048,7 @@ Obviously static inputs aren't very useful to your users. So, we derive a value 
 
 ```
 
-``` JS
+```JS
 class ControlledNameInput extends React.Component {
   constructor() {
     super();
@@ -4112,9 +5060,10 @@ class ControlledNameInput extends React.Component {
   }
 }
 ```
+
 Then, changing the input is a matter of changing component state.
 
-``` JS
+```JS
 return (
   <input
     value={this.state.name}
@@ -4123,6 +5072,7 @@ return (
 );
 
 ```
+
 This is a controlled input. It only updates the DOM when state has changed in our component. This is invaluable when creating consistent UIs.
 
 If you're using function components for form elements, read about using state hoisting to move new state up the component tree.
@@ -4135,11 +5085,13 @@ let foi introduzido no Es6 para evitar os problemas da variável pública var a 
 let camper = 'James';
 let camper = 'David'; // throws an error
 ```
+
 Note the "use strict". This enables Strict Mode, which catches common coding mistakes and "unsafe" actions. For instance:
 "use strict";
 x = 3.14; // throws an error because x is not declared
 
 When you declare a variable with the var keyword, it is declared globally, or locally if declared inside a function.
+
 ```Javascript
 var printNumTwo;
 for (var i = 0; i < 3; i++) {
@@ -5349,7 +6301,6 @@ var obj = {
 console.log(obj);
 ```
 
-
 ### Aplicando Conceitos Rest, Spread , Operator e Destructuring
 
 ### 2.1 Conheça Rest e Spread Operator
@@ -6293,7 +7244,6 @@ users.userLogged({user : "joao "});
 
 Event target trabalha com a api do browser eventListner
 
-
 ### 5 Tratamento e exceções
 
 ### 5.1 como Identificar erros
@@ -6942,7 +7892,7 @@ understand the difference between HTML and JSX
 - Browser nao intepreta JSX , para isso é necessario um transpilador para a aplicação entender o código (exemplo BABEL)
 - para executar um JS dentro de um JSX deve estar entre chaves
 
-```Javascript 
+```Javascript
 return (
 <div className='ui unstackable items'>
 Hello, friend! I am a basic React component.
@@ -7066,7 +8016,7 @@ Dentro do arquivo jsx
 - Pros  : Pratico , direta , ajuste  rapido  e testes de estilo
 - contra - manutenção
 
-```Javascript 
+```Javascript
 import React from 'react';
 
 // 1. Como estilizar uma lista usando estilos inline.
@@ -7094,7 +8044,7 @@ const listaEstilizada = {
 - npm i
 - cada elemento deve ter sua key - neste caso usamos o id de customer para fazer a key . colocar o indice poderia dar problema se estivermos trabalhando com dois vetores . chaves devem ser unicas apenas entre elementos irmaos
 
-```Javascript 
+```Javascript
 import React from "react";
 
 const listCustomer = [
@@ -7168,7 +8118,7 @@ export default App;
 - passando eventos . "e" acessa o prototype do browser daquele elemento
 -
 
-```Javascript 
+```Javascript
 import React from "react";
 
 const showEvent = (e) => {
@@ -7203,7 +8153,7 @@ export default App;
 
 Mudando o contexto para dentro do app para acessar sem usar o this
 
-```Javascript 
+```Javascript
 import React from "react";
 
 
@@ -7243,7 +8193,7 @@ export default App;
 
 Adicionando um botao para deletar cada cliente na lista da aula anterior :
 
-```Javascript 
+```Javascript
 import React from "react";
 
 const listCustomer = [
@@ -7309,7 +8259,7 @@ export default App;
 
 Passando o id como argumento para o manipilador de eventos
 
-```Javascript 
+```Javascript
 import React from "react";
 
 const listCustomer = [
@@ -7399,7 +8349,7 @@ export default App;
 - conflitos de nomes (solução: Design patterns)
 - arquivo ClassName.css
 
-```Javascript 
+```Javascript
 .div-style {
   display: flex; 
   flex-direction: column; 
@@ -7410,7 +8360,7 @@ export default App;
 
 e depois importa-se no codigo , usamos className e não class para poder importa-lo no react
 
-```Javascript 
+```Javascript
 import './ClassName.css'
 function Hello(){
     return <div className="div-style"> Ola mundo </div>
@@ -8183,7 +9133,7 @@ class WordAdder extends React.PureComponent {
 
   handleCLick(){
     /// Essa parte é um padrao ruim e causa um bug 
-    
+  
     const words = this.state.words; 
     words.push('marklar');
     this.setState({words:words});
@@ -8199,16 +9149,13 @@ class WordAdder extends React.PureComponent {
 }
 ```
 
-
-
 - como vc muda o valor , você nao consegue trabalhar com ela
 - solução :
-- evitar mutar valores ou estados mas criar um cópia mutaves  
-
+- evitar mutar valores ou estados mas criar um cópia mutaves
 
 ![](img/sol1.PNG)
 
-- outra forma de resolver , seria u sando uma biblio de imutabilidade como a immutable js 
+- outra forma de resolver , seria u sando uma biblio de imutabilidade como a immutable js
   imutable.js![](img/sol2.PNG)
 
 outras libs
@@ -8877,244 +9824,251 @@ Aprenda sobre o framework Bootstrap
 
 ## Node JS
 
-## NPM 
-NPM, which stands for Node Package Manager, is a companion app that installs 
-alongside Node (though it is developed separately and can be updated on a different 
-schedule than Node). With it, you can download packages, which are reusable JavaScript 
-modules (and any supporting stuff they might need) from a central package registry (or a 
+## NPM
+
+NPM, which stands for Node Package Manager, is a companion app that installs
+alongside Node (though it is developed separately and can be updated on a different
+schedule than Node). With it, you can download packages, which are reusable JavaScript
+modules (and any supporting stuff they might need) from a central package registry (or a
 private repository if you have one). The central repository you can find at
 www.npmjs.com
-You can visit it through a web browser and look through all the packages available, 
+You can visit it through a web browser and look through all the packages available,
 which makes finding exactly what you need easy.
 
 A Few More NPM Commands
-Aside from install, there are many other NPM commands, but you’ll probably only use 
-a subset most of the time. For example, to find out what modules are installed in your 
+Aside from install, there are many other NPM commands, but you’ll probably only use
+a subset most of the time. For example, to find out what modules are installed in your
 project, you can issue this command:
+
 - npm ls
-Like on a *nix system, ls is short for list, and that’s what it does: lists the installed 
-modules. What you’ll see is a textual tree that shows the modules and then the modules 
-they depend on. In other words, more will likely be shown than just the modules you 
-explicitly installed (some modules don’t have dependencies, but in the NPM ecosystem, 
-those tend to be the exception rather than the rule).
-Tip  one very helpful tip i can give is that if you want to see just the top-level 
-modules, whether in the global or local cache, you can add --depth=0 to the ls 
-command.
-If you want to see what’s installed in global cache instead, you can do
+  Like on a *nix system, ls is short for list, and that’s what it does: lists the installed
+  modules. What you’ll see is a textual tree that shows the modules and then the modules
+  they depend on. In other words, more will likely be shown than just the modules you
+  explicitly installed (some modules don’t have dependencies, but in the NPM ecosystem,
+  those tend to be the exception rather than the rule).
+  Tip  one very helpful tip i can give is that if you want to see just the top-level
+  modules, whether in the global or local cache, you can add --depth=0 to the ls
+  command.
+  If you want to see what’s installed in global cache instead, you can do
 - npm -g ls
-In fact, keep that -g option in mind because you can add that to most NPM 
-commands to differentiate between the local and global caches.
-You can also update a given module:
+  In fact, keep that -g option in mind because you can add that to most NPM
+  commands to differentiate between the local and global caches.
+  You can also update a given module:
 - npm update express
-Just provide the name of the module to update, and NPM will take care of it, updating 
-to the latest available version. If you don’t provide a package name, then NPM will dutifully 
-update all packages. And yes, you can drop a -g on it either way to target the global cache.
+  Just provide the name of the module to update, and NPM will take care of it, updating
+  to the latest available version. If you don’t provide a package name, then NPM will dutifully
+  update all packages. And yes, you can drop a -g on it either way to target the global cache.
 
 ### Initializing a New NPM/Node Project
-Now, in all of this, I did skip one step that clearly is optional but is, in fact, typical, and 
-that’s initializing a new project. With most Node/NPM projects, you’ll also have a file 
-named package.json in the root directory of the project. This file is the project manifest 
-file, and it provides metadata information to NPM (and Node, at least indirectly) about 
-your project that it needs to do certain things. It will tell NPM what modules to install if 
-they haven’t been installed yet for one thing (which makes giving a project to another 
-developer very easy!). It will also contain information like the name and version of the 
-project, its main entry point, and lots of other information (most of which is optional, but 
+
+Now, in all of this, I did skip one step that clearly is optional but is, in fact, typical, and
+that’s initializing a new project. With most Node/NPM projects, you’ll also have a file
+named package.json in the root directory of the project. This file is the project manifest
+file, and it provides metadata information to NPM (and Node, at least indirectly) about
+your project that it needs to do certain things. It will tell NPM what modules to install if
+they haven’t been installed yet for one thing (which makes giving a project to another
+developer very easy!). It will also contain information like the name and version of the
+project, its main entry point, and lots of other information (most of which is optional, but
 we’ll look at that a bit more in the next chapter).
-While you can write this file by hand or even go entirely without it, it’s a good idea to 
-have it, and it’s a good idea to let NPM create it for you, which you can do by executing 
+While you can write this file by hand or even go entirely without it, it’s a good idea to
+have it, and it’s a good idea to let NPM create it for you, which you can do by executing
 this command:
+
 - npm init
 
 ### Adding Dependencies
-Now, let’s say you want to add that Express package I mentioned to this project. There 
+
+Now, let’s say you want to add that Express package I mentioned to this project. There
 are two choices. First, you could edit package.json yourself, adding this element:
 "dependencies": {
-  "express": "^4.16.1"
+"express": "^4.16.1"
 }
-However, doing just that won’t have any effect. The module isn’t installed at this 
+However, doing just that won’t have any effect. The module isn’t installed at this
 point. To do that, you now must issue a command:
+
 - npm install
-NPM will now (using Node as a runtime, it should be mentioned, because NPM is 
-just a JavaScript application that runs on Node) go fetch the Express package from the 
-central repository, will determine all the dependencies it needs, and will download 
-and install all of them in the node_modules directory under the current directory. All 
-these modules are now in the project cache (not global cache, it should be noted) and 
-ready for you to use (normally, you wouldn’t use the transient dependencies of Express 
-directly, though you certainly could, but it’s good form to declare all the modules you 
-intend to use explicitly in package.json as dependencies).
-Another alternative, and the one generally favored by developers, is not to edit the 
-file directly and instead let NPM do it by issuing a command like this:
+  NPM will now (using Node as a runtime, it should be mentioned, because NPM is
+  just a JavaScript application that runs on Node) go fetch the Express package from the
+  central repository, will determine all the dependencies it needs, and will download
+  and install all of them in the node_modules directory under the current directory. All
+  these modules are now in the project cache (not global cache, it should be noted) and
+  ready for you to use (normally, you wouldn’t use the transient dependencies of Express
+  directly, though you certainly could, but it’s good form to declare all the modules you
+  intend to use explicitly in package.json as dependencies).
+  Another alternative, and the one generally favored by developers, is not to edit the
+  file directly and instead let NPM do it by issuing a command like this:
 - npm install express --save
-This will cause NPM to add the dependency entry in package.json for you. This 
-avoids the possibility of accidentally fat-fingering something and having a broken 
-experience (or, worse, handing the project to another developer only to get the dreaded 
-“It won’t even start up!” call).
+  This will cause NPM to add the dependency entry in package.json for you. This
+  avoids the possibility of accidentally fat-fingering something and having a broken
+  experience (or, worse, handing the project to another developer only to get the dreaded
+  “It won’t even start up!” call).
+- Note  You can also replace --save with --save-dev. this results in a
+  devDependencies entry being added to package.json. the difference is
+  that devDependencies are modules that you only need during development,
+  but which your project code itself doesn’t depend on. as you’ll see later, two
+  good examples of this are typeScript and Webpack. also, when uninstalling
+  dependencies, --save and --save-dev can also be used to remove the
+  dependency from package.json.
 
-- Note  You can also replace --save with --save-dev. this results in a 
-devDependencies entry being added to package.json. the difference is 
-that devDependencies are modules that you only need during development, 
-but which your project code itself doesn’t depend on. as you’ll see later, two 
-good examples of this are typeScript and Webpack. also, when uninstalling 
-dependencies, --save and --save-dev can also be used to remove the 
-dependency from package.json.
-
-The reason this is all important is that, now, let’s say you want to give this project 
-to someone else. You typically do not want to provide them with all the dependencies 
-your project requires, all the content of node_modules, if for no other reason that that 
-directory can quickly grow to a large size. Instead, they can recreate it using the  
+The reason this is all important is that, now, let’s say you want to give this project
+to someone else. You typically do not want to provide them with all the dependencies
+your project requires, all the content of node_modules, if for no other reason that that
+directory can quickly grow to a large size. Instead, they can recreate it using the
 package.json file just by doing this:
 npm install
-That will cause NPM to read the package.json file and automatically install all 
-the dependencies! Now, the person you’re working with has the same development 
+That will cause NPM to read the package.json file and automatically install all
+the dependencies! Now, the person you’re working with has the same development
 environment as you as far as project dependencies go for this project without having to  do any leg work themselves! Pretty sweet, right?
-As you can guess, there’s quite a bit more to NPM than just what I’ve shown here, but 
+As you can guess, there’s quite a bit more to NPM than just what I’ve shown here, but
 these are the real basics.
 
- ### NPM: More on package.json
-In the last chapter, you learned how to init a project with NPM, which generates a 
-package.json file. I said then that most of its contents were optional, and that’s definitely 
-true, but let’s talk about what’s available in that file, discussing each of the keys available 
-(remember it’s just a JSON file, which means it’s defining a JavaScript object, which has keys or properties or attributes or even elements – all these terms are generally taken to be 
+### NPM: More on package.json
+
+In the last chapter, you learned how to init a project with NPM, which generates a
+package.json file. I said then that most of its contents were optional, and that’s definitely
+true, but let’s talk about what’s available in that file, discussing each of the keys available
+(remember it’s just a JSON file, which means it’s defining a JavaScript object, which has keys or properties or attributes or even elements – all these terms are generally taken to be
 interchangeable in this context):
--  name – We start with a simple one: the name of the thing you’re 
-coding! The name element’s value must be no more than 214 
-characters, cannot start with a dot or an underscore, can have no 
-uppercase letters, and must be URL-safe.
--   author – The author is a single person and is defined by an object 
-with three potential attributes: name, email, and url (where name is 
-required, and both email and url are optional). Alternatively, you 
-can make the value a single string in the form "<name> <email> 
-(<url>)" and NPM will parse it for you automatically.
-- bin – Some packages require executables to be installed to do their 
-work and added to the path. That’s where the bin element comes 
-in. You can make the value an object (or map, which is probably the 
-more appropriate term here) that maps a command to an executable 
-and NPM will take care of “installing” it for you when you install the 
-package by creating the appropriate symlink.
--  browser – Some modules are meant to be used in a browser, not in 
-Node, and for those packages, you can use this element instead of 
-the main element (coming up shortly!) to hint to the users of your 
-package that it depends on primitives available to JavaScript that 
-aren’t available in Node.
--  bugs – If your project has an issue tracker, then you can reference 
-it with the bugs element. The value of this is an object with two 
-attributes, url and email, and you can specify either or both (but you 
-must specify at least one, or NPM will complain).
--  bundledDependencies – Some projects need to preserve NPM 
-packages locally or through a single download. For those, this 
-element allows you to specify an array of package names that will be 
-bundled with your package when you publish it.
--  config – If you need to have parameters available in the environment 
-when your package is used, then the config element might do the 
-trick. Here, you can specify a value like "config" : { "port" : 
-"8888" } and then in your code you can reference npm_package_
-config_port as an environment variable to get the value configured.
--  contributors – The contributors element is just like the author element 
-except that this is an array of people who helped with the project.
--  cpu – If your code is only meant to run on certain system architectures, 
-you can specify which as an array of strings with the cpu element.
--  dependencies – You saw the dependencies element in the previous 
-chapter, but I’ll also mention that in addition to specifying a package 
-name and optionally a version to be pulled down from the NPM 
-registry, you can also specify a URL to a tarball to be downloaded or a 
-Git/GitHub URL or a local file system path.
 
-- description – A freeform string that describes your package. It’s as 
-simple as that!
--  devDependencies – Again, one I mentioned in the previous chapter, 
-and it’s simply the same as dependencies, but it names packages that 
-are only needed during development.
--  directories – This element allows you to describe the structure 
-your package, things like the location of library components binary 
-content, man pages, Markdown documentation, examples, and tests. 
-See the Common JS package specification for details on this.
--  engines – This element allows you to specify what version(s) of Node 
-your package works on. You can also use this element to define what 
-version(s) of NPM is capable of properly installing the package.
--  files – When your package is installed as a dependency, NPM will 
-need to know what files to include. It will by default assume all, but if 
-you want or need to be specified, then the files element will let you 
-do that. It works a lot like a .gitignore file, but in reverse: anything 
-listed in this element will be included, not ignored.
--  homepage – If your project has a web site, then you can specify the 
-URL of its homepage with this element.
--  keywords – The keywords element is an arbitrary array of strings that 
-can be used to help people find your package (more on this in the 
-next section).
--  license – The value of the license element is the license your 
-package is released under. The value of this must be a currently 
-registered SPDX license identifier (see spdx.org for a list). 
-Alternatively, if you are using a custom license or one that doesn’t yet 
-have an SPDX identifier, then you can set the value to "SEE LICENSE 
-IN <filename>" and place the <filename> license file alongside the 
-package.json file. Or, if you don’t grant rights to use your package to 
-anyone (vis-à-vis, you want to make it private and/or unpublished), 
-then you can use a value of "UNLICENSED".
--   man – With this element you can specify a single file or an array of 
-filenames to put in place for the Linux man program to display for 
-your package.
--  main – This is the primary entry point to your package. For example, 
-if your package is named super_duper_cool_package, then a user 
-will expect to be able to do require("super_duper_cool_package") 
-after they install it. To allow this, the main element must point to the 
-file that exports your package’s main export object.
--  optionalDependencies – If your package has dependencies and 
-NPM can’t install them, then it will fail the installation of your 
-package. If, however, you want to specify that some dependencies 
-are okay to be missing and that NPM should go ahead with the 
-installation anyway, then optionalDependencies is where you can 
-list them.
--  os – Just like cpu, if your package only works on certain OSs, then this 
-element is where you can have an array of strings naming those it 
-runs on.
--  peerDependencies – Sometimes, a package will function as a plugin 
-to others, and so you’ll need a way to define what other packages 
-yours is compatible with. The peerDependencies element allows you 
-to do that.
--  private – If you want to ensure that you can’t accidentally publish 
-your package, then set private to false, and NPM will refuse to publish 
-it (more to come on publishing in the next section).
--  publishConfig – This element is an object that defines many pieces 
-of metadata that come into play with publishing your package to the 
-NPM registry. This includes things like tags and such. This can get 
-fairly involved, and we won’t (for the most part) be worrying about 
-any of it in this book beyond a few words in the next section, so I’ll 
-leave this one to the NPM documentation if and when you need it.
--  repository – If you’d like to specify where the code for your package 
-lives, whether GitHub or something else, whether public or private, 
-the repository element is where you do that.
-https://github.com/luizrosalba/ArquiteturainternanoNodeefilas.md/blob/master/README.md
-
+- name – We start with a simple one: the name of the thing you’re
+  coding! The name element’s value must be no more than 214
+  characters, cannot start with a dot or an underscore, can have no
+  uppercase letters, and must be URL-safe.
+- author – The author is a single person and is defined by an object
+  with three potential attributes: name, email, and url (where name is
+  required, and both email and url are optional). Alternatively, you
+  can make the value a single string in the form "<name> <email>
+  (<url>)" and NPM will parse it for you automatically.
+- bin – Some packages require executables to be installed to do their
+  work and added to the path. That’s where the bin element comes
+  in. You can make the value an object (or map, which is probably the
+  more appropriate term here) that maps a command to an executable
+  and NPM will take care of “installing” it for you when you install the
+  package by creating the appropriate symlink.
+- browser – Some modules are meant to be used in a browser, not in
+  Node, and for those packages, you can use this element instead of
+  the main element (coming up shortly!) to hint to the users of your
+  package that it depends on primitives available to JavaScript that
+  aren’t available in Node.
+- bugs – If your project has an issue tracker, then you can reference
+  it with the bugs element. The value of this is an object with two
+  attributes, url and email, and you can specify either or both (but you
+  must specify at least one, or NPM will complain).
+- bundledDependencies – Some projects need to preserve NPM
+  packages locally or through a single download. For those, this
+  element allows you to specify an array of package names that will be
+  bundled with your package when you publish it.
+- config – If you need to have parameters available in the environment
+  when your package is used, then the config element might do the
+  trick. Here, you can specify a value like "config" : { "port" :
+  "8888" } and then in your code you can reference npm_package_
+  config_port as an environment variable to get the value configured.
+- contributors – The contributors element is just like the author element
+  except that this is an array of people who helped with the project.
+- cpu – If your code is only meant to run on certain system architectures,
+  you can specify which as an array of strings with the cpu element.
+- dependencies – You saw the dependencies element in the previous
+  chapter, but I’ll also mention that in addition to specifying a package
+  name and optionally a version to be pulled down from the NPM
+  registry, you can also specify a URL to a tarball to be downloaded or a
+  Git/GitHub URL or a local file system path.
+- description – A freeform string that describes your package. It’s as
+  simple as that!
+- devDependencies – Again, one I mentioned in the previous chapter,
+  and it’s simply the same as dependencies, but it names packages that
+  are only needed during development.
+- directories – This element allows you to describe the structure
+  your package, things like the location of library components binary
+  content, man pages, Markdown documentation, examples, and tests.
+  See the Common JS package specification for details on this.
+- engines – This element allows you to specify what version(s) of Node
+  your package works on. You can also use this element to define what
+  version(s) of NPM is capable of properly installing the package.
+- files – When your package is installed as a dependency, NPM will
+  need to know what files to include. It will by default assume all, but if
+  you want or need to be specified, then the files element will let you
+  do that. It works a lot like a .gitignore file, but in reverse: anything
+  listed in this element will be included, not ignored.
+- homepage – If your project has a web site, then you can specify the
+  URL of its homepage with this element.
+- keywords – The keywords element is an arbitrary array of strings that
+  can be used to help people find your package (more on this in the
+  next section).
+- license – The value of the license element is the license your
+  package is released under. The value of this must be a currently
+  registered SPDX license identifier (see spdx.org for a list).
+  Alternatively, if you are using a custom license or one that doesn’t yet
+  have an SPDX identifier, then you can set the value to "SEE LICENSE
+  IN <filename>" and place the <filename> license file alongside the
+  package.json file. Or, if you don’t grant rights to use your package to
+  anyone (vis-à-vis, you want to make it private and/or unpublished),
+  then you can use a value of "UNLICENSED".
+- man – With this element you can specify a single file or an array of
+  filenames to put in place for the Linux man program to display for
+  your package.
+- main – This is the primary entry point to your package. For example,
+  if your package is named super_duper_cool_package, then a user
+  will expect to be able to do require("super_duper_cool_package")
+  after they install it. To allow this, the main element must point to the
+  file that exports your package’s main export object.
+- optionalDependencies – If your package has dependencies and
+  NPM can’t install them, then it will fail the installation of your
+  package. If, however, you want to specify that some dependencies
+  are okay to be missing and that NPM should go ahead with the
+  installation anyway, then optionalDependencies is where you can
+  list them.
+- os – Just like cpu, if your package only works on certain OSs, then this
+  element is where you can have an array of strings naming those it
+  runs on.
+- peerDependencies – Sometimes, a package will function as a plugin
+  to others, and so you’ll need a way to define what other packages
+  yours is compatible with. The peerDependencies element allows you
+  to do that.
+- private – If you want to ensure that you can’t accidentally publish
+  your package, then set private to false, and NPM will refuse to publish
+  it (more to come on publishing in the next section).
+- publishConfig – This element is an object that defines many pieces
+  of metadata that come into play with publishing your package to the
+  NPM registry. This includes things like tags and such. This can get
+  fairly involved, and we won’t (for the most part) be worrying about
+  any of it in this book beyond a few words in the next section, so I’ll
+  leave this one to the NPM documentation if and when you need it.
+- repository – If you’d like to specify where the code for your package
+  lives, whether GitHub or something else, whether public or private,
+  the repository element is where you do that.
+  https://github.com/luizrosalba/ArquiteturainternanoNodeefilas.md/blob/master/README.md
 
 ### Auditing Package Security
-The sad reality is that, sometimes, packages you use will be discovered to have security 
-vulnerabilities, just like any other software you use. But, being aware of this, the NPM 
+
+The sad reality is that, sometimes, packages you use will be discovered to have security
+vulnerabilities, just like any other software you use. But, being aware of this, the NPM
 team has constructed a useful command for dealing with this:
+
 - npm audit
-Running this command will scan your package.json file (or global packages if you 
-use -g) and submit the list of dependencies to the default NPM registry requesting a 
-report on any known vulnerabilities in them. This report will also include information on 
-how to remediate. But, if you want the quick answer, execute this command:
+  Running this command will scan your package.json file (or global packages if you
+  use -g) and submit the list of dependencies to the default NPM registry requesting a
+  report on any known vulnerabilities in them. This report will also include information on
+  how to remediate. But, if you want the quick answer, execute this command:
 - npm audit fix
-That will cause NPM to update any vulnerable packages with the newest available 
-version that hasn’t had the vulnerability reported in it.
-If you’d like to see a detailed audit report, execute
+  That will cause NPM to update any vulnerable packages with the newest available
+  version that hasn’t had the vulnerability reported in it.
+  If you’d like to see a detailed audit report, execute
 - npm audit --json
-or, if you prefer plain text
+  or, if you prefer plain text
 - npm audit --readable
-Finally, if you’d like to see what npm audit fix would do but without literally doing 
-it, you can use
+  Finally, if you’d like to see what npm audit fix would do but without literally doing
+  it, you can use
 - npm audit fix --dry-run
 
+### Updating Packages
 
-###  Updating Packages
-Once you have a project set up, you may on occasion want to update the packages it 
+Once you have a project set up, you may on occasion want to update the packages it
 depends on. This is very easy to do:
-- npm update
-Yep, that’s it! NPM will go off and update all packages to the latest version, respecting 
-your SemVer settings. You naturally can stick a -g in there too in order to update global 
-packages.
 
+- npm update
+  Yep, that’s it! NPM will go off and update all packages to the latest version, respecting
+  your SemVer settings. You naturally can stick a -g in there too in order to update global
+  packages.
 
 ## TDD e BDD
 
@@ -9575,7 +10529,7 @@ Vantagens :
 - toda config pronta
 - alteramos o index.js para :
 
-```Javascript 
+```Javascript
 module.exports = async function (context, req) {
     context.res =  { 
         status:200, 
@@ -9589,7 +10543,7 @@ module.exports = async function (context, req) {
 - tiramos o metodo post da function.json
 - definindo o nome da rota
 
-```Javascript 
+```Javascript
 {
   "bindings": [
     {
@@ -9615,7 +10569,7 @@ module.exports = async function (context, req) {
 - npm i mongodb
 - em index.js
 
-```Javascript 
+```Javascript
 const createMongoClient = require('../shared/mongoClient');
 
 module.exports = async context => {
@@ -9636,7 +10590,7 @@ module.exports = async context => {
 - GetProductByID
 - no functions
 
-```Javascript 
+```Javascript
 {
   "bindings": [
     {
@@ -9658,7 +10612,7 @@ module.exports = async context => {
 
 - no index
 
-```Javascript 
+```Javascript
 const { ObjectID } = require('mongodb');
 const createMongoClient = require('../shared/mongoClient');
 
@@ -9690,7 +10644,7 @@ module.exports = async function (context, req) {
 - CreateProduct
 - index.js
 
-```Javascript 
+```Javascript
 const createMongoClient = require('../shared/mongoClient');
 
 module.exports = async function (context, req) {
@@ -9721,7 +10675,7 @@ module.exports = async function (context, req) {
 
 - no function.json
 
-```Javascript 
+```Javascript
 {
   "bindings": [
     {
@@ -9743,7 +10697,8 @@ module.exports = async function (context, req) {
 
 - no postman
 - criar o body raw
-```Javascript 
+
+```Javascript
 {
     "nome" : "curso" , 
     "price": 3 
@@ -9755,7 +10710,7 @@ module.exports = async function (context, req) {
 - 201 created
 - ao dar get percebemos o produto criado
 
-```Javascript 
+```Javascript
 {
     "_id": "5f45667fc4d15216d86e6efe",
     "nome": "curso",
@@ -9769,7 +10724,7 @@ module.exports = async function (context, req) {
 -
 - no index
 
-```Javascript 
+```Javascript
 const { ObjectID } = require('mongodb');
 const createMongoClient = require('../shared/mongoClient');
 
@@ -9806,7 +10761,7 @@ module.exports = async function (context, req) {
 
 na function
 
-```Javascript 
+```Javascript
 {
   "bindings": [
     {
@@ -9829,7 +10784,7 @@ na function
 - put http://localhost:7071/api/products/5f45667fc4d15216d86e6efe
   com o body raw para atualizar o preco para 4 reais
 
-```Javascript 
+```Javascript
 {
     "nome" : "curso" , 
     "price": 4 
@@ -9843,7 +10798,7 @@ na function
 - Delete Product
   no index
 
-```Javascript 
+```Javascript
 const { ObjectID } = require('mongodb');
 const createMongoClient = require('../shared/mongoClient');
 
@@ -9879,7 +10834,7 @@ module.exports = async function (context, req) {
 
 No Functions
 
-```Javascript 
+```Javascript
 {
   "bindings": [
     {
