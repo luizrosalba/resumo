@@ -559,6 +559,69 @@ split()	Splits a string into an array of substrings
 startsWith()	Checks whether a string begins with specified characters
 substr()	Extracts the characters from a string, beginning at a specified start position, and through the specified number of character
 substring()	Extracts the characters from a string, between two specified indices
+toLocaleLowerCase()	Converts a string to lowercase letters, according to the host's locale /// imutavel
+toLocaleUpperCase()	Converts a string to uppercase letters, according to the host's locale
+toLowerCase()	Converts a string to lowercase letters/// imutavel
+toString()	Returns the value of a String object
+toUpperCase()	Converts a string to uppercase letters/// imutavel
+trim()	Removes whitespace from both ends of a string
+valueOf()	Returns the primitive value of a String object
+```
+
+/// fazer pegar daqui : https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/substr
+
+charAt()	Returns the character at the specified index (position)
+charCodeAt()	Returns the Unicode of the character at the specified index
+concat()	Joins two or more strings, and returns a new joined strings
+
+```JS 
+const array1 = ['a', 'b', 'c'];
+const array2 = ['d', 'e', 'f'];
+const array3 = array1.concat(array2);
+console.log(array3);
+// expected output: Array ["a", "b", "c", "d", "e", "f"]
+```
+
+endsWith()	Checks whether a string ends with specified string/characters
+fromCharCode()	Converts Unicode values to characters
+includes()	Checks whether a string contains the specified string/characters
+indexOf()	Returns the position of the first found occurrence of a specified value in a string
+lastIndexOf()	Returns the position of the last found occurrence of a specified value in a string
+localeCompare()	Compares two strings in the current locale
+
+```JS 
+const a = 'réservé'; // with accents, lowercase
+const b = 'RESERVE'; // no accents, uppercase
+
+console.log(a.localeCompare(b));
+// expected output: 1 false 
+console.log(a.localeCompare(b, 'en', { sensitivity: 'base' }));
+// expected output: 0 true 
+```
+
+match()	Searches a string for a match against a regular expression, and returns the matches
+```JS 
+
+```
+repeat()	Returns a new string with a specified number of copies of an  string
+replace()	Searches a string for a specified value, or a regular expression, and returns a new string where the specified values are replaced
+search()	Searches a string for a specified value, or regular expression, and returns the position of the match
+slice()	Extracts a part of a string and returns a new string
+split()	Splits a string into an array of substrings
+startsWith()	Checks whether a string begins with specified characters
+
+substr()	Extracts the characters from a string, beginning at a specified start position, and through the specified number of character
+```JS 
+var str = 'abcdefghij';
+console.log('(1, 2): '   + str.substr(1, 2));   // '(1, 2): bc'
+console.log('(-3, 2): '  + str.substr(-3, 2));  // '(-3, 2): hi'
+console.log('(-3): '     + str.substr(-3));     // '(-3): hij'
+console.log('(1): '      + str.substr(1));      // '(1): bcdefghij'
+console.log('(-20, 2): ' + str.substr(-20, 2)); // '(-20, 2): ab'
+console.log('(20, 2): '  + str.substr(20, 2));  // '(20, 2): '
+```
+
+substring()	Extracts the characters from a string, between two specified indices
 toLocaleLowerCase()	Converts a string to lowercase letters, according to the host's locale
 toLocaleUpperCase()	Converts a string to uppercase letters, according to the host's locale
 toLowerCase()	Converts a string to lowercase letters
@@ -566,7 +629,9 @@ toString()	Returns the value of a String object
 toUpperCase()	Converts a string to uppercase letters
 trim()	Removes whitespace from both ends of a string
 valueOf()	Returns the primitive value of a String object
-```
+
+
+
 
 ### Escopo de variáveis
 
@@ -575,6 +640,168 @@ var dentro de função cria uma variavel com escopo local
 It is possible to have both local and global variables with the same name. When you do this, the local variable takes precedence over the global variable.
 
 ### Arrays
+
+#### Array Properties
+constructor	Returns the function that created the Array object's prototype
+length	Sets or returns the number of elements in an array
+prototype	Allows you to add properties and methods to an Array object
+
+#### Array Methods
+
+Method	Description
+
+concat()	Joins two or more arrays, and returns a copy of the joined arrays
+copyWithin()	Copies array elements within the array, to and from specified positions
+entries()	Returns a key/value pair Array Iteration Object
+every()	Checks if every element in an array pass a test
+fill()	Fill the elements in an array with a static value
+filter()	Creates a new array with every element in an array that pass a test
+find()	Returns the value of the first element in an array that pass a test
+findIndex()	Returns the index of the first element in an array that pass a test
+Array.prototype.flat() The flat() method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.
+Array.prototype.flatMap() The flatMap() method returns a new array formed by applying a given callback function to each element of the array, and then flattening the result by one level. It is identical to a map() followed by a flat() of depth 1, but slightly more efficient than calling those two methods separately.
+forEach()	Calls a function for each array element
+from()	Creates an array from an object
+includes()	Check if an array contains the specified element
+indexOf()	Search the array for an element and returns its position
+isArray()	Checks whether an object is an array
+join()	Joins all elements of an array into a string
+keys()	Returns a Array Iteration Object, containing the keys of the original array
+lastIndexOf()	Search the array for an element, starting at the end, and returns its position
+map()	Creates a new array with the result of calling a function for each array element
+pop()	Removes the last element of an array, and returns that element
+push()	Adds new elements to the end of an array, and returns the new length
+reduce()	Reduce the values of an array to a single value (going left-to-right)
+reduceRight()	Reduce the values of an array to a single value (going right-to-left)
+reverse()	Reverses the order of the elements in an array
+shift()	Removes the first element of an array, and returns that element
+slice()	Selects a part of an array, and returns the new array
+some()	Checks if any of the elements in an array pass a test
+sort()	Sorts the elements of an array
+splice()	Adds/Removes elements from an array
+toString()	Converts an array to a string, and returns the result
+unshift()	Adds new elements to the beginning of an array, and returns the new length
+valueOf()	Returns the primitive value of an array
+
+
+
+
+
+Method Example 
+
+
+
+concat()	Joins two or more arrays, and returns a copy of the joined arrays
+copyWithin()	Copies array elements within the array, to and from specified positions
+``` Js
+const array1 = ['a', 'b', 'c', 'd', 'e'];
+
+// copy to index 0 the element at index 3
+console.log(array1.copyWithin(0, 3, 4));
+// expected output: Array ["d", "b", "c", "d", "e"]
+
+// copy to index 1 all elements from index 3 to the end
+console.log(array1.copyWithin(1, 3));
+// expected output: Array ["d", "d", "e", "d", "e"]
+```
+entries()	Returns a key/value pair Array Iteration Object
+every()	Checks if every element in an array pass a test
+fill()	Fill the elements in an array with a static value
+filter()	Creates a new array with every element in an array that pass a test
+```JS 
+const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+const result = words.filter(word => word.length > 6);
+
+console.log(result);
+// expected output: Array ["exuberant", "destruction", "present"]
+
+```
+
+find()	Returns the value of the first element in an array that pass a test
+findIndex()	Returns the index of the first element in an array that pass a test
+
+
+Array.prototype.flat()
+
+```Js
+const arr1 = [0, 1, 2, [3, 4]];
+
+console.log(arr1.flat());
+// expected output: [0, 1, 2, 3, 4]
+
+const arr2 = [0, 1, 2, [[[3, 4]]]];
+
+console.log(arr2.flat(2));
+// expected output: [0, 1, 2, [3, 4]]
+```
+
+Array.prototype.flatMap()
+
+```JS 
+let arr1 = [1, 2, 3, 4];
+
+arr1.map(x => [x * 2]); 
+// [[2], [4], [6], [8]]
+
+arr1.flatMap(x => [x * 2]);
+// [2, 4, 6, 8]
+
+// only one level is flattened
+arr1.flatMap(x => [[x * 2]]);
+// [[2], [4], [6], [8]]
+```
+
+
+
+``` JS 
+let arr1 = ["it's Sunny in", "", "California"];
+
+arr1.map(x => x.split(" "));
+// [["it's","Sunny","in"],[""],["California"]]
+
+arr1.flatMap(x => x.split(" "));
+// ["it's","Sunny","in", "", "California"]
+```
+
+
+
+forEach()	Calls a function for each array element
+from()	Creates an array from an object
+includes()	Check if an array contains the specified element
+indexOf()	Search the array for an element and returns its position
+isArray()	Checks whether an object is an array
+join()	Joins all elements of an array into a string
+
+```JS 
+const elements = ['Fire', 'Air', 'Water'];
+
+console.log(elements.join());
+// expected output: "Fire,Air,Water"
+
+console.log(elements.join(''));
+// expected output: "FireAirWater"
+
+console.log(elements.join('-'));
+// expected output: "Fire-Air-Water"
+``` 
+
+keys()	Returns a Array Iteration Object, containing the keys of the original array
+lastIndexOf()	Search the array for an element, starting at the end, and returns its position
+map()	Creates a new array with the result of calling a function for each array element
+pop()	Removes the last element of an array, and returns that element
+push()	Adds new elements to the end of an array, and returns the new length
+reduce()	Reduce the values of an array to a single value (going left-to-right)
+reduceRight()	Reduce the values of an array to a single value (going right-to-left)
+reverse()	Reverses the order of the elements in an array
+shift()	Removes the first element of an array, and returns that element
+slice()	Selects a part of an array, and returns the new array
+some()	Checks if any of the elements in an array pass a test
+sort()	Sorts the elements of an array
+splice()	Adds/Removes elements from an array
+toString()	Converts an array to a string, and returns the result
+unshift()	Adds new elements to the beginning of an array, and returns the new length
+valueOf()	Returns the primitive value of an array
 
 #### Criação e Inicialização
 
@@ -618,7 +845,7 @@ Array(3).fill(4);                // [4, 4, 4]   preenche um vetor de tres posiç
 Operações com arrays
 */
 
-```
+```Js 
 var myArray1 = [["Bulls", 23], ["White Sox", 45]];
 
 var myArray2 = [50,60,70];
@@ -633,7 +860,7 @@ var arr = [
 
 // indexação :
 
-```
+```Js
 console.log("indexação "); 
 console.log(arr[3]); // equals [[10,11,12], 13, 14]
 console.log(arr[3][0]); // equals [10,11,12]
@@ -642,7 +869,7 @@ console.log(arr[3][0][1]); // equals 11
 
 /// concatenação
 
-```
+```Js
 console.log("Concatenação "); 
 const juntos = myArray2.concat(myArray2) ; // faz um merge 
 console.log(juntos); 
@@ -714,7 +941,20 @@ Arr.slice(-3); // [3,4,5]
 
 exemplos slice
 
+
+``` JS 
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+
+console.log(animals.slice(2));
+// expected output: Array ["camel", "duck", "elephant"]
+
+console.log(animals.slice(2, 4));
+// expected output: Array ["camel", "duck"]
+
+console.log(animals.slice(1, 5));
+// expected output: Array ["bison", "camel", "duck", "elephant"]
 ```
+```Js
 console.log("Slice - Imutável retira uma Fatia , não muda o vetor"); 
 console.log(array1.slice(0,2)); //a partir da pos 0 pega 2 elementos 
                                 //e cria um novo vetor [1,2] 
@@ -738,6 +978,22 @@ console.log(ourArray);
 
 ##### splice
 
+
+```Js
+const months = ['Jan', 'March', 'April', 'June'];
+months.splice(1, 0, 'Feb'); /// o segundo parametro 0 significa insercao
+
+// inserts at index 1
+console.log(months);
+// expected output: Array ["Jan", "Feb", "March", "April", "June"]
+
+months.splice(4, 1, 'May'); 
+// replaces 1 element at index 4 trocar não é inserir 
+console.log(months);
+// expected output: Array ["Jan", "Feb", "March", "April", "May"]
+
+``` 
+
 Mutável, Altera o array adicionando novos elementos enquanto remove elementos antigos
 
 ```Javascript
@@ -752,7 +1008,7 @@ console.log(arr); /// ["fisrt",1,2];
 
 // novos elementos enquanto remove elementos antigos
 
-```
+```Js
 console.log("Splice - Mutável Altera o array adicionando novos elementos enquanto remove elementos antigos  ");
 const arr2 = [1,2,3,4,5];
 arr2.splice(2); // remove a partir da posicao 2
@@ -864,6 +1120,12 @@ Retorna o primeiro item de um array que satisfaz uma condição
 ```Javascript
 const arr = [1,2,3,4];  
 const firstGreatherThanTwo = arr.find (value => value > 2) ; /// 3
+```
+```JS 
+const array1 = [5, 12, 8, 130, 44];
+const found = array1.find(element => element > 10);
+console.log(found);
+// expected output: 12
 ```
 
 #####findIndex
@@ -1566,11 +1828,217 @@ let result = hello.replace(wsRegex, ""); // Change this line
 console.log (result);
 ```
 
-### Scripts Interessantes
+### Scripts Prontos 
+
+Cria grupos sequenciais de tamanho n em um vetor 
+``` Js 
+function chunkArrayInGroups(arr, size) {
+  let arr2 = [];
+  for (let i = 0 ; i < arr.length; i=i+size )
+  {
+    arr2.push(arr.slice(i, i+size));
+  }   
+  return arr2;
+}
+
+console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 4)); /// [[0,1,2,3] ,[4,5,6,7],[8]] 
+```
+
+// Remove todos os negativos 
+//  separa todos os impares em um numero par +1 
+
+```
+let a = [5, 4, -3, 20, 17, -33, -4, 18]
+//       |\  \  x   |  | \   x   x   |
+//      [4,1, 4,   20, 16, 1,       18]
+
+a.flatMap( (n) =>
+  (n < 0) ?      [] :
+  (n % 2 == 0) ? [n] :
+                 [n-1, 1]
+)
+
+// expected output: [4, 1, 4, 20, 16, 1, 18]
+
+```
+
+
+Verifica se todas as letras da segunda palavra estão presentes na primeira palavra ignorando Case 
+``` Js 
+function mutation(arr) {
+  let pal1= arr[0].toLowerCase();
+  let pal2= arr[1].toLowerCase();
+  for (let letra of pal2)
+  {
+    if (!pal1.includes(letra))  return false;
+  }
+  return true;
+}
+
+console.log(mutation(["Alien", "line"])); /// true 
+``` 
+Retorna o menor indice para inserção de um vetor em outro vetor 
+``` JS
+function getIndexToIns(arr, num) {
+   let vals = arr.sort((current,next) =>  current - next);  
+   let pos = 0 ; 
+   for (let val of vals)
+   {
+      if (val<num) {pos++;} ; 
+   }
+  return pos;
+}
+```
+Converte para boleano e adiciona no vetor se for true
+```JS
+function bouncer(arr) {
+  let arr2=[];
+  for (let val of arr)
+  {
+    if (Boolean(val))arr2.push(val);
+  }
+  return arr2;
+}
+
+bouncer([7, "ate", "", false, 9]);
+```
+Insere o vetor um na posicao n do vetor 2
+``` Js 
+function frankenSplice(arr1, arr2, n) {
+  let arr3=[...arr2];
+  arr3.splice(n,0,...arr1);
+  return arr3;
+}
+(frankenSplice([1, 2, 3], [4, 5], 1)); /// [4,1,2,3,5]
+```
+Coloca cada letra maiuscula no começo de uma sentança 
+``` Js
+function titleCase(str) {
+  let arr= str.toLowerCase().split(" ");
+  let arr2= [];
+  for (let pal of arr)
+  {
+      let letra = pal[0].toUpperCase();
+      letra += pal.substr(1,pal.length);
+      arr2.push(letra);
+      //console.log(arr2);
+  }
+  str = arr2.join(" ");
+  return str;
+}
+
+console.log(titleCase("I'm a little tea pot"));
+
+``` 
+
+Verifica o tipo da variavel 
+
+``` JS 
+function booWho(bool) {
+  (bool = (typeof bool==="boolean") ?true:false);
+  return bool;
+}
+ console.log(booWho(null));  /// false 
+ console.log(booWho(false));  /// true é boleana 
+ ```
+
+Retorna o valor do primeito elemento que atende a condição 
+```Js 
+function findElement(arr, func) {
+  let num ;
+  num = arr.find (func);
+  return num;
+}
+ console.log(findElement([1, 2, 3, 4], num => num % 2 === 0));// 2
+```  
+Retorna a palavra repetida n vezes 
+``` Js 
+function repeatStringNumTimes(str, num) {
+  let newstr=str;
+  if (num<=0) return ""; 
+  else 
+  {
+     for (let i = 1 ; i < num ; i++)
+     {
+       newstr+=str;
+     }
+     console.log(newstr); ///abcabcabc
+  }
+  return newstr;
+}
+repeatStringNumTimes("abc", 3);
+``` 
+
+Retorna se a palavra termina com uma dada string
+``` JS 
+function confirmEnding(str, target) {
+  let tamLetra = target.length;
+  let compara = (str.substr(-tamLetra, tamLetra));  // '(-3, 2): hi'
+  str = (compara.localeCompare(target)?false:true);
+  //console.log(str);
+  return str;
+}
+confirmEnding("Bastian", "n"); /// true , bastian termina com n
+```  
+
+Retorna um vetor contendo os maiores valores de cada vetor 
+```JS
+function largestOfFour(arr) {
+  let temp =[]; 
+  for (let vec of arr)
+  {
+    let valUnicos = [...new Set(vec.sort((current,next) => next - current))];            
+    temp.push(valUnicos[0])
+  }
+  arr = [...temp] ;
+  //console.log(arr);
+  return arr;
+}
+
+largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]); ///  [5,27,39,1001]
+```
+
+Fatorial sem recursividade 
+```Js
+function factorialize(num) {
+  if (num <=0) return 1;
+  for (let i=(num-1);i>=1;i--) num*=i; 
+  return num;
+}
+factorialize(5);
+``` 
+
+Inverte uma palavra 
+```Javascript
+function reverseString(str) {
+   const arr = str.split("");
+   arr.reverse();
+   str = arr.join("");
+   return str;
+}
+console.log(reverseString("hello")); /// olleh
+```
+
 
 Converte um vetor inteiro de uma vez só para um tipo de dados
+```Javascript 
 Vi  = Vi.map((x) =>parseInt(x));
+```
+Retorna a maior palavra 
+``` Js 
+function findLongestWordLength(str) {
+  const arr = str.split(" ");
+  let maior = 0; 
+  for (let pal of arr)
+  {
+    if ((pal.length)>maior) maior = pal.length;
+  }
+  //console.log(maior);  
+  return maior;
+}
 
+findLongestWordLength("The quick brown fox jumped over the lazy dog");
+```
 Retorna o indice das posições de um vetor que satisfazem uma condição
 
 ```Javascript
@@ -2175,10 +2643,52 @@ if (dia instance of Date) // true
 #### for in e for of
 
 ```Javascript
-for in -> Passa por todos os valores dos objetos
+for in -> retorna os valores de cada objeto 
 
 for of ->  retorna o indice de cada objeto
 ```
+
+
+Exemplo for in  
+
+``` JS 
+ let str = "The quick brown fox jumped over the lazy dog";
+ const arr = str.split(" ");
+  for (let pal of arr)
+  {
+    console.log(pal);  
+  }
+```
+saida retorna o indice de cada objeto
+0
+1
+2
+3
+4
+5
+6
+7
+8
+Exemplo for of 
+
+``` JS 
+ let str = "The quick brown fox jumped over the lazy dog";
+ const arr = str.split(" ");
+  for (let pal of arr)
+  {
+    console.log(pal);  
+  }
+```
+saida retorna os valores de cada objeto 
+The
+quick
+brown
+fox
+jumped
+over
+the
+lazy
+dog
 
 #### continue
 
@@ -2190,6 +2700,195 @@ continue
 pula a execução para os pares
 
 ### Aula 3.1 Orientação à objeto
+
+At its core, software development solves a problem or achieves a result with computation. The software development process first defines a problem, then presents a solution. Object oriented programming is one of several major approaches to the software development process.
+
+As its name implies, object oriented programming organizes code into object definitions. These are sometimes called classes, and they group together data with related behavior. The data is an object's attributes, and the behavior (or functions) are methods.
+
+The object structure makes it flexible within a program. Objects can transfer information by calling and passing data to another object's methods. Also, new classes can receive, or inherit, all the features from a base or parent class. This helps to reduce repeated code.
+
+Your choice of programming approach depends on a few factors. These include the type of problem, as well as how you want to structure your data and algorithms. This section covers object oriented programming principles in JavaScript.
+
+#### Objetos e propriedades 
+
+Think about things people see every day, like cars, shops, and birds. These are all objects: tangible things people can observe and interact with.
+
+What are some qualities of these objects? A car has wheels. Shops sell items. Birds have wings.
+
+These qualities, or properties, define what makes up an object. Note that similar objects share the same properties, but may have different values for those properties. For example, all cars have wheels, but not all cars have the same number of wheels.
+
+Objects in JavaScript are used to model real-world objects, giving them properties and behavior just like their real-world counterparts. Here's an example using these concepts to create a duck object:
+
+``` Js 
+let duck = {
+  name: "Aflac",
+  numLegs: 2
+};
+console.log(duck.name);
+```
+// This prints "Aflac" to the console
+Dot notation is used on the object name, duck, followed by the name of the property, name, to access the value of "Aflac".
+
+#### Métodos 
+
+Objects can have a special type of property, called a method.
+
+Methods are properties that are functions. This adds different behavior to an object. Here is the duck example with a method:
+
+``` Js 
+let duck = {
+  name: "Aflac",
+  numLegs: 2,
+  sayName: function() {return "The name of this duck is " + duck.name + ".";}
+};
+duck.sayName();
+// Returns "The name of this duck is Aflac.
+``` 
+#### Sobre This 
+
+sayName: function() {return "The name of this duck is " + duck.name + ".";}
+
+While this is a valid way to access the object's property, there is a pitfall here. If the variable name changes, any code referencing the original name would need to be updated as well. In a short object definition, it isn't a problem, but if an object has many references to its properties there is a greater chance for error.
+A way to avoid these issues is with the this keyword:
+``` Js 
+let duck = {
+  name: "Aflac",
+  numLegs: 2,
+  sayName: function() {return "The name of this duck is " + this.name + ".";}
+};
+``` 
+this refers to the object that the method is associated with: duck. If the object's name is changed to mallard, it is not necessary to find all the references to duck in the code. It makes the code reusable and easier to read.
+
+#### Construtores 
+Constructors are functions that create new objects. They define properties and behaviors that will belong to the new object. Think of them as a blueprint for the creation of new objects.
+Here is an example of a constructor:
+``` Js 
+function Bird() {
+  this.name = "Albert";
+  this.color = "blue";
+  this.numLegs = 2;
+}
+```
+- Constructors are defined with a capitalized name to distinguish them from other functions that are not constructors.
+- Constructors use the keyword this to set properties of the object they will create. Inside the constructor, this refers to the new object it will create.
+- Constructors define properties and behaviors instead of returning a value as other functions might.
+
+#### Operador new 
+``` Js 
+let blueBird = new Bird();
+``` 
+
+Notice that the new operator is used when calling a constructor. This tells JavaScript to create a new instance of Bird called blueBird. Without the new operator, this inside the constructor would not point to the newly created object, giving unexpected results. Now blueBird has all the properties defined inside the Bird constructor:
+``` Js 
+blueBird.name; // => Albert
+blueBird.color; // => blue
+blueBird.numLegs; // => 2
+``` 
+Just like any other object, its properties can be accessed and modified:
+
+blueBird.name = 'Elvira';
+blueBird.name; // => Elvira
+
+
+#### Extend Constructors to Receive Arguments
+Suppose you were writing a program to keep track of hundreds or even thousands of different birds in an aviary. It would take a lot of time to create all the birds, then change the properties to different values for every one. To more easily create different Bird objects, you can design your Bird constructor to accept parameters:
+``` Js
+function Bird(name, color) {
+  this.name = name;
+  this.color = color;
+  this.numLegs = 2;
+}
+``` 
+Then pass in the values as arguments to define each unique bird into the Bird constructor: let cardinal = new Bird("Bruce", "red"); This gives a new instance of Bird with name and color properties set to Bruce and red, respectively. The numLegs property is still set to 2. The cardinal has these properties:
+``` Js
+cardinal.name // => Bruce
+cardinal.color // => red
+cardinal.numLegs // => 2
+``` 
+The constructor is more flexible. It's now possible to define the properties for each Bird at the time it is created, which is one way that JavaScript constructors are so useful. They group objects together based on shared characteristics and behavior and define a blueprint that automates their creation.
+
+#### Verify an Object's Constructor with instanceof
+instanceof allows you to compare an object to a constructor, returning true or false based on whether or not that object was created with the constructor. Here's an example:
+```JS 
+let Bird = function(name, color) {
+  this.name = name;
+  this.color = color;
+  this.numLegs = 2;
+}
+
+let crow = new Bird("Alexis", "black");
+
+crow instanceof Bird; // => true
+```
+
+#### Understand Own Properties
+
+``` JS 
+function Bird(name) {
+  this.name  = name;
+  this.numLegs = 2;
+}
+
+let duck = new Bird("Donald");
+let canary = new Bird("Tweety");
+
+let ownProps = [];
+
+for (let property in duck) {
+  if(duck.hasOwnProperty(property)) {
+    ownProps.push(property);
+  }
+}
+console.log(ownProps); // prints [ "name", "numLegs" ]
+
+``` 
+#### Use Prototype Properties to Reduce Duplicate Code
+
+Since numLegs will probably have the same value for all instances of Bird, you essentially have a duplicated variable numLegs inside each Bird instance.
+
+This may not be an issue when there are only two instances, but imagine if there are millions of instances. That would be a lot of duplicated variables.
+
+A better way is to use Bird’s prototype. Properties in the prototype are shared among ALL instances of Bird. Here's how to add numLegs to the Bird prototype:
+```JS 
+Bird.prototype.numLegs = 2;
+Now all instances of Bird have the numLegs property.
+
+console.log(duck.numLegs);  // prints 2
+console.log(canary.numLegs);  // prints 2
+``` 
+Since all instances automatically have the properties on the prototype, think of a prototype as a "recipe" for creating objects. Note that the prototype for duck and canary is part of the Bird constructor as Bird.prototype. Nearly every object in JavaScript has a prototype property which is part of the constructor function that created it.
+
+#### Iterate Over All Properties
+
+You have now seen two kinds of properties: own properties and prototype properties. Own properties are defined directly on the object instance itself. And prototype properties are defined on the prototype.
+
+```JS 
+function Bird(name) {
+  this.name = name;  //own property
+}
+
+Bird.prototype.numLegs = 2; // prototype property
+
+let duck = new Bird("Donald");
+``` 
+
+Here is how you add duck's own properties to the array ownProps and prototype properties to the array prototypeProps:
+
+```JS 
+let ownProps = [];
+let prototypeProps = [];
+
+for (let property in duck) {
+  if(duck.hasOwnProperty(property)) {
+    ownProps.push(property);
+  } else {
+    prototypeProps.push(property);
+  }
+}
+
+console.log(ownProps); // prints ["name"]
+console.log(prototypeProps); // prints ["numLegs"]
+```
 
 #### Herança
 
