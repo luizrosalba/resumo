@@ -667,6 +667,28 @@ let user = JSON.parse(userData);
 console.log( user.friends[1] ); // 1
 ``` 
 
+
+
+function whatIsInAName(collection, source) {
+  var arr = [];
+  // Only change code below this line
+  
+  console.log( collection.filter ( item =>  
+    ( item.last === source.last ||  
+      item.first === source.first) 
+  )); 
+  
+  // Only change code above this line
+  return arr;
+}
+
+whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 });
+
+
+
+
+
+
 stringify()	Convert a JavaScript object to a JSON string
 ```JS 
 JSON.stringify({});                  // '{}'
@@ -1052,6 +1074,19 @@ arr1.flatMap(x => x.split(" "));
 
 forEach()	Calls a function for each array element
 
+
+Exemplo : 
+loops aninhados 
+```JS 
+
+ arr1.forEach(val1 => (
+    arr2.forEach(val2 => (
+      console.log(val1 ,val2) 
+    )
+  )) 
+  );
+
+  ```
 Exemplo : Produz uma função myMap que utiliza um this.forEach para aplicar a função do callback nas entradas 
 
 ```JS 
@@ -1070,6 +1105,8 @@ var new_s = s.myMap(function(item) {
   return item * 2;
 });
 ```
+
+
 
 Exemplo : Produz uma função myMap que utiliza um for para aplicar a função do callback nas entradas 
 
@@ -2176,7 +2213,7 @@ console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 4)); /// [[0,1,2,3] 
 // Remove todos os negativos
 //  separa todos os impares em um numero par +1
 
-```
+```Js
 let a = [5, 4, -3, 20, 17, -33, -4, 18]
 //       |\  \  x   |  | \   x   x   |
 //      [4,1, 4,   20, 16, 1,       18]
@@ -2207,6 +2244,99 @@ function mutation(arr) {
 console.log(mutation(["Alien", "line"])); /// true 
 ```
 
+Filtra ps elementos em um vetor usando a variável
+reservada arguments (algoritmo mutável)
+```JS 
+function destroyer(arr) {
+ let alvo=arguments[0];
+ for (let i = 1 ; i < arguments.length; i++)
+ {
+      alvo= alvo.filter( val => val!==arguments[i]);
+ }
+ arr = alvo; 
+ return arr;
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+
+```
+
+
+Dado um JSON com um número qualquer de keys filtra um segundo vetor para que este 
+só apresente os valores que tiverem um , ou os dois , ou os treis .... keys 
+concidentes com o primeiro vetor.
+
+```JS 
+function whatIsInAName(collection, source) {
+
+  var arr = [];
+  // Only change code below this line
+  
+
+///ver se tem a propriedade e ver se ela é igual a key 
+
+for (const key in source){
+    //console.log(key);
+    collection = (collection.filter ( item =>  (item[key]===source[key]) )); 
+}
+arr = (collection);
+  // Only change code above this line
+  return arr;
+}
+
+/*
+
+whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }) 
+should return 
+[{ first: "Tybalt", last: "Capulet" }].
+
+Passed
+whatIsInAName([{ "apple": 1 }, { "apple": 1 }, { "apple": 1, "bat": 2 }], { "apple": 1 }) 
+should return 
+[{ "apple": 1 }, { "apple": 1 }, { "apple": 1, "bat": 2 }].
+
+Passed
+whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 }) 
+should return 
+[{ "apple": 1, "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }].
+
+Passed
+whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "cookie": 2 }) 
+should return 
+[{ "apple": 1, "bat": 2, "cookie": 2 }].
+
+Passed
+whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }, { "bat":2 }], { "apple": 1, "bat": 2 }) 
+should return 
+[{ "apple": 1, "bat": 2 }, { "apple": 1, "bat": 2, "cookie":2 }].
+
+Passed
+whatIsInAName([{"a": 1, "b": 2, "c": 3}], {"a": 1, "b": 9999, "c": 3}) 
+should return 
+[]
+
+*/
+```
+
+
+
+Verifica a diferenca entre dois vetores 
+```JS 
+function diffArray(arr1, arr2) {
+  var newArr = [];
+      arr1.forEach( val1 =>  {
+        if(!arr2.includes(val1)) 
+          newArr.push(val1); 
+      } );
+      arr2.forEach( val2 =>  {
+        if(!arr1.includes(val2)) 
+          newArr.push(val2); 
+      })
+  return newArr;
+}
+console.log(diffArray([1, "calf", 3, "piglet"], [7, "filly"]));
+ /// [ 1, 'calf', 3, 'piglet', 7, 'filly' ]
+```
 Retorna o menor indice para inserção de um vetor em outro vetor
 
 ```JS
@@ -4321,17 +4451,17 @@ The callback function accepts four arguments. The first argument is known as the
 In addition to the callback function, reduce has an additional parameter which takes an initial value for the accumulator. If this second parameter is not used, then the first iteration is skipped and the second iteration gets passed the first element of the array as the accumulator.
 
 See below for an example using reduce on the users array to return the sum of all the users' ages. For simplicity, the example only uses the first and second arguments.
-
+```JS 
 const users = [
   { name: 'John', age: 34 },
   { name: 'Amy', age: 20 },
   { name: 'camperCat', age: 10 }
 ];
-
+```
 const sumOfAges = users.reduce((sum, user) => sum + user.age, 0);
 console.log(sumOfAges); // 64
 In another example, see how an object can be returned containing the names of the users as properties with their ages as values.
-
+```JS 
 const users = [
   { name: 'John', age: 34 },
   { name: 'Amy', age: 20 },
@@ -4343,14 +4473,284 @@ const usersObj = users.reduce((obj, user) => {
   return obj;
 }, {});
 console.log(usersObj); // { John: 34, Amy: 20, camperCat: 10 }
-
+```
 The variable watchList holds an array of objects with information on several movies. Use reduce to find the average IMDB rating of the movies directed by Christopher Nolan. Recall from prior challenges how to filter data and map over it to pull what you need. You may need to create other variables, and return the average rating from getRating function. Note that the rating values are saved as strings in the object and need to be converted into numbers before they are used in any mathematical operations.
 
 
 
 #### Use Higher-Order Functions map, filter, or reduce to Solve a Complex Problem
 
-PAREI AQUI 
+Now that you have worked through a few challenges using higher-order functions like map(), filter(), and reduce(), you now get to apply them to solve a more complex challenge.
+
+We have defined a function named squareList. You need to complete the code for the squareList function using any combination of map(), filter(), and reduce() so that it returns a new array containing only the square of only the positive integers (decimal numbers are not integers) when an array of real numbers is passed to it. An example of an array containing only real numbers is [-3, 4.8, 5, 3, -3.2].
+
+Note: Your function should not use any kind of for or while loops or the forEach() function.
+```JS
+const squareList = (arr) => {
+  // Only change code below this line
+  
+  const filteredList = arr.filter( item => !(item%1) && item>=0)   
+  const mapped = filteredList.map(item => item*item); 
+  arr = [...mapped];
+  return arr;
+  // Only change code above this line
+};
+
+const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
+console.log(squaredIntegers);
+```
+
+#### Sort an Array Alphabetically using the sort Method
+The sort method sorts the elements of an array according to the callback function.
+
+For example:
+
+```JS
+
+function ascendingOrder(arr) {
+  return arr.sort(function(a, b) {
+    return a - b;
+  });
+}
+ascendingOrder([1, 5, 2, 3, 4]);
+// Returns [1, 2, 3, 4, 5]
+
+function reverseAlpha(arr) {
+  return arr.sort(function(a, b) {
+    return a === b ? 0 : a < b ? 1 : -1;
+  });
+}
+reverseAlpha(['l', 'h', 'z', 'b', 's']);
+// Returns ['z', 's', 'l', 'h', 'b']
+```
+JavaScript's default sorting method is by string Unicode point value, which may return unexpected results. Therefore, it is encouraged to provide a callback function to specify how to sort the array items. When such a callback function, normally called compareFunction, is supplied, the array elements are sorted according to the return value of the compareFunction: If compareFunction(a,b) returns a value less than 0 for two elements a and b, then a will come before b. If compareFunction(a,b) returns a value greater than 0 for two elements a and b, then b will come before a. If compareFunction(a,b) returns a value equal to 0 for two elements a and b, then a and b will remain unchanged.
+
+```JS 
+function alphabeticalOrder(arr) {
+  // Only change code below this line
+ 
+  arr.sort(function(a, b) {
+    return a === b ? 0 : a > b ? 1 : -1;
+  });
+  return arr; 
+  // Only change code above this line
+}
+alphabeticalOrder(["a", "d", "c", "a", "z", "g"]);
+
+```
+
+### Return a Sorted Array Without Changing the Original Array
+A side effect of the sort method is that it changes the order of the elements in the original array. In other words, it mutates the array in place. One way to avoid this is to first concatenate an empty array to the one being sorted (remember that slice and concat return a new array), then run the sort method.
+
+hard coded 
+```JS
+var globalArray = [5, 6, 3, 2, 9];
+function nonMutatingSort(arr) {
+  // Only change code below this line
+  let arr2 = arr.slice();
+  return arr2.sort(function(a, b) { return a - b;});
+}
+
+  // Only change code above this line
+
+nonMutatingSort(globalArray);
+```
+
+not hard coded
+```JS
+var globalArray = [5, 6, 3, 2, 9];
+function nonMutatingSort(arr) {
+  // Only change code below this line
+  return arr.slice().sort(function(a, b) { return a - b;});
+}
+
+  // Only change code above this line
+
+nonMutatingSort(globalArray);
+```
+
+#### Split a String into an Array Using the split Method
+The split method splits a string into an array of strings. It takes an argument for the delimiter, which can be a character to use to break up the string or a regular expression. For example, if the delimiter is a space, you get an array of words, and if the delimiter is an empty string, you get an array of each character in the string.
+
+Here are two examples that split one string by spaces, then another by digits using a regular expression:
+
+```JS 
+var str = "Hello World";
+var bySpace = str.split(" ");
+// Sets bySpace to ["Hello", "World"]
+
+var otherString = "How9are7you2today";
+var byDigits = otherString.split(/\d/);
+// Sets byDigits to ["How", "are", "you", "today"]
+```
+Since strings are immutable, the split method makes it easier to work with them.
+Use the split method inside the splitify function to split str into an array of words. The function should return the array. Note that the words are not always separated by spaces, and the array should not contain punctuation.
+
+```JS
+function splitify(str) {
+  // Only change code below this line
+  return str.split(/\W/);
+  // Only change code above this line
+}
+splitify("Hello World,I-am code");
+```
+
+### Combine an Array into a String Using the join Method
+
+The join method is used to join the elements of an array together to create a string. It takes an argument for the delimiter that is used to separate the array elements in the string.
+
+Here's an example:
+
+var arr = ["Hello", "World"];
+var str = arr.join(" ");
+// Sets str to "Hello World"
+Use the join method (among others) inside the sentensify function to make a sentence from the words in the string str. The function should return a string. For example, "I-like-Star-Wars" would be converted to "I like Star Wars". For this challenge, do not use the replace method.
+
+```JS
+
+function sentensify(str) {
+  // Only change code below this line
+  let arr = str.split(/\W/);
+  return arr.join(" ");
+
+  // Only change code above this line
+}
+sentensify("May-the-force-be-with-you");
+```
+
+#### Apply Functional Programming to Convert Strings to URL Slugs
+
+The last several challenges covered a number of useful array and string methods that follow functional programming principles. We've also learned about reduce, which is a powerful method used to reduce problems to simpler forms. From computing averages to sorting, any array operation can be achieved by applying it. Recall that map and filter are special cases of reduce.
+
+Let's combine what we've learned to solve a practical problem.
+
+Many content management sites (CMS) have the titles of a post added to part of the URL for simple bookmarking purposes. For example, if you write a Medium post titled "Stop Using Reduce", it's likely the URL would have some form of the title string in it (".../stop-using-reduce"). You may have already noticed this on the freeCodeCamp site.
+
+Fill in the urlSlug function so it converts a string title and returns the hyphenated version for the URL. You can use any of the methods covered in this section, and don't use replace. Here are the requirements:
+
+The input is a string with spaces and title-cased words
+
+The output is a string with the spaces between words replaced by a hyphen (-)
+
+The output should be all lower-cased letters
+
+The output should not have any spaces
+```JS 
+// Only change code below this line
+function urlSlug(title) {
+  const trim = title.trim();
+  const lower = trim.toLowerCase();
+  const sep = lower.split(" ");
+  const filtro = sep.filter(item => item !=="");
+  const junto = filtro.join("-");
+  return  junto ; 
+}
+// Only change code above this line
+console.log(urlSlug(" Winter Is  Coming"));
+```
+
+#### Use the every Method to Check that Every Element in an Array Meets a Criteria
+
+The every method works with arrays to check if every element passes a particular test. It returns a Boolean value - true if all values meet the criteria, false if not.
+
+For example, the following code would check if every element in the numbers array is less than 10:
+
+var numbers = [1, 5, 8, 0, 10, 11];
+numbers.every(function(currentValue) {
+  return currentValue < 10;
+});
+// Returns false
+
+
+```JS 
+function checkPositive(arr) {
+  // Only change code below this line
+  return arr.every(function(currentValue) {
+  return currentValue > 0;
+  });
+  // Only change code above this line
+}
+checkPositive([1, 2, 3, -4, 5]);
+```
+
+#### Use the some Method to Check that Any Elements in an Array Meet a Criteria
+
+he some method works with arrays to check if any element passes a particular test. It returns a Boolean value - true if any of the values meet the criteria, false if not.
+
+For example, the following code would check if any element in the numbers array is less than 10:
+
+var numbers = [10, 50, 8, 220, 110, 11];
+numbers.some(function(currentValue) {
+  return currentValue < 10;
+});
+// Returns true
+Use the some method inside the checkPositive function to check if any element in arr is positive. The function should return a Boolean value.
+
+```JS
+function checkPositive(arr) {
+  // Only change code below this line
+  return arr.some(function(currentValue) {
+  return currentValue > 0 ;
+  });
+
+  // Only change code above this line
+}
+checkPositive([1, 2, 3, -4, 5]);
+```
+
+
+#### Introduction to Currying and Partial Application
+
+The arity of a function is the number of arguments it requires. Currying a function means to convert a function of N arity into N functions of arity 1.
+
+In other words, it restructures a function so it takes one argument, then returns another function that takes the next argument, and so on.
+
+Here's an example:
+
+//Un-curried function
+function unCurried(x, y) {
+  return x + y;
+}
+
+//Curried function
+function curried(x) {
+  return function(y) {
+    return x + y;
+  }
+}
+//Alternative using ES6
+const curried = x => y => x + y
+
+curried(1)(2) // Returns 3
+This is useful in your program if you can't supply all the arguments to a function at one time. You can save each function call into a variable, which will hold the returned function reference that takes the next argument when it's available. Here's an example using the curried function in the example above:
+
+// Call a curried function in parts:
+var funcForY = curried(1);
+console.log(funcForY(2)); // Prints 3
+Similarly, partial application can be described as applying a few arguments to a function at a time and returning another function that is applied to more arguments. Here's an example:
+
+//Impartial function
+function impartial(x, y, z) {
+  return x + y + z;
+}
+var partialFn = impartial.bind(this, 1, 2);
+partialFn(10); // Returns 13
+Fill in the body of the add function so it uses currying to add parameters x, y, and z.
+
+
+```JS 
+function add(x) {
+  // Only change code below this line
+  return function(y) {
+    return function(z){
+       return x + y + z;
+    }
+  }
+  // Only change code above this line
+}
+add(10)(20)(30);
+```
+
 
 ### Desing patterns
 
@@ -4378,6 +4778,82 @@ Factory Method
 Prototype
 Singleton
 ```
+
+#### Algoritmos  Intermediate Algorithm Scripting: Sum All Numbers in a RangePassed
+We'll pass you an array of two numbers. Return the sum of those two numbers plus the sum of all the numbers between them. The lowest number will not always come first.
+
+For example, sumAll([4,1]) should return 10 because sum of all the numbers between 1 and 4 (both inclusive) is 10.
+
+```JS 
+function sumAll(arr) {
+  const mapped =[];
+  let i; 
+  if (arr[0]>arr[1]) { /// era melhor dar um sort :( 
+      let temp= arr[0]; 
+      arr[0]=arr[1]; 
+      arr[1]=temp; 
+      }  ; 
+  for (i=arr[0];i<=arr[1];i++) mapped.push(i)
+  return mapped.reduce( 
+    (total,value) => total+= value, 0 
+    );
+}
+
+console.log(sumAll([1, 4]));
+```
+ #### Diff Two Arrays
+
+ Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both. In other words, return the symmetric difference of the two arrays.
+
+Note
+You can return the array with its elements in any order.
+Verifica a diferenca entre dois vetores 
+```JS 
+function diffArray(arr1, arr2) {
+  var newArr = [];
+      arr1.forEach( val1 =>  {
+        if(!arr2.includes(val1)) 
+          newArr.push(val1); 
+      } );
+      arr2.forEach( val2 =>  {
+        if(!arr1.includes(val2)) 
+          newArr.push(val2); 
+      })
+  return newArr;
+}
+console.log(diffArray([1, "calf", 3, "piglet"], [7, "filly"]));
+ /// [ 1, 'calf', 3, 'piglet', 7, 'filly' ]
+
+```
+####  Seek and DestroyPassed
+You will be provided with an initial array (the first argument in the destroyer function), followed by one or more arguments. Remove all elements from the initial array that are of the same value as these arguments.
+
+Note
+You have to use the arguments object.
+
+
+Filtra ps elementos em um vetor usando a variável
+reservada arguments (algoritmo mutável)
+```JS 
+function destroyer(arr) {
+ let alvo=arguments[0];
+ for (let i = 1 ; i < arguments.length; i++)
+ {
+      alvo= alvo.filter( val => val!==arguments[i]);
+ }
+ arr = alvo; 
+ return arr;
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3); /// [1,1]
+
+```
+#### Wherefore art thou
+Make a function that looks through an array of objects (first argument) and returns an array of all objects that have matching name and value pairs (second argument). Each name and value pair of the source object has to be present in the object from the collection if it is to be included in the returned array.
+
+For example, if the first argument is [{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], and the second argument is { last: "Capulet" }, then you must return the third object from the array (the first argument), because it contains the name and its value, that was passed on as the second argument.
+
+
 
 ### Design PAtterns Padroes esttruturais :
 
@@ -4640,7 +5116,7 @@ if-else
 
 Children types
 React can render children from most types.
-In most cases it's either an array or a string.
+In most cases it's either an array or a string.3
 
 ```JS
 
@@ -4656,7 +5132,7 @@ It's how lists are drawn in React.
 
 We use map() to create an array of React Elements for every value in the array.
 
-```JS
+```JS333
 
 <ul>
   {["first", "second"].map(item => (
