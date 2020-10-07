@@ -881,6 +881,15 @@ trim()	Removes whitespace from both ends of a string
 valueOf()	Returns the primitive value of a String object
 ```
 
+Remove acentuacao deixando a letra 
+```Js
+ let a = "LÓÁÍÀÚÜüíáàç";
+ b=a.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+ console.log(b);
+///"LOAIAUUuiaac"
+```
+
+
 /// fazer pegar daqui : https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/substr
 
 charAt()	Returns the character at the specified index (position)
@@ -1074,6 +1083,13 @@ console.log(result);
 ```
 
 find()	Returns the value of the first element in an array that pass a test
+```JS
+const array1 = [5, 12, 8, 130, 44];
+const found = array1.find(element => element > 10);
+console.log(found);
+// expected output: 12
+```
+
 findIndex()	Returns the index of the first element in an array that pass a test
 
 Array.prototype.flat()
