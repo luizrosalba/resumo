@@ -408,8 +408,6 @@ toUTCString()	Converts a Date object to a string, according to universal time
 UTC()	Returns the number of milliseconds in a date since midnight of January 1, 1970, according to UTC time
 valueOf()	Returns the primitive value of a Date object
 
-
-
 ### JavaScript Global Properties
 
 ```
@@ -2420,6 +2418,66 @@ a.flatMap( (n) =>
 
 ```
 
+Intermediate Algorithm Scripting: Convert HTML Entities
+Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
+convertHTML("Dolce & Gabbana") should return "Dolce &amp; Gabbana".
+Passed
+convertHTML("Hamburgers < Pizza < Tacos") should return "Hamburgers &lt; Pizza &lt; Tacos".
+Passed
+convertHTML("Sixty > twelve") should return "Sixty &gt; twelve".
+Passed
+convertHTML('Stuff in "quotation marks"') should return "Stuff in &quot;quotation marks&quot;".
+Passed
+convertHTML("Schindler's List") should return "Schindler&apos;s List".
+Passed
+convertHTML("<>") should return "&lt;&gt;".
+Passed
+convertHTML("abc") should return "abc".
+
+
+```JS
+
+function convertHTML(str)
+{
+  let trocas = [
+        {'&':'&amp;'},
+        {'<':'&lt;'},
+        {'>':'&gt;'},
+        {'"':'&quot;'},
+        {"'":'&apos;'},
+        ];
+      return trocas.reduce((accum,par) => 
+        accum.replace(new RegExp(Object.keys(par)[0],'g'),par[Object.keys(par)[0]]),str);
+        ///acumula todas as alterações do regex no str de saida 
+}
+convertHTML("Dolce & Gabbana");
+```
+
+
+Faz uma verificação de safe HTML 
+
+
+```Js
+  function convertHTML(str)
+{
+  let trocas = [
+        {'&':'&amp;'},
+        {'<':'&lt;'},
+        {'>':'&gt;'},
+        {'"':'&quot;'},
+        {"'":'&apos;'},
+        {'`':'&grave;'},
+        {'\n':'<br>'},
+        {' ':'&nbsp;'}
+        ];
+
+      return trocas.reduce((accum,t) => 
+        accum.replace(new RegExp(Object.keys(t)[0],'g'),t[Object.keys(t)[0]]),str);
+}
+
+```
+
+
 Verifica se todas as letras da segunda palavra estão presentes na primeira palavra ignorando Case
 
 ```Js
@@ -2514,6 +2572,60 @@ should return
 */
 ```
 
+Algorithm Scripting: DNA Pairing
+The DNA strand is missing the pairing element. Take each character, get its pair, and return the results as a 2d array.
+
+Base pairs are a pair of AT and CG. Match the missing element to the provided character.
+
+Return the provided character as the first element in each array.
+
+For example, for the input GCG, return [["G", "C"], ["C","G"],["G", "C"]]
+
+The character and its pair are paired up in an array, and all the arrays are grouped into one encapsulating array.
+
+Passed
+pairElement("ATCGA") should return [["A","T"],["T","A"],["C","G"],["G","C"],["A","T"]].
+Passed
+pairElement("TTGAG") should return [["T","A"],["T","A"],["G","C"],["A","T"],["G","C"]].
+Passed
+pairElement("CTCTA") should return [["C","G"],["T","A"],["C","G"],["T","A"],["A","T"]].
+
+```Js 
+    function achaPar(letra) {
+      let saida2 = [];
+      let answer = "";
+      switch (letra) {
+        case "A":
+          answer = "T";
+          break;
+        case "T":
+          answer = "A";
+          break;
+        case "C":
+          answer = "G";
+          break;
+        case "G":
+          answer = "C";
+          break;
+        default:
+          answer = "erro";
+          break;
+      }
+      saida2.push(letra);
+      saida2.push(answer);
+      return saida2;
+    }
+
+    function pairElement(str) {
+      let saida = []
+      let arr = str.split("");
+      arr.forEach(letra => saida.push(achaPar(letra)));
+      return saida;
+    }
+
+pairElement("GCG");
+
+```
 
 
 Verifica a diferenca entre dois vetores 
@@ -2591,8 +2703,85 @@ function titleCase(str) {
 }
 
 console.log(titleCase("I'm a little tea pot"));
+```
+
+Missing letters
+Find the missing letter in the passed letter range and return it.
+
+If all letters are present in the range, return undefined.
+fearNotLetter("abce") should return "d".
+Passed
+fearNotLetter("abcdefghjklmno") should return "i".
+Passed
+fearNotLetter("stvwx") should return "u".
+Passed
+fearNotLetter("bcdf") should return "e".
+Passed
+fearNotLetter("abcdefghijklmnopqrstuvwxyz") should return undefined.
+
+```JS
+
+    function fearNotLetter(str) {
+      let saida;
+      //console.log(s.length);
+      let arr = str.split("");
+      let atual, proximo;
+      for (let i = 0; i < arr.length - 1; i++) 
+      {
+        atual = arr[i].charCodeAt(0);
+        proximo = arr[i + 1].charCodeAt(0);
+        //console.log(atual + " " + proximo);
+        if (atual !== proximo - 1)
+          return String.fromCharCode(atual + 1);
+      }
+      return saida;
+    }
 
 ```
+
+``` JS 
+Intermediate Algorithm Scripting: Search and Replace
+Perform a search and replace on the sentence using the arguments provided and return the new sentence.
+
+First argument is the sentence to perform the search and replace on.
+
+Second argument is the word that you will be replacing (before).
+
+Third argument is what you will be replacing the second argument with (after).
+
+Note
+Preserve the case of the first character in the original word when you are replacing it. For example if you mean to replace the word "Book" with the word "dog", it should be replaced as "Dog"
+
+function myReplace(str, before, after) {
+          let pal = after;
+          let saida = "";
+         if  (before[0] === before[0].toUpperCase() ) {
+          pal =  after[0].toUpperCase().concat(after.slice(1,after.length))
+          saida = str.replace(before,pal);
+         }
+         else {
+          after = after.toLowerCase();
+          saida = str.replace(before,after);           
+         }
+          return saida;
+}
+
+myReplace("Let us go to the store", "store", "mall") should return "Let us go to the mall".
+Passed
+myReplace("He is Sleeping on the couch", "Sleeping", "sitting") should return "He is Sitting on the couch".
+Passed
+myReplace("I think we should look up there", "up", "Down") should return "I think we should look down there".
+Passed
+myReplace("This has a spellngi error", "spellngi", "spelling") should return "This has a spelling error".
+Passed
+myReplace("His name is Tom", "Tom", "john") should return "His name is John".
+Passed
+myReplace("Let us get back to more Coding", "Coding", "algorithms") should return "Let us get back to more Algorithms".
+
+
+``` 
+
+
 Intermediate Algorithm Scripting: Spinal Tap Case
 Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
 spinalCase("This Is Spinal Tap") should return "this-is-spinal-tap".
@@ -5047,6 +5236,47 @@ console.log(diffArray([1, "calf", 3, "piglet"], [7, "filly"]));
  /// [ 1, 'calf', 3, 'piglet', 7, 'filly' ]
 
 ```
+Sorted Union
+Write a function that takes two or more arrays and returns a new array of unique values in the order of the original provided arrays.
+
+In other words, all values present from all arrays should be included in their original order, but with no duplicates in the final array.
+
+The unique numbers should be sorted by their original order, but the final array should not be sorted in numerical order.
+
+Check the assertion tests for examples.
+
+Passed
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]) should return [1, 3, 2, 5, 4].
+Passed
+uniteUnique([1, 2, 3], [5, 2, 1]) should return [1, 2, 3, 5].
+Passed
+uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]) should return [1, 2, 3, 5, 4, 6, 7, 8].
+
+```Js 
+function uniteUnique(arr) {
+  let saida = [];
+  let tam = arguments.length; 
+  //console.log(tam);
+  //console.log(arguments[2]);
+  let valUnicos = [...new Set(arguments[0])];        
+  //console.log(valUnicos);
+  for (let i = 1 ; i < tam;i++)
+  {
+      arguments[i].forEach(element => {
+        if (!arguments[0].includes(element))
+        {
+          valUnicos.push(element);
+        }
+      });
+  }
+  return valUnicos;
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+```
+
+
 ####  Seek and DestroyPassed
 You will be provided with an initial array (the first argument in the destroyer function), followed by one or more arguments. Remove all elements from the initial array that are of the same value as these arguments.
 

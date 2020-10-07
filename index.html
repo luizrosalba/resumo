@@ -2,293 +2,49 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Chamada Ara</title>
+  <title>Ambiente</title>
 </head>
 
-<body>
-    <script type="text/javascript">
-        function alphabeticalOrder(arr) {
-          arr.sort(function(a, b) {
-            return a === b ? 0 : a > b ? 1 : -1;
-          });
-          return arr; 
-          // Only change code above this line
-        }
-        function formata(texto){
-            let entrada = JSON.stringify(texto.trim());
-            let ent2=entrada.replace(/"/gi,"")
-            let ent3=ent2.normalize().replace(/  +/g," ")
-            let ent4=ent3.toLocaleUpperCase();  
-            let ent5=ent4.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-            let arr = ent5.split("\\N")
-            //console.log(arr);
-            let valUnicos = [...new Set(arr.sort((a,b) => a === b ? 0 : a > b ? 1 : -1))];   
-            //console.log(valUnicos);  
-            return valUnicos;
-        }
+<body onload="programa()">
+  <script type="text/javascript">
 
-        function ausentes(total,presentes){
-           let alunosFaltantes=[] ;
-           let alunosPresentes= [];
-           let saida = {
-             presentes:[],
-             ausentes:[],
-           };
-           total.forEach( 
-                (alunot) => //console.log(alunot)
-                      (presentes.includes(alunot)?
-                        (alunosPresentes.push(alunot))
-                        :
-                        (alunosFaltantes.push(alunot))
-                      )
-            );
-            saida.ausentes = alunosFaltantes.sort((a,b) => a === b ? 0 : a > b ? 1 : -1);
-            saida.presentes = alunosPresentes.sort((a,b) => a === b ? 0 : a > b ? 1 : -1);
-            //console.log(alunosPresentes);
-            //console.log(alunosFaltantes);
-            return saida; 
-        }
-    
-        function chamada(textAreaPresentesId,textAreaTotalId) {
-            var value = document.getElementById(textAreaPresentesId).value;
-            var value2 = document.getElementById(textAreaTotalId).value;
-            let saida=[];
-            //console.log(JSON.stringify(value));
-            let presUnicos = formata(value);
-            let totalUnicos = formata(value2);
-            //console.log(presUnicos);  
-            //console.log(totalUnicos);  
-            
-            let str = "Presentes "  + (parseInt(presUnicos.length)-1).toString() + " alunos";
-            document.getElementById("alunosPresentes").innerHTML = JSON.stringify(str);
-            
-            let str2 = "Ausentes "  + ( (parseInt(totalUnicos.length))-(parseInt(presUnicos.length)-1) ).toString() + " alunos";
-            document.getElementById("ausentes").innerHTML = JSON.stringify(str2);
-            
-            saida = ausentes(totalUnicos,presUnicos);
 
-            let str3 = "Ausentes <br>"  + saida.ausentes.join("<br>");
-            document.getElementById("alunosAusentes").innerHTML = JSON.stringify(str3);
+function convertHTML(str)
+{
+  let trocas = [
+        {'&':'&amp;'},
+        {'<':'&lt;'},
+        {'>':'&gt;'},
+        {'"':'&quot;'},
+        {"'":'&apos;'},
+        ];
+      return trocas.reduce((accum,par) => 
+        accum.replace(new RegExp(Object.keys(par)[0],'g'),par[Object.keys(par)[0]]),str);
+        ///acumula todas as alterações do regex no str de saida 
+}
 
-            let str4 = "Presentes <br>"  + saida.presentes.join("<br>");
-            document.getElementById("presentes").innerHTML = JSON.stringify(str4);
-
-        }
-    </script>
-      <label>lista presentes:</label>
-      <br>
-      <textarea rows="4" cols="50" id="listaPresentes">
-        
-ADRIEL RODRIGUES DE SOUZA
-ADRIEL RODRIGUES DE SOUZA
-ADRIEL RODRIGUES DE SOUZA
-ADRIEL RODRIGUES DE SOUZA
-ALAN ALBERTO OUVERNEY
-ALAN ALBERTO OUVERNEY
-ALAN ALBERTO OUVERNEY
-ALAN ALBERTO OUVERNEY
-ALEXANDRE REBELO ANTUNES
-ALEXANDRE REBELO ANTUNES
-AMANDA NIDECK DA SILVA
-ANA LUIZA DOS SANTOS SANGLAR
-ARITON DE SOUZA RODRIGUES
-BERNARDO BORGES GOMES
-BERNARDO DA FONSECA VALLADARES
-BERNARDO SANTOS DA COSTA RÊGO
-BRENO DAMAZIO PIMENTEL
-BRENO DAMAZIO PIMENTEL
-BRENO DAMAZIO PIMENTEL
-CARLOS EDUARDO DE OLIVEIRA SANTOS
-CARLOS HENRIQUE SIMAO ALVIM
-CARLOS HENRIQUE SIMAO ALVIM
-CARLOS HENRIQUE SIMAO ALVIM
-CARLOS HENRIQUE SIMAO ALVIM
-EMANUELY SYLVIA COSTA COELHO GOUVEIA
-FELIPE MULLER GRAVINO
-GABRIEL MARTINS GOMES DOS SANTOS
-GABRIEL MOREIRA PINTO
-GEAN CARLOS MARTINS PEREIRA
-GEAN CARLOS MARTINS PEREIRA
-GEAN CARLOS MARTINS PEREIRA
-GEAN CARLOS MARTINS PEREIRA
-GUILHERME FERRAZ PIMENTEL
-GUILHERME FERRAZ PIMENTEL
-GUILHERME NEVES DE BARROS
-HUGO SCHUMAKER DE OLIVEIRA
-HUGO SCHUMAKER DE OLIVEIRA
-IGOR  LOPES
-IGOR  LOPES
-IGOR  LOPES
-IGOR  LOPES
-IGOR FERNANDO PINHEIRO BRANTES
-IGOR MARCHETTI PORTELLA
-IGOR MARCHETTI PORTELLA
-IGOR MARCHETTI PORTELLA
-JOAO VICTOR CARVALHO  MORI
-JOAO VICTOR CARVALHO  MORI
-JOAO VICTOR CARVALHO  MORI
-JOAO VITOR GREGORIO FREIMAN
-JOSE LUIZ GARNIER GOMES
-JULIO CESAR SEABRA FERRAZ FILHO
-JULIO CESAR SEABRA FERRAZ FILHO
-KLENER SOUZA DA SILVA
-LISSANDRO RODRIGUES MINEIRO
-LISSANDRO RODRIGUES MINEIRO
-LUCAS DA SILVEIRA DUTRA
-LUCAS DE AZEVEDO FARIA
-LUCAS DE AZEVEDO FARIA
-LUCAS PROCOPIO PAGOTO
-LUCAS PROCOPIO PAGOTO
-LUIZ FERNANDO ROSALBA TELLES DE SOUSA
-LUIZ GUILHERME SILVA GOMES
-LUIZ OTAVIO SANTOS SALGADO
-LUIZ OTAVIO SANTOS SALGADO
-LUIZ OTAVIO SANTOS SALGADO
-MARCOS FRANCISCO BITENCOURT DE OLIVEIRA ROSA
-MARCOS FRANCISCO BITENCOURT DE OLIVEIRA ROSA
-MARIA LUISA DE CONTE MONTEIRO
-MARIA LUIZA CHEVRAND BORREL
-MICHEFFERSON NERY PONTES DA COSTA
-MICHEFFERSON NERY PONTES DA COSTA
-MIGUEL COELHO MELLO
-PATRICK COUTO GOMES
-PEDRO LUCAS ALCANTARA DA MOTTA
-PEDRO LUCAS ALCANTARA DA MOTTA
-PEDRO LUCAS ALCANTARA DA MOTTA
-PEDRO LUCAS ALCANTARA DA MOTTA
-RENAN FERREIRA VANDESTEEN
-SANDY MARIANO FERREIRA
-VICTOR HUGO ARRUDA LEITE
-VICTOR HUGO VALLE MACIEL
-YAGO RAMOS DE SOUZA
-YANN SANTIAGO XAVIER DO NASCIMENTO FERREIRA
-YANN SANTIAGO XAVIER DO NASCIMENTO FERREIRA
-YASMIM DE FREITAS PINTO
-
-      </textarea>
-      <br> 
-      lista total: 
-      <br> 
-   <textarea rows="4" cols="50" id="listaTotal">
-
-    ADRIEL RODRIGUES DE SOUZA
-ALEXANDRE REBELO ANTUNES
-AMANDA NIDECK DA SILVA
-BERNARDO BORGES GOMES
-BERNARDO DA FONSECA VALLADARES
-Bernardo Santos da Costa Rêgo
-BRENO DAMAZIO PIMENTEL
-CARLOS EDUARDO DE OLIVEIRA SANTOS
-CARLOS HENRIQUE SIMAO ALVIM
-FELIPE MULLER GRAVINO
-GABRIEL MARTINS GOMES DOS SANTOS
-GABRIEL MOREIRA PINTO
-GEAN CARLOS MARTINS PEREIRA
-GUILHERME FERRAZ PIMENTEL
-GUILHERME NEVES DE BARROS
-HUGO SCHUMAKER DE OLIVEIRA
-IGOR LOPES
-IGOR FERNANDO PINHEIRO BRANTES
-IGOR MARCHETTI PORTELLA
-JOAO VICTOR CARVALHO MORI
-JOÃO VITOR GREGORIO FREIMAN
-JOSÉ LUIZ GARNIER GOMES
-JULIO CESAR SEABRA FERRAZ FILHO
-LISSANDRO RODRIGUES MINEIRO
-LUCAS DA SILVEIRA DUTRA
-LUCAS DE AZEVEDO FARIA
-LUCAS PROCÓPIO PAGOTO
-LUCCA WERNECK BUCKER MATHIAS
-LUIZ GUILHERME SILVA GOMES
-LUIZ OTÁVIO SANTOS SALGADO
-MARCOS FRANCISCO BITENCOURT DE OLIVEIRA ROSA
-MARIA LUISA DE CONTE MONTEIRO
-Maria Luiza Chevrand Borrel
-MICHEFFERSON NERY PONTES DA COSTA
-MIGUEL COELHO MELLO
-PATRICK COUTO GOMES
-Pedro Lucas Alcantara da Motta
-SANDY MARIANO FERREIRA
-TADEU ORLANDO SCHOTT JÚNIOR
-VICTOR HUGO ARRUDA LEITE
-VICTOR HUGO VALLE MACIEL
-YAGO RAMOS DE SOUZA
-YANN SANTIAGO XAVIER DO NASCIMENTO FERREIRA
-YASMIM DE FREITAS PINTO
-ALAN ALBERTO OUVERNEY
-ANA LUIZA DOS SANTOS SANGLAR
-ARITON DE SOUZA RODRIGUES
-Emanuely Sylvia Costa Coelho Gouveia
-João Vitor da Silva Vieira
-KLENER SOUZA DA SILVA
-MATHEUS ESTANISLAU DA ROCHA
-michel cristiano carvalho
-RENAN FERREIRA VANDESTEEN
-RITA DE CASSIA ALMEIDA RIMES
+function programa(str)
+{
+    console.log(convertHTML("Dolce & Gabbana"));
+} 
 
 
 
-    </textarea> 
-      <br>
-      <button type="button" onclick="chamada('listaPresentes','listaTotal')">Verifica Ausentes</button>
-      <p id="ausentes">ausentes</p> 
-      <p id="alunosAusentes">alunosAusentes</p>
-      <p id="alunosPresentes">alunosPresentes</p>
-      <p id="presentes">presentes</p>
+  </script>
+
+
 
 </body>
 
-</html>
-
-
-
 <!-- Fis 3 
-ADRIEL RODRIGUES DE SOUZA
-ALEXANDRE REBELO ANTUNES
-AMANDA NIDECK DA SILVA
-BERNARDO BORGES GOMES
-BERNARDO DA FONSECA VALLADARES
-Bernardo Santos da Costa Rêgo
-BRENO DAMAZIO PIMENTEL
-CARLOS EDUARDO DE OLIVEIRA SANTOS
-CARLOS HENRIQUE SIMAO ALVIM
-FELIPE MULLER GRAVINO
-GABRIEL MARTINS GOMES DOS SANTOS
-GABRIEL MOREIRA PINTO
-GEAN CARLOS MARTINS PEREIRA
-GUILHERME FERRAZ PIMENTEL
-GUILHERME NEVES DE BARROS
-HUGO SCHUMAKER DE OLIVEIRA
-IGOR LOPES
-IGOR FERNANDO PINHEIRO BRANTES
-IGOR MARCHETTI PORTELLA
-JOAO VICTOR CARVALHO MORI
-JOÃO VITOR GREGORIO FREIMAN
-JOSÉ LUIZ GARNIER GOMES
-JULIO CESAR SEABRA FERRAZ FILHO
-LISSANDRO RODRIGUES MINEIRO
-LUCAS DA SILVEIRA DUTRA
-LUCAS DE AZEVEDO FARIA
-LUCAS PROCÓPIO PAGOTO
-LUCCA WERNECK BUCKER MATHIAS
-LUIZ GUILHERME SILVA GOMES
-LUIZ OTÁVIO SANTOS SALGADO
-MARCOS FRANCISCO BITENCOURT DE OLIVEIRA ROSA
-MARIA LUISA DE CONTE MONTEIRO
-Maria Luiza Chevrand Borrel
-MICHEFFERSON NERY PONTES DA COSTA
-MIGUEL COELHO MELLO
-PATRICK COUTO GOMES
-Pedro Lucas Alcantara da Motta
-SANDY MARIANO FERREIRA
-TADEU ORLANDO SCHOTT JÚNIOR
-VICTOR HUGO ARRUDA LEITE
-VICTOR HUGO VALLE MACIEL
-YAGO RAMOS DE SOUZA
-YANN SANTIAGO XAVIER DO NASCIMENTO FERREIRA
-YASMIM DE FREITAS PINTO
+  
+  <p id="alunosAusentes">alunosAusentes</p>
+<p id="alunosPresentes">alunosPresentes</p>
+<p id="presentes">presentes</p>
+
 -->
 
+</html>
