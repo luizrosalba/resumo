@@ -915,12 +915,56 @@ console.log(a.localeCompare(b, 'en', { sensitivity: 'base' }));
 match()	Searches a string for a match against a regular expression, and returns the matches
 
 ```JS
-
+var str1 = "NaN means not a number. Infinity contains -Infinity and +Infinity in JavaScript.",
+    str2 = "My grandfather is 65 years old and My grandmother is 63 years old.",
+    str3 = "The contract was declared null and void.";
+str1.match("number");   // "number" is a string. returns ["number"]
+str1.match(NaN);        // the type of NaN is the number. returns ["NaN"]
+str1.match(Infinity);   // the type of Infinity is the number. returns ["Infinity"]
+str1.match(+Infinity);  // returns ["Infinity"]
+str1.match(-Infinity);  // returns ["-Infinity"]
+str2.match(65);         // returns ["65"]
+str2.match(+65);        // A number with a positive sign. returns ["65"]
+str3.match(null);       // returns ["null"]
 ```
 
 repeat()	Returns a new string with a specified number of copies of an  string
-replace()	Searches a string for a specified value, or a regular expression, and returns a new string where the specified values are replaced
+
+```JS 
+'abc'.repeat(-1);   // RangeError
+'abc'.repeat(0);    // ''
+'abc'.repeat(1);    // 'abc'
+'abc'.repeat(2);    // 'abcabc'
+'abc'.repeat(3.5);  // 'abcabcabc' (o número será convertido para inteiro)
+'abc'.repeat(1/0);  // RangeError
+
+({ toString: () => 'abc', repeat: String.prototype.repeat }).repeat(2);
+// 'abcabc' (repeat() é um método genérico)
+```
+
+replace()	Searches a string for a specified value, or a regular expression, and 
+returns a new string where the specified values are replaced
+
+``` JS 
+var re = /apples/gi;
+var str = 'Apples are round, and apples are juicy.';
+var newstr = str.replace(re, 'oranges');
+console.log(newstr);  // oranges are round, and oranges are juicy.
+```
+
 search()	Searches a string for a specified value, or regular expression, and returns the position of the match
+
+``` JS 
+function testinput(re, str) {
+  var midstring;
+  if (str.search(re) != -1) {
+    midstring = ' contem ';
+  } else {
+    midstring = ' nao contem ';
+  }
+  console.log(str + midstring + re);
+}
+```
 slice()	Extracts a part of a string and returns a new string
 split()	Splits a string into an array of substrings
 startsWith()	Checks whether a string begins with specified characters
@@ -1816,6 +1860,28 @@ abc…	Letters
 (.*)	Capture all
 (abc|def)	Matches abc or def
 ```
+Quantifier Cheat Sheet
+```JS
++ once or more
+A+	One or more As, as many as possible (greedy), giving up characters if the engine needs to backtrack (docile)
+A+?	One or more As, as few as needed to allow the overall pattern to match (lazy)
+A++	One or more As, as many as possible (greedy), not giving up characters if the engine tries to backtrack (possessive)
+* zero times or more
+A*	Zero or more As, as many as possible (greedy), giving up characters if the engine needs to backtrack (docile)
+A*?	Zero or more As, as few as needed to allow the overall pattern to match (lazy)
+A*+	Zero or more As, as many as possible (greedy), not giving up characters if the engine tries to backtrack (possessive)
+? zero times or once
+A?	Zero or one A, one if possible (greedy), giving up the character if the engine needs to backtrack (docile)
+A??	Zero or one A, zero if that still allows the overall pattern to match (lazy)
+A?+	Zero or one A, one if possible (greedy), not giving the character if the engine tries to backtrack (possessive)
+{x,y} x times at least, y times at most
+A{2,9}	Two to nine As, as many as possible (greedy), giving up characters if the engine needs to backtrack (docile)
+A{2,9}?	Two to nine As, as few as needed to allow the overall pattern to match (lazy)
+A{2,9}+	Two to nine As, as many as possible (greedy), not giving up characters if the engine tries to backtrack (possessive)
+A{2,}A{2,}?A{2,}+	Two or more As, greedy and docile as above.
+Two or more As, lazy as above. Two or more As, possessive as above.
+A{5}	Exactly five As. Fixed repetition: neither greedy nor lazy.
+```
 
 Regular Expressions: Using the Test MethodPassed
 Verificando se existe a string myregex dentro da string mystring
@@ -1915,7 +1981,10 @@ let jennyStr = "Jenny8675309";
 let myRegex = /[a-z0-9]/ig;
 // matches all letters and numbers in jennyStr
 jennyStr.match(myRegex);
+/// ["J","e","n","n","y","8","6","7","5","3","0","9"]
 ```
+
+
 
 Regular Expressions: Match Single Characters Not Specified
 Negando caracteres (^dentro de parenteses)
@@ -1926,8 +1995,10 @@ the negated vowel character set only excludes the vowel characters.
 ```Javascript
 let quoteSample = "3 blind mice.";
 let myRegex = /[^0-9aeiou]/gi; // Change this line
-let result = quoteSample.match(myRegex); // Change this line
+let result = quoteSample.match(myRegex); 
+// Change this line
 console.log(result);
+///[" ","b","l","n","d"," ","m","c","."]
 ```
 
 Regular Expressions: Match Characters that Occur One or More Times
@@ -1962,6 +2033,83 @@ string "titanic".
 This regex is basically a pattern that starts with t, ends with i, and has some letters in between.
 "titanic" matched greedy /t[a-z]*i/ return ["titani"] It finds the largest sub-string possible to fit the pattern.
 "titanic" matched lazy  /t[a-z]*?i/ returns ["ti"].It finds the smallest sub-string possible to fit the pattern.
+
+```Js
+const ghostSpeak = 'booh boooooooh';
+const regexpSpooky = /bo{3,}h/;
+console.log(ghostSpeak.match(regexpSpooky));
+// expected output: Array ["boooooooh"]
+
+const modifiedQuote = '[He] ha[s] to go read this novel [Alice in Wonderland].';
+const regexpModifications = /\[.*?\]/g;
+console.log(modifiedQuote.match(regexpModifications));
+// expected output: Array ["[He]", "[s]", "[Alice in Wonderland]"]
+
+const regexpTooGreedy = /\[.*\]/g;
+console.log(modifiedQuote.match(regexpTooGreedy));
+// expected output: Array ["[He] ha[s] to go read this novel [Alice in Wonderland]"]
+```
+
+Scripting: Pig Latin
+Pig Latin is a way of altering English Words. The rules are as follows:
+
+- If a word begins with a consonant, take the first consonant or consonant cluster, move it to the end of the word, and add "ay" to it.
+
+- If a word begins with a vowel, just add "way" at the end.
+
+Translate the provided string to Pig Latin. Input strings are guaranteed to be English words in all lowercase.
+
+```Js
+function translatePigLatin(str) {
+        const regpig = /^([^aeiou]+)(.*$)/g;
+        const regpig2 = /^([aeiou])(.*)$/g;
+        let str2 = "";
+        //console.log(regpig2.test(str)) ;
+        if (regpig.test(str))
+        {
+            str2 = str.replace(regpig,'$2$1'.concat('ay') );
+            return str2;
+        }
+        if (regpig2.test(str)){
+            str2 = str.replace(regpig2, '$1$2'.concat('way') ) ;
+            return str2;
+        }
+        return str;
+    return str;
+  }
+translatePigLatin("california") should return "aliforniacay".
+translatePigLatin("paragraphs") should return "aragraphspay".
+translatePigLatin("glove") should return "oveglay".
+translatePigLatin("algorithm") should return "algorithmway".
+translatePigLatin("eight") should return "eightway".
+Should handle words where the first vowel comes in the middle of the word. translatePigLatin("schwartz") should return "artzschway".
+Should handle words without vowels. translatePigLatin("rhythm") should return "rhythmay".
+
+  ```
+
+
+
+Intermediate Algorithm Scripting: Search and Replace
+Perform a search and replace on the sentence using the arguments provided and return the new sentence.
+
+First argument is the sentence to perform the search and replace on.
+
+Second argument is the word that you will be replacing (before).
+
+Third argument is what you will be replacing the second argument with (after).
+
+Note
+Preserve the case of the first character in the original word when you are replacing it. For example if you mean to replace the word "Book" with the word "dog", it should be replaced as "Dog"
+
+```JS
+function myReplace(str, before, after) {
+  return str;
+}
+
+myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
+
+```
+
 
 Note
 Parsing HTML with regular expressions should be avoided, but pattern matching an HTML string with regular expressions is completely fine.
@@ -2163,6 +2311,34 @@ wrongText.replace(silverRegex, "blue");
 // Returns "The sky is blue."
 ```
 
+Troca um letra maiuscula por espaço mais a letra
+
+```JS
+  str = 'thisIsSpinalTap'; 
+  let s = str.replace(/([A-Z])/g, ' $1');
+  console.log(s); ///this Is Spinal Tap
+```
+
+As you can see, the replace method acts on a string and returns a string. It takes two parameters: the string to be replaced and with what it will be replaced.
+
+The first parameter can be either a string or a regular expression. Here we can use the power of regular expressions to replace complex search patterns with some string.
+
+The second parameter could also be a function. To demonstrate it, let's check out an example:
+
+```JS 
+
+var str = "This is a test string";
+
+var newStr = str.replace(/\w+/g, function(match) {
+ return match.split("").reverse().join("");
+});
+
+console.log(newStr);    //prints "sihT si a tset gnirts"
+
+``` 
+
+
+
 You can also access capture groups in the replacement string with dollar signs ($).
 
 ```Javascript
@@ -2260,6 +2436,10 @@ function destroyer(arr) {
 destroyer([1, 2, 3, 1, 2, 3], 2, 3);
 
 ```
+
+
+
+
 
 
 Dado um JSON com um número qualquer de keys filtra um segundo vetor para que este 
@@ -2396,6 +2576,32 @@ function titleCase(str) {
 
 console.log(titleCase("I'm a little tea pot"));
 
+```
+Intermediate Algorithm Scripting: Spinal Tap Case
+Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
+spinalCase("This Is Spinal Tap") should return "this-is-spinal-tap".
+Passed
+spinalCase("thisIsSpinalTap") should return "this-is-spinal-tap".
+Passed
+spinalCase("The_Andy_Griffith_Show") should return "the-andy-griffith-show".
+Passed
+spinalCase("Teletubbies say Eh-oh") should return "teletubbies-say-eh-oh".
+Passed
+spinalCase("AllThe-small Things") should return "all-the-small-things".
+
+```JS
+function spinalCase(str) {
+  const trim = str.trim();
+  const espacoMaiusculas = trim.replace(/([A-Z])/g, ' $1');
+  const espacoUnder = espacoMaiusculas.replace(/_/g, ' ');
+  const lower = espacoUnder.toLowerCase();
+  const sep = lower.split(" ");
+  const filtro = sep.filter(item => item !==""); /// filtra espaços vazios
+  const junto = filtro.join("-");
+  str=junto;
+  return str;
+}
+console.log(spinalCase('The_Andy_Griffith_Show'));
 ```
 
 Verifica o tipo da variavel
