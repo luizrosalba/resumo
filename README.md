@@ -2454,6 +2454,64 @@ convertHTML("Dolce & Gabbana");
 ```
 
 
+Sum All Odd Fibonacci Numbers
+Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than or equal to num.
+
+The first two numbers in the Fibonacci sequence are 1 and 1. Every additional number in the sequence is the sum of the two previous numbers. The first six numbers of the Fibonacci sequence are 1, 1, 2, 3, 5 and 8.
+
+For example, sumFibs(10) should return 10 because all odd Fibonacci numbers less than or equal to 10 are 1, 1, 3, and 5.
+
+```Js 
+function sumFibs(num) {
+  let fibbo = [1,1];
+  let i=1;
+  while(fibbo[i]<num)
+  {
+    let fib = fibbo[i]+fibbo[i-1]; 
+    if (fib<=num)fibbo.push(fib);
+    i++;
+  }
+  console.log(fibbo);
+  return fibbo.reduce((accum,num) => num%2===0?
+  accum+0:num+accum,0);
+        ///acumula todas as alterações do regex no str de saida 
+}
+
+```
+Intermediate Algorithm Scripting: Sum All Primes
+A prime number is a whole number greater than 1 with exactly two divisors: 1 and itself. For example, 2 is a prime number because it is only divisible by 1 and 2. In contrast, 4 is not prime since it is divisible by 1, 2 and 4.
+
+Rewrite sumPrimes so it returns the sum of all prime numbers that are less than or equal to num.
+
+
+```Js 
+function primo (num){
+  if (num===1) return false ; /// 2 
+  if (num===2) return true ; /// 2 
+  if (num%2===0 ) return false ; /// par 
+  ///testar somente até metade 
+  let metade = (num/2-0.5); /// inteiro 
+  for (let i=3;i<=metade;i++) /// testa só até metade
+  {
+    if (num%i===0) return false ; 
+  }
+  return true; /// passou por todos os testes 
+}
+function sumPrimes(num) {
+  let arr=[];
+  for (let i=1;i<=num;i++)
+  {
+    if (primo(i)) arr.push(i);
+  }
+  //console.log(arr);
+  return arr.reduce((accum,num) => num+accum,0);
+}
+
+function programa()
+{
+    console.log(sumPrimes(977));
+} 
+```
 Faz uma verificação de safe HTML 
 
 

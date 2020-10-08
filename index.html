@@ -12,28 +12,36 @@
   <script type="text/javascript">
 
 
-function convertHTML(str)
-{
-  let trocas = [
-        {'&':'&amp;'},
-        {'<':'&lt;'},
-        {'>':'&gt;'},
-        {'"':'&quot;'},
-        {"'":'&apos;'},
-        ];
-      return trocas.reduce((accum,par) => 
-        accum.replace(new RegExp(Object.keys(par)[0],'g'),par[Object.keys(par)[0]]),str);
-        ///acumula todas as alterações do regex no str de saida 
+function primo (num){
+  if (num===1) return false ; /// 2 
+  if (num===2) return true ; /// 2 
+  if (num%2===0 ) return false ; /// par 
+  ///testar somente até metade 
+  let metade = (num/2-0.5); /// inteiro 
+  for (let i=3;i<=metade;i++) /// testa só até metade
+  {
+    if (num%i===0) return false ; 
+  }
+  return true; /// passou por todos os testes 
+}
+function sumPrimes(num) {
+  let arr=[];
+  for (let i=1;i<=num;i++)
+  {
+    if (primo(i)) arr.push(i);
+  }
+  //console.log(arr);
+  return arr.reduce((accum,num) => num+accum,0);
 }
 
-function programa(str)
+function programa()
 {
-    console.log(convertHTML("Dolce & Gabbana"));
+    console.log(sumPrimes(977));
 } 
 
 
 
-  </script>
+</script>
 
 
 
