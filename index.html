@@ -12,31 +12,37 @@
   <script type="text/javascript">
 
 
-function primo (num){
-  if (num===1) return false ; /// 2 
-  if (num===2) return true ; /// 2 
-  if (num%2===0 ) return false ; /// par 
-  ///testar somente até metade 
-  let metade = (num/2-0.5); /// inteiro 
-  for (let i=3;i<=metade;i++) /// testa só até metade
-  {
-    if (num%i===0) return false ; 
-  }
-  return true; /// passou por todos os testes 
+
+
+function orbitalPeriod(arr) {
+  var GM = 398600.4418;
+  var earthRadius = 6367.4447;
+  arr.forEach(element => {
+    if (element.hasOwnProperty("avgAlt"))
+      {
+        let T = Math.round(2*Math.PI*Math.sqrt(Math.pow(element["avgAlt"],3)/GM));
+        delete element["avgAlt"];
+        element["orbitalPeriod"]=T;
+      }
+  });
+  
+  return arr;
 }
-function sumPrimes(num) {
-  let arr=[];
-  for (let i=1;i<=num;i++)
-  {
-    if (primo(i)) arr.push(i);
-  }
-  //console.log(arr);
-  return arr.reduce((accum,num) => num+accum,0);
-}
+
+
+
+
 
 function programa()
 {
-    console.log(sumPrimes(977));
+   
+   
+      console.log(
+        orbitalPeriod([{name: "iss", avgAlt: 413.6}, {name: "hubble", avgAlt: 556.7}, {name: "moon", avgAlt: 378632.553}]) 
+      );
+     
+     
+   
 } 
 
 

@@ -904,6 +904,9 @@ console.log(array3);
 
 endsWith()	Checks whether a string ends with specified string/characters
 fromCharCode()	Converts Unicode values to characters
+```Js
+String.fromCharCode(65, 66, 67);  // "ABC"
+```
 includes()	Checks whether a string contains the specified string/characters
 indexOf()	Returns the position of the first found occurrence of a specified value in a string
 lastIndexOf()	Returns the position of the last found occurrence of a specified value in a string
@@ -1461,7 +1464,12 @@ const arr = [1,2,[3,4]];
 arr.flat(); // retorna um novo array com profundidade 1 [1,2,3,4]
 arr.flat(2); // retorna um novo array com profundidade 2 , neste caso não terá diferenca mas se houvessem outros arrays dentro de arr só iria até a segunda camanda de arr
 ```
-
+dica : o método flat remove espaços vazios do array:
+```JS
+var arr4 = [1, 2, , 4, 5];
+arr4.flat();
+// [1, 2, 4, 5]
+```
 ##### flatMap
 
 Imutavel Retorna um novo array assim como faz a função map e executa um flat de profundidade 1
@@ -2415,8 +2423,349 @@ a.flatMap( (n) =>
 )
 
 // expected output: [4, 1, 4, 20, 16, 1, 18]
+```
+Intermediate Algorithm Scripting: Drop it
+Given the array arr, iterate through and remove each element starting from the first element (the 0 index) until the function func returns true when the iterated element is passed through it.
+
+Then return the rest of the array once the condition is satisfied, otherwise, arr should be returned as an empty array.
+
+Passed
+dropElements([1, 2, 3, 4], function(n) {return n >= 3;}) should return [3, 4].
+Passed
+dropElements([0, 1, 0, 1], function(n) {return n === 1;}) should return [1, 0, 1].
+Passed
+dropElements([1, 2, 3], function(n) {return n > 0;}) should return [1, 2, 3].
+Passed
+dropElements([1, 2, 3, 4], function(n) {return n > 5;}) should return [].
+Passed
+dropElements([1, 2, 3, 7, 4], function(n) {return n > 3;}) should return [7, 4].
+Passed
+dropElements([1, 2, 3, 9, 2], function(n) {return n > 2;}) should return [3, 9, 2].
+
+```JS 
+
+function dropElements(arr, func) {
+  let saida = [];
+
+  
+  for (let i=0; i<arr.length; i ++ )  {
+    if(func(arr[i])) {
+      saida= arr.slice(i,arr.length);
+      return saida ;  
+    }  
+  }   
+return saida; 
+}
+
+
+
+dropElements([1, 2, 3], function(n) {return n < 3; });
+```
+
+
+
+ Arguments Optional
+Create a function that sums two arguments together. If only one argument is provided, then return a function that expects one argument and returns the sum.
+
+For example, addTogether(2, 3) should return 5, and addTogether(2) should return a function.
+
+Calling this returned function with a single argument will then return the sum:
+
+var sumTwoAnd = addTogether(2);
+
+sumTwoAnd(3) returns 5.
+
+If either argument isn't a valid number, return undefined.
+
+Passed
+addTogether(2, 3) should return 5.
+Passed
+addTogether(23, 30) should return 53.
+Passed
+addTogether(5)(7) should return 12.
+Passed
+addTogether("http://bit.ly/IqT6zt") should return undefined.
+Passed
+addTogether(2, "3") should return undefined.
+Passed
+addTogether(2)([3]) should return undefined.
+
+
+```JS
+function ehNumero (ent){
+  return (typeof (ent)==='number');
+}
+function addTogether(){
+      let x = arguments[0];
+      let y = arguments[1];
+    if (!ehNumero(arguments[0])) return undefined;
+    if ((arguments[1]) && !ehNumero(arguments[1])) return undefined;
+    if (arguments[1] && ehNumero(x) && ehNumero(y))
+    {
+      return (x+y);
+    }
+    else 
+    {
+        return  function(y)
+          {
+            if(ehNumero(y)) return x + y;
+          }
+    }
+};
+
+function programa()
+{
+   
+   
+     console.log(addTogether(2, 3));
+     console.log(addTogether(23, 30));
+     console.log(addTogether(5)(7));///IIFE
+     console.log(addTogether("http://bit.ly/IqT6zt") );
+     console.log(addTogether(2, "3"));
+     console.log(addTogether(2)([3]));
+   
+} 
 
 ```
+
+
+
+
+
+Intermediate Algorithm Scripting: Steamroller
+Flatten a nested array. You must account for varying levels of nesting.
+
+steamrollArray([[["a"]], [["b"]]]) should return ["a", "b"].
+steamrollArray([1, [2], [3, [[4]]]]) should return [1, 2, 3, 4].
+steamrollArray([1, [], [3, [[4]]]]) should return [1, 3, 4].
+steamrollArray([1, {}, [3, [[4]]]]) should return [1, {}, 3, 4].
+Your solution should not use the Array.prototype.flat() or Array.prototype.flatMap() methods.
+
+Achatando um vetor sem usar flat 
+
+```Js 
+function achatarMais(arr){
+   return arr.reduce((acc, val) => 
+   Array.isArray(val) ? 
+   acc.concat(achatarMais(val)) : 
+   acc.concat(val), []);
+};
+
+
+function steamrollArray(arr) {
+  let saida = achatarMais(arr);
+  return saida;
+}
+
+
+function programa()
+{
+   console.log(
+     steamrollArray([1, [2], [3, [[4]]]])
+   );
+} 
+```
+Intermediate Algorithm Scripting: Make a PersonPassed
+Fill in the object constructor with the following methods below:
+
+getFirstName()
+getLastName()
+getFullName()
+setFirstName(first)
+setLastName(last)
+setFullName(firstAndLast)
+Run the tests to see the expected output for each method. The methods that take an argument must accept only one argument and it has to be a string. These methods must be the only available means of interacting with the object.
+
+Object.keys(bob).length should return 6.
+
+bob instanceof Person should return true.
+
+bob.firstName should return undefined.
+
+bob.lastName should return undefined.
+
+bob.getFirstName() should return "Bob".
+
+bob.getLastName() should return "Ross".
+
+bob.getFullName() should return "Bob Ross".
+
+bob.getFullName() should return "Haskell Ross" after bob.setFirstName("Haskell").
+
+bob.getFullName() should return "Haskell Curry" after bob.setLastName("Curry").
+
+bob.getFullName() should return "Haskell Curry" after bob.setFullName("Haskell Curry").
+
+bob.getFirstName() should return "Haskell" after bob.setFullName("Haskell Curry").
+
+bob.getLastName() should return "Curry" after bob.setFullName("Haskell Curry").
+
+```JS 
+var Person = function(firstAndLast) {
+  // Only change code below this line
+  // Complete the method below and implement the others similarly
+  var nomeCompleto = firstAndLast;
+  this.getFullName = function() {
+    return nomeCompleto ;
+  }
+
+  this.getFirstName =  function() {
+    return (nomeCompleto.split(" ")[0]);
+  }
+  this.getLastName =  function() {
+    return (nomeCompleto.split(" ")[1]);
+  }
+  
+  this.setFirstName= function (first) 
+  {
+    nomeCompleto= first + " " + nomeCompleto.split(" ")[1];
+  }
+
+  this.setLastName = function (last)
+  {
+    nomeCompleto= nomeCompleto.split(" ")[0] + " " + last;
+  }
+
+  
+  this.setFullName = function (firstAndLast)
+  {
+    nomeCompleto = firstAndLast;
+  }
+};
+
+
+var bob = new Person('Bob Ross');
+bob.getFullName();
+console.log(Object.keys(bob).length);
+
+
+
+
+function programa()
+{
+   
+   
+     console.log(
+       bob.getFullName()
+     )
+     ;
+   
+} 
+
+```
+
+Intermediate Algorithm Scripting: Arguments Optional
+Create a function that sums two arguments together. If only one argument is provided, then return a function that expects one argument and returns the sum.
+
+For example, addTogether(2, 3) should return 5, and addTogether(2) should return a function.
+
+Calling this returned function with a single argument will then return the sum:
+
+var sumTwoAnd = addTogether(2);
+
+sumTwoAnd(3) returns 5.
+
+If either argument isn't a valid number, return undefined.
+
+addTogether(2, 3) should return 5.
+addTogether(23, 30) should return 53.
+addTogether(5)(7) should return 12.
+addTogether("http://bit.ly/IqT6zt") should return undefined.
+addTogether(2, "3") should return undefined.
+addTogether(2)([3]) should return undefined.
+
+```JS
+```
+
+
+Intermediate Algorithm Scripting: Everything Be True
+Check if the predicate (second argument) is truthy on all elements of a collection (first argument).
+
+In other words, you are given an array collection of objects. The predicate pre will be an object property and you need to return true if its value is truthy. Otherwise, return false.
+
+In JavaScript, truthy values are values that translate to true when evaluated in a Boolean context.
+
+Remember, you can access object properties through either dot notation or [] notation.
+
+Passed
+truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex") should return true.
+Passed
+truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex") should return false.
+Passed
+truthCheck([{"user": "Tinky-Winky", "sex": "male", "age": 0}, {"user": "Dipsy", "sex": "male", "age": 3}, {"user": "Laa-Laa", "sex": "female", "age": 5}, {"user": "Po", "sex": "female", "age": 4}], "age") should return false.
+Passed
+truthCheck([{"name": "Pete", "onBoat": true}, {"name": "Repeat", "onBoat": true}, {"name": "FastForward", "onBoat": null}], "onBoat") should return false
+Passed
+truthCheck([{"name": "Pete", "onBoat": true}, {"name": "Repeat", "onBoat": true, "alias": "Repete"}, {"name": "FastForward", "onBoat": true}], "onBoat") should return true
+Passed
+truthCheck([{"single": "yes"}], "single") should return true
+Passed
+truthCheck([{"single": ""}, {"single": "double"}], "single") should return false
+Passed
+truthCheck([{"single": "double"}, {"single": undefined}], "single") should return false
+Passed
+truthCheck([{"single": "double"}, {"single": NaN}], "single") should return false
+
+
+
+```JS
+
+
+function truthCheck(collection, source) {
+    let bool = collection.every ( 
+      item =>  
+        (item.hasOwnProperty(source) 
+    ));  /// checa se todos tem a propriedade
+    if (!bool) return bool; /// se algum nao tiver para
+    /// verificar se cada argumento apos 
+    // ser traduzido é verdadeiro 
+  return collection.every(e=>(e[source]?true:false));
+}
+
+
+function programa()
+{
+   console.log(
+    truthCheck([{"user": "Tinky-Winky", "sex": "male", "age": 0}, 
+    {"user": "Dipsy", "sex": "male", "age": 3}, 
+    {"user": "Laa-Laa", "sex": "female", "age": 5}, 
+    {"user": "Po", "sex": "female", "age": 4}], "age")
+   );
+} 
+
+```
+
+
+
+Return an English translated sentence of the passed binary string.
+
+The binary string will be space separated.
+
+binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111") should return "Aren't bonfires fun!?"
+Passed
+binaryAgent("01001001 00100000 01101100 01101111 01110110 01100101 00100000 01000110 01110010 01100101 01100101 01000011 01101111 01100100 01100101 01000011 01100001 01101101 01110000 00100001") should return "I love FreeCodeCamp!"
+```JS
+function binToChar(val)
+{
+  return String.fromCharCode(parseInt(val,2));
+}
+
+function binaryAgent(str) {
+  let arr= str.split(" ");
+  return arr.reduce( (acc,val) => 
+      acc.concat(binToChar(val))  
+     ,[]
+  ).join("");
+}
+function programa()
+{
+   console.log(
+    binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111")
+   );
+} 
+```
+
+
 
 Intermediate Algorithm Scripting: Convert HTML Entities
 Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
@@ -2434,6 +2783,51 @@ convertHTML("<>") should return "&lt;&gt;".
 Passed
 convertHTML("abc") should return "abc".
 
+
+
+```Js 
+
+Intermediate Algorithm Scripting: Smallest Common Multiple
+Find the smallest common multiple of the provided parameters that can be evenly divided by both, as well as by all sequential numbers in the range between these parameters.
+
+The range will be an array of two numbers that will not necessarily be in numerical order.
+
+For example, if given 1 and 3, find the smallest common multiple of both 1 and 3 that is also evenly divisible by all numbers between 1 and 3. The answer here would be 6.
+
+smallestCommons([1, 5]) should return a number.
+smallestCommons([1, 5]) should return 60.
+smallestCommons([5, 1]) should return 60.
+smallestCommons([2, 10]) should return 2520.
+smallestCommons([1, 13]) should return 360360.
+smallestCommons([23, 18]) should return 6056820.
+
+///verifica se todos sao multiplos do valor atual
+function verificaMMCArr (arr,valatual){
+ return arr.every(function(currentValue) {
+    return (valatual %currentValue === 0);
+  });
+}
+
+function smallestCommons(arr) {
+  let ordenado = arr.sort((current,next) =>  current - next);  
+  let todosValOrd=[];
+  
+  for (let i = ordenado[0];i<=ordenado[1];i++)
+  {
+    todosValOrd.push(i);
+  }
+  
+  let val=ordenado[1];
+
+  do 
+  {
+    if (verificaMMCArr(todosValOrd,val))
+      return val ; 
+    else 
+      val++
+  }while(val<Number.MAX_SAFE_INTEGER);
+}
+```
 
 ```JS
 
@@ -2575,7 +2969,7 @@ destroyer([1, 2, 3, 1, 2, 3], 2, 3);
 
 
 Dado um JSON com um número qualquer de keys filtra um segundo vetor para que este 
-só apresente os valores que tiverem um , ou os dois , ou os treis .... keys 
+só apresente os valores que tiverem um , ou os dois , ou os tres .... keys 
 concidentes com o primeiro vetor.
 
 ```JS 
@@ -4251,6 +4645,20 @@ A common pattern in JavaScript is to execute a function as soon as it is declare
 
 Note that the function has no name and is not stored in a variable. The two parentheses () at the end of the function expression cause it to be immediately executed or invoked. This pattern is known as an immediately invoked function expression or IIFE.
 
+
+
+#### Outro exemplo de IIFE 
+Chamando a funcao add com dois parêntesis 
+```JS 
+function add(x){
+  return function(y){
+    return x + y;
+  };
+}
+var addTwo = add(2);
+addTwo(4) === 6; // true
+add(3)(4) === 7; // true
+```
 #### Use an IIFE to Create a Module
 
 An immediately invoked function expression (IIFE) is often used to group related functionality into a single object or module. For example, an earlier challenge defined two mixins:
