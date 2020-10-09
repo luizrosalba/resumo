@@ -12,38 +12,73 @@
   <script type="text/javascript">
 
 
-
-
-function orbitalPeriod(arr) {
-  var GM = 398600.4418;
-  var earthRadius = 6367.4447;
-  arr.forEach(element => {
-    if (element.hasOwnProperty("avgAlt"))
-      {
-        let T = Math.round(2*Math.PI*Math.sqrt(Math.pow(element["avgAlt"],3)/GM));
-        delete element["avgAlt"];
-        element["orbitalPeriod"]=T;
-      }
-  });
-  
-  return arr;
+function decToRoman(B1,B2,B3,val)
+{
+  var answer = "";
+  // Only change code below this line
+  switch (val){
+    case 1:
+    answer=B1;
+    break;
+    case 2:
+    answer=B1+B1;
+    break;
+    case 3:
+    answer=B1+B1+B1;
+    break;
+    case 4:
+    answer=B1+B2;
+    break;
+    case 5:
+    answer=B2;
+    break;
+    case 6:
+    answer=B2+B1;
+    break;
+    case 7:
+    answer=B2+B1+B1;
+    break;
+    case 8:
+    answer=B2+B1+B1+B1;
+    break;
+    case 9:
+    answer=B1+B3;
+    break;
+    default:
+    answer="";
+    break;
+  }
+  // Only change code above this line
+  return answer;
 }
 
-
-
+function convertToRoman(num) {
+  
+  let b= [
+        "I","V","X",
+        "X","L","C",
+        "C","D","M",
+        "M","Vbar","Lbar"];
+  let arr = num.toString().split("");
+  let arrRev = arr.reverse();
+  let saida =[];
+  arrRev.forEach( (e,i) => {
+    let eInt=parseInt(e);
+    if (i===0) saida.push(decToRoman(b[0],b[1],b[2],eInt));
+    if (i===1) saida.push(decToRoman(b[3],b[4],b[5],eInt)) ;
+    if (i===2) saida.push(decToRoman(b[6],b[7],b[8],eInt)) ;
+    if (i===3) saida.push(decToRoman(b[9],b[10],b[11],eInt)) ;
+  });
+  return(saida.reverse().join(""));
+}
 
 
 function programa()
 {
-   
-   
-      console.log(
-        orbitalPeriod([{name: "iss", avgAlt: 413.6}, {name: "hubble", avgAlt: 556.7}, {name: "moon", avgAlt: 378632.553}]) 
-      );
-     
-     
-   
-} 
+        console.log(
+        convertToRoman(1000)
+        );
+ } 
 
 
 

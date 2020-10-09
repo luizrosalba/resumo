@@ -2463,6 +2463,139 @@ dropElements([1, 2, 3], function(n) {return n < 3; });
 ```
 
 
+Scripting: Map the Debris
+Return a new array that transforms the elements' average altitude into their orbital periods (in seconds).
+
+The array will contain objects in the format {name: 'name', avgAlt: avgAlt}.
+
+You can read about orbital periods on Wikipedia.
+
+The values should be rounded to the nearest whole number. The body being orbited is Earth.
+
+The radius of the earth is 6367.4447 kilometers, and the GM value of earth is 398600.4418 km3s-2.
+
+Passed
+orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]) should return [{name: "sputnik", orbitalPeriod: 86400}].
+
+Passed
+orbitalPeriod([{name: "iss", avgAlt: 413.6}, {name: "hubble", avgAlt: 556.7}, {name: "moon", avgAlt: 378632.553}]) should return [{name : "iss", orbitalPeriod: 5557}, {name: "hubble", orbitalPeriod: 5734}, {name: "moon", orbitalPeriod: 2377399}].
+
+
+```JS 
+function orbitalPeriod(arr) {
+  var GM = 398600.4418;
+  var earthRadius = 6367.4447;
+  arr.forEach(element => {
+    if (element.hasOwnProperty("avgAlt"))
+      {
+        var c = Math.pow(earthRadius + element.avgAlt, 3);
+        var b = Math.sqrt(c / GM);
+        let pre = 2.0*Math.PI;
+        let T = Math.round(pre * b);
+        delete element["avgAlt"];
+        element["orbitalPeriod"]=T;
+      }
+  });
+  
+  return arr;
+}
+
+
+
+function programa()
+{
+      console.log(
+        orbitalPeriod([{name: "iss", avgAlt: 413.6}, 
+        {name: "hubble", avgAlt: 556.7}, 
+        {name: "moon", avgAlt: 378632.553}]) 
+      );
+} 
+
+```
+
+JavaScript Algorithms and Data Structures Projects: Palindrome Checker
+Return true if the given string is a palindrome. Otherwise, return false.
+
+A palindrome is a word or sentence that's spelled the same way both forward and backward, ignoring punctuation, case, and spacing.
+
+Note
+You'll need to remove all non-alphanumeric characters (punctuation, spaces and symbols) and turn everything into the same case (lower or upper case) in order to check for palindromes.
+
+We'll pass strings with varying formats, such as "racecar", "RaceCar", and "race CAR" among others.
+
+We'll also pass strings with special symbols, such as "2A3*3a2", "2A3 3a2", and "2_A3*3#A2".
+
+Passed
+palindrome("eye") should return a boolean.
+
+Passed
+palindrome("eye") should return true.
+
+Passed
+palindrome("_eye") should return true.
+
+Passed
+palindrome("race car") should return true.
+
+Passed
+palindrome("not a palindrome") should return false.
+
+Passed
+palindrome("A man, a plan, a canal. Panama") should return true.
+
+Passed
+palindrome("never odd or even") should return true.
+
+Passed
+palindrome("nope") should return false.
+
+Passed
+palindrome("almostomla") should return false.
+
+Passed
+palindrome("My age is 0, 0 si ega ym.") should return true.
+
+Passed
+palindrome("1 eye for of 1 eye.") should return false.
+
+Passed
+palindrome("0_0 (: /-\ :) 0-0") should return true.
+
+Passed
+palindrome("five|_/|four") should return false.
+
+
+```JS
+function palindrome(str) {
+   let saida =  formata(str);
+  //console.log(saida)   
+  let norm = saida.join(""); 
+  let inv = saida.reverse().join("");
+  return (norm===inv);
+}
+
+
+function formata(texto){
+            let entrada = (texto.trim());
+            let ent1=entrada.normalize().replace(/ +/g,"")
+            let ent2=ent1.toLocaleLowerCase();  
+            let ent3 = ent2.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
+            let arr = ent3.split("");
+            return (arr);
+}
+
+function programa()
+{
+
+      console.log(
+        palindrome("A man, a plan, a canal. Panama")
+      );
+ } 
+
+
+```
+
+
 
  Arguments Optional
 Create a function that sums two arguments together. If only one argument is provided, then return a function that expects one argument and returns the sum.
@@ -2528,7 +2661,159 @@ function programa()
 
 ```
 
+JavaScript Algorithms and Data Structures Projects: Roman Numeral Converter
+Convert the given number into a roman numeral.
 
+All roman numerals answers should be provided in upper-case.
+
+Passed
+convertToRoman(2) should return "II".
+
+Passed
+convertToRoman(3) should return "III".
+
+Passed
+convertToRoman(4) should return "IV".
+
+Passed
+convertToRoman(5) should return "V".
+
+Passed
+convertToRoman(9) should return "IX".
+
+Passed
+convertToRoman(12) should return "XII".
+
+Passed
+convertToRoman(16) should return "XVI".
+
+Passed
+convertToRoman(29) should return "XXIX".
+
+Passed
+convertToRoman(44) should return "XLIV".
+
+Passed
+convertToRoman(45) should return "XLV"
+
+Passed
+convertToRoman(68) should return "LXVIII"
+
+Passed
+convertToRoman(83) should return "LXXXIII"
+
+Passed
+convertToRoman(97) should return "XCVII"
+
+Passed
+convertToRoman(99) should return "XCIX"
+
+Passed
+convertToRoman(400) should return "CD"
+
+Passed
+convertToRoman(500) should return "D"
+
+Passed
+convertToRoman(501) should return "DI"
+
+Passed
+convertToRoman(649) should return "DCXLIX"
+
+Passed
+convertToRoman(798) should return "DCCXCVIII"
+
+Passed
+convertToRoman(891) should return "DCCCXCI"
+
+Passed
+convertToRoman(1000) should return "M"
+
+Passed
+convertToRoman(1004) should return "MIV"
+
+Passed
+convertToRoman(1006) should return "MVI"
+
+Passed
+convertToRoman(1023) should return "MXXIII"
+
+Passed
+convertToRoman(2014) should return "MMXIV"
+
+Passed
+convertToRoman(3999) should return "MMMCMXCIX"
+
+
+```JS
+function decToRoman(B1,B2,B3,val)
+{
+  var answer = "";
+  // Only change code below this line
+  switch (val){
+    case 1:
+    answer=B1;
+    break;
+    case 2:
+    answer=B1+B1;
+    break;
+    case 3:
+    answer=B1+B1+B1;
+    break;
+    case 4:
+    answer=B1+B2;
+    break;
+    case 5:
+    answer=B2;
+    break;
+    case 6:
+    answer=B2+B1;
+    break;
+    case 7:
+    answer=B2+B1+B1;
+    break;
+    case 8:
+    answer=B2+B1+B1+B1;
+    break;
+    case 9:
+    answer=B1+B3;
+    break;
+    default:
+    answer="";
+    break;
+  }
+  // Only change code above this line
+  return answer;
+}
+
+function convertToRoman(num) {
+  
+  let b= [
+        "I","V","X",
+        "X","L","C",
+        "C","D","M",
+        "M","Vbar","Lbar"];
+  let arr = num.toString().split("");
+  let arrRev = arr.reverse();
+  let saida =[];
+  arrRev.forEach( (e,i) => {
+    let eInt=parseInt(e);
+    if (i===0) saida.push(decToRoman(b[0],b[1],b[2],eInt));
+    if (i===1) saida.push(decToRoman(b[3],b[4],b[5],eInt)) ;
+    if (i===2) saida.push(decToRoman(b[6],b[7],b[8],eInt)) ;
+    if (i===3) saida.push(decToRoman(b[9],b[10],b[11],eInt)) ;
+  });
+  return(saida.reverse().join(""));
+}
+
+
+function programa()
+{
+        console.log(
+        convertToRoman(1000)
+        );
+ } 
+``` 
 
 
 
