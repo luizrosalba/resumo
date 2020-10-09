@@ -2442,6 +2442,7 @@ dropElements([1, 2, 3, 7, 4], function(n) {return n > 3;}) should return [7, 4].
 Passed
 dropElements([1, 2, 3, 9, 2], function(n) {return n > 2;}) should return [3, 9, 2].
 
+
 ```JS 
 
 function dropElements(arr, func) {
@@ -2461,7 +2462,148 @@ return saida;
 
 dropElements([1, 2, 3], function(n) {return n < 3; });
 ```
+Validador de telefone 
+JavaScript Algorithms and Data Structures Projects: Telephone Number Validator
+Return true if the passed string looks like a valid US phone number.
 
+The user may fill out the form field any way they choose as long as it has the format of a valid US number. The following are examples of valid formats for US numbers (refer to the tests below for other variants):
+
+555-555-5555
+(555)555-5555
+(555) 555-5555
+555 555 5555
+5555555555
+1 555 555 5555
+For this challenge you will be presented with a string such as 800-692-7753 or 8oo-six427676;laskdjf. Your job is to validate or reject the US phone number based on any combination of the formats provided above. The area code is required. If the country code is provided, you must confirm that the country code is 1. Return true if the string is a valid US phone number; otherwise return false.
+
+Passed
+telephoneCheck("555-555-5555") should return a boolean.
+
+Passed
+telephoneCheck("1 555-555-5555") should return true.
+
+Passed
+telephoneCheck("1 (555) 555-5555") should return true.
+
+Passed
+telephoneCheck("5555555555") should return true.
+
+Passed
+telephoneCheck("555-555-5555") should return true.
+
+Passed
+telephoneCheck("(555)555-5555") should return true.
+
+Passed
+telephoneCheck("1(555)555-5555") should return true.
+
+Passed
+telephoneCheck("555-5555") should return false.
+
+Passed
+telephoneCheck("5555555") should return false.
+
+Passed
+telephoneCheck("1 555)555-5555") should return false.
+
+Passed
+telephoneCheck("1 555 555 5555") should return true.
+
+Passed
+telephoneCheck("1 456 789 4444") should return true.
+
+Passed
+telephoneCheck("123**&!!asdf#") should return false.
+
+Passed
+telephoneCheck("55555555") should return false.
+
+Passed
+telephoneCheck("(6054756961)") should return false
+
+Passed
+telephoneCheck("2 (757) 622-7382") should return false.
+
+Passed
+telephoneCheck("0 (757) 622-7382") should return false.
+
+Passed
+telephoneCheck("-1 (757) 622-7382") should return false
+
+Passed
+telephoneCheck("2 757 622-7382") should return false.
+
+Passed
+telephoneCheck("10 (757) 622-7382") should return false.
+
+Passed
+telephoneCheck("27576227382") should return false.
+
+Passed
+telephoneCheck("(275)76227382") should return false.
+
+Passed
+telephoneCheck("2(757)6227382") should return false.
+
+Passed
+telephoneCheck("2(757)622-7382") should return false.
+
+Passed
+telephoneCheck("555)-555-5555") should return false.
+
+Passed
+telephoneCheck("(555-555-5555") should return false.
+
+Passed
+telephoneCheck("(555)5(55?)-5555") should return false.
+
+
+```JS
+function telephoneCheck(str) {
+  let regexes =[];
+  
+  regexes.push(/^([0-9]{3}-)[0-9]{3}-[0-9]{4}$/);///sem parentesis 555-555-5555
+  regexes.push(/^[1]{1} [0-9]{3}-[0-9]{3}-[0-9]{4}$/);///um na frente e sem parentesis 1 555-555-5555
+  regexes.push(/^[1]{1} \([0-9]{3}\) [0-9]{3}-[0-9]{4}$/);///um na frente e com  parentesis 1 (555)-555-5555
+  regexes.push(/^[0-9]{10}$/);///seguidos
+  regexes.push(/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/);///com tracos 555-555-5555
+  regexes.push(/^(\([0-9]{3}\))[0-9]{3}-[0-9]{4}$/);///com parentesis (555)555-5555
+  regexes.push(/^[1]{1}\([0-9]{3}\)[0-9]{3}-[0-9]{4}$/);///um na frente e com  parentesis 1(555)555-5555 sem espaco 
+  regexes.push(/^[1]{1} [0-9]{3} [0-9]{3} [0-9]{4}$/);///um na frente e sem parentesis e sem traco 1 555 555 5555
+  
+  
+
+  
+  //console.log(regexes[0].test(str));
+  
+  let saida = regexes.some(e => 
+    e.test(str)
+  );
+  console.log(saida);
+  return saida ;
+}
+
+function programa()
+{
+        //console.log(
+          telephoneCheck("555-555-5555");
+          telephoneCheck("1 555-555-5555");
+          telephoneCheck("1 (555) 555-5555");
+          telephoneCheck("5555555555");
+          telephoneCheck("555-555-5555");
+          telephoneCheck("(555)555-5555");
+          telephoneCheck("1(555)555-5555");
+          telephoneCheck("555-5555");
+          telephoneCheck("5555555");
+          telephoneCheck("1 555)555-5555")
+          telephoneCheck("1 555 555 5555")
+          telephoneCheck("1 456 789 4444")
+          telephoneCheck("2 (757) 622-7382")
+          telephoneCheck("2 757 622-7382")
+        //);
+ } 
+
+```
 
 Scripting: Map the Debris
 Return a new array that transforms the elements' average altitude into their orbital periods (in seconds).
@@ -2595,6 +2737,61 @@ function programa()
 
 ```
 
+JavaScript Algorithms and Data Structures Projects: Caesars Cipher
+One of the simplest and most widely known ciphers is a Caesar cipher, also known as a shift cipher. In a shift cipher the meanings of the letters are shifted by some set amount.
+
+A common modern use is the ROT13 cipher, where the values of the letters are shifted by 13 places. Thus 'A' ↔ 'N', 'B' ↔ 'O' and so on.
+
+Write a function which takes a ROT13 encoded string as input and returns a decoded string.
+
+All letters will be uppercase. Do not transform any non-alphabetic character (i.e. spaces, punctuation), but do pass them on.
+
+Passed
+rot13("SERR PBQR PNZC") should decode to FREE CODE CAMP
+
+Passed
+rot13("SERR CVMMN!") should decode to FREE PIZZA!
+
+Passed
+rot13("SERR YBIR?") should decode to FREE LOVE?
+
+Passed
+rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT.") should decode to THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
+
+```JS
+
+
+function soma13 (val){
+  if ((val+13)>90){
+    return ((val-13));
+  }
+  else 
+    return (val+13);
+}
+
+
+function rot13(str) {
+  let saida=[];
+  let arr = str.split("");
+  //console.log(arr);
+  let atual;
+  for (let i = 0; i < arr.length ; i++) 
+      {
+        
+        if (arr[i].match(/[.?,\/#!$%\^&\*;:{}=\-_`~() ]/g))
+        {
+          saida.push(arr[i]);  
+        }
+        else {
+          atual = arr[i].charCodeAt(0);
+          saida.push(String.fromCharCode(soma13(atual)));  
+        }
+      }
+return saida.join("");
+}
+
+console.log(rot13("SERR YBIR?"));
+```
 
 
  Arguments Optional
@@ -2936,6 +3133,17 @@ function programa()
      ;
    
 } 
+
+
+    // cidfunc[0][1]*0.01+
+    // cidfunc[1][1]*0.05+
+    // cidfunc[2][1]*0.1+
+    // cidfunc[3][1]*0.25+
+    // cidfunc[4][1]*1.0+
+    // cidfunc[5][1]*5.0+
+    // cidfunc[6][1]*10.0+
+    // cidfunc[7][1]*20.0;
+
 
 ```
 

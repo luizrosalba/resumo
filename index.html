@@ -12,72 +12,149 @@
   <script type="text/javascript">
 
 
-function decToRoman(B1,B2,B3,val)
-{
-  var answer = "";
-  // Only change code below this line
-  switch (val){
-    case 1:
-    answer=B1;
-    break;
-    case 2:
-    answer=B1+B1;
-    break;
-    case 3:
-    answer=B1+B1+B1;
-    break;
-    case 4:
-    answer=B1+B2;
-    break;
-    case 5:
-    answer=B2;
-    break;
-    case 6:
-    answer=B2+B1;
-    break;
-    case 7:
-    answer=B2+B1+B1;
-    break;
-    case 8:
-    answer=B2+B1+B1+B1;
-    break;
-    case 9:
-    answer=B1+B3;
-    break;
-    default:
-    answer="";
-    break;
-  }
-  // Only change code above this line
-  return answer;
+
+
+
+function dinheiroEmCaixa (cidfunc){
+    //console.log(cidfunc);
+  let dinheiroCaixa = 
+    cidfunc[0][1]+
+    cidfunc[1][1]+
+    cidfunc[2][1]+
+    cidfunc[3][1]+
+    cidfunc[4][1]+
+    cidfunc[5][1]+
+    cidfunc[6][1]+
+    cidfunc[7][1];
+    return dinheiroCaixa;
 }
 
-function convertToRoman(num) {
-  
-  let b= [
-        "I","V","X",
-        "X","L","C",
-        "C","D","M",
-        "M","Vbar","Lbar"];
-  let arr = num.toString().split("");
-  let arrRev = arr.reverse();
-  let saida =[];
-  arrRev.forEach( (e,i) => {
-    let eInt=parseInt(e);
-    if (i===0) saida.push(decToRoman(b[0],b[1],b[2],eInt));
-    if (i===1) saida.push(decToRoman(b[3],b[4],b[5],eInt)) ;
-    if (i===2) saida.push(decToRoman(b[6],b[7],b[8],eInt)) ;
-    if (i===3) saida.push(decToRoman(b[9],b[10],b[11],eInt)) ;
+
+
+
+///calcula as moedas necessarias para o troco e altera a caixa 
+function calculaTroco (change, cid){
+  //console.log(change);
+  /// calculando as moedas necessárias 
+  let copiaCidRev = [...cid];
+  copiaCidRev.reverse();
+  let valores = [100,20,10,5,1,0.25,0.1,0.05,0.01];
+  let nomevalores = ["ONE HUNDRED","TWENTY","TEN","FIVE","ONE","QUARTER","DIME","NICKEL","PENNY"];
+  let alteracoes = [];
+  let saida = [];
+  valores.forEach((e,i) => {
+    let div = change/e; 
+    if(div>=1)
+    {
+      let divInteiro = parseInt(div)*e;  
+      let pagPossivelCaixa = divInteiro-copiaCidRev[i][1]; /// 
+      let temp = (divInteiro - pagPossivelCaixa);
+      let pago = (pagPossivelCaixa<0)?divInteiro:temp; 
+      alteracoes.push(pago);
+      change = (change - pago).toFixed(2);
+    }
+    else 
+    {
+      alteracoes.push(0);
+    }
   });
-  return(saida.reverse().join(""));
+  //console.log(alteracoes);
+  /// retorna as alterações a serem feitas 
+  alteracoes.reverse(); /// mutate and revese for easy comparison 
+  nomevalores.reverse();
+  //console.log(alteracoes);
+  valores.reverse();
+  alteracoes.forEach( (e , i)  => {
+    if (e!==0)
+    {
+        saida.push([nomevalores[i],e]);
+    }
+    
+  });
+
+  return saida; 
 }
 
+
+function verificaCasos (ent){
+  let soma = 0;
+  for (let i=0;i<ent.length;i++)
+  {
+    soma+=ent[i][1];
+  }
+  return soma;
+}
+
+
+function retornaTroco (change, cid){
+  let alteracoes2 = calculaTroco(change,cid);
+  alteracoes2.reverse();
+  console.log(alteracoes2);
+  let total = verificaCasos(alteracoes2)
+  console.log(total,change);
+  if (Math.abs(total-change)<0.001)
+  {
+    
+    let obj = {
+    status:"OPEN",
+    change : alteracoes2
+    }
+    return obj;
+ 
+  }
+  else 
+  {
+    
+    let obj = {
+    status:"INSUFFICIENT_FUNDS",
+    change : []
+    }
+    return obj;
+  }
+}
+function checkCashRegister(price, cash, cid) {
+  var change = cash - price;
+  let dinheiroCaixa =   dinheiroEmCaixa (cid) ;
+  /// verificar se tem troco 
+  //console.log(dinheiroCaixa);
+  //console.log(change);
+  if (change > dinheiroCaixa)
+  {
+    /// retorna "INSUFFICIENT_FUNDS"
+    let obj = {
+      status:"INSUFFICIENT_FUNDS",
+      change: []
+    }
+    return obj; 
+  }
+  if (change === dinheiroCaixa)
+  {
+    /// retorna status: "CLOSED"
+    let obj = {
+      status:"CLOSED",
+      change: cid
+    }
+    return obj; 
+  }
+  ///{status: "OPEN"
+  let obj = retornaTroco (change,cid);
+
+
+  return obj; 
+ // return change;
+}
 
 function programa()
 {
-        console.log(
-        convertToRoman(1000)
-        );
+  ///preco, dinheiro , dinheiro na caixa 
+  console.log(
+
+    checkCashRegister(3.26, 100, 
+    [["PENNY", 1.01], ["NICKEL", 2.05],
+     ["DIME", 3.1], ["QUARTER", 4.25],
+      ["ONE", 90], ["FIVE", 55], ["TEN", 20], 
+    ["TWENTY", 60], ["ONE HUNDRED", 100]])
+  );
  } 
 
 
