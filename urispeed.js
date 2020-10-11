@@ -1,4 +1,4 @@
-var input = require('fs').readFileSync('G:\\DIO\\resumo\\entrada.txt', 'utf8');
+var input = require('fs').readFileSync('C:\\vscode\\resumo\\entrada.txt', 'utf8');
 var lines = input.split('\n');
 
 /**
@@ -15,23 +15,30 @@ setTimeout(function (argument) {
 
 
 
-
-
-
-
-    var i;
-    let nk = lines[0].split(" ").map( Number );;
-    let S = lines[1].split(" ").map( Number );
-    var l= nk[1];
-    let saida = Array(S.length).fill(0);
-    for (i = 1; i <= l ; i++) 
-    {
-        S.forEach((val, ind) => {
-            saida[ind] += (val)
-        });
-        S.unshift(S.pop());
+    function compareSecondColumn(a, b) {
+        if (a[1] === b[1]) {
+            return 0;
+        }
+        else {
+            return (a[1] < b[1]) ? -1 : 1;
+        }
     }
-    console.log(saida.join(" "));
+
+
+
+
+    let n = lines[0].split(" ").map( Number );
+    let matNota = [1000,5,1001,10,1002,6];
+    let i=1;
+    while (i<=n){
+        //matNota = lines[i].split(" ");
+        matNota.sort(compareSecondColumn);
+        console.log(matNota);
+
+        i++;
+    }
+
+    console.log(n);
     
     
 
