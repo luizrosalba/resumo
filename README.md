@@ -2194,12 +2194,12 @@ closed	Returns a Boolean value indicating whether a window has been closed or no
 console	Returns a reference to the Console object, which provides methods for logging information to the browser's console (See Console object)
 defaultStatus	Sets or returns the default text in the statusbar of a window
 document	Returns the Document object for the window (See Document object)
-frameElement	Returns the <iframe> element in which the current window is inserted
-frames	Returns all <iframe> elements in the current window
+frameElement	Returns the iframe element in which the current window is inserted
+frames	Returns all iframe elements in the current window
 history	Returns the History object for the window (See History object)
 innerHeight	Returns the height of the window's content area (viewport) including scrollbars
 innerWidth	Returns the width of a window's content area (viewport) including scrollbars
-length	Returns the number of <iframe> elements in the current window
+length	Returns the number of iframe elements in the current window
 localStorage	Allows to save key/value pairs in a web browser. Stores the data with no expiration date
 location	Returns the Location object for the window (See Location object)
 name	Sets or returns the name of a window
@@ -2290,8 +2290,8 @@ Property / Method	Description
 activeElement	Returns the currently focused element in the document
 addEventListener()	Attaches an event handler to the document
 adoptNode()	Adopts a node from another document
-anchors	Returns a collection of all <a> elements in the document that have a name attribute
-applets	Returns a collection of all <applet> elements in the document
+anchors	Returns a collection of all a> elements in the document that have a name attribute
+applets	Returns a collection of all applet> elements in the document
 baseURI	Returns the absolute base URI of a document
 body	Sets or returns the document's body (the <body> element)
 close()	Closes the output stream previously opened with document.open()
@@ -2328,7 +2328,7 @@ implementation	Returns the DOMImplementation object that handles this document
 importNode()	Imports a node from another document
 inputEncoding	Returns the encoding, character set, used for the document
 lastModified	Returns the date and time the document was last modified
-links	Returns a collection of all <a> and <area> elements in the document that have a href attribute
+links	Returns a collection of all a> and area> elements in the document that have a href attribute
 normalize()	Removes empty Text nodes, and joins adjacent nodes
 normalizeDocument()	Removes empty Text nodes, and joins adjacent nodes
 open()	Opens an HTML output stream to collect output from document.write()
@@ -2338,7 +2338,7 @@ readyState	Returns the (loading) status of the document
 referrer	Returns the URL of the document that loaded the current document
 removeEventListener()	Removes an event handler from the document (that has been attached with the addEventListener() method)
 renameNode()	Renames the specified node
-scripts	Returns a collection of <script> elements in the document
+scripts	Returns a collection of script> elements in the document
 strictErrorChecking	Sets or returns whether error-checking is enforced or not
 title	Sets or returns the title of the document
 URL	Returns the full URL of the HTML document
@@ -11990,6 +11990,7 @@ Servem para conectar um ou mais servidores http
 
 Alguns browsers ainda nao suportam (talvez melhor usar node fetch)
 
+- O fetch fornece suporte a PWAs.
 - nativa do browser
 - Oferece uma alternatuva ai XMLHttpRequest() e jQuery.ajax()
 - suporte a service workers
@@ -12203,7 +12204,7 @@ outras libs
 - immutability-helper
 - seamless-immutable
 - Imutabilidade é pre-requisito no redux
-- Redux e react-redux usam comparações rasas
+- Redux e react-redux usam comparações rasas === (shallow) 
 - manipulação de dados mais seguras
 - time-travel debugging
 - reducers dividem o objeto de estados em dominios por uma chave
@@ -12280,7 +12281,7 @@ Desenvolviemnto orientado a teste
 - Chai
 - Mocha
 - Selenium
-- Puppeteer
+- Puppeteer (roda no browser)
 - npm add --dev @testing-library/react
 
 primeiro os testes mais básicos depois os mais completos
@@ -12293,21 +12294,22 @@ Behavior-Driven Development
 - Sintaxe Gherkin
 - Representa a especificação através de steps para definir cenários
 - descreve cada funcionalidade por features
--
 
-Funcionalidade: Loing
+
+- Funcionalidade: Login
 Texto com  a descrição da funcionalidade
-Cenário: Como um usuário valido , posso logar no sistema
-Dado que estou na tela de Login
-Quando digitar credenciais válidas
-E clicar no botão de login
-Então devo acessar a Home do sistema
-Cenário: Como um usuário invalido , devo visualizar uma mensagem de erro e continuar na página de Login
-Dado que estou na tela de Login
-Quando digitar credenciais inválidas
-E clicar no botão de login
-Então devo ver uma mensagem de erro
-E devo estar na tela de login
+- Cenário: Como um usuário valido , posso logar no sistema
+- Dado que estou na tela de Login
+- Quando digitar credenciais válidas
+- E clicar no botão de login
+E- ntão devo acessar a Home do sistema
+
+- Cenário: Como um usuário invalido , devo visualizar uma mensagem de erro e continuar na página de Login
+- Dado que estou na tela de Login
+- Quando digitar credenciais inválidas
+- E clicar no botão de login
+- Então devo ver uma mensagem de erro
+- E devo estar na tela de login
 
 - Jest-cucumber
 - npm add --dev jest-cucumber (existe uma extensão para Vs code para .feature)
@@ -12925,7 +12927,7 @@ are two choices. First, you could edit package.json yourself, adding this elemen
 However, doing just that won’t have any effect. The module isn’t installed at this
 point. To do that, you now must issue a command:
 
-- npm install
+- npm 
   NPM will now (using Node as a runtime, it should be mentioned, because NPM is
   just a JavaScript application that runs on Node) go fetch the Express package from the
   central repository, will determine all the dependencies it needs, and will download
