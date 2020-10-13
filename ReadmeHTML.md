@@ -5862,9 +5862,17 @@ Target the element with the id of ball and add the opacity property set to 0.1 a
   }
 
   @keyframes fade {
-    50% {
-      left: 60%;
+     0% {
+      left: 0%;
       opacity:0.1;
+    }
+    50% {
+      left: 10%;
+      opacity:0.5;
+    }
+    100% {
+      left: 10%;
+      opacity:1;
     }
   }
 
