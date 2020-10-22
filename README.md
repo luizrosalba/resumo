@@ -32,6 +32,7 @@ Comandos importantes
 ============
 Um Resumo dos Comandos Git, lista de Comandos importantes do Git
 
+Untracked, Unmodified, Modified e Staged.
 --
 
 ## Inicializando
@@ -75,7 +76,8 @@ Um Resumo dos Comandos Git, lista de Comandos importantes do Git
 | `git stash clear` | remove todas as entradas stachs |
 
 ### Sharing & Updating Projects
-
+Qual o comando usado para listar as configurações do Git?
+git config --list
 
 | Command | Description |
 | - | - |
@@ -203,6 +205,8 @@ a,p,h1,h3{
 - dica : se eh quadrado border-radius de 50% deixa ele circular
 
 # HTML5
+# Bootstrap 
+  https://www.w3schools.com/bootstrap4/default.asp
 
 # Javascript
 
