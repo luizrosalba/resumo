@@ -45,6 +45,12 @@ Untracked, Unmodified, Modified e Staged.
 
 ## Basico
 
+cria na mao o repositorio 
+daí : 
+git remote add origin https://github.com/luizrosalba/loja-bootstrap.git
+daí 
+git push -u origin master 
+daí muda o branch padão no github
 
 | Command | Description |
 | - | - |
@@ -5189,7 +5195,7 @@ function compareValues(key, order = 'asc') {
 To reverse the sorting order, you can invert the return value of the compare function:
 
 ```Javascript
-unction compare(a, b) {
+function compare(a, b) {
   ...
 
   //invert return value by multiplying by -1
