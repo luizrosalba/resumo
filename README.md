@@ -3,15 +3,14 @@
 Fonte : Modern full stack ,   Aulas DIO , Internet , freecode
 -------------------------------------------------------------
 
-### NVM 
+### NVM
 
-gerenciador de versoes no nodejs 
+gerenciador de versoes no nodejs
 
-nvm ls -> lista as versoes instaladas 
-nvm use versão -> muda a versão 
+nvm ls -> lista as versoes instaladas
+nvm use versão -> muda a versão
 nvm list available
 https://docs.microsoft.com/pt-br/windows/nodejs/setup-on-windows
-
 
 Abra o repositório do Windows-NVM no navegador da Internet e selecione o link Baixar Agora.
 Instale a versão atual do Node.js (para testar os aprimoramentos dos recursos mais recentes, mas com mais probabilidade de ter problemas do que a versão LTS): nvm install latest
@@ -21,7 +20,6 @@ Baixe o arquivo nvm-setup.zip para obter a versão mais recente.
 Depois de baixado, abra o arquivo zip e abra o arquivo nvm-setup.exe.
 
 nvm install latest
-
 
 ## Git
 
@@ -33,9 +31,13 @@ Comandos importantes
 Um Resumo dos Comandos Git, lista de Comandos importantes do Git
 
 Untracked, Unmodified, Modified e Staged.
---
+-----------------------------------------
 
 ## Inicializando
+
+removendo um dir do github mas nao local
+git rm -r --cached myFolder
+push
 
 
 | Command | Description |
@@ -45,12 +47,13 @@ Untracked, Unmodified, Modified e Staged.
 
 ## Basico
 
-cria na mao o repositorio 
-daí : 
+cria na mao o repositorio
+daí :
 git remote add origin https://github.com/luizrosalba/loja-bootstrap.git
-daí 
-git push -u origin master 
+daí
+git push -u origin master
 daí muda o branch padão no github
+
 
 | Command | Description |
 | - | - |
@@ -82,8 +85,10 @@ daí muda o branch padão no github
 | `git stash clear` | remove todas as entradas stachs |
 
 ### Sharing & Updating Projects
+
 Qual o comando usado para listar as configurações do Git?
 git config --list
+
 
 | Command | Description |
 | - | - |
@@ -211,8 +216,10 @@ a,p,h1,h3{
 - dica : se eh quadrado border-radius de 50% deixa ele circular
 
 # HTML5
-# Bootstrap 
-  https://www.w3schools.com/bootstrap4/default.asp
+
+# Bootstrap
+
+https://www.w3schools.com/bootstrap4/default.asp
 
 # Javascript
 
@@ -382,7 +389,6 @@ UTC()	Returns the number of milliseconds in a date since midnight of January 1, 
 valueOf()	Returns the primitive value of a Date object
 ```
 
-
 Method	Description
 getDate()	Returns the day of the month (from 1-31)
 getDay()	Returns the day of the week (from 0-6)
@@ -425,10 +431,12 @@ toDateString()	Converts the date portion of a Date object into a readable string
 toGMTString()	Deprecated. Use the toUTCString() method instead
 toISOString()	Returns the date as a string, using the ISO standard
 toJSON()	Returns the date as a string, formatted as a JSON date
-```JS 
+
+```JS
 var d = new Date();
 var n = d.toJSON();
 ```
+
 toLocaleDateString()	Returns the date portion of a Date object as a string, using locale conventions
 toLocaleTimeString()	Returns the time portion of a Date object as a string, using locale conventions
 toLocaleString()	Converts a Date object to a string, using locale conventions
@@ -488,7 +496,8 @@ window.location = "demo_json.php?x=" + myJSON;
 
 JSON Methods
 
-Exmeplo  extração de informações de um JSON : 
+Exmeplo  extração de informações de um JSON :
+
 ```JS
 var watchList = [
   {
@@ -607,13 +616,13 @@ var watchList = [
 Using ES6 notation, each item in array is processed to extract title and rating.
 Parantheses are needed to return an object.
 
-```JS 
+```JS
 const ratings = watchList.map(({ Title: title, imdbRating: rating }) => ({title, rating}));
 ```
 
-Extrai um JSON e filtra se maior que 8.0 
+Extrai um JSON e filtra se maior que 8.0
 
-```JS 
+```JS
 
 // Only change code below this line
 
@@ -631,10 +640,10 @@ console.log(filteredList);
 ```
 
 Extraindo title e rating de um JSON chamado watchList
-array.prototype.map takes a function as in input and returns an array. 
+array.prototype.map takes a function as in input and returns an array.
 The returned array includes elements that is processed by the function.
 This function takes individual elements as input.
-duas formas : 
+duas formas :
 
 ```JS
 const ratings = watchList.map(item => ({
@@ -643,8 +652,9 @@ const ratings = watchList.map(item => ({
 }));
 ```
 
-Calculando a média filtrada por autor 
-```JS 
+Calculando a média filtrada por autor
+
+```JS
 
 function getRating(watchList){
   // Only change code below this line
@@ -655,16 +665,18 @@ function getRating(watchList){
   }));
 
   const filteredList = mapped.filter(item => item["director"] === "Christopher Nolan" );
-    
+  
   const averageRating = filteredList.reduce((sum, item) => sum + parseFloat(item.rating), 0)/filteredList.length;
 
   // Only change code above this line
   return averageRating;
 }
 ```
+
 Method	Description
 parse()	Parses a JSON string and returns a JavaScript object
-```JS 
+
+```JS
 const json = '{"result":true, "count":42}';
 const obj = JSON.parse(json);
 
@@ -674,8 +686,8 @@ console.log(obj.count);
 console.log(obj.result);
 // expected output: true
 ```
-outro exemplo : 
 
+outro exemplo :
 
 ```Js
 
@@ -685,40 +697,34 @@ console.log(JSON.stringify(obj)); ///{"name":"John","age":30,"city":"New York"}
 
 ```
 
-outro exemplo : 
+outro exemplo :
 
-```JS 
+```JS
 let userData = '{ "name": "John", "age": 35, "isAdmin": false, "friends": [0,1,2,3] }';
 
 let user = JSON.parse(userData);
 
 console.log( user.friends[1] ); // 1
-``` 
-
-
+```
 
 function whatIsInAName(collection, source) {
-  var arr = [];
-  // Only change code below this line
-  
-  console.log( collection.filter ( item =>  
-    ( item.last === source.last ||  
-      item.first === source.first) 
-  )); 
-  
-  // Only change code above this line
-  return arr;
+var arr = [];
+// Only change code below this line
+
+console.log( collection.filter ( item =>
+( item.last === source.last ||
+item.first === source.first)
+));
+
+// Only change code above this line
+return arr;
 }
 
 whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 });
 
-
-
-
-
-
 stringify()	Convert a JavaScript object to a JSON string
-```JS 
+
+```JS
 JSON.stringify({});                  // '{}'
 JSON.stringify(true);                // 'true'
 JSON.stringify('foo');               // '"foo"'
@@ -909,14 +915,14 @@ trim()	Removes whitespace from both ends of a string
 valueOf()	Returns the primitive value of a String object
 ```
 
-Remove acentuacao deixando a letra 
+Remove acentuacao deixando a letra
+
 ```Js
  let a = "LÓÁÍÀÚÜüíáàç";
  b=a.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
  console.log(b);
 ///"LOAIAUUuiaac"
 ```
-
 
 /// fazer pegar daqui : https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/substr
 
@@ -934,9 +940,11 @@ console.log(array3);
 
 endsWith()	Checks whether a string ends with specified string/characters
 fromCharCode()	Converts Unicode values to characters
+
 ```Js
 String.fromCharCode(65, 66, 67);  // "ABC"
 ```
+
 includes()	Checks whether a string contains the specified string/characters
 indexOf()	Returns the position of the first found occurrence of a specified value in a string
 lastIndexOf()	Returns the position of the last found occurrence of a specified value in a string
@@ -970,7 +978,7 @@ str3.match(null);       // returns ["null"]
 
 repeat()	Returns a new string with a specified number of copies of an  string
 
-```JS 
+```JS
 'abc'.repeat(-1);   // RangeError
 'abc'.repeat(0);    // ''
 'abc'.repeat(1);    // 'abc'
@@ -982,10 +990,10 @@ repeat()	Returns a new string with a specified number of copies of an  string
 // 'abcabc' (repeat() é um método genérico)
 ```
 
-replace()	Searches a string for a specified value, or a regular expression, and 
+replace()	Searches a string for a specified value, or a regular expression, and
 returns a new string where the specified values are replaced
 
-``` JS 
+```JS
 var re = /apples/gi;
 var str = 'Apples are round, and apples are juicy.';
 var newstr = str.replace(re, 'oranges');
@@ -994,7 +1002,7 @@ console.log(newstr);  // oranges are round, and oranges are juicy.
 
 search()	Searches a string for a specified value, or regular expression, and returns the position of the match
 
-``` JS 
+```JS
 function testinput(re, str) {
   var midstring;
   if (str.search(re) != -1) {
@@ -1005,6 +1013,7 @@ function testinput(re, str) {
   console.log(str + midstring + re);
 }
 ```
+
 slice()	Extracts a part of a string and returns a new string
 split()	Splits a string into an array of substrings
 startsWith()	Checks whether a string begins with specified characters
@@ -1114,6 +1123,7 @@ console.log(result);
 ```
 
 find()	Returns the value of the first element in an array that pass a test
+
 ```JS
 const array1 = [5, 12, 8, 130, 44];
 const found = array1.find(element => element > 10);
@@ -1165,10 +1175,10 @@ arr1.flatMap(x => x.split(" "));
 
 forEach()	Calls a function for each array element
 
+Exemplo :
+loops aninhados
 
-Exemplo : 
-loops aninhados 
-```JS 
+```JS
 
  arr1.forEach(val1 => (
     arr2.forEach(val2 => (
@@ -1177,10 +1187,11 @@ loops aninhados
   )) 
   );
 
-  ```
-Exemplo : Produz uma função myMap que utiliza um this.forEach para aplicar a função do callback nas entradas 
+```
 
-```JS 
+Exemplo : Produz uma função myMap que utiliza um this.forEach para aplicar a função do callback nas entradas
+
+```JS
 // the global Array
 var s = [23, 65, 98, 5];
 
@@ -1197,12 +1208,9 @@ var new_s = s.myMap(function(item) {
 });
 ```
 
+Exemplo : Produz uma função myMap que utiliza um for para aplicar a função do callback nas entradas
 
-
-Exemplo : Produz uma função myMap que utiliza um for para aplicar a função do callback nas entradas 
-
-
-```JS 
+```JS
 // The global Array
 var s = [23, 65, 98, 5];
 
@@ -1222,8 +1230,6 @@ var new_s = s.myMap(function(item) {
   return item * 2;
 });
 ```
-
-
 
 from()	Creates an array from an object
 includes()	Check if an array contains the specified element
@@ -1397,7 +1403,7 @@ Arr.slice(-1); // [5]
 Arr.slice(-3); // [3,4,5]
 ```
 
-exemplos slice Imutavel 
+exemplos slice Imutavel
 
 ```JS
 const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
@@ -1494,12 +1500,15 @@ const arr = [1,2,[3,4]];
 arr.flat(); // retorna um novo array com profundidade 1 [1,2,3,4]
 arr.flat(2); // retorna um novo array com profundidade 2 , neste caso não terá diferenca mas se houvessem outros arrays dentro de arr só iria até a segunda camanda de arr
 ```
+
 dica : o método flat remove espaços vazios do array:
+
 ```JS
 var arr4 = [1, 2, , 4, 5];
 arr4.flat();
 // [1, 2, 4, 5]
 ```
+
 ##### flatMap
 
 Imutavel Retorna um novo array assim como faz a função map e executa um flat de profundidade 1
@@ -1882,17 +1891,16 @@ function rangeOfNumbers(startNum, endNum) {
 };
 ```
 
-
-
-### this 
+### this
 
 A palavra-chave this comporta-se um pouco diferente em Javascript se comparado com outras linguagens. Também possui algumas diferenças entre o modo estrito e o modo não estrito.
 
 Em muitos casos, o valor this é determinado pela forma como a função é chamada. Ele não pode ser assinado durante a execução, e isso pode ser diferente a cada vez que a função é chamada. ES5 introduziu o método bind para estabelecer o valor this da função, independentemente de como ela seja chamada, e ECMAScript 2015 introduziu o arrow functions, cujo this é lexicalmente delimitado (o valor this é estabelecido segundo o escopo de execução no qual está inserido).
 
-
 #### Contexto global
- No contexto de execução global (fora de qualquer função), this refere-se ao objeto global, seja em modo estrito ou não.
+
+No contexto de execução global (fora de qualquer função), this refere-se ao objeto global, seja em modo estrito ou não.
+
 ```JS
 console.log(this.document === document); // true
 // Em navegadores web, o objeto window é também o objeto global:
@@ -1909,6 +1917,7 @@ Dentro de uma função, o valor de this depende de como a função é chamada.
 
 Chamada simples
 Como o código a seguir não está no modo estrito, o valor de this não é definido pela chamada. Por padrão, this será o objeto global que no navegador é o window.
+
 ```JS
 function f1(){
   return this;
@@ -1919,7 +1928,9 @@ f1() === window; // true
 ```
 
 #### Modo estrito
+
 Em modo estrito, o valor de this permanece seja qual for o definido ao entrar no contexto de execução, assim, no caso a seguir, this por padrão será indefinido (undefined):
+
 ```JS
 function f2(){
   "use strict"; // assume modo estrito
@@ -1932,22 +1943,24 @@ f2() === undefined; // true
 Portanto, em modo estrito, se this não for definido durante o contexto da execução, ele permanecerá indefinido (undefined).
 
 No segundo exemplo, this deveria ser undefined, porque f2 foi chamada diretamente e não como um método ou popriedade de um objeto (ou seja, window.f2()). Esta característica não foi implementada em alguns navegadores quando começaram a dar suporte ao strict mode (modo estrito). Como resultado, eles incorretamente retornavam o objeto window.
- 
 
 ### Funções Arrow (seta)
 
-Nas arrow functions (funções seta), o this é definido lexicalmente, isto é, 
+Nas arrow functions (funções seta), o this é definido lexicalmente, isto é,
 seu valor é definido pelo contexto de execução onde está inserido. Em um código global, this assume o objeto global:
+
 ```JS
 var globalObject = this;
 var foo = (() => this);
 console.log(foo() === globalObject); // true
 ```
+
 Não importa como foo é chamado, o this continuará como o objeto global.
- Isto continua verdadeiro mesmo se chamá-lo como método de um determinado objeto 
- (o que normalmente definiria seu this ao objeto), com call ou apply ou bind é usado:
+Isto continua verdadeiro mesmo se chamá-lo como método de um determinado objeto
+(o que normalmente definiria seu this ao objeto), com call ou apply ou bind é usado:
 
 // Chama como um método de um objeto
+
 ```JS
 var obj = {foo: foo};
 console.log(obj.foo() === globalObject); // true
@@ -1959,8 +1972,9 @@ console.log(foo.call(obj) === globalObject); // true
 foo = foo.bind(obj);
 console.log(foo() === globalObject); // true
 ```
-Não importa como for, o this do foo mantém o valor que recebeu quando foi criado 
-(no exemplo acima, o objeto global). 
+
+Não importa como for, o this do foo mantém o valor que recebeu quando foi criado
+(no exemplo acima, o objeto global).
 O mesmo se aplica para funções arrow criadas dentro de outras funções: seus this são definidos em seus respectivos contextos de execução.
 
 // Cria obj com um método bar que retorna uma função que
@@ -1968,6 +1982,7 @@ O mesmo se aplica para funções arrow criadas dentro de outras funções: seus 
 // uma função arrow, para que seu this esteja permanentemente
 // ligado ao this da função que a envolve. O valor de bar pode ser // definido na chamada, que por sua vez define o valor da função
 // retornada.
+
 ```JS
 var obj = { bar : function() {
                     var x = (() => this);
@@ -1975,17 +1990,22 @@ var obj = { bar : function() {
                   }
           };
 ```
+
 // Chama bar como método de obj, configurando seu this como obj
 // Assina à variável fn uma referência para a função retornada
+
 ```JS
 var fn = obj.bar();
 ```
+
 // Chamar fn, sem definir this, por padrão, referenciaria
 // ao objeto global ou undefined em modo estrito (strict mode)
+
 ```JS
 console.log(fn() === obj); // true
 ```
-No exemplo acima, a função (chamemos função anônima A) atribuída a obj.bar retorna outra função (chamemos função anônima B) que é criada como uma função arrow (seta). 
+
+No exemplo acima, a função (chamemos função anônima A) atribuída a obj.bar retorna outra função (chamemos função anônima B) que é criada como uma função arrow (seta).
 Como resultado, o this da função B é permanentemente definido como o this de obj.bar (função A) quando chamado. Quando a função retornada (função B) é chamada, seu this sempre será aquele que foi definido inicialmente. No exemplo de código acima, o this da função B é definido com o this da função A, que é obj, por isso permanece definido para obj, mesmo quando chamado de uma maneira que normalmente definiria seu this como undefined ou como objeto global (ou qualquer outro método, como naquele exemplo anterior de contexto de execução global).
 
 ### Como método de um objeto
@@ -1993,6 +2013,7 @@ Como resultado, o this da função B é permanentemente definido como o this de 
 Quando uma função é chamada como um método de um objeto, seu this toma o valor do objeto pertencente ao método chamado.
 
 No exemplo a seguir, quando o.f() é invocado, o this dentro da função é vinculado ao objeto o.
+
 ```JS
 var o = {
   prop: 37,
@@ -2003,9 +2024,11 @@ var o = {
 
 console.log(o.f()); // logs 37
 ```
-Observe que esse comportamento não é afetado mesmo pela forma como (ou onde) a função foi definida. 
+
+Observe que esse comportamento não é afetado mesmo pela forma como (ou onde) a função foi definida.
 No exemplo anterior, nós definimos a função in-line (em linha) como o membro f durante a definição de o.
- No entanto, poderíamos ter apenas facilmente definido a função primeiro e depois anexado a o.f. Fazendo isso resulta no mesmo comportamento:
+No entanto, poderíamos ter apenas facilmente definido a função primeiro e depois anexado a o.f. Fazendo isso resulta no mesmo comportamento:
+
 ```JS
 var o = {prop: 37};
 
@@ -2017,18 +2040,21 @@ o.f = independent;
 
 console.log(o.f()); // registra 37
 ```
+
 Isto demonstra que é importante apenas que a função foi chamada a partir do membro f de o.
 
-Da mesma forma, a vinculação de this só é afetada pela referência do membro mais imediato. 
-No exemplo a seguir, quando invocamos a função, podemos chamá-la como um método g do objeto o.b. 
+Da mesma forma, a vinculação de this só é afetada pela referência do membro mais imediato.
+No exemplo a seguir, quando invocamos a função, podemos chamá-la como um método g do objeto o.b.
 Desta vez, durante a execução, o this dentro da função irá se referir a o.b. O fato do objeto ser um membro
- de o não tem qualquer consequência; a referência mais imediata é tudo que importa.
+de o não tem qualquer consequência; a referência mais imediata é tudo que importa.
+
 ```JS
 o.b = {g: independent, prop: 42};
 console.log(o.b.g()); // registra 42
 ```
 
 ### this na cadeia de protótipos (prototype chain) do objeto
+
 A mesma noção vale para métodos definidos em algum lugar da cadeia de protótipos do objeto. Se o método está na cadeia de protótipo de um objeto, this refere-se ao objeto que é proprietário do método chamado, como se o método estivesse no objeto.
 
 ```JS
@@ -2042,7 +2068,7 @@ console.log(p.f()); // 5
 
 Neste exemplo, o objeto atribuído à variável p não tem sua própria propriedade f, ele o herda de seu protótipo. Mas não importa que a procura por f finalmente encontre um membro com esse nome em o; a procura começou como uma referência para a p.f, portanto o this dentro da função recebe o valor do objeto referido como p. Isto é, já que f é chamado como um método de p, seu this refere-se a p. Este é um recurso interessante de herança prototípica do JavaScript.
 
-this com seletores (getter) ou modificadores (setter) 
+this com seletores (getter) ou modificadores (setter)
 Mais uma vez, a mesma noção se aplica quando uma função é chamada a partir de um getter ou setter. A função usada como getter ou setter tem seu this ligado ao objeto do qual a propriedade está sendo modificada ou selecionada.
 
 ```JS
@@ -2063,10 +2089,13 @@ Object.defineProperty(o, 'modulus', {
 
 console.log(o.phase, o.modulus); // logs -0.78 1.4142
 ```
+
 ### Como um construtor (constructor)
+
 Quando a função é usada com um construtor (com a palavra chave new), seu this é vinculado ao novo objeto sendo contruído.
 
 Nota: enquanto o padrão para um construtor é retornar o objeto referenciado por this, ele pode retornar, ao invés, algum outro objeto (se o valor de retorno não é um objeto, então o objeto this é retornado).
+
 ```JS
 /*
  * Contrutores funcionam da seguinte forma:
@@ -2107,8 +2136,8 @@ console.log(o.a); // registra 38
 No último exemplo (C2), porque um objeto foi retornado durante a construção, o novo objeto que this foi vinculado simplesmente é descartado. (Isso essencialmente faz da expressão "this.a = 37;" código morto. Não é exatamente morto, pois ele é executado, mas ele pode ser eliminado sem efeitos colaterais.)
 
 call e apply
-Quando uma função usa a palavra-chave this em seu corpo, 
-o seu valor pode ser vinculado a um determinado objeto na chamada 
+Quando uma função usa a palavra-chave this em seu corpo,
+o seu valor pode ser vinculado a um determinado objeto na chamada
 utilizando os métodos call or apply que todas as funções herdam de Function.prototype.
 
 ```JS
@@ -2118,19 +2147,25 @@ function add(c, d){
 
 var o = {a:1, b:3};
 ```
+
 // O primeiro parâmetro é o objeto a usar como
-// 'this'; subsequentes parâmetros são passados como 
+// 'this'; subsequentes parâmetros são passados como
 // argumentos na função chamada
+
 ```JS
 add.call(o, 5, 7); // 1 + 3 + 5 + 7 = 16
 ```
+
 // O primeiro parâmetro é o objeto a usar como
 // 'this', o segundo é um arranjo (array) cujos
 // membros são usados como argumentos na função chamada
+
 ```JS
 add.apply(o, [10, 20]); // 1 + 3 + 10 + 20 = 34
 ```
+
 Observe que, com call e apply, se o valor passado como this não for um objeto, será feita uma tentativa de convertê-lo em um objeto usando a operação interna ToObject. Portanto, se o valor passado é um primitivo como 7 ou 'foo', ele será convertido para um objeto usando o construtor relacionado, de modo que o número primitivo 7 é convertido em um objeto, como realizado por new Number(7), e a cadeia de caracteres 'foo' em um objeto, como realizado por new String(' foo '), por exemplo.
+
 ```JS
 function bar() {
   console.log(Object.prototype.toString.call(this));
@@ -2138,8 +2173,10 @@ function bar() {
 
 bar.call(7); // [object Number]
 ```
+
 O método bind
 ECMAScript 5 introduziu Function.prototype.bind. Chamando f.bind(algumObjeto) cria-se uma nova função com o mesmo corpo e escopo que f, mas onde o this ocorrer na função original, na nova função ele será permanentemente ligado ao primeiro argumento de bind, independentemente de como a função esteja sendo usada.
+
 ```JS
 function f(){
   return this.a;
@@ -2154,9 +2191,11 @@ console.log.(h()); // azerty
 var o = {a:37, f:f, g:g, h: h};
 console.log(o.a, o.f(), o.g(), o.h()); // 37, 37, azerty, azerty
 ```
+
 ### Como um manipulador de eventos DOM
+
 Quando uma função é usada como um manipulador de eventos, seu this está definido para o elemento do evento a partir do qual foi disparado
- (alguns navegadores não seguem essa convenção para os listeners adicionados dinamicamente com métodos que não sejam addEventListener).
+(alguns navegadores não seguem essa convenção para os listeners adicionados dinamicamente com métodos que não sejam addEventListener).
 
 ```JS
 // Quando chamado como listener, transforma o elemento blue 
@@ -2178,6 +2217,7 @@ for(var i=0 ; i<elements.length ; i++){
   elements[i].addEventListener('click', bluify, false);
 }
 ```
+
 ### Em um manipulador de evento in-line (em linha)
 
 Quando o código é chamado de um manipulador de evento in-line, seu this está definido para o elemento DOM em que o listener é colocado:
@@ -2188,17 +2228,12 @@ Quando o código é chamado de um manipulador de evento in-line, seu this está 
 O alerta acima mostra button. Note, porém, que apenas o código exterior tem um this definido desta maneira:
 
 <button onclick="alert((function(){return this}()));">
-  Show inner this
+Show inner this
 </button>
 Neste caso, o this da função interior não está definido, portanto ele retorna o objeto global/objeto window (ou seja, o objeto padrão no modo não-estrito onde this não está definido pela chamada).
 
-
-
-
-
-
-
 ### Window Object Properties
+
 Property	Description
 closed	Returns a Boolean value indicating whether a window has been closed or not
 console	Returns a reference to the Console object, which provides methods for logging information to the browser's console (See Console object)
@@ -2260,8 +2295,8 @@ setInterval()	Calls a function or evaluates an expression at specified intervals
 setTimeout()	Calls a function or evaluates an expression after a specified number of milliseconds
 stop()	Stops the window from loading
 
-
 ### The HTML DOM Attr Object
+
 The Attr Object
 In the HTML DOM, the Attr object represents an HTML attribute.
 
@@ -2278,16 +2313,15 @@ attr.isId	Returns true if the attribute is of type Id, otherwise it returns fals
 attr.name	Returns the name of an attribute
 attr.value	Sets or returns the value of the attribute
 attr.specified	Returns true if the attribute has been specified, otherwise it returns false
- 	 
+
 nodemap.getNamedItem()	Returns a specified attribute node from a NamedNodeMap
 nodemap.item()	Returns the attribute node at a specified index in a NamedNodeMap
 nodemap.length	Returns the number of attribute nodes in a NamedNodeMap
 nodemap.removeNamedItem()	Removes a specified attribute node
 nodemap.setNamedItem()	Sets the specified attribute node (by name)
 
-
-
 ### The HTML DOM Document Object
+
 The Document Object
 When an HTML document is loaded into a web browser, it becomes a document object.
 
@@ -2356,6 +2390,7 @@ write()	Writes HTML expressions or JavaScript code to a document
 writeln()	Same as write(), but adds a newline character after each statement
 
 ### The HTML DOM Element Object
+
 The Element Object
 In the HTML DOM, the Element object represents an HTML element, like P, DIV, A, TABLE, or any other HTML element.
 
@@ -2454,8 +2489,8 @@ textContent	Sets or returns the textual content of a node and its descendants
 title	Sets or returns the value of the title attribute of an element
 toString()	Converts an element to a string
 
-
 ### HTML DOM Events
+
 HTML DOM Events
 HTML DOM events allow JavaScript to register different event handlers on elements in an HTML document.
 
@@ -2551,6 +2586,7 @@ waiting	The event occurs when the media has paused but is expected to resume (li
 wheel	The event occurs when the mouse wheel rolls up or down over an element	WheelEvent
 
 ### HTML DOM Event Properties and Methods
+
 Property/Method	Description	Belongs To
 altKey	Returns whether the "ALT" key was pressed when the mouse event was triggered	MouseEvent
 altKey	Returns whether the "ALT" key was pressed when the key event was triggered	KeyboardEvent, TouchEvent
@@ -2579,7 +2615,7 @@ deltaZ	Returns the scroll amount of a mouse wheel for the z-axis	WheelEvent
 deltaMode	Returns a number that represents the unit of measurements for delta values (pixels, lines or pages)	WheelEvent
 detail	Returns a number that indicates how many times the mouse was clicked	UiEvent
 elapsedTime	Returns the number of seconds an animation has been running	AnimationEvent
-elapsedTime	Returns the number of seconds a transition has been running	 
+elapsedTime	Returns the number of seconds a transition has been running
 eventPhase	Returns which phase of the event flow is currently being evaluated	Event
 getTargetRanges()	Returns an array containing target ranges that will be affected by the insertion/deletion	InputEvent
 getModifierState()	Returns an array containing target ranges that will be affected by the insertion/deletion	MouseEvent
@@ -2602,7 +2638,7 @@ offsetX	Returns the horizontal coordinate of the mouse pointer relative to the p
 offsetY	Returns the vertical coordinate of the mouse pointer relative to the position of the edge of the target element	MouseEvent
 oldValue	Returns the old value of the changed storage item	StorageEvent
 oldURL	Returns the URL of the document, before the hash was changed	HasChangeEvent
-onemptied	The event occurs when something bad happens and the media file is suddenly unavailable (like unexpectedly disconnects)	 
+onemptied	The event occurs when something bad happens and the media file is suddenly unavailable (like unexpectedly disconnects)
 pageX	Returns the horizontal coordinate of the mouse pointer, relative to the document, when the mouse event was triggered	MouseEvent
 pageY	Returns the vertical coordinate of the mouse pointer, relative to the document, when the mouse event was triggered	MouseEvent
 persisted	Returns whether the webpage was cached by the browser	PageTransitionEvent
@@ -2634,6 +2670,7 @@ which	Returns the Unicode character code of the key that triggered the onkeypres
 view	Returns a reference to the Window object where the event occurred	UiEvent
 
 ### Event Objects
+
 Event Objects
 When an event occurs in HTML, the event belongs to a certain event object, like a mouse click event belongs to the MouseEvent object.
 
@@ -2666,6 +2703,7 @@ UiEvent	For user interface interaction
 WheelEvent	For mousewheel interaction
 
 ### DOM HTMLCollection
+
 The HTMLCollection Object
 An HTMLCollection object is an array-like list of HTML elements.
 
@@ -2680,6 +2718,7 @@ length	Returns the number of elements in an HTMLCollection
 namedItem()	Returns the element with the specified ID, or name, in an HTMLCollection
 
 ### The Location Object
+
 Location Object
 The location object contains information about the current URL.
 
@@ -2704,8 +2743,8 @@ assign()	Loads a new document
 reload()	Reloads the current document
 replace()	Replaces the current document with a new one
 
-
 ### The Navigator Object
+
 Navigator Object
 The navigator object contains information about the browser.
 
@@ -2728,9 +2767,8 @@ Method	Description
 javaEnabled()	Specifies whether or not the browser has Java enabled
 taintEnabled()	Removed in JavaScript version 1.2. Specifies whether the browser has data tainting enabled
 
-
-
 ### The Screen Object
+
 Screen Object
 The screen object contains information about the visitor's screen.
 
@@ -2745,8 +2783,8 @@ height	Returns the total height of the screen
 pixelDepth	Returns the color resolution (in bits per pixel) of the screen
 width	Returns the total width of the screen
 
-
 ### HTML DOM Style Object
+
 Style object
 The Style object represents an individual style statement.
 
@@ -2778,7 +2816,7 @@ backgroundSize	Sets or returns the size of the background image	3
 backfaceVisibility	Sets or returns whether or not an element should be visible when not facing the screen	3
 border	Sets or returns borderWidth, borderStyle, and borderColor in one declaration	1
 borderBottom	Sets or returns all the borderBottom properties in one declaration	1
-borderBottomColor	Sets or returns the color of the bottom border	1 
+borderBottomColor	Sets or returns the color of the bottom border	1
 borderBottomLeftRadius	Sets or returns the shape of the border of the bottom-left corner	3
 borderBottomRightRadius	Sets or returns the shape of the border of the bottom-right corner	3
 borderBottomStyle	Sets or returns the style of the bottom border	1
@@ -2941,6 +2979,7 @@ widows	Sets or returns the minimum number of lines for an element that must be v
 zIndex	Sets or returns the stack order of a positioned element	2
 
 ### The Window Object
+
 Window Object
 The window object represents an open window in a browser.
 
@@ -3010,7 +3049,6 @@ setInterval()	Calls a function or evaluates an expression at specified intervals
 setTimeout()	Calls a function or evaluates an expression after a specified number of milliseconds
 stop()	Stops the window from loading
 
-
 ### Expressões regulares
 
 https://regexr.com/
@@ -3041,7 +3079,9 @@ abc…	Letters
 (.*)	Capture all
 (abc|def)	Matches abc or def
 ```
+
 Quantifier Cheat Sheet
+
 ```JS
 + once or more
 A+	One or more As, as many as possible (greedy), giving up characters if the engine needs to backtrack (docile)
@@ -3165,8 +3205,6 @@ jennyStr.match(myRegex);
 /// ["J","e","n","n","y","8","6","7","5","3","0","9"]
 ```
 
-
-
 Regular Expressions: Match Single Characters Not Specified
 Negando caracteres (^dentro de parenteses)
 For example, /[^aeiou]/gi matches all characters that are not a vowel.
@@ -3235,7 +3273,6 @@ Scripting: Pig Latin
 Pig Latin is a way of altering English Words. The rules are as follows:
 
 - If a word begins with a consonant, take the first consonant or consonant cluster, move it to the end of the word, and add "ay" to it.
-
 - If a word begins with a vowel, just add "way" at the end.
 
 Translate the provided string to Pig Latin. Input strings are guaranteed to be English words in all lowercase.
@@ -3266,9 +3303,7 @@ translatePigLatin("eight") should return "eightway".
 Should handle words where the first vowel comes in the middle of the word. translatePigLatin("schwartz") should return "artzschway".
 Should handle words without vowels. translatePigLatin("rhythm") should return "rhythmay".
 
-  ```
-
-
+```
 
 Intermediate Algorithm Scripting: Search and Replace
 Perform a search and replace on the sentence using the arguments provided and return the new sentence.
@@ -3290,7 +3325,6 @@ function myReplace(str, before, after) {
 myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
 
 ```
-
 
 Note
 Parsing HTML with regular expressions should be avoided, but pattern matching an HTML string with regular expressions is completely fine.
@@ -3506,7 +3540,7 @@ The first parameter can be either a string or a regular expression. Here we can 
 
 The second parameter could also be a function. To demonstrate it, let's check out an example:
 
-```JS 
+```JS
 
 var str = "This is a test string";
 
@@ -3516,9 +3550,7 @@ var newStr = str.replace(/\w+/g, function(match) {
 
 console.log(newStr);    //prints "sihT si a tset gnirts"
 
-``` 
-
-
+```
 
 You can also access capture groups in the replacement string with dollar signs ($).
 
@@ -3583,6 +3615,7 @@ a.flatMap( (n) =>
 
 // expected output: [4, 1, 4, 20, 16, 1, 18]
 ```
+
 Intermediate Algorithm Scripting: Drop it
 Given the array arr, iterate through and remove each element starting from the first element (the 0 index) until the function func returns true when the iterated element is passed through it.
 
@@ -3601,8 +3634,7 @@ dropElements([1, 2, 3, 7, 4], function(n) {return n > 3;}) should return [7, 4].
 Passed
 dropElements([1, 2, 3, 9, 2], function(n) {return n > 2;}) should return [3, 9, 2].
 
-
-```JS 
+```JS
 
 function dropElements(arr, func) {
   let saida = [];
@@ -3621,7 +3653,8 @@ return saida;
 
 dropElements([1, 2, 3], function(n) {return n < 3; });
 ```
-Validador de telefone 
+
+Validador de telefone
 JavaScript Algorithms and Data Structures Projects: Telephone Number Validator
 Return true if the passed string looks like a valid US phone number.
 
@@ -3716,7 +3749,6 @@ telephoneCheck("(555-555-5555") should return false.
 Passed
 telephoneCheck("(555)5(55?)-5555") should return false.
 
-
 ```JS
 function telephoneCheck(str) {
   let regexes =[];
@@ -3781,8 +3813,7 @@ orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]) should return [{name: "
 Passed
 orbitalPeriod([{name: "iss", avgAlt: 413.6}, {name: "hubble", avgAlt: 556.7}, {name: "moon", avgAlt: 378632.553}]) should return [{name : "iss", orbitalPeriod: 5557}, {name: "hubble", orbitalPeriod: 5734}, {name: "moon", orbitalPeriod: 2377399}].
 
-
-```JS 
+```JS
 function orbitalPeriod(arr) {
   var GM = 398600.4418;
   var earthRadius = 6367.4447;
@@ -3865,7 +3896,6 @@ palindrome("0_0 (: /-\ :) 0-0") should return true.
 Passed
 palindrome("five|_/|four") should return false.
 
-
 ```JS
 function palindrome(str) {
    let saida =  formata(str);
@@ -3936,7 +3966,7 @@ function rot13(str) {
   let atual;
   for (let i = 0; i < arr.length ; i++) 
       {
-        
+      
         if (arr[i].match(/[.?,\/#!$%\^&\*;:{}=\-_`~() ]/g))
         {
           saida.push(arr[i]);  
@@ -3952,8 +3982,7 @@ return saida.join("");
 console.log(rot13("SERR YBIR?"));
 ```
 
-
- Arguments Optional
+Arguments Optional
 Create a function that sums two arguments together. If only one argument is provided, then return a function that expects one argument and returns the sum.
 
 For example, addTogether(2, 3) should return 5, and addTogether(2) should return a function.
@@ -3978,7 +4007,6 @@ Passed
 addTogether(2, "3") should return undefined.
 Passed
 addTogether(2)([3]) should return undefined.
-
 
 ```JS
 function ehNumero (ent){
@@ -4100,7 +4128,6 @@ convertToRoman(2014) should return "MMXIV"
 Passed
 convertToRoman(3999) should return "MMMCMXCIX"
 
-
 ```JS
 function decToRoman(B1,B2,B3,val)
 {
@@ -4169,9 +4196,7 @@ function programa()
         convertToRoman(1000)
         );
  } 
-``` 
-
-
+```
 
 Intermediate Algorithm Scripting: Steamroller
 Flatten a nested array. You must account for varying levels of nesting.
@@ -4182,9 +4207,9 @@ steamrollArray([1, [], [3, [[4]]]]) should return [1, 3, 4].
 steamrollArray([1, {}, [3, [[4]]]]) should return [1, {}, 3, 4].
 Your solution should not use the Array.prototype.flat() or Array.prototype.flatMap() methods.
 
-Achatando um vetor sem usar flat 
+Achatando um vetor sem usar flat
 
-```Js 
+```Js
 function achatarMais(arr){
    return arr.reduce((acc, val) => 
    Array.isArray(val) ? 
@@ -4206,6 +4231,7 @@ function programa()
    );
 } 
 ```
+
 Intermediate Algorithm Scripting: Make a PersonPassed
 Fill in the object constructor with the following methods below:
 
@@ -4241,7 +4267,7 @@ bob.getFirstName() should return "Haskell" after bob.setFullName("Haskell Curry"
 
 bob.getLastName() should return "Curry" after bob.setFullName("Haskell Curry").
 
-```JS 
+```JS
 var Person = function(firstAndLast) {
   // Only change code below this line
   // Complete the method below and implement the others similarly
@@ -4327,8 +4353,8 @@ addTogether(2, "3") should return undefined.
 addTogether(2)([3]) should return undefined.
 
 ```JS
-```
 
+```
 
 Intermediate Algorithm Scripting: Everything Be True
 Check if the predicate (second argument) is truthy on all elements of a collection (first argument).
@@ -4358,8 +4384,6 @@ truthCheck([{"single": "double"}, {"single": undefined}], "single") should retur
 Passed
 truthCheck([{"single": "double"}, {"single": NaN}], "single") should return false
 
-
-
 ```JS
 
 
@@ -4387,8 +4411,6 @@ function programa()
 
 ```
 
-
-
 Return an English translated sentence of the passed binary string.
 
 The binary string will be space separated.
@@ -4396,6 +4418,7 @@ The binary string will be space separated.
 binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111") should return "Aren't bonfires fun!?"
 Passed
 binaryAgent("01001001 00100000 01101100 01101111 01110110 01100101 00100000 01000110 01110010 01100101 01100101 01000011 01101111 01100100 01100101 01000011 01100001 01101101 01110000 00100001") should return "I love FreeCodeCamp!"
+
 ```JS
 function binToChar(val)
 {
@@ -4417,8 +4440,6 @@ function programa()
 } 
 ```
 
-
-
 Intermediate Algorithm Scripting: Convert HTML Entities
 Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
 convertHTML("Dolce & Gabbana") should return "Dolce &amp; Gabbana".
@@ -4435,9 +4456,7 @@ convertHTML("<>") should return "&lt;&gt;".
 Passed
 convertHTML("abc") should return "abc".
 
-
-
-```Js 
+```Js
 
 Intermediate Algorithm Scripting: Smallest Common Multiple
 Find the smallest common multiple of the provided parameters that can be evenly divided by both, as well as by all sequential numbers in the range between these parameters.
@@ -4486,11 +4505,11 @@ function smallestCommons(arr) {
 function convertHTML(str)
 {
   let trocas = [
-        {'&':'&amp;'},
-        {'<':'&lt;'},
-        {'>':'&gt;'},
-        {'"':'&quot;'},
-        {"'":'&apos;'},
+        {'&':'&'},
+        {'<':'<'},
+        {'>':'>'},
+        {'"':'"'},
+        {"'":'''},
         ];
       return trocas.reduce((accum,par) => 
         accum.replace(new RegExp(Object.keys(par)[0],'g'),par[Object.keys(par)[0]]),str);
@@ -4499,7 +4518,6 @@ function convertHTML(str)
 convertHTML("Dolce & Gabbana");
 ```
 
-
 Sum All Odd Fibonacci Numbers
 Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than or equal to num.
 
@@ -4507,7 +4525,7 @@ The first two numbers in the Fibonacci sequence are 1 and 1. Every additional nu
 
 For example, sumFibs(10) should return 10 because all odd Fibonacci numbers less than or equal to 10 are 1, 1, 3, and 5.
 
-```Js 
+```Js
 function sumFibs(num) {
   let fibbo = [1,1];
   let i=1;
@@ -4524,13 +4542,13 @@ function sumFibs(num) {
 }
 
 ```
+
 Intermediate Algorithm Scripting: Sum All Primes
 A prime number is a whole number greater than 1 with exactly two divisors: 1 and itself. For example, 2 is a prime number because it is only divisible by 1 and 2. In contrast, 4 is not prime since it is divisible by 1, 2 and 4.
 
 Rewrite sumPrimes so it returns the sum of all prime numbers that are less than or equal to num.
 
-
-```Js 
+```Js
 function primo (num){
   if (num===1) return false ; /// 2 
   if (num===2) return true ; /// 2 
@@ -4558,21 +4576,21 @@ function programa()
     console.log(sumPrimes(977));
 } 
 ```
-Faz uma verificação de safe HTML 
 
+Faz uma verificação de safe HTML
 
 ```Js
   function convertHTML(str)
 {
   let trocas = [
-        {'&':'&amp;'},
-        {'<':'&lt;'},
-        {'>':'&gt;'},
-        {'"':'&quot;'},
-        {"'":'&apos;'},
-        {'`':'&grave;'},
+        {'&':'&'},
+        {'<':'<'},
+        {'>':'>'},
+        {'"':'"'},
+        {"'":'''},
+        {'`':'`'},
         {'\n':'<br>'},
-        {' ':'&nbsp;'}
+        {' ':' '}
         ];
 
       return trocas.reduce((accum,t) => 
@@ -4580,7 +4598,6 @@ Faz uma verificação de safe HTML
 }
 
 ```
-
 
 Verifica se todas as letras da segunda palavra estão presentes na primeira palavra ignorando Case
 
@@ -4600,7 +4617,8 @@ console.log(mutation(["Alien", "line"])); /// true
 
 Filtra ps elementos em um vetor usando a variável
 reservada arguments (algoritmo mutável)
-```JS 
+
+```JS
 function destroyer(arr) {
  let alvo=arguments[0];
  for (let i = 1 ; i < arguments.length; i++)
@@ -4615,16 +4633,11 @@ destroyer([1, 2, 3, 1, 2, 3], 2, 3);
 
 ```
 
-
-
-
-
-
-Dado um JSON com um número qualquer de keys filtra um segundo vetor para que este 
-só apresente os valores que tiverem um , ou os dois , ou os tres .... keys 
+Dado um JSON com um número qualquer de keys filtra um segundo vetor para que este
+só apresente os valores que tiverem um , ou os dois , ou os tres .... keys
 concidentes com o primeiro vetor.
 
-```JS 
+```JS
 function whatIsInAName(collection, source) {
 
   var arr = [];
@@ -4694,7 +4707,7 @@ pairElement("TTGAG") should return [["T","A"],["T","A"],["G","C"],["A","T"],["G"
 Passed
 pairElement("CTCTA") should return [["C","G"],["T","A"],["C","G"],["T","A"],["A","T"]].
 
-```Js 
+```Js
     function achaPar(letra) {
       let saida2 = [];
       let answer = "";
@@ -4731,9 +4744,9 @@ pairElement("GCG");
 
 ```
 
+Verifica a diferenca entre dois vetores
 
-Verifica a diferenca entre dois vetores 
-```JS 
+```JS
 function diffArray(arr1, arr2) {
   var newArr = [];
       arr1.forEach( val1 =>  {
@@ -4749,6 +4762,7 @@ function diffArray(arr1, arr2) {
 console.log(diffArray([1, "calf", 3, "piglet"], [7, "filly"]));
  /// [ 1, 'calf', 3, 'piglet', 7, 'filly' ]
 ```
+
 Retorna o menor indice para inserção de um vetor em outro vetor
 
 ```JS
@@ -4843,7 +4857,7 @@ fearNotLetter("abcdefghijklmnopqrstuvwxyz") should return undefined.
 
 ```
 
-``` JS 
+```JS
 Intermediate Algorithm Scripting: Search and Replace
 Perform a search and replace on the sentence using the arguments provided and return the new sentence.
 
@@ -4865,7 +4879,7 @@ function myReplace(str, before, after) {
          }
          else {
           after = after.toLowerCase();
-          saida = str.replace(before,after);           
+          saida = str.replace(before,after);         
          }
           return saida;
 }
@@ -4883,8 +4897,7 @@ Passed
 myReplace("Let us get back to more Coding", "Coding", "algorithms") should return "Let us get back to more Algorithms".
 
 
-``` 
-
+```
 
 Intermediate Algorithm Scripting: Spinal Tap Case
 Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
@@ -4974,7 +4987,7 @@ function largestOfFour(arr) {
   let temp =[]; 
   for (let vec of arr)
   {
-    let valUnicos = [...new Set(vec.sort((current,next) => next - current))];        
+    let valUnicos = [...new Set(vec.sort((current,next) => next - current))];      
     temp.push(valUnicos[0])
   }
   arr = [...temp] ;
@@ -6297,11 +6310,11 @@ A common pattern in JavaScript is to execute a function as soon as it is declare
 
 Note that the function has no name and is not stored in a variable. The two parentheses () at the end of the function expression cause it to be immediately executed or invoked. This pattern is known as an immediately invoked function expression or IIFE.
 
+#### Outro exemplo de IIFE
 
+Chamando a funcao add com dois parêntesis
 
-#### Outro exemplo de IIFE 
-Chamando a funcao add com dois parêntesis 
-```JS 
+```JS
 function add(x){
   return function(y){
     return x + y;
@@ -6311,6 +6324,7 @@ var addTwo = add(2);
 addTwo(4) === 6; // true
 add(3)(4) === 7; // true
 ```
+
 #### Use an IIFE to Create a Module
 
 An immediately invoked function expression (IIFE) is often used to group related functionality into a single object or module. For example, an earlier challenge defined two mixins:
@@ -6534,7 +6548,8 @@ static walk()  {
 console.log(Person.walk());
 ```
 
-### Programação Funcional 
+### Programação Funcional
+
 Functional programming is a style of programming where solutions are simple, isolated functions, without any side effects outside of the function scope.
 
 INPUT -> PROCESS -> OUTPUT
@@ -6542,19 +6557,17 @@ INPUT -> PROCESS -> OUTPUT
 Functional programming is about:
 
 1) Isolated functions - there is no dependence on the state of the program, which includes global variables that are subject to change
-
 2) Pure functions - the same input always gives the same output
-
 3) Functions with limited side effects - any changes, or mutations, to the state of the program outside the function are carefully controlled
 
-
 #### Understand Functional Programming Terminology
+
 The FCC Team had a mood swing and now wants two types of tea: green tea and black tea. General Fact: Client mood swings are pretty common.
 
 With that information, we'll need to revisit the getTea function from last challenge to handle various tea requests. We can modify getTea to accept a function as a parameter to be able to change the type of tea it prepares. This makes getTea more flexible, and gives the programmer more control when client requests change.
 But first, let's cover some functional terminology:
 
-Callbacks are the functions that are slipped or passed into another function to decide the invocation of that function. You may have seen them passed to other methods, for example in filter, 
+Callbacks are the functions that are slipped or passed into another function to decide the invocation of that function. You may have seen them passed to other methods, for example in filter,
 the callback function tells JavaScript the criteria for how to filter an array.
 
 Functions that can be assigned to a variable, passed into another function, or returned from another function just like any other normal value, are called first class functions. In JavaScript, all functions are first class functions.
@@ -6563,9 +6576,7 @@ The functions that take a function as an argument, or return a function as a ret
 
 When the functions are passed in to another function or returned from another function, then those functions which gets passed in or returned can be called a lambda.
 
-
-
-```Js 
+```Js
 // Function that returns a string representing a cup of green tea
 const prepareGreenTea = () => 'greenTea';
 
@@ -6597,6 +6608,7 @@ console.log(
   tea4BlackTeamFCC
 );
 ```
+
 #### Understand the Hazards of Using Imperative Code
 
 Functional programming is a good habit. It keeps your code easy to manage, and saves you from sneaky bugs. But before we get there, let's look at an imperative approach to programming to highlight where you may have issues.
@@ -6615,7 +6627,7 @@ A Window object is made up of tabs, and you usually have more than one Window op
 
 The code editor shows an implementation of this functionality with functions for tabOpen(), tabClose(), and join(). The array tabs is part of the Window object that stores the name of the open pages.
 
-```JS 
+```JS
 // tabs is an array of titles of each site open within the window
 var Window = function(tabs) {
   this.tabs = tabs; // We keep a record of the array inside the object
@@ -6659,8 +6671,9 @@ var finalTabs = socialWindow
   .join(videoWindow.tabClose(2)) // Close third tab in video window, and join
   .join(workWindow.tabClose(1).tabOpen());
 console.log(finalTabs.tabs);
-``` 
-####  Avoid Mutations and Side Effects Using Functional Programming
+```
+
+#### Avoid Mutations and Side Effects Using Functional Programming
 
 If you haven't already figured it out, the issue in the previous challenge was with the splice call in the tabClose() function. Unfortunately, splice changes the original array it is called on, so the second call to it used a modified array, and gave unexpected results.
 
@@ -6675,7 +6688,8 @@ Recall that in functional programming, changing or altering things is called mut
 Let's try to master this discipline and not alter any variable or object in our code.
 
 Fill in the code for the function incrementer so it returns the value of the global variable fixedValue increased by one.
-``` Js 
+
+```Js
 // The global variable
 var fixedValue = 4;
 
@@ -6685,8 +6699,7 @@ function incrementer () { /// funcao pura
 
   // Only change code above this line
 }
-``` 
-
+```
 
 #### Pass Arguments to Avoid External Dependence in a Function
 
@@ -6706,8 +6719,7 @@ Let's update the incrementer function to clearly declare its dependencies.
 
 Write the incrementer function so it takes an argument, and then returns a result after increasing the value by one.
 
-
-``` Js 
+```Js
 // The global variable
 var fixedValue = 4;
 
@@ -6717,7 +6729,7 @@ function incrementer (fixedValue) {
 
   // Only change code above this line
 }
-``` 
+```
 
 #### Use the filter Method to Extract Data from an Array
 
@@ -6729,7 +6741,7 @@ The callback function accepts three arguments. The first argument is the current
 
 See below for an example using the filter method on the users array to return a new array containing only the users under the age of 30. For simplicity, the example only uses the first argument of the callback.
 
-```JS 
+```JS
 const users = [
   { name: 'John', age: 34 },
   { name: 'Amy', age: 20 },
@@ -6738,15 +6750,13 @@ const users = [
 
 const usersUnder30 = users.filter(user => user.age < 30);
 console.log(usersUnder30); // [ { name: 'Amy', age: 20 }, { name: 'camperCat', age: 10 } ]
-``` 
-
+```
 
 #### Refactor Global Variables Out of Functions
 
 So far, we have seen two distinct principles for functional programming:
 
 1) Don't alter a variable or object - create new variables and objects and return them if need be from a function.
-
 2) Declare function arguments - any computation inside a function depends only on the arguments, and not on any global object or variable.
 
 Adding one to a number is not very exciting, but we can apply these principles when working with arrays or more complex objects.
@@ -6755,7 +6765,7 @@ Rewrite the code so the global array bookList is not changed inside either funct
 
 Note: Both functions should return an array, and any new parameters should be added before the bookName parameter.
 
-```JS 
+```JS
 // The global variable
 var bookList = ["The Hound of the Baskervilles", "On The Electrodynamics of Moving Bodies", "Philosophiæ Naturalis Principia Mathematica", "Disquisitiones Arithmeticae"];
 
@@ -6787,8 +6797,7 @@ var newestBookList = remove(add(bookList, 'A Brief History of Time'), 'On The El
 
 console.log(bookList);
 
-``` 
-
+```
 
 #### Use the map Method to Extract Data from an Array
 
@@ -6806,7 +6815,7 @@ When the callback is used, it is passed three arguments. The first argument is t
 
 See below for an example using the map method on the users array to return a new array containing only the names of the users as elements. For simplicity, the example only uses the first argument of the callback.
 
-```Js 
+```Js
 const users = [
   { name: 'John', age: 34 },
   { name: 'Amy', age: 20 },
@@ -6816,10 +6825,9 @@ const users = [
 const names = users.map(user => user.name);
 console.log(names); // [ 'John', 'Amy', 'camperCat' ]
 
-``` 
+```
 
-
-####  Implement map on a Prototype
+#### Implement map on a Prototype
 
 As you have seen from applying Array.prototype.map(), or simply map() earlier, the map method returns an array of the same length as the one it was called on. It also doesn't alter the original array, as long as its callback function doesn't.
 
@@ -6831,8 +6839,7 @@ Note: A pure function is allowed to alter local variables defined within its sco
 
 Write your own Array.prototype.myMap(), which should behave exactly like Array.prototype.map(). You may use a for loop or the forEach method.
 
-
-```JS 
+```JS
 // The global Array
 var s = [23, 65, 98, 5];
 
@@ -6853,8 +6860,6 @@ var new_s = s.myMap(function(item) {
 });
 ```
 
-
-
 #### Implement the filter Method on a Prototype
 
 It would teach us a lot about the filter method if we try to implement a version of it that behaves exactly like Array.prototype.filter(). It can use either a for loop or Array.prototype.forEach().
@@ -6863,9 +6868,7 @@ Note: A pure function is allowed to alter local variables defined within its sco
 
 Write your own Array.prototype.myFilter(), which should behave exactly like Array.prototype.filter(). You may use a for loop or the Array.prototype.forEach() method.
 
-
-
-``` JS 
+```JS
 // The global variable
 var s = [23, 65, 98, 5];
 
@@ -6890,7 +6893,6 @@ var new_s = s.myFilter(function(item){
 
 #### Return Part of an Array Using the slice Method
 
-
 The slice method returns a copy of certain elements of an array. It can take two arguments, the first gives the index of where to begin the slice, the second is the index for where to end the slice (and it's non-inclusive). If the arguments are not provided, the default is to start at the beginning of the array through the end, which is an easy way to make a copy of the entire array. The slice method does not mutate the original array, but returns a new one.
 
 Here's an example:
@@ -6899,12 +6901,11 @@ var arr = ["Cat", "Dog", "Tiger", "Zebra"];
 var newArray = arr.slice(1, 3);
 // Sets newArray to ["Dog", "Tiger"]
 
-
 ### Remove Elements from an Array Using slice Instead of splice
 
 A common pattern while working with arrays is when you want to remove items and keep the rest of the array. JavaScript offers the splice method for this, which takes arguments for the index of where to start removing items, then the number of items to remove. If the second argument is not provided, the default is to remove items through the end. However, the splice method mutates the original array it is called on. Here's an example:
 
-```JS 
+```JS
 var cities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
 cities.splice(3, 1); // Returns "London" and deletes it from the cities array
 ```
@@ -6912,7 +6913,7 @@ cities.splice(3, 1); // Returns "London" and deletes it from the cities array
 // cities is now ["Chicago", "Delhi", "Islamabad", "Berlin"]
 As we saw in the last challenge, the slice method does not mutate the original array, but returns a new one which can be saved into a variable. Recall that the slice method takes two arguments for the indices to begin and end the slice (the end is non-inclusive), and returns those items in a new array. Using the slice method instead of splice helps to avoid any array-mutating side effects.
 
-```JS 
+```JS
 function nonMutatingSplice(cities) {
   // Only change code below this line
   return cities.slice(0,3);
@@ -6921,19 +6922,20 @@ function nonMutatingSplice(cities) {
 }
 var inputCities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
 nonMutatingSplice(inputCities);
-``` 
-
+```
 
 #### Combine Two Arrays Using the concat MethodPassed
 
 Concatenation means to join items end to end. JavaScript offers the concat method for both strings and arrays that work in the same way. For arrays, the method is called on one, then another array is provided as the argument to concat, which is added to the end of the first array. It returns a new array and does not mutate either of the original arrays. Here's an example:
-``` JS 
+
+```JS
 [1, 2, 3].concat([4, 5, 6]);
 ```
+
 // Returns a new array [1, 2, 3, 4, 5, 6]
 Use the concat method in the nonMutatingConcat function to concatenate attach to the end of original. The function should return the concatenated array.
 
-```Js 
+```Js
 function nonMutatingConcat(original, attach) {
   // Only change code below this line
 
@@ -6950,13 +6952,16 @@ nonMutatingConcat(first, second);
 Functional programming is all about creating and using non-mutating functions.
 
 The last challenge introduced the concat method as a way to combine arrays into a new one without mutating the original arrays. Compare concat to the push method. Push adds an item to the end of the same array it is called on, which mutates that array. Here's an example:
-```JS 
+
+```JS
 var arr = [1, 2, 3];
 arr.push([4, 5, 6]);
 ```
+
 // arr is changed to [1, 2, 3, [4, 5, 6]]
 // Not the functional programming way
 Concat offers a way to add new items to the end of an array without any mutating side effects.
+
 ```JS
 function nonMutatingPush(original, newItem) {
   // Only change code below this line
@@ -6980,17 +6985,20 @@ The callback function accepts four arguments. The first argument is known as the
 In addition to the callback function, reduce has an additional parameter which takes an initial value for the accumulator. If this second parameter is not used, then the first iteration is skipped and the second iteration gets passed the first element of the array as the accumulator.
 
 See below for an example using reduce on the users array to return the sum of all the users' ages. For simplicity, the example only uses the first and second arguments.
-```JS 
+
+```JS
 const users = [
   { name: 'John', age: 34 },
   { name: 'Amy', age: 20 },
   { name: 'camperCat', age: 10 }
 ];
 ```
+
 const sumOfAges = users.reduce((sum, user) => sum + user.age, 0);
 console.log(sumOfAges); // 64
 In another example, see how an object can be returned containing the names of the users as properties with their ages as values.
-```JS 
+
+```JS
 const users = [
   { name: 'John', age: 34 },
   { name: 'Amy', age: 20 },
@@ -7003,9 +7011,8 @@ const usersObj = users.reduce((obj, user) => {
 }, {});
 console.log(usersObj); // { John: 34, Amy: 20, camperCat: 10 }
 ```
+
 The variable watchList holds an array of objects with information on several movies. Use reduce to find the average IMDB rating of the movies directed by Christopher Nolan. Recall from prior challenges how to filter data and map over it to pull what you need. You may need to create other variables, and return the average rating from getRating function. Note that the rating values are saved as strings in the object and need to be converted into numbers before they are used in any mathematical operations.
-
-
 
 #### Use Higher-Order Functions map, filter, or reduce to Solve a Complex Problem
 
@@ -7014,6 +7021,7 @@ Now that you have worked through a few challenges using higher-order functions l
 We have defined a function named squareList. You need to complete the code for the squareList function using any combination of map(), filter(), and reduce() so that it returns a new array containing only the square of only the positive integers (decimal numbers are not integers) when an array of real numbers is passed to it. An example of an array containing only real numbers is [-3, 4.8, 5, 3, -3.2].
 
 Note: Your function should not use any kind of for or while loops or the forEach() function.
+
 ```JS
 const squareList = (arr) => {
   // Only change code below this line
@@ -7030,6 +7038,7 @@ console.log(squaredIntegers);
 ```
 
 #### Sort an Array Alphabetically using the sort Method
+
 The sort method sorts the elements of an array according to the callback function.
 
 For example:
@@ -7052,9 +7061,10 @@ function reverseAlpha(arr) {
 reverseAlpha(['l', 'h', 'z', 'b', 's']);
 // Returns ['z', 's', 'l', 'h', 'b']
 ```
+
 JavaScript's default sorting method is by string Unicode point value, which may return unexpected results. Therefore, it is encouraged to provide a callback function to specify how to sort the array items. When such a callback function, normally called compareFunction, is supplied, the array elements are sorted according to the return value of the compareFunction: If compareFunction(a,b) returns a value less than 0 for two elements a and b, then a will come before b. If compareFunction(a,b) returns a value greater than 0 for two elements a and b, then b will come before a. If compareFunction(a,b) returns a value equal to 0 for two elements a and b, then a and b will remain unchanged.
 
-```JS 
+```JS
 function alphabeticalOrder(arr) {
   // Only change code below this line
  
@@ -7069,9 +7079,11 @@ alphabeticalOrder(["a", "d", "c", "a", "z", "g"]);
 ```
 
 ### Return a Sorted Array Without Changing the Original Array
+
 A side effect of the sort method is that it changes the order of the elements in the original array. In other words, it mutates the array in place. One way to avoid this is to first concatenate an empty array to the one being sorted (remember that slice and concat return a new array), then run the sort method.
 
-hard coded 
+hard coded
+
 ```JS
 var globalArray = [5, 6, 3, 2, 9];
 function nonMutatingSort(arr) {
@@ -7086,6 +7098,7 @@ nonMutatingSort(globalArray);
 ```
 
 not hard coded
+
 ```JS
 var globalArray = [5, 6, 3, 2, 9];
 function nonMutatingSort(arr) {
@@ -7099,11 +7112,12 @@ nonMutatingSort(globalArray);
 ```
 
 #### Split a String into an Array Using the split Method
+
 The split method splits a string into an array of strings. It takes an argument for the delimiter, which can be a character to use to break up the string or a regular expression. For example, if the delimiter is a space, you get an array of words, and if the delimiter is an empty string, you get an array of each character in the string.
 
 Here are two examples that split one string by spaces, then another by digits using a regular expression:
 
-```JS 
+```JS
 var str = "Hello World";
 var bySpace = str.split(" ");
 // Sets bySpace to ["Hello", "World"]
@@ -7112,6 +7126,7 @@ var otherString = "How9are7you2today";
 var byDigits = otherString.split(/\d/);
 // Sets byDigits to ["How", "are", "you", "today"]
 ```
+
 Since strings are immutable, the split method makes it easier to work with them.
 Use the split method inside the splitify function to split str into an array of words. The function should return the array. Note that the words are not always separated by spaces, and the array should not contain punctuation.
 
@@ -7164,7 +7179,8 @@ The output is a string with the spaces between words replaced by a hyphen (-)
 The output should be all lower-cased letters
 
 The output should not have any spaces
-```JS 
+
+```JS
 // Only change code below this line
 function urlSlug(title) {
   const trim = title.trim();
@@ -7186,12 +7202,11 @@ For example, the following code would check if every element in the numbers arra
 
 var numbers = [1, 5, 8, 0, 10, 11];
 numbers.every(function(currentValue) {
-  return currentValue < 10;
+return currentValue < 10;
 });
 // Returns false
 
-
-```JS 
+```JS
 function checkPositive(arr) {
   // Only change code below this line
   return arr.every(function(currentValue) {
@@ -7210,7 +7225,7 @@ For example, the following code would check if any element in the numbers array 
 
 var numbers = [10, 50, 8, 220, 110, 11];
 numbers.some(function(currentValue) {
-  return currentValue < 10;
+return currentValue < 10;
 });
 // Returns true
 Use the some method inside the checkPositive function to check if any element in arr is positive. The function should return a Boolean value.
@@ -7227,7 +7242,6 @@ function checkPositive(arr) {
 checkPositive([1, 2, 3, -4, 5]);
 ```
 
-
 #### Introduction to Currying and Partial Application
 
 The arity of a function is the number of arguments it requires. Currying a function means to convert a function of N arity into N functions of arity 1.
@@ -7238,14 +7252,14 @@ Here's an example:
 
 //Un-curried function
 function unCurried(x, y) {
-  return x + y;
+return x + y;
 }
 
 //Curried function
 function curried(x) {
-  return function(y) {
-    return x + y;
-  }
+return function(y) {
+return x + y;
+}
 }
 //Alternative using ES6
 const curried = x => y => x + y
@@ -7260,14 +7274,13 @@ Similarly, partial application can be described as applying a few arguments to a
 
 //Impartial function
 function impartial(x, y, z) {
-  return x + y + z;
+return x + y + z;
 }
 var partialFn = impartial.bind(this, 1, 2);
 partialFn(10); // Returns 13
 Fill in the body of the add function so it uses currying to add parameters x, y, and z.
 
-
-```JS 
+```JS
 function add(x) {
   // Only change code below this line
   return function(y) {
@@ -7279,7 +7292,6 @@ function add(x) {
 }
 add(10)(20)(30);
 ```
-
 
 ### Desing patterns
 
@@ -7309,11 +7321,12 @@ Singleton
 ```
 
 #### Algoritmos  Intermediate Algorithm Scripting: Sum All Numbers in a RangePassed
+
 We'll pass you an array of two numbers. Return the sum of those two numbers plus the sum of all the numbers between them. The lowest number will not always come first.
 
 For example, sumAll([4,1]) should return 10 because sum of all the numbers between 1 and 4 (both inclusive) is 10.
 
-```JS 
+```JS
 function sumAll(arr) {
   const mapped =[];
   let i; 
@@ -7330,14 +7343,16 @@ function sumAll(arr) {
 
 console.log(sumAll([1, 4]));
 ```
- #### Diff Two Arrays
 
- Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both. In other words, return the symmetric difference of the two arrays.
+#### Diff Two Arrays
+
+Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both. In other words, return the symmetric difference of the two arrays.
 
 Note
 You can return the array with its elements in any order.
-Verifica a diferenca entre dois vetores 
-```JS 
+Verifica a diferenca entre dois vetores
+
+```JS
 function diffArray(arr1, arr2) {
   var newArr = [];
       arr1.forEach( val1 =>  {
@@ -7354,6 +7369,7 @@ console.log(diffArray([1, "calf", 3, "piglet"], [7, "filly"]));
  /// [ 1, 'calf', 3, 'piglet', 7, 'filly' ]
 
 ```
+
 Sorted Union
 Write a function that takes two or more arrays and returns a new array of unique values in the order of the original provided arrays.
 
@@ -7370,13 +7386,13 @@ uniteUnique([1, 2, 3], [5, 2, 1]) should return [1, 2, 3, 5].
 Passed
 uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]) should return [1, 2, 3, 5, 4, 6, 7, 8].
 
-```Js 
+```Js
 function uniteUnique(arr) {
   let saida = [];
   let tam = arguments.length; 
   //console.log(tam);
   //console.log(arguments[2]);
-  let valUnicos = [...new Set(arguments[0])];        
+  let valUnicos = [...new Set(arguments[0])];      
   //console.log(valUnicos);
   for (let i = 1 ; i < tam;i++)
   {
@@ -7394,17 +7410,17 @@ uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
 
 ```
 
+#### Seek and DestroyPassed
 
-####  Seek and DestroyPassed
 You will be provided with an initial array (the first argument in the destroyer function), followed by one or more arguments. Remove all elements from the initial array that are of the same value as these arguments.
 
 Note
 You have to use the arguments object.
 
-
 Filtra ps elementos em um vetor usando a variável
 reservada arguments (algoritmo mutável)
-```JS 
+
+```JS
 function destroyer(arr) {
  let alvo=arguments[0];
  for (let i = 1 ; i < arguments.length; i++)
@@ -7418,14 +7434,14 @@ function destroyer(arr) {
 destroyer([1, 2, 3, 1, 2, 3], 2, 3); /// [1,1]
 
 ```
+
 #### Wherefore art thou
+
 Make a function that looks through an array of objects (first argument) and returns an array of all objects that have matching name and value pairs (second argument). Each name and value pair of the source object has to be present in the object from the collection if it is to be included in the returned array.
 
 For example, if the first argument is [{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], and the second argument is { last: "Capulet" }, then you must return the third object from the array (the first argument), because it contains the name and its value, that was passed on as the second argument.
 
-
-
-### Design PAtterns Padroes esttruturais :
+### Design PAtterns Padroes estruturais :
 
 Se preocupam com a forma como classes e objetos sao compostos para formar estruturas maiores : Adapter, Bridge, Composite, Decorator , Facade , Business Delegate , Flyweight, Proxy
 
@@ -9595,8 +9611,7 @@ while (true){
 }
 ```
 
-strict 
-
+strict
 
 Transformando um objeto não iteravel em iteravel, possivelmente igonrando valores , etc ...
 
@@ -10822,1941 +10837,7 @@ it.only ('Calls req with sum and index values ',function(){
 
 - Os estilos pela tag style são feitos por um JSON onde o CSS é escrito CamelCase.
 
-## ReactJs
 
-### Introdução ao ReactJS
-
-https://github.com/luizrosalba/IntroReactJs
-
-### Conheça a tecnologia ReactJS
-
-- Não é um framework
-- É uma biblioteca JS para criar interfaces de usuário
-- Criado em 2011 por jordan walke no facebook
-- Baseado em xhp um framework para criação html no php
-- Utilizado no mural de noticias de ferramentas
-- problemas de renderização , escalabilidade , etc
-- 2012 Instragram
-- 2013 Tornou-se Open source
-- 2015 React Native (mobile)
-- 2015 UWP Universal windows plataform (desktop)
-- Netflix
-- é uma linguagem declarativa (não quer saber se uma condição é satisfeita par ser exibida a interface)
-- pode ser usada em celulares , pwa , frontend , backend (nextjs)
-
-### Aprenda a configurar o ReactJS
-
-- Renderização
-- React DOM toda renderização é feita em nós raíz
-- a renderização é a menor parte para construir uma interface no react
-- o browse tem o DOM
-- a renderização de um componente React no DOM é feita Utilizando o ReactDOM.render.
-- o react nao trabalha em cima do dom diretamente, utiliza o Dom virtual que controla tudo que está no DOM
-- Sempre que há uma mudança no html o react faz uma diferença e somente no pedaço onde há atualização é feita uma nova renderização
-
-### Components
-
-What’s a component? Building a React app is all about components. An individual React component can be thought of as a UI component in an app. We can break apart the interface of our
-app into two classes of components: There are two ways to declare React components:
-
-- (1) As ES6 classes (as above)
-- (2) Function components
-  An example of using an ES6 class:
-
-```Javascript
-class HelloWorld extends React.Component {
-  render() { return <>Hello, world!</>;}
-}
-```
-
-The same component written in a “functional component” style:
-
-```Javascript
-function HelloWorld() {
-return <p>Hello, world!</p>;
-}
-```
-
-- Deixa tudo modular ?
-- componentes e props
-- tornar componentizavel é bom
-- react trabalha bem com reaproveitamento de código
-- pode trabalhar como função ou classe
-- Js não tem classe , tem protótipo
-- Quando JS é transpilado as classes são transformadas em protótipos
-- components - src - index
-- npm i
-- npm run start
--
-
-### Renderizando elementos
-
-- Estado e ciclo de vida
-- Inicialização
-- Montagem
-- Atualização
-- Desmontagem![](img/Capturar.PNG)
-- nenhum componente pai ou filho devem saber se outro componente possui estado ou nao
-- o estado é apoenas local ao componente e c aso seja necessário enviar algum atributo para outro então é feito via props
-
-### Ecossistema
-
-Bibliotecas complementares
-
-- React Router gerenciamento de estados
-- Redux
-- Material UI criação de interfaces
-- Ant-Design
-- Storybook criação de componentes
-- Gastby
-- Jest    teste
-- React i18n Next  internacionalizacao
-
-### Configuração
-
-- React Create App (starta projetos com configuração básica, servidor , Jest ...
-- Utiliza o react Scripts
-- Task Runners e Bundlers Sizers
-- npm init
-- npm install --save react@16.8.6 react-dom@16.8.6 @react-scripts3.0.1
-- pasta public -> pasta inicial do projeto
-- - React requer um arquivo css
-- react eh uma single page application (SPA) , baixa todo o prohjeto e renderiza uma  vez todas as rotas , toda vez que o user muda de rota , ele renderiza essa rota ( performace )
-
-### JSX
-
-React components ultimately render HTML which is displayed in the browser.
-As such, the render() method of a component needs to describe how the view
-should be represented as HTML. React builds our apps with a fake representation
-of the Document Object Model (DOM). React calls this the virtual DOM. Without
-getting deep into details for now, React allows us to describe a component’s HTML
-representation in JavaScript.
-JSX was created to make this JavaScript representation of HTML more HTML-like. To
-understand the difference between HTML and JSX
-
-- Não é HTML nem String
-- É uma linguagem de marcação que permite criar estruturas do HTML com o poder do javascript
-- React usa componentes
-- Não é obrigatória a utilização do JSX mas facilita
-- Browser nao intepreta JSX , para isso é necessario um transpilador para a aplicação entender o código (exemplo BABEL)
-- para executar um JS dentro de um JSX deve estar entre chaves
-
-```Javascript
-return (
-<div className='ui unstackable items'>
-Hello, friend! I am a basic React component.
-</div>
-);
-```
-
-The syntax of the return value doesn’t look like traditional JavaScript. We’re using
-JSX (JavaScript eXtension syntax), a syntax extension for JavaScript written by
-Facebook. Using JSX enables us to write the markup for our component views in a
-familiar, HTML-like syntax. In the end, this JSX code compiles to vanilla JavaScript.
-Although using JSX is not a necessity, we’ll use it in this book as it pairs really well
-with React.
-
-### Babel
-
-We mentioned at the beginning of the chapter that all the code in the book would be
-using ES6 JavaScript. However, most browsers in use today do not fully support ES6.
-Babel is a JavaScript transpiler. Babel turns ES6 code into ES5 code. We call this
-process transpiling. So we can enjoy the features of ES6 today yet ensure our code
-still runs in browsers that only support ES5.
-Another handy feature of Babel is that it understands JSX. Babel compiles our JSX
-into vanilla ES5 JS that our browser can then interpret and execute. We just need to
-instruct the browser that we want to use Babel to compile and run our JavaScript
-code.
-The sample code’s index.html already imports Babel in the head tags of index.html:
-
-```HTML
-<head>
-<!-- ... -->
-<script src="vendor/babel-standalone.js"></script>
-<!-- ... -->
-</head>
-```
-
-All we need to do is tell our JavaScript runtime that our code should be compiled
-by Babel. We can do this by setting the type attribute when we import the script in
-index.html to text/babel.
-Open index.html and change the script tag that loads ./js/app.js. We’re going to
-add two attributes:
-
-<script src="./js/seed.js"></script>
-
-<script
-type="text/babel"
-data-plugins="transform-class-properties"
-src="./js/app.js"
-></script>
-
-The attribute type="text/babel" indicates to Babel that we would like it to handle
-the loading of this script. The attribute data-plugins specifies a special Babel plugin
-we use in this book. We discuss this plugin at the end of the chapter.
-
-Babel successfully compiled our JSX into JavaScript and our browser was able to run
-that JavaScript without any issues.
-
-### O que é webpack
-
-### Integrando webpack ao desenvolvimento com ReactJS
-
-- Webpack - Eslint
-- -e um module bundler ( empacotador de modulos para aplicações js )
-- gerar bundler será utilizano no HTML em ES5
-- https://webpack.js.org/
-- React script (aquele do facebook) utiliza webpack por trás
-- Suporte : Fontes , CSS , Imagens , HTML , JS (JSON) , Plugins
-- Entry - utilizando grafo , o webpack precisa de um ponto de entrada para buscar todos os modulos e dependencias
-- Output
-- DEtermina os bundlers que o webpack emite
-- loaders - permite que o WP gerencie arquivos nao JS
-- Plugins - Podem ser utilizados para otimizacao de pacotes, minificacao , injecao de scripts
-- mode utilizados para abordagens de configurações. É possivle configurar modulos como production , development ou none
-- production trás otimizacoes internas
-  -criacao do webpack.config.js
-- development é utilizado com tres plugins , UglifyJsPligin , ModuleConcatenationPlugin e NoEmitOn ErrosPlugin
-- npm i --save-dev -D webpack webpack-cli
-- npm i --save-dev -D webpack webpack-cli "build":"webpack --mode production"
-- Se fazemos no package.json  criamos o bundler.js em modo produção
-- "scripts": {
-- "build": "webpack --mode production",
-- se mudamos o ponto de entrada no webpack.config.js  para entry: './index.js', /// ponto de entrada
-- conseguimos executar node.\dist\bundler.js
-- npm i @babel/core babel-loader @babel/preset-env @babel/preset-react --save-dev
-- com o preset env posso transpilar para es5 , es 6 ... para manter a compatibilidade com browsers mais antigos
-- para o babel poder transpilar o react para es5 usamos o preset-react
-- babelrc ->  como usamos o presetenv e o preset do react para o babel funcionar precisamos do arquivo babel rc
-- adicionar os presets lá
-- npm i react react-dom
-- babelrc le os plugins e os presets
-- criamos o app (index.js e app.jsx)
-- npm run dev
-- npm i webpack-dev-server
-- "start:dev": "webpack-dev-server", já gera o servidor pra vc
-- hotreloader a cada alteração ele atualiza a pagina automaticamente
-- npm run start:dev
-- http://localhost:8080/
-- se vc adiciona um arquivo depois de gerar o bundle ele nao será importado para o projeto
--
-
-### Instalação e Configuração do ESLint
-
-- npm install --save-dev eslint babel-eslint eslint-plugin-react eslint-watch
-- npm run eslint
-- npm i react react-dom react-scripts
-- sourcemap - gera um mapeamento de todos os arquivos de uma forma fácil de  debugar
-- no webpack adicionar devtool: 'source-map',
-- npm run start:dev
-
-### CSS e React
-
-https://github.com/luizrosalba/homecomstyledcomponents
-
-### Css componentes e elementos
-
-Como estilizar ?
-
-### inline
-
-Dentro do arquivo jsx
-
-- Pros  : Pratico , direta , ajuste  rapido  e testes de estilo
-- contra - manutenção
-
-```Javascript
-import React from 'react';
-
-// 1. Como estilizar uma lista usando estilos inline.
-
-const listaEstilizada = {
-  marginTop: '10px',
-  border: '1px solid blue',
-  padding: '25px'
-};
-```
-
-### Aula 3 - Conceitos aplicados aos tipos de dados e condições da biblioteca
-
-- Renderização condicional : Em React você pode criar componentes distintos ,que encapsulam o comportamento que você precisa. Você pode renderizar apenas alguns dos elementos , dependendo do estado da sua aplicação
-- lesson3 - conditional
-- npm i
-- npm start
-- dentro do app para pular linha < br />
-- {hasCustomer &&  (Apresenta_botao) }
-- {hasCustomer ?  (Apresenta_botao):(Cadastra_cliente) }
-- o ideal é separar apresenta_botao e cadastra_cliente em renders , que serão executados observando o resutlado de hasCustomer
-
-### Listas e Chaves
-
-- npm i
-- cada elemento deve ter sua key - neste caso usamos o id de customer para fazer a key . colocar o indice poderia dar problema se estivermos trabalhando com dois vetores . chaves devem ser unicas apenas entre elementos irmaos
-
-```Javascript
-import React from "react";
-
-const listCustomer = [
-  {
-    id: 1,
-    name: 'Bruno Carneiro',
-    skills: ['React', 'Node', 'CSS', 'Webpack']
-  },
-  {
-    id: 2,
-    name: 'Aline Carneiro',
-    skills: ['HTML', 'React Native', 'Go', 'JS']
-  },
-  {
-    id: 3,
-    name: 'Fulano de Tal',
-    skills: ['Assembly']
-  },
-  {
-    id: 4,
-    name: 'José Ciclano',
-    skills: ['Reason']
-  }
-]
-
-const App = () => {
-
-  const renderCustomers = (customer, index) => {
-    return (
-      <div key={`customer-${customer.id}`}>
-        <li>{customer.name}</li>
-        {customer.skills.map(renderSkills)}
-      </div>
-    )
-  }
-
-  const renderSkills = (skill, index) => {
-    return (
-      <div style={{ paddingLeft: '30px' }} key={`skill-${index}`}>
-        <li>{skill}</li>
-      </div>
-    )
-  }
-
-  return (
-    <div>
-      <p>Digital Innovation One</p>
-      <p>Bem vindo a nossa aula =D.</p>
-      <div>
-        <ul>
-          {listCustomer.map(renderCustomers)}
-        </ul>
-      </div>
-    </div>
-  );
-};
-export default App;
-```
-
-### Manipulando Eventos
-
-- similar a mnanipular elementos do dom
-- diferenças sintaxes:
-- eventos em react são nomeadas usando camelCase ao invés de letras minúsculas
-- com o jsx você passa uma função como manipulador de enventos ao invés de um texto
-
-#### Eventos
-
-- npm i
-- npm start
-- passando eventos . "e" acessa o prototype do browser daquele elemento
--
-
-```Javascript
-import React from "react";
-
-const showEvent = (e) => {
-  console.log('evento clicado');
-  console.log(e);
-}
-
-const Button = <button onClick={showEvent}> Mostrar Evento </button> 
-
-const App = () => {
-  const handleChange = (e) =>  {
-    const {value} = e.target; 
-    console.log(value);
-  }
-
-  return (
-    <div>
-      <p>Digital Innovation One</p>
-      <p>Bem vindo a nossa aula =D.</p>
-      <input onChange={handleChange} /> 
-
-      <div>
-        <ul>
-          {Button}
-        </ul>
-      </div>
-    </div>
-  );
-};
-export default App;
-```
-
-Mudando o contexto para dentro do app para acessar sem usar o this
-
-```Javascript
-import React from "react";
-
-
-const App = () => {
-
-  const name = 'Luiz Rosalba '
-
-  const handleChange = (e) =>  {
-    const {value} = e.target; 
-    console.log(value);
-  }
-
-  const showEvent = (e) => {
-    console.log('evento clicado');
-    console.log(e);
-    alert(name );
-  }
-
-  const Button = <button onClick={showEvent}> Mostrar Evento </button> 
-
-  return (
-    <div>
-      <p>Digital Innovation One</p>
-      <p>Bem vindo a nossa aula =D.</p>
-      <input onChange={handleChange} /> 
-
-      <div>
-        <ul>
-          {Button}
-        </ul>
-      </div>
-    </div>
-  );
-};
-export default App;
-```
-
-Adicionando um botao para deletar cada cliente na lista da aula anterior :
-
-```Javascript
-import React from "react";
-
-const listCustomer = [
-  {
-    id: 1,
-    name: 'Bruno Carneiro',
-    skills: ['React', 'Node', 'CSS', 'Webpack']
-  },
-  {
-    id: 2,
-    name: 'Aline Carneiro',
-    skills: ['HTML', 'React Native', 'Go', 'JS']
-  },
-  {
-    id: 3,
-    name: 'Fulano de Tal',
-    skills: ['Assembly']
-  },
-  {
-    id: 4,
-    name: 'José Ciclano',
-    skills: ['Reason']
-  }
-]
-
-const App = () => {
-
-const handleClick = (e) =>{
-  console.log('deletar cliente');
-}
-
-  const renderCustomers = (customer, index) => {
-    return (
-      <div key={`customer-${customer.id}`}>
-        <li>{customer.name} <button onClick={handleClick}>Deletar Cliente </button>  </li>
-        {customer.skills.map(renderSkills)}
-      </div>
-    )
-  }
-
-  const renderSkills = (skill, index) => {
-    return (
-      <div style={{ paddingLeft: '30px' }} key={`skill-${index}`}>
-        <li>{skill}</li>
-      </div>
-    )
-  }
-
-  return (
-    <div>
-      <p>Digital Innovation One</p>
-      <p>Bem vindo a nossa aula =D.</p>
-      <div>
-        <ul>
-          {listCustomer.map(renderCustomers)}
-        </ul>
-      </div>
-    </div>
-  );
-};
-export default App;
-```
-
-Passando o id como argumento para o manipilador de eventos
-
-```Javascript
-import React from "react";
-
-const listCustomer = [
-  {
-    id: 1,
-    name: 'Bruno Carneiro',
-    skills: ['React', 'Node', 'CSS', 'Webpack']
-  },
-  {
-    id: 2,
-    name: 'Aline Carneiro',
-    skills: ['HTML', 'React Native', 'Go', 'JS']
-  },
-  {
-    id: 3,
-    name: 'Fulano de Tal',
-    skills: ['Assembly']
-  },
-  {
-    id: 4,
-    name: 'José Ciclano',
-    skills: ['Reason']
-  }
-]
-
-const App = () => {
-
-const handleClick = (e,id) =>{
-  console.log('deletar cliente');
-  alert(`ID do cliente : ${id}`)
-}
-
-  const renderCustomers = (customer, index) => {
-    return (
-      <div key={`customer-${customer.id}`}>
-        <li>{customer.name} <button onClick={(e)=>handleClick(e,customer.id)}>Deletar Cliente </button>  </li>
-        {customer.skills.map(renderSkills)}
-      </div>
-    )
-  }
-
-  const renderSkills = (skill, index) => {
-    return (
-      <div style={{ paddingLeft: '30px' }} key={`skill-${index}`}>
-        <li>{skill}</li>
-      </div>
-    )
-  }
-
-  return (
-    <div>
-      <p>Digital Innovation One</p>
-      <p>Bem vindo a nossa aula =D.</p>
-      <div>
-        <ul>
-          {listCustomer.map(renderCustomers)}
-        </ul>
-      </div>
-    </div>
-  );
-};
-export default App;
-```
-
-### Pensando do jeito React
-
-- thinking react
-- npm i
-- deixar os componentes da forma mais livre possivel
-- Começar com um mock  (simulam o comportamento de objetos reais de forma controlada. São normalmente criados para testar o comportamento de outros objetos. Em outras palavras, os objetos mock são objetos “falsos” que simulam o comportamento de uma classe ou objeto “real” para que possamos focar o teste na unidade a ser testada.)
-- Separar a Ui em páginas (escopos) diferentes por exemplo , colocar listcustomer em um arquivo e importa-lo
-- separar a UI em uma hierarquia de componentes
-- Criar uma versão estática  em react
-- Identificar a representação minima mas completa da UI
-- Identificar onde o state deve ficar
-- adicionar o fluxo de dados inverso
-- react é funcional e modular, deve estar todo separadinho em arquivos
-- rotas do projeto são os containers (Views )
-
-### Desenvolvimento de Aplicações para internet com ReactJS
-
-#### classes
-
-- pros Modularizada define-se classes pelo atributo classname
-- contra dificil manutencao
-- pouca flexibilidade
-- conflitos de nomes (solução: Design patterns)
-- arquivo ClassName.css
-
-```Javascript
-.div-style {
-  display: flex; 
-  flex-direction: column; 
-  justify-content: space-around;
-  margin-right: 20px;
-}
-```
-
-e depois importa-se no codigo , usamos className e não class para poder importa-lo no react
-
-```Javascript
-import './ClassName.css'
-function Hello(){
-    return <div className="div-style"> Ola mundo </div>
-}
-```
-
-### Css no JS
-
-- npm install --save styled-components
-- A biblioteca styled components é exemplo de uma biblioteca em que se pode usar CSS in JS.
-- pros:  manutenção facilidade para remover css estilos dinamicos performance injeção automatica de prefixos vendor
-
-```
-const DivStyle = styled.div`
-  color:blue;
-  background: url('${props=> props.imageUrl}');
-`; 
-function Hello(){
-    const url = 'https://exemplo'
-    return <DivStyle imageUrl={url}> Olá </DivStyle>
-}
-```
-
--Manutenção
--Facilidade de remover css
-
-- Estilos dinâmicos
-- Performance
-- Injeção automática de prefixos vendor
-
-```
-Obs: Os fabricantes de browsers, por vezes, adicionam prefixos às propriedades experimentais ou fora dos padrões CSS, de modo que os desenvolvedores podem experimentá-las, enquanto —em teoria— as mudanças no comportamento dos navegadores não quebrarão o código durante o processo de padonização. Os desenvolvedores devem esperar para incluir a propriedade não pré-fixada até que o comportamento do navegador seja padronizado.
-
-Os fabricantes de browsers estão trabalhando para parar de usar prefixos de fornecedores para recursos experimentais. Os desenvolvedores da Web têm vindo a usá-los em sites de produção, apesar de sua natureza experimental. Isso tornou mais difícil para os fornecedores de navegadores garantir a compatibilidade e trabalhar com novos recursos; também foi prejudicial aos navegadores menores que acabam forçados a adicionar prefixos de outros navegadores para carregar sites populares.
-
-Ultimamente, a tendência é adicionar recursos experimentais por trás das bandeiras controladas pelo usuário e trabalhar com especificações menores que alcancem a estabilidade muito mais rápido.
-
-Normalmente, os vendors usam esses prefixos:
-
--webkit- (Chrome, Safari, versões mais recentes do Opera.)
--moz- (Firefox)
--o- (Versões antigas do Opera)
--ms- (Internet Explorer)
-Os vendedores também usam prefixos em APIs. Em interfaces, eles normalmente usam:
-
-Webkit (Chrome, Safari, versões mais recentes do Opera.)
-Moz (Firefox)
-O (Versões antigas do Opera)
-MS (Internet Explorer)
-Em propriedades e métodos, eles normalmente usam:
-
-webkit (Chrome, Safari, versões mais recentes do Opera.)
-moz (Firefox)
-o (Versões antigas do Opera)
-ms (Internet Explorer)
-```
-
-## Stateful vs StateLess
-
-- Antigamente Funções não podiam gerenciar estados (stateless). A partir de 2018 isso mudou
-- A nomenclatura foi atualizada não usamos mais stateful e stateless:
-- Class components e Function Components
-- Com hooks estados são manipuláveis em function components (Stateless com Hooks )
-- Dessa forma temos um código compatco com a vantagem de poder manipular estaods
-
-### Stateful
-
-- Stateful usa estados toda vez que trabalhamos com estados , destruimos uma copia anterior e trabalhamos com uma nova cópia do estado
-- Supondo um estado chamado shoe, setado inicialmente como ‘tênis’, podemos trocar o seu estado, por ex, usando this.setState({ shoe: 'sapatenis’ }).
-
-![](img/state.PNG)
-
-- ..\aplicacoes_internet_reactjs\src\aula-1\parte-2\TodoListStatefull.jsx
-
-### Stateless
-
-- stateless não usa estados
-- Podemos setar o estado inicial de um componente stateless com props.
-- Não possui gerenciamento de estados no componente
-- contruidos usando funções em js
-- ..\aplicacoes_internet_reactjs\src\aula-1\parte-2\TodoListStateless.jsx
-
-### Stateless com Hooks
-
-A partir de 2018 , podemos fazer um componente funcional "stateless com estados" usando o hook useState
-
-- ..\aplicacoes_internet_reactjs\src\aula-1\parte-2\TodoListFunctional.jsx
-
-```Javascript
-import React, { useState } from 'react';
-/// componentes funcionais com estado 
-const TodoListFunctional = () => {
-/// hook para criacao de estados 
-/// nome do estado (items) e uma funcao setter (setItems) para modificar o estado 
-  const [items, setItems] = useState(['Tomate','Alface','Melancia']);
-  const addItem = (item) => {
-    setItems([...items, item]);
-  }
-
-  const removeItem = () => {
-    setItems([...items.slice(1)])
-  }
-
-  return (
-    <div className="bloco-lista">
-      <p>Minha lista</p>
-      <ul className="lista-estilizada">
-        {items.map(item => <li>{item}</li>)}
-      </ul>
-      <button onClick={() => addItem('Batata-Frita2')}>Add Item</button>
-      <button onClick={() => removeItem()}>Remove Item</button>
-    </div>
-  );
-}
-
-export default TodoListFunctional;
-```
-
-## Formulários
-
-Mantem um estado interno
-
-- Em html
-
-```
-<input>,
- <textarea> e 
- <select>
-```
-
-tem um estado interno aceitando atributo value
-
-- podemos mudar esse valor usando o atributo onChange
-- em react podemos controlar o estado ( O DOM tem seu proprio estado e o react tem seu proprio estado )
-- state
-- set state
-
-### Componente controlado
-
-- O recomendado no react é fazer componentes controlados
-
-```Javascript
-import React from 'react';
-
-class NameForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { value: '' };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({ value: event.target.value }); //// pega o event.target.value do dom 
-  }
-
-  handleSubmit(event) {
-    alert('O nome enviado foi: ' + this.state.value);
-    event.preventDefault();
-  }
-
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit} style={{display: 'flex', flexDirection: 'column'}}>
-        <label>
-          Nome:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
-    );
-  }
-}
-
-export default NameForm;
-```
-
-```Javascript
-import React from 'react';
-
-class SorveteForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      sabor: 'uva',
-      casquinha: true,
-      guardanapos: 'sim'
-    };
-
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-
-    this.setState({
-      [name]: value
-    });
-  }
-
-  handleSubmit(event) {
-    const { sabor, casquinha, guardanapos } = this.state;
-    alert('Seu sabor escolhido foi ' + sabor + ', guardanapos ' + guardanapos + ' e casquinha ' + casquinha);
-    event.preventDefault();
-  }
-
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
-        <label>
-          Escolha o sabor:
-            <select name="sabor" value={this.state.sabor} onChange={this.handleInputChange}>
-            <option value="uva">Uva</option>
-            <option value="limao">Limão</option>
-            <option value="coco">Coco</option>
-            <option value="chocolate">Chocolate</option>
-            <option value="morango">Morango</option>
-          </select>
-        </label>
-        <label>
-          <input type="checkbox" name="casquinha" checked={this.state.casquinha} onChange={this.handleInputChange} />
-          Colocar na casquinha?
-          </label>
-        <label>
-          Guardanapos?
-            <div className="radio">
-            <label>
-              <input type="radio" id="guardanapos" name="guardanapos" value="sim" checked={this.state.guardanapos === 'sim'} onChange={this.handleInputChange} />
-              sim
-              </label>
-          </div>
-          <div className="radio">
-            <label>
-              <input type="radio" id="guardanapos" name="guardanapos" value="nao" checked={this.state.guardanapos === 'nao'} onChange={this.handleInputChange} />
-              não
-              </label>
-          </div>
-        </label>
-        <input type="submit" value="Enviar" />
-      </form>
-    );
-  }
-}
-
-export default SorveteForm;
-```
-
-### Componente não controlado
-
-- pega o estado do dom
-- o react observa estes estados através de uma referencia
-- a tag input é read-only (essa tag a gente nao consegue fazer com componente controlado, só com não controlado)
-
-```Javascript
-import React from 'react';
-
-class FileInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.fileInput = React.createRef(); /// definimos uma referencia para o campo input 
-                                        /// definimos uma referencia para o campo input 
-  }
-  handleSubmit(event) {
-    event.preventDefault();
-    alert(
-      `Arquivo selecionado - ${
-        this.fileInput.current.files[0].name
-      }`
-    );
-  }
-
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit} style={{display: 'flex', flexDirection: 'column'}}>
-        <label>
-          Upload de arquivo:
-          {/// usando ref a gente consegue pegar o estado deste componente read-only input no envio  
-          }
-          <input type="file" ref={this.fileInput} />
-        </label>
-        <br />
-        <button type="submit">Enviar</button>
-      </form>
-    );
-  }
-}
-
-export default FileInput;
-```
-
-Sobre Stateless components, é incorreto afirmar que:
-Podemos setar o estado inicial de um componente stateless com props.
-
-Para estilizar um componente de maneira inline, assinale abaixo a alternativa correta:
-<MeuComponente style={{ marginBottom: '10px' }} />
-
-Sobre a estilização em componentes, é correto afirmar que:
-Os estilos pela tag style são feitos por um JSON onde o CSS é escrito CamelCase.
-
-Sobre Stateful components, é correto afirmar que:
-Supondo um estado chamado shoe, setado inicialmente como ‘tênis’, podemos trocar o seu estado, por ex, usando this.setState({ shoe: 'sapatenis’ }).
-
-Podemos manipular a tag input do tipo file em um form usando:
-Componentes não controlados.
-
-Sobre as diversas formas de criar forms, é correto afirmar:
-No uso de componentes não controlados, pegamos apenas a referência do estado do DOM.
-
-Sobre stateless e stateful components, assinale a alternativa correta:
-Com a chegada de hooks, podemos criar componentes funcionais com estados.
-
-Sobre CSS in JS é correto afirmar que:
-A biblioteca styled components é exemplo de uma biblioteca em que se pode usar CSS in JS.
-
-Um exemplo de biblioteca utilizado para manipulação de forms é:
-Formik.
-
-Qual(is) componente(s) podemos utilizar em componentes controlados em React?
-textarea e select
-<textarea> </textarea> e <select> </select>.
-
-### Bibliotecas para Forms
-
-- forms no react são verbosos tem que escrever bastante para funcionar
-- é possível usar algumas biblios :
-- formik (recomendada pela documentação do react )
-- Redux-forms
-
-## Flux
-
-- Arquitetura criada pelo Fb para comunicação entre componentes
-- falta de sincronização entre os componentes de notificação no facebook
-- haviam patterns para trafegar dados em aplicações web mas nada muito promissor
-- Fb criou o flux e resolveu o problema
-- padrão para trafego de dados unidirecional![](img/flux.PNG)
-
-### Action
-
-- Formata a mensagem a ser enviada (telégrafo)
-
-### Dispatcher
-
-- Sabe todos os callbacks para diferentes Stores  (telefonista)
-
-### Store
-
-É um gerente supercontrolador, guarda a informação e todas as alterações tem que ser feitas por ele mesmo mais ninguem
-
-### View
-
-Gerente intermediario (middleware) recebe as notificações da store e passa os dados para as visões abaixo dela
-
-### Arquitetura Flux
-
-Diversas implementações
-
-- Redux ( mais popular)
-- Reflux
-- Mobx
-- Vuex (Baseado em Redux e Elm)
-- NgRx/store (badeada em REdux e RxJs)
-- FB disponibiliza as libs para que você construa sua própria flux
-- não existe uma implementação padrão do flux
-- servem para comunicação entre componentes
-- centralizam a informação
-- One way data flow
-- Ideal é usar as stores para dados que vão ser compartilhados entre componentes, não todos os dados
-
-## Bibliotecas baseadas em Flux
-
-- Servem para comunicação entre componentes
-- Centralizam a informação
-- Store não é um armazenamento central, o ideal é usar as stores para dados
-  que vao ser compartilhados entre vários componentes
-
-### Redux
-
-- Criado por Abramov e Clark em 2015
-- Redux é uma  implementação de flux
-- nao tem dispatcher
-- a camada de view é chamada de react pois vamos usala para trabalhar com react![](img/redux.PNG)
-  -Redux tem  3 princípios :
-- Single source of Thuth - uma única store
-- State é read-only
-- mudanças são feitas por funções puras ( estado imutável )
-- Redux nao tem dispatcher
-- A camada de view eh chamada de react
-- Reducer
-
-#### actions
-
-- são como as do flux
-- apensa retornam um objeto de action formatado
-- As actions formatam a mensagem a ser enviada para o dispatcher.
-
-#### Store
-
-- unica store
-- cuida de toda árvore de estados
-- reducers cuidam de descobrir qual estado muda
-
-#### reducers
-
-- simplifica e divide o tarbalho da store
-- se conecta ao root reducer que divide os estados em pequenos reducers para descobrir como lidar com eese estado
-- estados imutáveis
-
-#### Views
-
-- Em react adiciona na camada de View 3 novos conceitos para conectar a View a Store (provider, connect() e selector )
-- Provider wrapper da arvore de components, torna mais facil os componentes filhos se conectarem usando o connect
-- Connect()  função no react redux se o componente deseja pegar os updates do estado se envolve na função connect (High Order Component (HOC))
-- Selector função que escrevemos que definem quais os estados do redux que queremos passar
-  No root component:
-  O Provider recebe como atributo a store criada, usando-a onde ela for necessária para a aplicação.
-
-## Aula 2.3
-
-Instalar o redux dev tools
-
-- https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=pt-BR
-- npm install react-redux
-- npm install --save-dev redux-devtools
-- usamos o redux dev tools e rodamos a aula 2 para ver que cada vez que o contador eh clicado vemos o estado anterior e o estado atual
-- criamos a pasta redux que tem o arquivo de actions  (mensagem enviada)
-- vamos criar uma action que se comunica com store. Vamos criar uma store e reducers e conecta-los a nossa view (react)
-- criamos um arquivo dentro da pasta redux -> actions -> actions.js com as actions (método mais simples de criar actions)
-
-```Javascript
-export const INCREMENT = 'INCREMENT'
-export const DECREMENT = 'DECREMENT'
-```
-
-- criamos um arquivo dentro da pasta redux -> reducers ->  reductions.js com as reductions
-
-```Javascript
-import { INCREMENT, DECREMENT } from '../actions/counter';
-
-export const initialState = {
-  count: 0 /// estado inicial da store 
-}
-
-///verifica qual action esta sendo disparada 
-export function counterReducer(state = initialState, action) {
-  switch(action.type) {
-    case INCREMENT:
-      return {
-        count: state.count + 1
-      };
-    case DECREMENT:
-      return {
-        count: state.count - 1
-      };
-    default: 
-      return state; /// apenas retorna o valor nao faz o incremento do estado diretamente 
-  }
-}
-```
-
-indexjs (camada view = react)
-
-- cria a store
-- associa os reducers a ela
--
-
-```Javascript
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux'; /// cria as stores e associa o redux a ela 
-import rootReducer from './redux/reducers/rootReducer' /// centraliza os reducers
-import thunk from 'redux-thunk'
-import { composeWithDevTools } from 'redux-devtools-extension';
-
-const store = createStore( rootReducer, composeWithDevTools(
-    applyMiddleware(thunk)  /// conectando a store ao monitor 
-));
-
-ReactDOM.render(<Provider store={store}> /// Provider faz um wrapper e passa a store criada acima 
-    <App />
-</Provider>, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
-```
-
-manipulando a store
-
-```Javascript
-import React from 'react';
-import { connect } from 'react-redux';
-
-class Counter extends React.Component {
-  state = { count: 0 }
-
-/// cada evento de incremento ou decremento dispara um evento na store ( que pode ser visto no redux dev-tools do chrome )
-
-  increment = () => {
-    /// usa a action (ato de enviar a mensagem) através do dispatch  para fazer o pedido de alteração para a store 
-    this.props.dispatch({ type: 'INCREMENT' }); /// cada um dispara um evento na store , não temos dispatch , ams por questões de engerharia usamos o nome dispatcher
-  }
-
-  decrement = () => {
-    this.props.dispatch({ type: 'DECREMENT' }); /// nao passamos o estado do counter para o componente, disparamos uma mensagem para incrementar e decrementar
-  }
-
-  render() {
-    return (
-      <div>
-        <h2>Counter</h2>
-        <div>
-          <button onClick={this.decrement}>-</button>
-          <span>{this.props.count}</span>
-          <button onClick={this.increment}>+</button>
-        </div>
-      </div>
-    )
-  }
-}
-
-function mapStateToProps(state) { 
-  return {
-    count: state.counter.count /// passamos o estado referenciando o estado da store que estamos associando , 
-                               /// e qual compoenente local está associado 
-  };
-}
-
-export default connect(mapStateToProps)(Counter); /// connect pega o componente e conecta com a store (HOC)
-```
-
-Qual dos elementos de Flux não existe em Redux?
-Dispatchers.
-
-Uma diferença básica de Redux e Flux é:
-Redux só possui uma store.
-
-Sobre Flux, é correto afirmar que:
-O Facebook criou esta arquitetura para sanar um problema no sistema de notificações.
-
-A extensão do redux-devtools:
-Serve para monitorar os estados de uma store Redux.
-
-Sobre Redux, assinale a alternativa correta:
-A action em Redux é como em Flux, com a diferença que ela retorna um objeto de action formatado.
-
-No root component:
-O Provider recebe como atributo a store criada, usando-a onde ela for necessária para a aplicação.
-
-Quais são os três componentes da View em Redux?
-Provider, connect e selector.
-
-Qual das alternativas abaixo não é um princípio básico de Redux?
-Es6 callback para todos os eventos.
-
-Sobre o Dispatcher, é correto afirmar:
-Sabe todos os callbacks para diferentes stores.
-
-Sobre o Flux, assinale a alternativa correta:
-As actions formatam a mensagem a ser enviada para o dispatcher.
-
-## Aula 3
-
-### Comunicação avançada entre aplicações
-
-### rest http com react
-
-Apis HTTP
-Servem para conectar um ou mais servidores http
-
-- get
-- post
-- delete
-- put
-- fetch api (nativamente) Jquery ajax
-- Axios (lib http muito usada com react)
-
-### Fetch Api
-
-Alguns browsers ainda nao suportam (talvez melhor usar node fetch)
-
-- O fetch fornece suporte a PWAs.
-- nativa do browser
-- Oferece uma alternatuva ai XMLHttpRequest() e jQuery.ajax()
-- suporte a service workers
-- algumas diferenças
-- nao envia nem recebe cookies ( precisa definir a opção cedentials)
-- nao rejeita o statudos do erro HTTP (nem 400 nem 500)
-- ele está mostrando como montar os métodos HTTP para nossa api "cientistas" aula 3 .![](img/get_fetchapi.PNG)![](img/put_fetchapi.PNG)![](img/post_fetchapi.PNG)![](img/delete_fetchapi.PNG)
-
-```Javascript
-import { fetchCientistasPending, fetchCientistasSuccess, fetchCientistasError } from '../../../redux/actions/cientistas';
-
-function fetchCientistas() {
-  return dispatch => {
-    dispatch(fetchCientistasPending());
-    fetch('https://react-intermediario-dio.free.beeceptor.com/cientistas-brasileiras')
-      .then(res => res.json())
-      .then(res => {
-        if (res.error) {
-          throw (res.error);
-        }
-        dispatch(fetchCientistasSuccess(res)); /// sucesso atualiza os dados 
-      })
-      .catch(error => {
-        dispatch(fetchCientistasError(error));
-      })
-  }
-}
-
-export default fetchCientistas;
-```
-
-Trabalhando com class component, procurar fazer o carregamento da listagem de serviços no inicio
-do seu componente no componentDidMount. No componente componentWillMount (vai ser descontinuado no react 17 )pode dar probelmas como lista vazia
-
-```Javascript
-import React, { useEffect, useState } from 'react'
-import styled from 'styled-components';
-
-const Topico1Block = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const Item = styled.li`
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 12px;
-  border: 1px solid #cecece;
-`;
-
-export const Topico1 = () => {
-  const [cientistas, setCientistas] = useState([]);
-
-  // Hook equivalente a componentDidMount()
-  useEffect(() => {
-    fetch('https://react-intermediario-dio.free.beeceptor.com/cientistas-brasileiras')
-      .then(response => response.json()) /// parseando a json 
-      .then(data => {
-        setCientistas(data) /// atualizando o esatdo 
-      })
-      .catch(error => {
-        alert('Ops! Erro a seguir: ' + error);
-      });
-  }, []);
-
-  return (
-    <Topico1Block>
-      <h1>Cientistas Brasileiras</h1> /// renderizando na tela 
-      <ul>
-        {cientistas.map((cientista, index) => (
-          <Item key={index}>
-            <div><b>nome:</b> {cientista.name}</div>
-            <div><b>área:</b> {cientista.area}</div>
-          </Item>
-        ))}
-      </ul>
-    </Topico1Block>
-  )
-}
-```
-
-## Axios
-
-- Lib de HTTP API
-- Cross-Browser
-- Pode monitorar o progresso de um request
-- melhor tratamento de erros
-- melhor teste
-- bem restrito ao pwa
-- npm add axios
-- métodos HTTP :![](img/get_axios.PNG)![](img/put_axios.PNG)![](img/post_axios.PNG)![](img/delete_axios.PNG)
-
-## Imutabilidade e Redux
-
-Imutabilidade :
-
-- uma vez criada não pode ser alterada
-- novas coleções podem ser craidas a partir de uma coleção anterior e uma mutação (setter) como um conjunto
-- novas coleções são criadas usando o máximo possível da estrutura original, reduzindo a cópia e aumentando a performance
-  Benefícios :
-- Para ter Performance em react use seus dados imutáveis (usando shouldComponentUpdate ou React.PureComponent )
-- Programação simples
-- Debugging simples ( detecção de mudanças)
-- para ter performance em React use dados imutáveis
-- voce consegue usando o shouldComponentUpdate ou o React.PureComponent
-- Exemplo usando o shouldComponentUpdate:![](img/shouldcomponent.PNG)
-
-```Javascript
-class CounterButton extends React.Component {
-  constructor (props){
-    super(props);
-    this.state ={count:1};
-  }
-  shouldComponentUpdate(nextProps,nextState){
-    if(this.props.color!== next.Props.color){ /// color vem por props 
-      return true;
-    }
-    if(this.state.count!== nextState.count){ /// count é do proprio componente 
-      return true;
-    }
-    return false;
-  }
-  render (){
-    return (
-    <button color={this.props.color}
-    onClick={()=>this.setState(state =>({count:state.count+1}))}>
-    Count:{this.state.count}
-    </button>
-  );
-  }
-}
-```
-
-- comparação entre virtual dom e o estado do componente dizem se precisa rerenderizar o componente
-- agora usando pure component![](img/pure_component.PNG)
-
-```Javascript
-class CounterButton extends React.PureComponent {
-  constructor (props){
-    super(props);
-    this.state ={count:1};
-  }
-
-  
-  render (){
-    return (
-    <button color={this.props.color}
-    onClick={()=>this.setState(state =>({count:state.count+1}))}>
-    Count:{this.state.count}
-    </button>
-  );
-  }
-}
-```
-
-- estrutura mais simples
-- não são todos os casos que conseguimos controlar
-- o codigo abaixo nao funciona pois o pure componente faz uma coparação rasa entre os valores antigos e novos de this.props.words
-- o condigo muda words no handleClick do WorkAdder mas mesmo mudando as palavras, elas serão consideradas como iguais
-
-![](img/problemas.PNG)
-
-```Javascript
-class ListOfWords extends React.PureComponent {
-  render (){
-    return <div>{this.props.word.join(',')} </div>
-  }
-}
-```
-
-```Javascript
-class WordAdder extends React.PureComponent {
-  constructor (props){
-    super(props);
-    words: ['marklar'];
-    this.handleClick = this.handeCLick.bind(this);
-  }
-
-  handleCLick(){
-    /// Essa parte é um padrao ruim e causa um bug 
-  
-    const words = this.state.words; 
-    words.push('marklar');
-    this.setState({words:words});
-  }
-  render (){
-    return (
-     <div>
-    <button onClick={()=>this.handeClick} />/// mesmo mudando as palavras elas são consideradas iguais 
-    <ListOfWords words={this.state.words} />
-     </div>
-  );
-  }
-}
-```
-
-- como vc muda o valor , você nao consegue trabalhar com ela
-- solução :
-- evitar mutar valores ou estados mas criar um cópia mutaves
-
-![](img/sol1.PNG)
-
-- outra forma de resolver , seria u sando uma biblio de imutabilidade como a immutable js
-  imutable.js![](img/sol2.PNG)
-
-outras libs
-
-- immer
-- immutability-helper
-- seamless-immutable
-- Imutabilidade é pre-requisito no redux
-- Redux e react-redux usam comparações rasas === (shallow) 
-- manipulação de dados mais seguras
-- time-travel debugging
-- reducers dividem o objeto de estados em dominios por uma chave
-- combinereducers checa mudanças usando comparação rasa
-- fazem a interação nos reducers
-- criam um novo objeto de estado a partir dos estados retornados por cada reducer
-- connect gera componentes que fazem comparação rasa com o estado root
-- retornam o valor para a função mapStateToProps , verificando quem precisa de rerender
-- Por que não funciona com objetos mutáveis ?![](img/porque.PNG)
-
-## Redux + Rest
-
-- Exemplo : Sistema de loggin ou notificações
-- manter a sincronia independente da tela onde estiver
-- uma maneira facil seria armazenar os dados do serviço no redux
-- solução : Middlewares
-
-### Redux Middlewares
-
-- Camada entre o disparo de uma ação e o momento que ela atinge o reducer
-- Utilizados para uma variedade de unções entre elas chamadas de apis de serviço
-
-![](img/1.PNG)
-
-![](img/2.PNG)
-
-![](img/3.PNG)
-
-- problema : mas e seu eu quisesse fazer um crash report usando a mesma estrutura ?
-
-![](img/4.PNG)
-
-![](img/5.PNG)
-
-![](img/6.PNG)
-
-![](img/7.PNG)
-
-- fazendo um currying
-
-![](img/8.PNG)
-
-![](img/9.PNG)
-
-- só expoe um subconjunto da store api para o middleware >: dispatch e o getstate
-- fica dificil saber se store.dispatch(action) vai realmente percorrer  a cadeia do middleware de novo
-- opera em cima de createStore ao invés da store em si
-- usando o applymidware do redux![](img/10.PNG)
-- middlewares mais usados :
-- redux-thunk
-- redux-saga
-- um thunk é uma função que chama outra função![](img/thunk.PNG)
-- npm add redux-thunk
-- iremos chamar a api de cientistas para dentro do redux
-
-## Aula 4 - Conceitos de Qualidade de código e automação de testes em React
-
-- TDD e BDD com JEST
-- DeBugging
-- Tratamento de erros
-
-### TDD
-
-Desenvolviemnto orientado a teste
-
-- escreve um codigo pra testar codigo
-- QA : Quality Assurance Testador![](img/TDD.PNG)
-- Teste Unitário  (função , componente, serviço ,página ... )
-- Teste End-to-End (E2E) (ponta a ponta)
-- JEST (usa um linguagem Js chamada Jasmine https://jasmine.github.io/)
-- REact-testing-Library (bom para testar componentes)
-- Shallow
-- Enzyme
-- Chai
-- Mocha
-- Selenium
-- Puppeteer (roda no browser)
-- npm add --dev @testing-library/react
-
-primeiro os testes mais básicos depois os mais completos
-
-### BDD
-
-Behavior-Driven Development
-
-- Une especificação, teste automatizado e premissa de teste (documento de teste)
-- Sintaxe Gherkin
-- Representa a especificação através de steps para definir cenários
-- descreve cada funcionalidade por features
-
-
-- Funcionalidade: Login
-Texto com  a descrição da funcionalidade
-- Cenário: Como um usuário valido , posso logar no sistema
-- Dado que estou na tela de Login
-- Quando digitar credenciais válidas
-- E clicar no botão de login
-E- ntão devo acessar a Home do sistema
-
-- Cenário: Como um usuário invalido , devo visualizar uma mensagem de erro e continuar na página de Login
-- Dado que estou na tela de Login
-- Quando digitar credenciais inválidas
-- E clicar no botão de login
-- Então devo ver uma mensagem de erro
-- E devo estar na tela de login
-
-- Jest-cucumber
-- npm add --dev jest-cucumber (existe uma extensão para Vs code para .feature)
-- Chai
-
-### Debbugin
-
-Depuração , processo de encontrar e reduzir defeitos de um software
-
-- Chome devtools
-- Redux devtools monitora a store
-- react devtools
-- LightHouse (dentro do inspect do chrome devtools : gera um report
-  de acessibilidade, boas práticas , etc do meu site )
-
-## Tratamento de erros
-
-- Resiliência de Software (quando falha o que é mostrado ? )
-- Segurança
-- Ex SomaSegura: Verifica se os argumentos existem , se são do tipo number senao retorna -1
-- em forms eh interessante tratar a entrada para evitar roubo de informações
-- ex: evitar caracteres especiais
-- tratar se só numeros em campo número , etc
-- evitar datas inválidas
-- usuário ou senha inválidas ( evita o roubo de senha por tentativa e erro evitar somente usuario ou somente senha invávaida)
--
-- Tratamento de componentes :
-- Em Js usamos PropTypes
-- Podemos usar linguagens tipadas como typescript definindo interfaces
-
-import React from 'react';
-import PropTypes from 'prop-types';
-
-export const Basic = ({ name }) => (
-
-<p>Meu nome é {name}</p>
-)
-
-Basic.propTypes = {
-name: PropTypes
-}
-
-## SCRUM
-
-## DDD e Padrões de Arquitetura
-
-### Conceitos introdutórios e o que é um banco de dados
-
-SGDB - Sistemas gerenciadores de banco de dados
-
-- DDL Linguagem de definição -> Definição da estrutura dos dados
-- DML Linguagem de Manipulação -> Recuperação e alteração da informação
-- DQL Dicionario de Dados  - > banco de dados dentro do banco de dados que guarda a estrutura
-
-### Modelos de Banco de dados
-
-- Modelo Flat - tabelas com os dados diretamente
-- Modelo Hierárquico  - divisão da informação em árvore hierárquica  (já nao é mais utilizado) (ex: registro do windows) (redundância de informações)
-- Modelo Relacional - mais utilizado atualmente conjunto de tabelas flat que se relacionam obedecendo algumas regras
-- existem vários outros modelos : redes (grapho) , Orientado a objetos . objeto relacional (OO + relacional) , Big data
-
-### Bando de dados Relacionais (SGDBR ou em ingles RDBMS)
-
-- Tabelas : Entidades que agrupam as informações
-- Linhas : Registros ou tuplas
-- colunas : Classificação ou definição do que significa cada informação
-- chaves:  Primaria (unicidade do registro ) ou   foreing key (estrangeira) herança da chave primaria de uma outra tabela que cria o relacionamento entre duas tabelas
-
-### Modelagem
-
-- 1 Modelo Conceitual - MER
-- 2 Modelo lógico - Implementação
-  DER (diagrama de entidade relacionamento) Um desenho que mostra como o modelo se comporta, mostrando como as entidades se relacionam.
-- Dados que não dependem de nenhum outro para existir são chamados de entidades forte ex: usuarios , produtos
-- Dados que dependem de nenhum outro para existir são chamados de entidades fracas  ex: tabela venda depende de produtos e usuarios
-- Exemplo de um relacionamento M x N  ( entidade associativa)
-- no modelo der existe uma notação que vem ao lado da entidade M(1..N) significa que precisa de no minimo 1 e pode ter varios
-- no modelo der existe uma notação que vem ao lado da entidade N(0..N) significa que pode nao ter nenhuma ou N vendas
-- no modelo der existe uma notação que vem ao lado da entidade 1(1..1) 1 venda precisa ter 1 e no maximo 1 cliente
-- Relacionamentos 1X N , M x N![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/Capturar3.PNG?raw=true)
-
-![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/333.PNG?raw=true)
-
-- Transação atomica - 1 venda sem nenhum item
-- Normalização 1 a 5
-- 1,2,3 mais comuns
-- Modelo relacional pode ser criado sem normalizaçao mas pode gerar problemas de controle
-- 1ª forma normal -> Existencia de valores unicos na mesma coluna ex : 2 telefones na mesma coluna
-- Se houver dois telefones ou duas informações , essa informação precisa ser quebrada em uma nova coluna ou nova entidade (tabela com relação de chave estrangeira)
-- 2ª forma normal  resolve o problema da digitação errada ou duplicidade de linhas . Onde havia vendedor com escrita errada , cria-se apenas dois registros ex vendedor ou consultor
-- 3 ª forma normal - os valores devem ser dependendes da chave primaria e não podem ser dependentes de valores que nao são chave (total depende de valor e quantidade o que pode gerar problemas na hroa de armazenar informações pois o usuario pode alterar uma coluna e o totla nao será atualizado)
-- Obs: Só podemos estar na segunda forma se aplicamos a primeira e assim por diante
-
-### SGDBR - SQL
-
-- DDL - Data definition languange
-- Create
-- DML Linguagem de Manipulação
-- Insert, Delete, Update
-- DQL Dicionario de Dados
-- Select ... from ... where ... groupby ... having ... orderby
-
-Exemplo : Select quantidade ,valor , descricao from Item_venda Join Produto On Codigo = Cod.Produto Where Valor > 5
-![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/4444.PNG?raw=true)
-
-- Funções de conjunto - Sun , min , max, avg dentre outras que podem ser utiizadas para aplicar uma operação a collunas de um BD
-- Exemplo de query de funções de conjunto :
-
-![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/55555.PNG?raw=true)
-
-- Indexadores Um index é uma pequena tabela extraida da tabela original apenas com as colunas que desejamos ordenar . Ela é física (armazenada no servidor )e memória (estará ocupando memória) . Podemos criar quantos indices forem necessarios para uma tabela . Indices afetam os recursos no dml . Ao incluir uma nova linha o sistema precisará fazer a mesma coisa no index
-
-### Transactions
-
-- Consumo e tratamento de informações em um nivel de isolamento. O sistema gerenciador de banco de dados deve permitir a concorrencia de recursos para muitos usuarios (transactions , ou aquilo que se pode fazer dentro de uma sessão).  Cada operação realiza dentre de um BD é tratada como uma transação independente, tem começo , meio e fim .
-- O padrão de isolamento é o reading commited. Pode-se ler aquilo que já foi aplciado no banco
-- Em uma transação diversos usuarios podem sobrepor informações
-- Ex :
-- Inicio (Insert, Delete, Update)
-- resolução (commit ou rollback )
-- Fim ( novos dados ou dados originais)
-- Conceito ACID
-- Atomicidade Todas as operações são executadas com sucesso, commit ou rollback , mesmo com a conexão interrompida
-- Consistencia Unicidade de chaves, restrições de integridade lógica , etc (não posso infringir regras do modelo)
-- Isolamento   Varias transações podem acessar simultaneamento o mesmo registro ou parte do registro. REspeita-se a ordem de chegada
-- Durabilidadae  Depois do commit , mesmo com erros, queda de energia, etc as alterações devem ser aplicadas
-
-### SGDBR na prática
-
--SGDBs-R (relacionais) :
-
-- Todos tem versões com features reduzidas para aprendizagem ou pequenos negócios
-- ORACLE , Microsoft Sql Server , IBM DB2 ,
-- PostGreSql (gratuito) , Mysql , Sqlite (embarcados , não é bom para sistemas distribuidos, mas pode rodar até mesmo no celular )
-- Instalamos o postgree sql
-- no chrome http://127.0.0.1:16751/browser/
-- Server
-- Nome
-  _ connections localhost port 5432
-- postgree - local onde serão salvos os metadados ( dicionario de dados) nada deve ser alterado ali
-- criamos uma nova database chamada aula
-- schema : mapeia o quesito logico da operação
-- fomos em aula , botao direito , query tool
-- executamos no query editor :
-
-```Javascript
-create table client
-(codigo numeric(10) not null primary key ,
-nome varchar (100) not null , 
-telefone varchar(15))
-```
-
-- clicando no play a tabela será criada e dando um refresh na database aula você vera a table client
-- Comando ddl (criacao etc;) nao necessitam de commit cuidado , pois nao tem volta. dar um drop na tabela nao tem volta
-- Inserimos
-
-```Javascript
-insert into client (codigo,nome,telefone)
-values(1,'Lorem Ipsum', '(88)- 8888 9999')
-```
-
-- e para que seja acplicada aplicamos commit
-- ao realizar um select * from client vemos o usuario adicionado
-- ele se tornou o usuario postgre no ubuntu para mostrar que podemos fazer o mesmo pela linha de comando
-- sudo su postgre
-- executou psql
-- create table client (codigo numeric(10) not null primary key , nome varchar (100) not null ,  telefone varchar(15));
-- insert into client (codigo,nome,telefone) values(1,'Lorem Ipsum', '(88)- 8888 9999');
-
-### A arquitetura de aplicações móveis e internet das coisas
-
-### Internet das coisas
-
-- arpanet
-- Protocolo MQTT (message queue telemassage transport)  é um protocolo de mensagens assíncronas (machine to machine - M2M) mais utilizado para IOT (linguagem que o smartphone rodando android) para se comunicar com a cloud
-- free rtos -> sistema operacional real time
-- Modelo publish / subscribe -> modelo de comunicação do MQTT
-- Publicador/ Publisher:  Quem envia dados para um tópico, emissor.
-- Subscrito/ Subscriber:  Pessoa que está inscrita no tópico e recebe os dados, receptor.
-- Broker: Intermédio de comunicação entre Publicador e Subscrito, responsável por receber, enfileirar e enviar as mensagens.
-- Payload: Conteúdo da mensagem enviada.
-- Cliente/Client: Elemento capaz de interagir com o Broker, seja para enviar, receber ou os dois.
-- Mensagem: Pacote de dados trocados entre Clientes e Broker.
-- Tópico: Endereço para o qual os dados serão encaminhados.
-- Unsubscribe: Deixar de assinar um tópico.
-
-![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/Capturar2.PNG?raw=true)
-
-- pub mqtt://my-tracker.com/identificador_usuario/gps/position{'lat:-23.53,'Ion':-43.81}
-- topico(ex: /gps/position) : endereço onde se entrega a informação , definido pelo usuario
-- mqtt     :// my-tracker.com  /identificador_usuario   /gps      /position            {'lat:-23.53,'Ion':-43.81}
-- protocolo    broker           identificador           sensor    tipo de informaçao
-- mqtt://my-tracker.com/+/gps/position{'lat:-23.53,'Ion':-43.81}
-- + é um caractere corigna que faz com que o broker entregue a posição geográfica de todos os usuarios
-- pub mqtt://my-tracker.com/identificador_usuario/gps/+
-- pega todas as informações do gps
-- mqtt://my-tracker.com/+/#
-- é um caractere corigna que recebe todas as informações de todos os sensores de todos os usuarios
-- QOS -> niveis de qualidade de serviço
-- QoS 0 (at most once)- A mensagem deve ser recebida no máximo uma vez, podendo ser recebida uma vez ou nenhuma, não há confirmação de recebimento.
-- QoS 1 (at least once)- A mensagem deve ser recebida pelo menos uma vez, podendo uma mesma mensagem ser recebida uma ou mais vezes, há confirmação de entrega de uma mensagem.
-- QoS 2 (exactly once)- A mensagem deve ser recebida uma única vez, confirmação de recebimento de uma única mensagem.
-- prova de conceito
-  app android -> mosquito -> node.js-> banco de dados mysql
-  Mosquito -> Broker executável em linux que consegue publicar dados de um android
-- minimo produto viavel
-  GPS embarcado -> HiveMq-> akkaScala JVM ->banco de dados nosql
-- Solução
-  GPS embarcado -> aws iot core -> aws kinesis firehose -> aws s3
-- IOT na prática
-  GPS embarcado -> aws iot core -> aws data stream -> aws lambda -> aws elasticCacheRedis-> Aws EC2 -> FeathersJSBackend -> Dashboard
-
-### Web Service
-
-- Soluções para que aplicações se comuniquem independentemente de linguagem, software e hardwares utilizados
-- Inicialmente foram criados para troca de mensagens usando xlm(extensible markup language) sobre o protocolo http sendo identificado por uri (uniform resource identifier)
-- Podemos dizer que serviços web são api's que se comunicam por meio de redes sobre o protocolo http
-- Uma aplicação x acessa um web service que faz troca de  mensagens com a aplicação y usando , xml , json, yaml ...
-
-```
-SOAP
-REST
-XML
-JSON
-```
-
-linguagens de marcação -> usadas para comunicação entre aplicações
-
-### Estrutura Soap
-
-SOAP = simple object access protocol
-
-- Baseado em xml para acessar serviços web por http
-- É uma definição de como serviços web se comunicam
-- Desenvolvido para facilitar integrações entre aplicações em diferentes linguagens
-- Independe de plataforma e software
-- Meio de transporte genérico pode ser usado por outros protocolos além do http
-
-XML = Extensible Markup Languange
-
-- criada na décade de 90 pela W3C
-- Facilita a separação de conteúdo
-- Não tem limitação de criação de tags
-
-Estrutura SOAP
-
-- O soap message possui uma estrutura unica que deve ser sempre seguida
-- soap envelope (container) -> soap header -> soap body
-- Envelope é usado para encapsular toda a mensagem soap
-- header elemento que possui informações de atributos e metadados da requisição
-- body contem os detalhes da mensagem
-
-ex :
-
-```Javascript
-<soap:Envelope xmlns:soap="endereço/soap-envelope"> 
-<soap:Header> 
-</soap:Header> 
-<soap:Body>
-<m:MetodoEndereco xmlns:m="endereco/endereco"> 
-<m:Cidade> nomecidade </m:Cidade>
-<m:CEP> numcep </m:CEP>
-<m:Numero> num </m:Numero>
-<m:Endereco>
-</soap:Body>
-</soap:Envelope>
-```
-
-### Entendendo o que é WSDL e XSD
-
-WSDL
-
-- Web Service Description Language
-- Descreve Web Services funciona como um contrado do serviço
-- A descrição é feita em um documento XML, onde é descrito o serviço , especificiações de acesso , portas, métodos ,etc;
-
-XSD
-
-- XML Schema Definition
-- É um schema no formato XMl usado para definir a estrutura de dados que será validada no xml
-- Funciona como uma documentação de como deve ser montado o SOAP Message (XML) que será enviado através do Web Service
-- http://www.soapclient.com/xml/soapresponder.wsdl
-  Programa para abrir e identificar com mais facilidade métodos dentro de um soap
-  ele também consegue retornar a requisição dos dados em SOAP
-- https://www.soapui.org/.
-
-documentation => Descrição do que o serviço faz
-
-Python zeep -> cliente soap para python
-
-### Aprenda o que são REST, API e JSON
-
-Rest
-
-- Representational State Transfer
-- É um estilo de arquitetura de software que define a implementação de um serviço web
-- Podem trabalhar com os formatos XML , JSON ou outros
-- utiliza http para definir a operação que está sendo efetuada![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/Capturar.PNG?raw=true)
-
-API :
-
-- Application Programmin Interface
-- São conjuntos de rotinas documentadas e disponibilizadas por uma aplicação para que outras aplicações possam consumir suas funcionalidades
-- Popular com o aumento dos serviçoes web
-- Facebook , Twitter , Telegram , Wzap , Github ...
-- Apis podem ser rest , json , etc...
-
-Métodos HTTP :
-
-- GET  solicita a representação de um recurso ( ex pegar um tweet)
-- POST solicita a criação de um recurso (ex criar um tweet)
-- DELETE solicita a exclusão de um recurso
-- PUT  solicita a atualização de um recurso (ex atualiza o texto do twwt)
-
-Para um serviço web ser considerado rest, deve seguir esta arquitetura . get representa, post cria, delete exclui e put atualiza.
-
-JSON
-
-- JSON Javascript Object Notation  ( apesar de poder ser usada em qquer linguagem)
-- Formatação leve utilizada para troca de mensagens entre sistemas
-- Usa-se de uma estrutura de chave e valor e também de listas ordenadas
-- Um dos formatos mais populares
-
-ex:
-
-```Javascript
-{
- "nome": "Os vingadores". 
- "ano": "2019", 
- "personagens":[
- {
-  "nome": "Thanos" 
- },
- {
-  "nome": "thor" 
- },
- {
-  "nome": "Hulk" 
- }
- ]
-}
-```
-
-### Integração com REST e métodos HTTP na prática
-
-Código de Estado (Status Code)
-
-Usado pelo servidor para avisar o cliente sobre o estado da operação solicitada
-
-- 1xx - informativo (ex: recebido , aceito , mas ainda nao terminou)
-- 2xx sucesso  (solicitação aceita , processada com sucesso)
-- 3xx redirecionamento (ação necessária para o cliente ex mudança de site)
-- 4xx erro do cliente
-- 5xx erro do servidor
-
-Lista de Códigos de estado
-
-- https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status
-
-Programa para simular trocas de msg http
-
-- https://www.postman.com/downloads/
-- É possivel usar o python e o javascript para utilizar comandos HTTP.
-
-## Introdução a arquitetura de sistemas
-
-### Monolito
-
-figura de monolito
-Pros:
-
-- Baixa complexidade
-- Monitoramento simplificado
-  Contra :
-- Stack Unico
-- Compartilhamento de recursos
-- Acoplamento
-- Mais complexa a escalabilidade
-
-![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/monolito.PNG?raw=true)
-
-Servidor (BD -> varias instancias <- http proxy)  <- web app e mobile app
-
-### microserviços 1
-
-Um serviço para cada aplicação Cluster . Os serviços se comunicam e se completam. O proxy de dentro do cluster decide qual serviço
-responsável por uma determinada demanda .
-
-Pros:
-
-- stack dinâmica
-- Simples escalabilidade
-  Contra :
-- Monitoramento complexo
-- provisionamento complexo  (docker)
-- Acoplamento
-
-![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/microservico.PNG?raw=true)
-
-### microserviços  2
-
-Não há mais canal de comunicação direta (message broker). se 2 para de funcionar nao quebra o serviço 1 . Não há comunicação direta entre serviços . Com o MB quando o serviço retorna , ele peg todas as mensagens do mB e se atualiza. SE o MB quebrar a arquitetura inteira quebra.
-Pros:
-
-- stack dinâmica
-- Simples escalabilidade
-- Desacoplamento
-  Contra :
-- Monitoramento mais complexo que o microserviço 1 (MB entre cada serviço)
-- provisionamento complexo  (docker)![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/micro2.PNG)
-
-### microserviços  3
-
-Se comunica através de um gerenciador de pipelines . Os serviços estão desacoplados. O serviço 1 faz sua parte e quebra se for necessario o serviço 2 estiver offline. O pipeline deve saber voltar no serviço 1 (rollback)  e reverter o que foi feito .
-Pros:
-
-- stack dinâmica
-- Simples escalabilidade
-- Desacoplamento
-- Menor Complexidade
-  Contra :
-- Plataforma inteira depende do gerenciador de pipeline
-- provisionamento complexo  (docker)
-
-![](https://github.com/luizrosalba/FundamentosdeArquiteturadeSistemas/blob/master/micro3.PNG?raw=true)
-
-### Gerenciamento de erros e volume de acesso
-
-Onde é mais complexo :
--Processos assíncronos ( Microserviço #2)
-
-- Pipeline
-
-Solução
-
-- Dead letter queue (fila separada do MB)
-- Filas de re-tentativas
 
 ## UX e UI
 
@@ -12937,7 +11018,7 @@ are two choices. First, you could edit package.json yourself, adding this elemen
 However, doing just that won’t have any effect. The module isn’t installed at this
 point. To do that, you now must issue a command:
 
-- npm 
+- npm
   NPM will now (using Node as a runtime, it should be mentioned, because NPM is
   just a JavaScript application that runs on Node) go fetch the Express package from the
   central repository, will determine all the dependencies it needs, and will download
