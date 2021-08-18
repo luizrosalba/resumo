@@ -111,6 +111,36 @@ git config --list
 | `git log --oneline` | Visualizar mudanças (resumidamente) |
 | `git diff [source branch] [target branch]` | Preview mudanças |
 
+### Stash
+
+naming the stash
+
+- git stash push -m "my_stash"
+
+Where "my_stash" is the stash name.
+
+Some more useful things to know: All the stashes are stored in a stack. Type:
+
+- git stash list
+
+This will list down all your stashes.
+
+To apply a stash and remove it from the stash stack, type:
+
+- git stash pop stash@{n}
+
+To apply a stash and keep it in the stash stack, type:
+
+- git stash apply --index n
+
+Where n is the index of the stashed change.
+
+Notice that you can apply a stash and keep it in the stack by using the stash name:
+
+- git stash apply my_stash_name
+
+
+    
 # Html
 
 ## Tags HTML
