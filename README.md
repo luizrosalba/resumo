@@ -127,7 +127,7 @@ This will list down all your stashes.
 
 To apply a stash and remove it from the stash stack, type:
 
-- git stash pop stash@{n}
+- git stash pop --index n
 
 To apply a stash and keep it in the stash stack, type:
 
