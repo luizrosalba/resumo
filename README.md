@@ -139,7 +139,9 @@ Notice that you can apply a stash and keep it in the stack by using the stash na
 
 - git stash apply my_stash_name
 
-
+## Removendo arquivos que foram adicionardos ao gitignore  da arvore 
+    
+- git update-index --assume-unchanged .\package-lock.json
     
 # Html
 
