@@ -22,7 +22,7 @@ Dois tipos de listas :
 - Ligadas 
 Existem os nós onde cada um dos nós conhece o valor que está sendo armazenado em seu interior além de conhecer o elemento posterior a ele. Os nós são amarrados com essa indicação de qual é o próximo nó
 - Duplamente Ligadas 
-
+São bidirecionais. Nelas nós conhecemos o próximo elemento e o anterior , o que permite a navegação reversa 
 
 
 
