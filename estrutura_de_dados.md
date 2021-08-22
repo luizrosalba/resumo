@@ -34,5 +34,11 @@ O primeiro elemento a ser retirado é o ultimo que tiver sido inserido
 First in first out . O primeiro elemento a ser retirado é o primeiro que tiver sido inserido 
 ![](./img/fifo.png)
 
+# Filas : 
 
+Admite remoção de elementos e inserção de novos sujeita à regra FIFO. 
+
+![](./img/fila.png)
+
+# Árvore 
 
