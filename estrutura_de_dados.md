@@ -42,3 +42,7 @@ Admite remoção de elementos e inserção de novos sujeita à regra FIFO.
 
 # Árvore 
 
+Organiza os elementos de forma hierárquica, onde existe o topo da árvore (raiz) e seus subordinados (nós ou folhas)
+
+![](./img/arvore.png)
+
