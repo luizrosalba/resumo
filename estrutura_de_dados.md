@@ -8,7 +8,8 @@ Principais :
 - Árvore 
 - Tabela Hash 
 - Grafos
-
+Operações básicas devemos saber em uma estrutura de dados?
+Inserir, excluir, localizar dados, percorrer itens e classificar dados.
 ## Registro 
 
 Fornece um formato especializado para armazenar informações em memória. Permite armazenar mais de um tipo de dado
@@ -34,19 +35,19 @@ O primeiro elemento a ser retirado é o ultimo que tiver sido inserido
 First in first out . O primeiro elemento a ser retirado é o primeiro que tiver sido inserido 
 ![](./img/fifo.png)
 
-# Filas : 
+## Filas : 
 
 Admite remoção de elementos e inserção de novos sujeita à regra FIFO. 
 
 ![](./img/fila.png)
 
-# Árvore 
+## Árvore 
 
 Organiza os elementos de forma hierárquica, onde existe o fundo da árvore (raiz) e seus subordinados (nós ou folhas)
 
 ![](./img/arvore.png)
 
-# Tabelas Hash 
+## Tabelas Hash 
 
 Tabela de Espalhamento 
 Associa chaves à valores 
@@ -57,4 +58,13 @@ Espalha os elementos de forma não organizada (nem alfabeticamente nem numericam
 
 acesso rápido a partir da chave 
 
+## Grafos
+
+Permite programar a relação entre objetos
+
+objetos são vértices ou nós do grafo 
+
+relacionamentos são as arestas 
+
+![](./img/grafo1.png)
 
