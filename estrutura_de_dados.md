@@ -29,9 +29,10 @@ Serve como uma coleção de elementos e permite o acesso a somente um item de da
 - LIFO 
 Last in first out : 
 O primeiro elemento a ser retirado é o ultimo que tiver sido inserido 
-
+![](./img/lifo.png)
 - FIFO 
 First in first out . O primeiro elemento a ser retirado é o primeiro que tiver sido inserido 
+![](./img/fifo.png)
 
 
 
