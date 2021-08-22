@@ -23,7 +23,15 @@ Dois tipos de listas :
 Existem os nós onde cada um dos nós conhece o valor que está sendo armazenado em seu interior além de conhecer o elemento posterior a ele. Os nós são amarrados com essa indicação de qual é o próximo nó
 - Duplamente Ligadas 
 São bidirecionais. Nelas nós conhecemos o próximo elemento e o anterior , o que permite a navegação reversa 
+# Pilhas 
+Serve como uma coleção de elementos e permite o acesso a somente um item de dados armazenado, uma manipulação por ves 
 
+- LIFO 
+Last in first out : 
+O primeiro elemento a ser retirado é o ultimo que tiver sido inserido 
+
+- FIFO 
+First in first out . O primeiro elemento a ser retirado é o primeiro que tiver sido inserido 
 
 
 
