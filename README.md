@@ -21,6 +21,9 @@ Depois de baixado, abra o arquivo zip e abra o arquivo nvm-setup.exe.
 
 nvm install latest
 
+git rm .env --cached
+git commit -m "Stopped tracking .env File"
+    
 ## Git
 
 Comandos importantes
