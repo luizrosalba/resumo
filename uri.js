@@ -29,14 +29,7 @@ function compara(v1,v2)
   return somat.toString();
 }
 
-function gen() { 
-    var input = require('fs').readFileSync('./entrada.txt', 'utf-8');
-    var lines = input.split('\n');
-    //console.log(lines[0].split(" ")); // entrada do uri 
-    let ent = formataEntrada(lines);
-    lines = ent.slice(); /// copia 
-    return(lines)    ;
-}
+
 
 function validaSoNumero(ent)
 {
@@ -96,11 +89,20 @@ function SorteiaeValidaAtividades(alvo)
     return saida; 
 }
 
+function gen() { 
+    var input = require('fs').readFileSync('./entrada.txt', 'utf-8');
+    var lines = input.split('\n');
+    //console.log(lines[0].split(" ")); // entrada do uri 
+    let ent = formataEntrada(lines);
+    lines = ent.slice(); /// copia 
+    return(lines)    ;
+}
+
+
 //// funcao que deve ser executada no teste 
 //module.exports = function programa() {  /// chai e mocha 
 function programa() {   /// programa 
-   
-    
+       
     /// Programa 
     //console.log(lines[0]);
     //let N = parseInt(lines[0]);
@@ -109,7 +111,7 @@ function programa() {   /// programa
    // var N = parseInt(g.next().value);
 
     //let val = parseInt(g.next().value);
-    //console.log(ent);
+    console.log(ent);
     
     /// gerar 4 numeros que a média vale alvo 
     /// so funciona para num bim pares 
@@ -170,36 +172,27 @@ function programa() {   /// programa
                 notas: [],
                 notasAtividades: []
             };
-            console.log(i);
+            //console.log(i);
         });
 
         console.log(vecNotas[0]);
-
+        
         vecNotas.forEach( e => {
-            console.log(e.notasAtividades[0][0] + "," + "," +e.notasAtividades[0][1] + "," +"," + e.notasAtividades[0][2]+ "," +"," + e.notas[0]);
+            console.log(e.notasAtividades[0][0] + ", " +e.notasAtividades[0][1] + ", " + e.notasAtividades[0][2]+ ", " + e.notas[0]);
         });
         console.log(" ");
         vecNotas.forEach( e => {
-            console.log(e.notasAtividades[1][0] + "," + "," +e.notasAtividades[1][1] + "," +"," + e.notasAtividades[1][2]+ "," +"," + e.notas[1]);
+            console.log(e.notasAtividades[1][0] + ", "  +e.notasAtividades[1][1]  +", " + e.notasAtividades[1][2] +", " + e.notas[1]);
         });
         console.log(" ");
         vecNotas.forEach( e => {
-            console.log(e.notasAtividades[2][0] + "," + "," +e.notasAtividades[2][1] + "," +"," + e.notasAtividades[2][2]+ "," +"," + e.notas[2]);
+            console.log(e.notasAtividades[2][0] +   ", " +e.notasAtividades[2][1] + ", " + e.notasAtividades[2][2]+ ", " + e.notas[2]);
         });
         console.log(" ");
         vecNotas.forEach( e => {
-            console.log(e.notasAtividades[3][0] + "," + "," +e.notasAtividades[3][1] + "," +"," + e.notasAtividades[3][2]+ "," +"," + e.notas[3]);
+            console.log(e.notasAtividades[3][0] +  ", " +e.notasAtividades[3][1] + ", " + e.notasAtividades[3][2]+  ", " + e.notas[3]);
         });
         console.log(" ");
-
-
-        
-
-        
-        
-        
-
-       
    
     //console.log(entInt.toFixed(0));
     /// sera que o pribelam eh a funcao ? 
