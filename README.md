@@ -9,15 +9,15 @@ https://github.com/luizrosalba/clean-code-javascript
 
 ### NVM
 
-npm.md
+https://github.com/luizrosalba/resumo/blob/master/npm.md
 
 ## Git
 
-git.md
+https://github.com/luizrosalba/resumo/blob/master/git.md
 
 # Html
 
-HTML.md
+https://github.com/luizrosalba/resumo/blob/master/HTML.md
 
 # HTML5
 
@@ -27,18 +27,18 @@ https://www.w3schools.com/bootstrap4/default.asp
 
 # Javascript
 
-javascript.md
+https://github.com/luizrosalba/resumo/blob/master/javascript.md
 
 ### Expressões regulares
 
-regex.md
+https://github.com/luizrosalba/resumo/blob/master/regex.md
 
 ## ES6
 
-ecma6.md
-error-handling.md 
-TDD-BDD.md
+https://github.com/luizrosalba/resumo/blob/master/ecma6.md
+https://github.com/luizrosalba/resumo/blob/master/error-handling.md 
+https://github.com/luizrosalba/resumo/blob/master/TDD-BDD.md
 
 ## Node JS
 
-node.md
+https://github.com/luizrosalba/resumo/blob/master/node.md
