@@ -112,7 +112,7 @@ multipleA.test(A4); // Returns true
 multipleA.test(A2); // Returns false
 ```
 
-egular Expressions: Specify Only the Lower Number of Matches
+Regular Expressions: Specify Only the Lower Number of Matches
 
 ```Javascript
 let A4 = "haaaah";
@@ -1783,6 +1783,7 @@ convertToInteger("10011",2); /// converte a string para um inteiro na base binar
 ```
 
 Definition and Usage
+
 The sort() method sorts the items of an array.
 The sort order can be either alphabetic or numeric, and either ascending (up) or descending (down).
 By default, the sort() method sorts the values as strings in alphabetical and ascending order.

@@ -2,7 +2,8 @@
 
 ### 5.1 como Identificar erros
 
-Variaveis const nao sofrem hoisting. O JS interrompe a execução caso ocorra um erro.  ```Javascript
+Variaveis const nao sofrem hoisting. O JS interrompe a execução caso ocorra um erro.  
+```Javascript
 console.log(name);
 const name = 'Luiz';
 console.log('keep going');
