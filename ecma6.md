@@ -3537,7 +3537,7 @@ console.log(error); // do something with the error.
 
 ## ES6 Avancado
 
-### Promisses
+### Promises
 
 Promises have replaced callback functions as the preferred programming style for handling asynchronous calls. A promise is a holder for a result (or an error) that will become available in the future (when the async call returns). Promises have been available in JavaScript through third-party libraries (for example, [jQuery](https://api.jquery.com/promise/) and [q](https://github.com/kriskowal/q)). ECMAScript 6 adds built-in support for promises to JavaScript.
 
@@ -4977,7 +4977,7 @@ simpleFunc()
 });
 ```
 
-### como funciona async/await
+### Async / Await
 
 Promise -> programação asíncrona
 colocar async em uma function faz com que ela se torne uma promise
