@@ -43,6 +43,11 @@ daí
 
 ### Branch & Merge
 
+- We merge branches not commits 
+- We always merge to the current HEAD branch 
+- switch to branch which will receive the update or bugfix of feature (destination)
+- git merge branchName (where update comes from)
+
 | Command | Description |
 | - | - |
 | `git branch` | Lista os branches (asterístico é o branch local) |
@@ -67,7 +72,15 @@ daí
 - you can change branch if file is new (no conflict occurs)
 - git switch -c branchName ( create and switch to new branch )
 
+## Fast-Forward
 
+Not all merges are fast-forwards 
+
+Happens when ex. master has commits that your branch does not have (conflicts). A merge commit (with two parents) will be generated on the receiving branch (ex. master) 
+
+## Resolve Conflicts 
+
+conflict -> fix the conflicting file -> remove conflict markers ->commit 
 
 
 ### Sharing & Updating Projects
