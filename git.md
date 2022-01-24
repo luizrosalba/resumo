@@ -43,7 +43,6 @@ daí
 
 ### Branch & Merge
 
-
 | Command | Description |
 | - | - |
 | `git branch` | Lista os branches (asterístico é o branch local) |
@@ -61,6 +60,15 @@ daí
 | `git merge [source branch] [target branch]` | Merge a branch com a branch alvo |
 | `git stash` | Mudanças stach em um diretório |
 | `git stash clear` | remove todas as entradas stachs |
+
+## Switch vs Checkout
+
+- checkout does more then switching branches. 
+- you can change branch if file is new (no conflict occurs)
+- git switch -c branchName ( create and switch to new branch )
+
+
+
 
 ### Sharing & Updating Projects
 
@@ -137,12 +145,28 @@ git push --force -with -lease
     
 - git update-index --assume-unchanged .\package-lock.json
 
-## truques 
+## Tips
 
-removendo um dir do github mas nao local
-git rm -r --cached myFolder
-push
+stop versioning a dir 
+
+- git rm -r --cached myFolder
+- push
+
+
+https://www.toptal.com/developers/gitignore
+.gitignore aceita patterns (ex: *.log)
 
 ## amend 
 
 git commit --amend  (open the previous commit message)
+
+## HEAD 
+
+Pointer to refear the current "location" in your repository 
+
+Head always points to latest commit but we can change this pointer
+
+cat ./git/HEAD (prints where head points. A file that has the commit hash)
+
+
+
