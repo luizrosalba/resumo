@@ -84,7 +84,7 @@ git config --list
 
 | Command | Description |
 | - | - |
-| `git log` | Visualizar mudanças e commit hashes  |
+| `git log` | Visualizar mudanças |
 | `git log --summary` | Visualizar mudanças(detalhadas) |
 | `git log --oneline` | Visualizar mudanças (resumidamente) |
 | `git diff [source branch] [target branch]` | Preview mudanças |
@@ -117,22 +117,6 @@ Notice that you can apply a stash and keep it in the stack by using the stash na
 
 - git stash apply my_stash_name
 
-## configurando o editor para comits (Vscode)
-
-git config core.editor "code --wait"
-
-- se ocorrer um erro : F1 in VsCode ( install code commend in Path)
-- tudo que estiver após # não será incluido no commit 
-
-## reset para commit 
-
-git reset --hard (head ou commitID)
-
-## push force sem sobrescrever trabalho
-
-git push --force -with -lease
-
-
 ## Removendo arquivos que foram adicionardos ao gitignore  da arvore 
     
 - git update-index --assume-unchanged .\package-lock.json
@@ -142,7 +126,3 @@ git push --force -with -lease
 removendo um dir do github mas nao local
 git rm -r --cached myFolder
 push
-
-## amend 
-
-git commit --amend  (open the previous commit message)
