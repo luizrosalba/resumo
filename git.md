@@ -102,6 +102,7 @@ git config --list
 
 ### Inspeção e Comparação
 
+git diff lists all the changes in our working dir that are not staged for the next commit 
 
 | Command | Description |
 | - | - |
@@ -109,6 +110,7 @@ git config --list
 | `git log --summary` | Visualizar mudanças(detalhadas) |
 | `git log --oneline` | Visualizar mudanças (resumidamente) |
 | `git diff [source branch] [target branch]` | Preview mudanças |
+| `git diff HEAD | Preview mudanças since last commit |
 
 ### Stash
 
