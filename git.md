@@ -18,7 +18,7 @@ Untracked, Unmodified, Modified e Staged.
 
 ## Básico
 
-Config user 
+Configure user 
 1) git config user.name "userName"
 2) git config user.email "userEmail" 
 
@@ -26,7 +26,7 @@ Criando um repo
 
 1) cria na mao o repositorio
 2) adiciona o origin 
-3) git remote add origin https://github.com/luizrosalba/loja-bootstrap.git
+3) git remote add origin [repo URL]
 4) git push -u origin master
 5) muda o branch padrão no github
 
@@ -132,7 +132,7 @@ Criando um repo
 | `git log` | Visualizar mudanças e commit hashes  |
 | `git log --summary` | Visualizar mudanças(detalhadas) |
 | `git log --oneline` | Visualizar mudanças (resumidamente) |
-| `git diff [source branch] [target branch]` | Preview mudanças |
+| `git diff [source branch] [target branch]` | Compara duas branches |
 | `git diff HEAD` | Preview mudanças since last commit |
 
 ## Stash
@@ -162,6 +162,58 @@ naming the stash
 | `git revert (HEAD~n ou commitID)` | Make a new commit to revert "commitID"  |
 | `git reset --hard (HEAD~n ou commitID)` | Reset para commit ou head~numerodecommitsavoltar |
 | `git restore --source (HEAD~n ou commitID)` | Restore para commit ou head~numerodecommitsavoltar |
+
+## Rebase: 
+Like merge but rewrites history (potential to loose work!)
+
+1) Use it as alternative to merge. Push commits to the end of master. Creates a new commit for each original feature branch with no merge messages
+```
+git switch featurebranch
+git rebase master(or develop) 
+```
+
+### Warning! 
+- NEVER REBASE PUSHED COMMITS! 
+- ONLY REBASE COMMITS THAT ONLY YOU HAVE
+
+- git rebase --abort 
+- git rebase --continue
+
+2) Use it as cleanup tool
+
+- Rewrites history! 
+- Interactive Rebase 
+- squash, add rewrite delete reorder 
+
+| Command | Description |
+| - | - |
+| `git rebase -i HEAD~n (open editor N commits listed )` | interative rebase n commits behind |
+| `pick : use the commit` | use the commit |
+| `reword : use the commit` | use and edit commit message |
+| `edit : use the commit` | use but stop for ammending |
+| `fixup : use the commit` | use but meld into previous and discart commit msg |
+| `squash : use the commit` | use but meld into previous |
+| `drop : use the commit` | remove commit |
+
+## Semantic versioning : 
+- MAJOR.MINOR.PATCH
+- FIRST RELEASE 1.0.0
+- patch: no breaking changes just bugfixes or other small codes
+- minnor: no breaking changes new features backward compatibles
+- major: no longer compatible substantial changes
+
+## Git tags : 
+Local Commits, branch refs that do not change. A tag always reference to the same commit
+
+| Command | Description |
+| - | - |
+| `git tag` | list all tags |
+| `git tag -l "*beta*"` | list all tags with beta word |
+| `git checkout tag` | switch to tag detached head |
+| `git diff v1.2.0 v1.0.0` | view diffs from tags  |
+
+
+
 
 ## Gists : 
 
