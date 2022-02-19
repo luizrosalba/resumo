@@ -16,7 +16,7 @@ Um Resumo dos Comandos Git, lista de Comandos importantes do Git
 
 Untracked, Unmodified, Modified e Staged.
 
-## Basico
+## Básico
 
 Config user 
 1) git config user.name "userName"
@@ -42,12 +42,23 @@ Criando um repo
 | `git commit -am "[commit message]"` | Commit todos adicionados e comenta as alterações |
 | `git rm -r [file-name.txt]` | Remove um arquivo ou uma pasta |
 
-## configurando o editor para comits (Vscode)
+## Configurando o editor para comits (Vscode)
 - Se ocorrer um erro : F1 in VsCode ( install code commend in Path)
 
 | Command | Description |
 | - | - |
 | `git config core.editor "code --wait"` | Escolhe vscode como editor de texto para conflitos etc |
+
+## HEAD 
+
+- Pointer to refear the current "location" in your repository 
+
+- HEAD~1 (1 commits ago)
+- HEAD~2 (2 commits ago)
+
+- Head always points to latest commit but we can change this pointer
+
+- cat ./git/HEAD (prints where head points. A file that has the commit hash)
 
 ## Branch 
 | Command | Description |
@@ -71,6 +82,7 @@ Criando um repo
 - We merge branches not commits 
 - We always merge to the current HEAD branch 
 - switch to branch which will receive the update or bugfix of feature (destination)
+
 | Command | Description |
 | - | - |
 | `git merge branchName` | (where update comes from) |
@@ -111,7 +123,7 @@ Criando um repo
 - Happens when ex. master has commits that your branch does not have (conflicts).
 - A merge commit (with two parents) will be generated on the receiving branch (ex. master) 
 
-### Inspeção e Comparação
+## Inspeção e Comparação
 
 - git diff lists all the changes in our working dir that are not staged for the next commit 
 
@@ -139,9 +151,20 @@ naming the stash
 | `git stash drop stash@{number}` | Drop particular stash |
 
 
-## reset para commit 
+## Reset x Revert x Restore 
 
-git reset --hard (head ou commitID)
+- Reset rewrites history (Potential lose work previous commit is lost)
+- Revert rewrites history (just add one commit reverting previous commit still exists)
+- Restore file or project 
+
+| Command | Description |
+| - | - |
+| `git reset (HEAD~n ou commitID)` | Soft reset only loose commits |
+| `git revert (HEAD~n ou commitID)` | Make a new commit to revert "commitID"  |
+| `git reset --hard (HEAD~n ou commitID)` | Reset para commit ou head~numerodecommitsavoltar |
+| `git restore --source (HEAD~n ou commitID)` | Restore para commit ou head~numerodecommitsavoltar |
+
+
 
 
 ## Removendo arquivos que foram adicionardos ao gitignore  da arvore 
@@ -163,13 +186,7 @@ https://www.toptal.com/developers/gitignore
 
 git commit --amend  (open the previous commit message)
 
-## HEAD 
 
-Pointer to refear the current "location" in your repository 
-
-Head always points to latest commit but we can change this pointer
-
-cat ./git/HEAD (prints where head points. A file that has the commit hash)
 
 
 
