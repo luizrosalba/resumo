@@ -74,8 +74,6 @@ Criando um repo
 | `git checkout [branch name]` | muda para o branch |
 | `git checkout -` | muda para o último branch local |
 | `git checkout -- [file-name.txt]` | Descarta mudanças no arquivo |
-| `git merge [branch name]` | Merge a branch com a branch ativa |
-| `git merge [source branch] [target branch]` | Merge a branch com a branch alvo |
 
 ## Merge
 
@@ -85,7 +83,8 @@ Criando um repo
 
 | Command | Description |
 | - | - |
-| `git merge branchName` | (where update comes from) |
+| `git merge [branch name]` | Merge a branch com a branch ativa |
+| `git merge [source branch] [target branch]` | Merge a branch com a branch alvo |
 
 
 ## Switch vs Checkout
@@ -107,12 +106,13 @@ Criando um repo
 
 | Command | Description |
 | - | - |
+| `git fetch` | Fetch changes, update tracking not files |
 | `git push origin [branch name]` | Push um branch para o seu repositorio remoto |
 | `git push -u origin [branch name]` | Push mudanças para um repositorio remoto |
 | `git push` | Push mudanças para o repositório remoto |
 | `git push origin --delete [branch name]` | Deleta um branch remoto |
 | `git push --force -with -lease` | força o push sem sobrescrever trabalho de outros devs |
-| `git pull` | Atualiza o repositório local para o mais novo commit |
+| `git pull` | Update Head and local dir  |
 | `git pull origin [branch name]` | Pull mudanças de um repositorio remoto |
 | `git remote add origin ssh://git@github.com/[username]/[repository-name].git` | Adiciona um repositório remoto |
 | `git remote set-url origin ssh://git@github.com/[username]/[repository-name].git` | Designa um ramo repositorio origin para SSH |
@@ -150,7 +150,6 @@ naming the stash
 | `git stash apply my_stash_name` | Apply and keep in stash |
 | `git stash drop stash@{number}` | Drop particular stash |
 
-
 ## Reset x Revert x Restore 
 
 - Reset rewrites history (Potential lose work previous commit is lost)
@@ -163,6 +162,36 @@ naming the stash
 | `git revert (HEAD~n ou commitID)` | Make a new commit to revert "commitID"  |
 | `git reset --hard (HEAD~n ou commitID)` | Reset para commit ou head~numerodecommitsavoltar |
 | `git restore --source (HEAD~n ou commitID)` | Restore para commit ou head~numerodecommitsavoltar |
+
+## Gists : 
+
+- simple way to share code snippets GHE->Profile-> Gist
+
+## GHE Pages : 
+
+- publish work 
+- No SSR (python ruby node)
+- just HTML/CSS/JS
+- Deploy: GHE pages -> select branch (must have index.html)
+
+## PR 
+
+- GHE feature, not naive from git 
+- Tags represents the version
+- can have conflicts. 
+
+## Solve PR conflicts : 
+
+```
+git fetch
+git checkout -b newbranch origin/newbranch
+git merge main (or develop)
+(fix the conflicts)
+git checkout main (or develop)
+git merge --no-ff newbranch
+git push origin main 
+git branch -D newbranch
+```
 
 
 
