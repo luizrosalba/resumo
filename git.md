@@ -204,16 +204,48 @@ git rebase master(or develop)
 
 ## Git tags : 
 Local Commits, branch refs that do not change. A tag always reference to the same commit
+- lightweigth tags 
+- annotaded tags 
 
 | Command | Description |
 | - | - |
 | `git tag` | list all tags |
+| `git tag <tagname> <commitiD>` | tag previous commit |
+| `git tag <tagname> <commitiD> -f` | rewrite previous commit tag  |
+| `git tag -d <tagname>` | delete tag  |
+| `git push --tags ` | tags not default pushed.| 
+| `git push origin v1.10.0 ` | push single tag| 
+| `git tag show <tag>` | list tag |
+| `git tag -a tagname` | annotaded tag. Will prompt for annotations (changelog) |
 | `git tag -l "*beta*"` | list all tags with beta word |
 | `git checkout tag` | switch to tag detached head |
-| `git diff v1.2.0 v1.0.0` | view diffs from tags  |
+| `git diff v1.2.0 v1.0.0` | view diffs from tags |
 
+## Reflog
 
+- Recover lost commits 
+- git records when refs are updated we can view records
+- reflog expire after 90 days (can change)
+- name@{qualifier} ex: HEAD@{10}
+- name@{qualifier} ex: HEAD@{one.week.ago}
+- name@{qualifier} ex: HEAD@{2.days.ago}
 
+| Command | Description |
+| - | - |
+| `git reflog show HEAD` | SHOW LOG  of a specific reference  |
+| `git reflog branchname@{qualifier}` | reflog branchname|
+| `git tag <tagname> <commitiD>` | tag previous commit |
+| `git tag <tagname> <commitiD> -f` | rewrite previous commit tag  |
+| `git diff HEAD@{0} HEAD@{5}` | diff from spec refs  |
+
+## Recover lost work with reflog
+Hard reseted info are still available for reflog 
+```
+git reflog show <branch>
+git checkout <hash commit ID>  (detached HEAD)
+COPY WHAT YOU NEED 
+git switch -
+```
 
 ## Gists : 
 
