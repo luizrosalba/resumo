@@ -284,6 +284,35 @@ git push origin main
 git branch -D newbranch
 ```
 
+## Aliases 
+Easy create custom commands for git
+
+```
+open git config file 
+- vim ~/.gitconfig
+add 
+[alias]
+    s = status   /// will rewrite git status to git s
+    l = log   /// will rewrite git log to git l
+```
+or 
+```
+git config --global alias.showmebranches branch  /// will rewrite git branch to showmebranches 
+```
+
+Argument alias 
+
+```
+[alias]
+    cm = commit -m  // git will take any args and pass ordered to commit -m
+```
+
+lots of usefull aliases in internet 
+
+- https://github.com/GitAlias/gitalias
+- https://www.durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
+- https://gist.github.com/mwhite/6887990
+
 ## Removendo arquivos que foram adicionardos ao gitignore  da arvore 
     
 - git update-index --assume-unchanged .\package-lock.json
