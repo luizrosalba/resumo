@@ -19,6 +19,12 @@ Untracked, Unmodified, Modified e Staged.
 ## Básico
 
 Configure user 
+- cat ~./gitconfig
+- Settings are stored into global config file 
+- git config --global user.name
+- Settings are stored into config dir inside the repo 
+- git config user.name
+
 1) git config user.name "userName"
 2) git config user.email "userEmail" 
 
@@ -41,6 +47,8 @@ Criando um repo
 | `git commit -m "[commit message]"` | Commit e comenta as alterações |
 | `git commit -am "[commit message]"` | Commit todos adicionados e comenta as alterações |
 | `git rm -r [file-name.txt]` | Remove um arquivo ou uma pasta |
+| `git commit --amend` | (open the previous commit message for editing) |
+ 
 
 ## Configurando o editor para comits (Vscode)
 - Se ocorrer um erro : F1 in VsCode ( install code commend in Path)
@@ -55,9 +63,7 @@ Criando um repo
 
 - HEAD~1 (1 commits ago)
 - HEAD~2 (2 commits ago)
-
 - Head always points to latest commit but we can change this pointer
-
 - cat ./git/HEAD (prints where head points. A file that has the commit hash)
 
 ## Branch 
@@ -191,7 +197,7 @@ git rebase master(or develop)
 | `pick : use the commit` | use the commit |
 | `reword : use the commit` | use and edit commit message |
 | `edit : use the commit` | use but stop for ammending |
-| `fixup : use the commit` | use but meld into previous and discart commit msg |
+| `fixup : use the commit` | use but meld into next and discard commit msg |
 | `squash : use the commit` | use but meld into previous |
 | `drop : use the commit` | remove commit |
 
@@ -222,6 +228,7 @@ Local Commits, branch refs that do not change. A tag always reference to the sam
 | `git diff v1.2.0 v1.0.0` | view diffs from tags |
 
 ## Reflog
+A log of all activity on git 
 
 - Recover lost commits 
 - git records when refs are updated we can view records
@@ -277,16 +284,13 @@ git push origin main
 git branch -D newbranch
 ```
 
-
-
-
 ## Removendo arquivos que foram adicionardos ao gitignore  da arvore 
     
 - git update-index --assume-unchanged .\package-lock.json
 
 ## Tips
 
-stop versioning a dir 
+Stop versioning a dir 
 
 - git rm -r --cached myFolder
 - push
@@ -295,9 +299,6 @@ stop versioning a dir
 https://www.toptal.com/developers/gitignore
 .gitignore aceita patterns (ex: *.log)
 
-## amend 
-
-git commit --amend  (open the previous commit message)
 
 
 
