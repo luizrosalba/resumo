@@ -146,7 +146,7 @@ try {
 }
 ```
 
-- Error first callbacks are a patter for using async callbacks 
+- Error first callbacks are a pattern for using async callbacks 
 
 ```
 // Example of error-first callbacks
@@ -248,7 +248,326 @@ console.log(myPromise);
 
  - Final state of promises
 
-https://github.com/luizrosalba/asynchronous-javascript-tutorial/blob/master/5-promises/final-states-of-the-promise/examples.js
+- fullfiled state is the final state of a promise which cannot be changed 
+
+```
+// This promise will be resolved with the value 'value'
+const myPromise = new Promise(function (resolve, reject) {
+    resolve('value');
+    resolve('value2');
+    reject('reason');
+});
+console.log(myPromise);
+
+// This promise will be rejected with the reason 'reason'
+const myPromise = new Promise(function (resolve, reject) {
+    reject('reason');
+    resolve('value');
+    resolve('value2');
+});
+console.log(myPromise);
+```
+
+- how to use promise : 
+
+```
+// Functions inside .then are called asynchronously
+const myPromise = new Promise(function (resolve, reject) {
+    resolve('Hello world');
+});
+myPromise.then(value => {
+    console.log('This is inside onFulfilled function');
+});
+console.log('This is written after myPromise.then');
+
+```
+Example using promises 
+
+```
+// Declaring calculateSquare function
+function calculateSquare(number) {
+    const promise = new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            if (typeof number !== 'number') {
+                return reject(new Error('Argument of type number is expected'));
+            }
+            const result = number * number;
+            resolve(result);
+        }, 1000);
+    });
+    return promise;
+}
+
+// Example of invoking calculateSquare function with correct arguments
+calculateSquare(2)
+  .then(value => {
+        console.log('Success: ' + value);
+    }, error => {
+        console.log('Error: ' + error);
+    });
+
+// Example of invoking calculateSquare function with incorrect arguments
+calculateSquare('string')
+  .then(value => {
+        console.log('Success: ' + value);
+    }, error => {
+        console.log('Error: ' + error);
+    });
+```
+- Promisifing a function 
+
+This example shows how to create a DB and use CAllbacks and promises to query db 
+
+https://github.com/luizrosalba/asynchronous-javascript-tutorial/tree/master/5-promises/promisify-any-function
+
+- Chaining promises 
+
+```
+function calculateSquare(number) {
+    const promise = new Promise((resolve, reject) => {
+        setTimeout(function () {
+            if (typeof number !== 'number') {
+                return reject(new Error('Argument of type number is expected'));
+            }
+            const result = number * number;
+            resolve(result);
+        }, 1000);
+    });
+    return promise;
+}
+
+// Prints "1" and then "undefined"
+calculateSquare(1)
+    .then(value => {
+        console.log(value);
+    })
+    .then(value2 => {
+        console.log(value2);
+    });
+
+// Prints "1" and then "25"
+calculateSquare(1)
+    .then(value => {
+        console.log(value);
+        return 25;
+        // value2 will become 25.
+    })
+    .then(value2 => {
+        console.log(value2);
+    });
+
+// Prints "1" and then "error happened: Error: error"
+calculateSquare(1)
+    .then(value => {
+        console.log(value);
+        throw new Error('error');
+    })
+    .then(value2 => {
+        console.log(value2);
+        // In order to handle the error, we need to add onRejected function as a 2nd argument
+    }, reason => {
+        console.log('error happened: ' + reason);
+    });
+
+// Prints "1" and then "4"
+calculateSquare(1)
+    .then(value => {
+        console.log(value);
+        return calculateSquare(2);
+    })
+    .then(value2 => {
+        console.log(value2);
+    }, reason => {
+        console.log('error happened: ' + reason);
+    });
+
+// Prints "1" and then "error happened: Error: Argument of type number is expected"
+calculateSquare(1)
+    .then(value => {
+        console.log(value);
+        return calculateSquare('string');
+    })
+    .then(value2 => {
+        console.log(value2);
+    }, reason => {
+        console.log('error happened: ' + reason);
+    });
+
+```
+
+Using Fetch API with promise 
+
+```
+// Example of using Fetch API
+fetch('https://www.omdbapi.com/?s=batman&y=2018&apikey=ed4903dc')
+    .then(response => {
+        console.log(response);        
+        return response
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+
+```
+Avoiding callback hell 
+
+```
+// Declaring calculateSquare function
+function calculateSquare(number) {
+    const promise = new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            if (typeof number !== 'number') {
+                return reject(new Error('Argument of type number is expected'));
+            }
+            const result = number * number;
+            resolve(result);
+        }, 1000);
+    });
+    return promise;
+}
+
+calculateSquare(1)
+    .then(value => {
+        console.log(value);
+        return calculateSquare(2);
+    })
+    .then(value => {
+        console.log(value);
+        return calculateSquare(3);
+    })
+    .then(value => {
+        console.log(value);
+        return calculateSquare(4);
+    })
+    .then(value => {
+        console.log(value);
+        return calculateSquare(5);
+    })
+    .then(value => {
+        console.log(value);
+        return calculateSquare(6);
+    })
+    .then(value => {
+        console.log(value);
+    });
+
+```
+Handling promises rejections 
+
+```
+function calculateSquare(number) {
+    const promise = new Promise((resolve, reject) => {
+        setTimeout(function () {
+            if (typeof number !== 'number') {
+                return reject(new Error('Argument of type number is expected'));
+            }
+            const result = number * number;
+            resolve(result);
+        }, 1000);
+    });
+    return promise;
+}
+
+// If you run this code, we will see the message "Something went wrong".
+calculateSquare(1)
+    .then(value => {
+        console.log(value);
+        throw new Error('Something went wrong');
+        return calculateSquare(2);
+    })
+    .then(value => {
+        console.log(value);
+    }, reason => {
+        console.log('error happened: ' + reason);
+    });
+
+// If I move the error to the 2nd then, it will not be caught.
+calculateSquare(1)
+    .then(value => {
+        console.log(value);
+        return calculateSquare(2);
+    })
+    .then(value => {
+        console.log(value);
+        throw new Error('Something went wrong');
+    }, reason => {
+        console.log('error happened: ' + reason);
+    });
+
+// In order to catch the error,
+// we need to extract onRejected function from the 2nd then method
+// and create a 3rd then method.
+calculateSquare(1)
+    .then(value => {
+        console.log(value);
+        return calculateSquare(2);
+    })
+    .then(value => {
+        console.log(value);
+        throw new Error('Something went wrong');
+    })
+    .then(undefined, reason => {
+        console.log('error happened: ' + reason);
+    });
+
+// Rewrite previous example with catch
+calculateSquare(1)
+    .then(value => {
+        console.log(value);
+        return calculateSquare(2);
+    })
+    .then(value => {
+        console.log(value);
+        throw new Error('Something went wrong');
+    })
+    .catch(reason => {
+        console.log('error happened: ' + reason);
+    });
+
+// Instead of throwing an error we could also return a rejected promise
+calculateSquare(1)
+    .then(value => {
+        console.log(value);
+        return calculateSquare(2);
+    })
+    .then(value => {
+        console.log(value);
+        return new Promise((resolve, reject) => {
+            return reject('Something went wrong');
+        });
+    })
+    .catch(reason => {
+        console.log('error happened: ' + reason);
+    });
+
+```
+
+- Promise resolve and reject 
+
+```JS
+// This function accepts a promise as an argument
+function logToConsole(somePromise) {
+	somePromise.then(value => console.log(value));
+}
+
+// Create a promise and pass this promise to logToConsole function
+const somePromise = new Promise(
+    (resolve, reject) => resolve('Hello')
+);
+logToConsole(somePromise);
+
+// If we pass a non-promise value to logToConsole function, it will throw an error
+const value = 'string';
+logToConsole(value)
+
+// We can create a resolved promise out of any value
+const promisifiedValue = Promise.resolve(value);
+logToConsole(promisifiedValue);
+
+// We can create a rejected promise out of any value
+const rejectedPromise = Promise.reject(value);
+const rejectedPromise2 = Promise.reject(new Error('some error'));
+
+```
 
 ## Testing Promises
 
