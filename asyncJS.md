@@ -170,14 +170,47 @@ calculateSquare('bad argument', function (error, result) {
 });
 ```
 - Callbacks are dirty, callback hell
+```
+// Declaring calculateSquare function
+function calculateSquare(number, callback) {
+    setTimeout(function() {
+        if (typeof number !== 'number') {
+            callback(new Error('Argument of type number is expected'));
+            return;
+        }
+        const result = number * number;
+        callback(null, result);
+    }, 1000);
+}
+
+// Invoking calculateSquare function for numbers from 1 to 6 sequentially (one after another)
+// This is an example of a callback hell
+calculateSquare(1, function (error, result) {
+     console.log(result);
+     calculateSquare(2, function (error, result) {
+         console.log(result);
+         calculateSquare(3, function (error, result) {
+             console.log(result);
+             calculateSquare(4, function (error, result) {
+                  console.log(result);
+                  calculateSquare(5, function (error, result) {
+                       console.log(result);
+                       calculateSquare(6, function (error, result) {
+                            console.log(result);
+                       });
+                  });
+             });
+         });
+     });
+});
+```
 - widely used in JS 
 - if 2nd function needs to execute after 1st func we need to move 2nd func inside 1st func (callback hell)
 
-https://github.com/luizrosalba/asynchronous-javascript-tutorial/blob/master/3-callbacks/callback-hell/example.js
 
 ## Testing Callbacks 
 
-https://github.com/luizrosalba/asynchronous-javascript-tutorial/tree/master/4-testing-callbacks
+
 
 - test async is harder then test sync 
 - moka and chai 
@@ -196,8 +229,22 @@ Promises can be:
 3) Rejected (reason for failed promise)
 
 - How to create a promise 
-https://github.com/luizrosalba/asynchronous-javascript-tutorial/tree/master/5-promises/how-to-create-a-promise
 
+```
+// This promise will reject with the reason === 'reason'
+const myPromise = new Promise(function (resolve, reject) {
+    reject('reason');
+});
+console.log(myPromise);
+```
+
+```
+// This promise will resolve with the value === 'value'
+const myPromise = new Promise(function (resolve, reject) {
+    resolve('value');
+});
+console.log(myPromise);
+```
 
  - Final state of promises
 
