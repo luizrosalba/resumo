@@ -836,6 +836,69 @@ on package.json add (below "licence" key)
 ```JS
     "type": "module"
 ```
+## Handling Erros using Async Await 
+
+```JS
+   async function f() {
+	try {
+        // Execution will go to the catch block
+		let response = await fetch('https://some-host.com/wrong-url');
+	} catch (e) {
+		console.log(`Some error: ${e}`);
+	}
+    }
+
+
+    async function f() {
+        let response = await fetch('https://some-host.com/wrong-url');
+    }
+
+    // You can invoke .catch
+    f().catch(e => alert('Custom error: ' + e));
+```
+
+## Sequential vs parallel execution
+
+```JS
+   // Lets create 2 asynchronous functions.
+function printNumber1() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('printNumber1 is done');
+            resolve(1);
+        }, 1000);
+    });
+}
+
+function printNumber2() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('printNumber2 is done');
+            resolve(2);
+        }, 1000);
+    });
+}
+
+// This function will invoke both printNumber1 and printNumber2
+// functions one after another.
+async function oneByOne() {
+    const number1 = await printNumber1();
+    const number2 = await printNumber2();
+    console.log(number1, number2);
+}
+oneByOne()
+
+// This function will invoke both printNumber1 and printNumber2
+// functions in parallel.
+async function inParallel() {
+    const promise1 = printNumber1();  /// wont wait until finishes 
+    const promise2 = printNumber2(); /// wont wait until finishes 
+    const number1 = await promise1;
+    const number2 = await promise2;
+    console.log(number1, number2);
+}
+inParallel()
+```
 
 
 
