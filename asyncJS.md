@@ -780,6 +780,63 @@ async function getRandomDogImage() {
 }
 ```
 
+## top level await 
+
+Await keyword does not work in top level function (only on browser, not on Node)
+
+Ex: works in browser console but not in NodeJs
+
+```JS
+   function getNumber() {
+       return new Promise ((resolve, reject) => {
+           setTimeout(()+> resolve (42),2000);
+       })
+   }
+
+   const specificNumber = await getNumber(); 
+   console.log(specificNumber);
+```
+
+Ex: works in node 
+
+```JS
+   function getNumber() {
+       return new Promise ((resolve, reject) => {
+           setTimeout(()+> resolve (42),2000);
+       })
+   }
+   /// IIF
+    (async function (){
+        const specificNumber = await getNumber(); 
+        console.log(specificNumber);
+    })();
+
+```
+
+- workaround (use module js (mjs) instead of js )
+
+File : async.mjs 
+Execute : node async.mjs  (^node:14.8)
+
+```JS
+   function getNumber() {
+       return new Promise ((resolve, reject) => {
+           setTimeout(()+> resolve (42),2000);
+       })
+   }
+   const specificNumber = await getNumber(); 
+   console.log(specificNumber);
+```
+
+- workaround 2 
+
+File : async.js 
+Execute : node async.js 
+on package.json add (below "licence" key)
+```JS
+    "type": "module"
+```
+
 
 
 
