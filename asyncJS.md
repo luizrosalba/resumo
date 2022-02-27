@@ -5,7 +5,7 @@ Link https://github.com/luizrosalba/asynchronous-javascript-tutorial
 - Sync blocking call - no func are called until finished 
 - Async non Blocking call - others funcs are called. Callback is called when finishes 
 
-How JS code engine executes code 
+## How JS code engine executes code 
 
 1) Message Queue 
 2) Call Stack 
@@ -27,7 +27,7 @@ Event loop :
 
 sync printing 
 
-```
+```Js
 console.log(1);
 console.log(2);
 console.log(3);
@@ -36,7 +36,7 @@ console.log(4);
 
 async print out of order 
 
-```
+```Js
 function print1() {
     const number1 = 1;
     console.log(number1);
@@ -74,7 +74,7 @@ print4();
 
 fixed async print out of order 
 
-```
+```Js
 function print1() {
     const number1 = 1;
     console.log(number1);
@@ -116,7 +116,7 @@ print3();
 - Any function passed as an arg to second  func and invoked within second func
 - Funcs are objs that can be stored, passed as args , returned... 
 
-```
+```Js
 function print(number) {
     console.log(number);
 }
@@ -125,7 +125,7 @@ numbers.forEach(print);
 ```
 - Try...catch mechanism can't be used with asynchronous functions async code will get executed after callStack is empty
 
-```
+```Js
 function calculateSquare(number, callback) {
     setTimeout(function() {
         if (typeof number !== 'number') {
@@ -146,9 +146,9 @@ try {
 }
 ```
 
-- Error first callbacks are a pattern for using async callbacks 
+## Error first callbacks are a pattern for using async callbacks 
 
-```
+```Js
 // Example of error-first callbacks
 function calculateSquare(number, callback) {
     setTimeout(function() {
@@ -169,8 +169,10 @@ calculateSquare('bad argument', function (error, result) {
     console.log(result);
 });
 ```
-- Callbacks are dirty, callback hell
-```
+
+## Callbacks are dirty, callback hell
+
+```Js
 // Declaring calculateSquare function
 function calculateSquare(number, callback) {
     setTimeout(function() {
@@ -210,11 +212,8 @@ calculateSquare(1, function (error, result) {
 
 ## Testing Callbacks 
 
-
-
 - test async is harder then test sync 
 - moka and chai 
-- 
 
 ## Promise
 
@@ -228,9 +227,9 @@ Promises can be:
 2) Fulfilled (value defined)
 3) Rejected (reason for failed promise)
 
-- How to create a promise 
+##  How to create a promise 
 
-```
+```Js
 // This promise will reject with the reason === 'reason'
 const myPromise = new Promise(function (resolve, reject) {
     reject('reason');
@@ -238,7 +237,7 @@ const myPromise = new Promise(function (resolve, reject) {
 console.log(myPromise);
 ```
 
-```
+```Js
 // This promise will resolve with the value === 'value'
 const myPromise = new Promise(function (resolve, reject) {
     resolve('value');
@@ -246,11 +245,11 @@ const myPromise = new Promise(function (resolve, reject) {
 console.log(myPromise);
 ```
 
- - Final state of promises
+##  Final state of promises
 
 - fullfiled state is the final state of a promise which cannot be changed 
 
-```
+```Js
 // This promise will be resolved with the value 'value'
 const myPromise = new Promise(function (resolve, reject) {
     resolve('value');
@@ -268,9 +267,9 @@ const myPromise = new Promise(function (resolve, reject) {
 console.log(myPromise);
 ```
 
-- how to use promise : 
+## How to use promise : 
 
-```
+```Js
 // Functions inside .then are called asynchronously
 const myPromise = new Promise(function (resolve, reject) {
     resolve('Hello world');
@@ -281,9 +280,9 @@ myPromise.then(value => {
 console.log('This is written after myPromise.then');
 
 ```
-Example using promises 
+## Example using promises 
 
-```
+```Js
 // Declaring calculateSquare function
 function calculateSquare(number) {
     const promise = new Promise(function (resolve, reject) {
@@ -314,15 +313,15 @@ calculateSquare('string')
         console.log('Error: ' + error);
     });
 ```
-- Promisifing a function 
+## Promisifing a function 
 
 This example shows how to create a DB and use CAllbacks and promises to query db 
 
 https://github.com/luizrosalba/asynchronous-javascript-tutorial/tree/master/5-promises/promisify-any-function
 
-- Chaining promises 
+## Chaining promises 
 
-```
+```Js
 function calculateSquare(number) {
     const promise = new Promise((resolve, reject) => {
         setTimeout(function () {
@@ -395,9 +394,9 @@ calculateSquare(1)
 
 ```
 
-Using Fetch API with promise 
+## Using Fetch API with promise 
 
-```
+```Js
 // Example of using Fetch API
 fetch('https://www.omdbapi.com/?s=batman&y=2018&apikey=ed4903dc')
     .then(response => {
@@ -408,9 +407,9 @@ fetch('https://www.omdbapi.com/?s=batman&y=2018&apikey=ed4903dc')
     .then(data => console.log(data))
 
 ```
-Avoiding callback hell 
+## Avoiding callback hell 
 
-```
+```Js
 // Declaring calculateSquare function
 function calculateSquare(number) {
     const promise = new Promise(function (resolve, reject) {
@@ -451,9 +450,9 @@ calculateSquare(1)
     });
 
 ```
-Handling promises rejections 
+## Handling promises rejections 
 
-```
+```Js
 function calculateSquare(number) {
     const promise = new Promise((resolve, reject) => {
         setTimeout(function () {
@@ -541,7 +540,7 @@ calculateSquare(1)
 
 ```
 
-- Promise resolve and reject 
+## Promise resolve and reject 
 
 ```JS
 // This function accepts a promise as an argument
@@ -566,6 +565,37 @@ logToConsole(promisifiedValue);
 // We can create a rejected promise out of any value
 const rejectedPromise = Promise.reject(value);
 const rejectedPromise2 = Promise.reject(new Error('some error'));
+
+```
+## Parallel Promises
+
+```JS
+// Declare 3 functions which imitate the Dealer API
+function askFirstDealer() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => resolve(8000), 3000);
+    });
+}
+function askSecondDealer() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => resolve(12000), 5000);
+    });
+}
+function askThirdDealer() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => resolve(10000), 8000);
+    });
+}
+
+// Invoke these 3 functions in parallel
+Promise.all([
+    askFirstDealer(), 
+    askSecondDealer(), 
+    askThirdDealer()
+])
+.then(prices => {
+    console.log(prices);
+});
 
 ```
 
