@@ -27,7 +27,7 @@ Event loop :
 
 sync printing 
 
-```Js
+```JS
 console.log(1);
 console.log(2);
 console.log(3);
@@ -36,7 +36,7 @@ console.log(4);
 
 async print out of order 
 
-```Js
+```JS
 function print1() {
     const number1 = 1;
     console.log(number1);
@@ -74,7 +74,7 @@ print4();
 
 fixed async print out of order 
 
-```Js
+```JS
 function print1() {
     const number1 = 1;
     console.log(number1);
@@ -116,7 +116,7 @@ print3();
 - Any function passed as an arg to second  func and invoked within second func
 - Funcs are objs that can be stored, passed as args , returned... 
 
-```Js
+```JS
 function print(number) {
     console.log(number);
 }
@@ -125,7 +125,7 @@ numbers.forEach(print);
 ```
 - Try...catch mechanism can't be used with asynchronous functions async code will get executed after callStack is empty
 
-```Js
+```JS
 function calculateSquare(number, callback) {
     setTimeout(function() {
         if (typeof number !== 'number') {
@@ -148,7 +148,7 @@ try {
 
 ## Error first callbacks are a pattern for using async callbacks 
 
-```Js
+```JS
 // Example of error-first callbacks
 function calculateSquare(number, callback) {
     setTimeout(function() {
@@ -172,7 +172,7 @@ calculateSquare('bad argument', function (error, result) {
 
 ## Callbacks are dirty, callback hell
 
-```Js
+```JS
 // Declaring calculateSquare function
 function calculateSquare(number, callback) {
     setTimeout(function() {
@@ -229,7 +229,7 @@ Promises can be:
 
 ##  How to create a promise 
 
-```Js
+```JS
 // This promise will reject with the reason === 'reason'
 const myPromise = new Promise(function (resolve, reject) {
     reject('reason');
@@ -237,7 +237,7 @@ const myPromise = new Promise(function (resolve, reject) {
 console.log(myPromise);
 ```
 
-```Js
+```JS
 // This promise will resolve with the value === 'value'
 const myPromise = new Promise(function (resolve, reject) {
     resolve('value');
@@ -249,7 +249,7 @@ console.log(myPromise);
 
 - fullfiled state is the final state of a promise which cannot be changed 
 
-```Js
+```JS
 // This promise will be resolved with the value 'value'
 const myPromise = new Promise(function (resolve, reject) {
     resolve('value');
@@ -269,7 +269,7 @@ console.log(myPromise);
 
 ## How to use promise : 
 
-```Js
+```JS
 // Functions inside .then are called asynchronously
 const myPromise = new Promise(function (resolve, reject) {
     resolve('Hello world');
@@ -282,7 +282,7 @@ console.log('This is written after myPromise.then');
 ```
 ## Example using promises 
 
-```Js
+```JS
 // Declaring calculateSquare function
 function calculateSquare(number) {
     const promise = new Promise(function (resolve, reject) {
@@ -321,7 +321,7 @@ https://github.com/luizrosalba/asynchronous-javascript-tutorial/tree/master/5-pr
 
 ## Chaining promises 
 
-```Js
+```JS
 function calculateSquare(number) {
     const promise = new Promise((resolve, reject) => {
         setTimeout(function () {
@@ -396,7 +396,7 @@ calculateSquare(1)
 
 ## Using Fetch API with promise 
 
-```Js
+```JS
 // Example of using Fetch API
 fetch('https://www.omdbapi.com/?s=batman&y=2018&apikey=ed4903dc')
     .then(response => {
@@ -409,7 +409,7 @@ fetch('https://www.omdbapi.com/?s=batman&y=2018&apikey=ed4903dc')
 ```
 ## Avoiding callback hell 
 
-```Js
+```JS
 // Declaring calculateSquare function
 function calculateSquare(number) {
     const promise = new Promise(function (resolve, reject) {
@@ -452,7 +452,7 @@ calculateSquare(1)
 ```
 ## Handling promises rejections 
 
-```Js
+```JS
 function calculateSquare(number) {
     const promise = new Promise((resolve, reject) => {
         setTimeout(function () {
@@ -836,6 +836,7 @@ on package.json add (below "licence" key)
 ```JS
     "type": "module"
 ```
+
 
 
 
