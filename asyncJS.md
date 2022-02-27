@@ -712,6 +712,7 @@ https://github.com/luizrosalba/asynchronous-javascript-tutorial/tree/master/6-te
 
 ## Async in JS 
 
+
 ```JS
 // If you return a non-promise value from an async function,
 // JavaScript will automatically wrap it into a promise.
@@ -736,7 +737,47 @@ async function f() {
     return Promise.reject(404);
 }
 ```
+
+## Await 
+
 ```JS
+function getSpecificNumber() {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => resolve(42), 2000);
+	});
+}
+
+// There is a waiting time of 2 seconds
+// before this number gets printed to the console.
+async function f() {
+	const randomNumber = await getSpecificNumber();
+	console.log(randomNumber);
+}
+
+
+// This is the same as above (async-await are only syntax sugar)
+function f() {
+	getSpecificNumber()
+		.then(randomNumber => console.log(randomNumber));
+}
+
+```
+## Using async await in a fetch api 
+
+```JS
+// Function using promise like syntax (.then)
+function getRandomDogImage() {
+	fetch('https://dog.ceo/api/breeds/image/random')
+	    .then(response => response.json())
+	    .then(value => console.log(value.message));
+}
+
+// The same function using async await syntax
+async function getRandomDogImage() {
+	let response = await fetch('https://dog.ceo/api/breeds/image/random');
+	value = await response.json();
+	console.log(value.message);
+}
 ```
 
 
