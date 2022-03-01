@@ -29,6 +29,11 @@ https://www.w3schools.com/bootstrap4/default.asp
 
 https://github.com/luizrosalba/resumo/blob/master/javascript.md
 
+# Typescript 
+
+https://github.com/luizrosalba/resumo/blob/master/typescript.md 
+
+
 ### Expressões regulares
 
 https://github.com/luizrosalba/resumo/blob/master/regex.md
