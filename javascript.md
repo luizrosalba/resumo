@@ -929,8 +929,6 @@ Array.from(origem) /// cria uma nova instancia de array a partir de um parâmetr
 const divArray = Array.from (divs)  /// cria um array a partir do objeto div (que no exemplo do curso era um NodeList). A partir daí pode-se utilizar funções de array como pop , shift , etc
 ```
 
-#### Preenchendo
-
 ##### Fill
 
 O método fill é um método mutável, ele irá mudar o objeto em si, e retorná-lo, não somente uma cópia do objeto.
@@ -1337,7 +1335,7 @@ var myArray = [[1,2,3], [4,5,6], [7,8,9], [[10,11,12], 13, 14]];
 var myData = myArray[2][1];// Retorna 8
 ```
 
-### Undefined
+### o tipo Undefined
 
 se uma função nao retorna nada , seu retorno é undefined.
 

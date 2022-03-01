@@ -7,3 +7,5 @@ https://www.udemy.com/course/typescript-pt/
 
 - Browsers cant execute TS which adds new features to JS 
 
+
+
