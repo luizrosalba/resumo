@@ -3,15 +3,15 @@
 Fonte : Modern full stack ,   Aulas DIO , Internet , freecode
 -----------------------------------------------------------
 
-## Clean Code
+# Clean Code
 
 https://github.com/luizrosalba/clean-code-javascript
 
-### NVM
+# NVM
 
 https://github.com/luizrosalba/resumo/blob/master/npm.md
 
-## Git
+# Git
 
 https://github.com/luizrosalba/resumo/blob/master/git.md
 
@@ -34,17 +34,20 @@ https://github.com/luizrosalba/resumo/blob/master/javascript.md
 
 https://github.com/luizrosalba/resumo/blob/master/typescript.md 
 
+# Webpack 
 
-### Expressões regulares
+https://github.com/luizrosalba/webpack-tutorial
+
+# Expressões regulares
 
 https://github.com/luizrosalba/resumo/blob/master/regex.md
 
-## ES6
+# ES6
 
 https://github.com/luizrosalba/resumo/blob/master/ecma6.md
 https://github.com/luizrosalba/resumo/blob/master/error-handling.md 
 https://github.com/luizrosalba/resumo/blob/master/TDD-BDD.md
 
-## Node JS
+# Node JS
 
 https://github.com/luizrosalba/resumo/blob/master/node.md
