@@ -28,6 +28,9 @@ Configure user
 1) git config user.name "userName"
 2) git config user.email "userEmail" 
 
+git config --list --local /// shows only this repo config 
+git config --list --global  /// shows global  config 
+
 Criando um repo 
 
 1) cria na mao o repositorio
