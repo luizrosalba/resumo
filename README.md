@@ -1,61 +1,58 @@
 # Resumo dos meus Estudos !
 
-Fonte : Modern full stack ,   Aulas DIO , Internet , freecode
------------------------------------------------------------
-
-# Optimizing the work : 
+## Optimizing the work : 
 
 1) ctrl + windows + rigth arrow (move desktop)
 
 2) click task View -> move window
 
-# Clean Code
+## Clean Code
 
 https://github.com/luizrosalba/clean-code-javascript
 
-# NVM
+## NVM
 
 https://github.com/luizrosalba/resumo/blob/master/npm.md
 
-# Git
+## Git
 
 https://github.com/luizrosalba/resumo/blob/master/git.md
 
 
-# Html
+## Html
 
 https://github.com/luizrosalba/resumo/blob/master/HTML.md
 
-# HTML5
+## HTML5
 
-# Bootstrap
+## Bootstrap
 
 https://www.w3schools.com/bootstrap4/default.asp
 
-# Javascript
+## Javascript
 
 https://github.com/luizrosalba/resumo/blob/master/javascript.md
 
-# Typescript 
+## Typescript 
 
 https://github.com/luizrosalba/typescript-understainding-ts-course
 https://github.com/luizrosalba/resumo/blob/master/typescript.md 
 
 
-# Webpack 
+## Webpack 
 
 https://github.com/luizrosalba/webpack-tutorial
 
-# Expressões regulares
+## Regular Expressions
 
 https://github.com/luizrosalba/resumo/blob/master/regex.md
 
-# ES6
+## ES6
 
 https://github.com/luizrosalba/resumo/blob/master/ecma6.md
 https://github.com/luizrosalba/resumo/blob/master/error-handling.md 
 https://github.com/luizrosalba/resumo/blob/master/TDD-BDD.md
 
-# Node JS
+## Node JS
 
 https://github.com/luizrosalba/resumo/blob/master/node.md
