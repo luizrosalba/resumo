@@ -3,6 +3,12 @@
 Fonte : Modern full stack ,   Aulas DIO , Internet , freecode
 -----------------------------------------------------------
 
+# Optimizing the work : 
+
+1) ctrl + windows + rigth arrow (move desktop)
+
+2) click task View -> move window
+
 # Clean Code
 
 https://github.com/luizrosalba/clean-code-javascript
@@ -32,7 +38,9 @@ https://github.com/luizrosalba/resumo/blob/master/javascript.md
 
 # Typescript 
 
+https://github.com/luizrosalba/typescript-understainding-ts-course
 https://github.com/luizrosalba/resumo/blob/master/typescript.md 
+
 
 # Webpack 
 
