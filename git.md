@@ -322,7 +322,7 @@ lots of usefull aliases in internet
 
 ## Tips
 
-Stop versioning a dir 
+### Stop versioning a dir 
 
 - git rm -r --cached myFolder
 - push
@@ -332,7 +332,8 @@ https://www.toptal.com/developers/gitignore
 .gitignore aceita patterns (ex: *.log)
 
 
-
+###  Show files changed in a single commit 
+ git show --pretty="" --name-only commitHash
 
 
 
