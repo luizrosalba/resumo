@@ -111,6 +111,11 @@ https://github.com/luizrosalba/resumo/blob/master/TDD-BDD.md
 
 https://github.com/luizrosalba/sc900
 
+## Next JS 
+
+https://github.com/luizrosalba/dj-events-frontend
+https://github.com/luizrosalba/dj-events-backend
+
 ## Node JS
 
 https://github.com/luizrosalba/resumo/blob/master/node.md
@@ -127,3 +132,8 @@ https://github.com/luizrosalba/uri
 
 https://github.com/luizrosalba/webpack-tutorial
 https://github.com/luizrosalba/webpack-2-complete-dev-guide
+
+## Yarn 
+
+Yarn link can replace remote packages with local 
+https://classic.yarnpkg.com/en/docs/cli/link
