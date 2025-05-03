@@ -4,6 +4,7 @@ export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+          Links For the Repos that guides my studies 
         <Topics 
           title="AZ-900"
           urls={["https://github.com/luizrosalba/az9000","https://github.com/luizrosalba/AZ-900T0x-MicrosoftAzureFundamentals"]}
@@ -12,9 +13,10 @@ export default function Home() {
           title="Azure Functions"
           urls={["https://github.com/luizrosalba/Azure_Functions"]}
         />
-
-        ## 
-        
+        <Topics 
+          title="Azure Functions"
+          urls={["https://github.com/luizrosalba/clean-code-javascript","https://github.com/luizrosalba/clean-code-javascript-1"]}
+        />
         ## Clean Code
 
         https://github.com/luizrosalba/clean-code-javascript
