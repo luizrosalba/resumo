@@ -1,19 +1,20 @@
-import Image from "next/image";
+import Topics from "./components/Home/Topics/Topics";
 
 export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <h1>AZ-900</h1>
-        <div>
-          https://github.com/luizrosalba/az9000
-          https://github.com/luizrosalba/AZ-900T0x-MicrosoftAzureFundamentals
+        <Topics 
+          title="AZ-900"
+          urls={["https://github.com/luizrosalba/az9000","https://github.com/luizrosalba/AZ-900T0x-MicrosoftAzureFundamentals"]}
+        />
+        <Topics 
+          title="Azure Functions"
+          urls={["https://github.com/luizrosalba/Azure_Functions"]}
+        />
 
-        </div>
-
-
-        ## Azure Functions
-        https://github.com/luizrosalba/Azure_Functions
+        ## 
+        
         ## Clean Code
 
         https://github.com/luizrosalba/clean-code-javascript
